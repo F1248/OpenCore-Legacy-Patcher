@@ -10,8 +10,13 @@ jobs:
   build:
     name: Validate
     runs-on: x86_64_monterey
-    if: github.repository_owner == 'dortania'
     steps:
       - uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: Install Dependencies
+        run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
       - name: Validate
         run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 OpenCore-Patcher-GUI.command --validate
