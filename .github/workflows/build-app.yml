@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build App
-    runs-on: macos-latest
+    runs-on: x86_64_monterey
 
     env:
       branch: ${{ github.ref }}
