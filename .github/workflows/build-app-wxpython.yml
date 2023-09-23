@@ -32,12 +32,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install Dependencies
-        run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
-
-      - name: Reinstall charset-normalizer
         run: |
+          /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
           pip3 uninstall -y charset-normalizer
           pip3 install https://files.pythonhosted.org/packages/8e/a2/77cf1f042a4697822070fd5f3f5f58fd0e3ee798d040e3863eac43e3a2e5/charset_normalizer-3.2.0-cp311-cp311-macosx_10_9_universal2.whl
+          brew install Packages
 
       - name: Validate
         run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 OpenCore-Patcher-GUI.command --validate
@@ -49,7 +48,7 @@ jobs:
         run: cd dist; ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher-wxPython.app.zip
 
       - name: Generate support package
-        run: pkgbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
+        run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
       - name: Prepare App for Upload
         run: mv ./OpenCore-Patcher-wxPython.app.zip ./OpenCore-Patcher-GUI.app.zip
