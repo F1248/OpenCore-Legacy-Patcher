@@ -34,9 +34,11 @@ jobs:
       - name: Install Dependencies
         run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
 
+      - name: Collect charset_normalizer package information
+        run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip show charset_normalizer
+      
       - name: Validate
         run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 OpenCore-Patcher-GUI.command --validate
-
 
       - name: Build Binary
         run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}" --key "${{ env.ANALYTICS_KEY }}" --site "${{ env.ANALYTICS_SITE }}"
