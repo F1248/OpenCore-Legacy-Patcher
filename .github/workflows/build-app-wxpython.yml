@@ -48,9 +48,6 @@ jobs:
       - name: Package Binary
         run: cd dist; ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher-wxPython.app.zip
 
-      - name: Install Xcode Command Line Tools
-        run: xcode-select --install
-
       - name: Prepare App for Upload
         run: mv ./OpenCore-Patcher-wxPython.app.zip ./OpenCore-Patcher-GUI.app.zip
 
