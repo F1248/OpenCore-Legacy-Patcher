@@ -51,9 +51,6 @@ jobs:
       - name: Install Xcode Command Line Tools
         run: xcode-select --install
 
-      - name: Generate support package
-        run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
-
       - name: Prepare App for Upload
         run: mv ./OpenCore-Patcher-wxPython.app.zip ./OpenCore-Patcher-GUI.app.zip
 
