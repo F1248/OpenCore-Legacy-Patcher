@@ -33,7 +33,6 @@ jobs:
           hdiutil attach Packages.dmg
           cd /Volumes/Packages\ 1.2.10
           sudo installer -pkg Install\ Packages.pkg -target /
-          hdiutil detach /Volumes/Packages\ 1.2.10
 
       - name: Validate
         run: python3.11 OpenCore-Patcher-GUI.command --validate
