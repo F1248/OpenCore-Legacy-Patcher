@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Python
+      - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.11'
@@ -45,19 +45,19 @@ jobs:
           cd dist
           ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher-wxPython.app.zip
 
-      - name: Generate support package
+      - name: Build support package
         run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
-      - name: Prepare App for Upload
+      - name: Rename App
         run: mv ./OpenCore-Patcher-wxPython.app.zip ./OpenCore-Patcher.app.zip
 
-      - name: Upload App to Artifacts
+      - name: Upload App
         uses: actions/upload-artifact@v3
         with:
           name: OpenCore-Patcher.app
           path: OpenCore-Patcher.app.zip
 
-      - name: Upload Package to Artifacts
+      - name: Upload Package
         uses: actions/upload-artifact@v3
         with:
           name: AutoPkg-Assets.pkg
