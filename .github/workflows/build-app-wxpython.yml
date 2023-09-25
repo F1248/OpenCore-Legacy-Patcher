@@ -26,7 +26,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
+          python3.11 -m pip install -r requirements.txt
           pip3 uninstall -y charset-normalizer
           pip3 install https://files.pythonhosted.org/packages/8e/a2/77cf1f042a4697822070fd5f3f5f58fd0e3ee798d040e3863eac43e3a2e5/charset_normalizer-3.2.0-cp311-cp311-macosx_10_9_universal2.whl
           curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
@@ -36,10 +36,10 @@ jobs:
           hdiutil detach /Volumes/Packages\ 1.2.10
 
       - name: Validate
-        run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 OpenCore-Patcher-GUI.command --validate
+        run: python3.11 OpenCore-Patcher-GUI.command --validate
 
       - name: Build Binary
-        run: /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
+        run: python3.11 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
 
       - name: Package Binary
         run: cd dist; ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher-wxPython.app.zip
