@@ -958,7 +958,7 @@ class Computer:
     def oclp_sys_patch_probe(self):
         path = Path("/System/Library/CoreServices/OpenCore-Legacy-Patcher.plist")
         if not path.exists():
-            self.oclp_sys_signed = True  # No plist, so assume root is valid
+            self.oclp_sys_signed = False  # No plist, so assume root is valid
             return
         sys_plist = plistlib.load(path.open("rb"))
         if sys_plist:
