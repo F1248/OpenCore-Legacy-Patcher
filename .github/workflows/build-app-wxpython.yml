@@ -61,21 +61,3 @@ jobs:
         with:
           name: AutoPkg-Assets.pkg
           path: ./dist/AutoPkg-Assets.pkg
-
-      - name: Upload Binary to Release
-        if: github.event_name == 'release'
-        uses: svenstaro/upload-release-action@e74ff71f7d8a4c4745b560a485cc5fdb9b5b999d
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: OpenCore-Patcher-GUI.app.zip
-          tag: ${{ github.ref }}
-          file_glob: true
-
-      - name: Upload Package to Release
-        if: github.event_name == 'release'
-        uses: svenstaro/upload-release-action@e74ff71f7d8a4c4745b560a485cc5fdb9b5b999d
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./dist/AutoPkg-Assets.pkg
-          tag: ${{ github.ref }}
-          file_glob: true
