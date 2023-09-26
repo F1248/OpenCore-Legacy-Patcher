@@ -32,6 +32,7 @@ jobs:
           curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
           hdiutil attach Packages.dmg
           sudo installer -pkg /Volumes/Packages\ */Install\ Packages.pkg -target /
+          hdiutil detach /Volumes/Packages\ * -force
 
       - name: Validate
         run: python3.11 OpenCore-Patcher-GUI.command --validate
