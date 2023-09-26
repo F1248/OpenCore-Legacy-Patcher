@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip3.11 install -r requirements.txt
-          pip3.11 uninstall --yes charset-normalizer
+          pip3.11 uninstall charset-normalizer --yes
           pip3.11 install https://files.pythonhosted.org/packages/8e/a2/77cf1f042a4697822070fd5f3f5f58fd0e3ee798d040e3863eac43e3a2e5/charset_normalizer-3.2.0-cp311-cp311-macosx_10_9_universal2.whl
           curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
           hdiutil attach Packages.dmg
