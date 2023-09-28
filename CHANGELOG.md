@@ -12,6 +12,7 @@
 - Add `OpenLegacyBoot.efi` for Macs with CSM
   - Allows for booting CSM-based OSes (ex. Windows 7)
   - Applicable for Ivy Bridge and older Macs (excluding MacPro6,1)
+- Resolve incorrect RELEASE usage of OpenCore binaries when DEBUG enabled
 - Implement basic support for macOS Sonoma:
   - Supports same range of hardware as Ventura, in addition to:
     - iMac18,x
@@ -28,7 +29,7 @@
     - PCIe-based FaceTime Camera support
     - Bluetooth support by switching to dynamic VMM spoofing
 - Increment Binaries:
-  - OpenCorePkg 0.9.5 - release
+  - OpenCorePkg 0.9.3 - release
   - Lilu 1.6.7 - release
   - WhateverGreen 1.6.6 - release
   - RestrictEvents 1.1.3 - (rolling - 4f233dd)
