@@ -36,10 +36,10 @@ jobs:
       - name: Validate
         run: python3.11 OpenCore-Patcher-GUI.command --validate
 
-      - name: Build Binary
+      - name: Build App
         run: python3.11 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
 
-      - name: Package Binary
+      - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Patcher.app OpenCore-Patcher.app.zip
 
       - name: Build support package
