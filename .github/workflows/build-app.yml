@@ -41,9 +41,7 @@ jobs:
         run: python3.11 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
 
       - name: Package Binary
-        run: |
-          cd dist
-          ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher.app.zip
+        run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Patcher.app OpenCore-Patcher.app.zip
 
       - name: Build support package
         run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
