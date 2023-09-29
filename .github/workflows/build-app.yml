@@ -43,13 +43,10 @@ jobs:
       - name: Package Binary
         run: |
           cd dist
-          ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher-wxPython.app.zip
+          ditto -c -k --sequesterRsrc --keepParent OpenCore-Patcher.app ../OpenCore-Patcher.app.zip
 
       - name: Build support package
         run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
-
-      - name: Rename App
-        run: mv ./OpenCore-Patcher-wxPython.app.zip ./OpenCore-Patcher.app.zip
 
       - name: Upload App
         uses: actions/upload-artifact@v3
