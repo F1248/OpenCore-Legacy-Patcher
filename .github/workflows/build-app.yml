@@ -43,7 +43,7 @@ jobs:
         run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Patcher.app OpenCore-Patcher.app.zip
 
       - name: Build support package
-        run: packagesbuild ./payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
+        run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
       - name: Upload App
         uses: actions/upload-artifact@v3
@@ -55,4 +55,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: AutoPkg-Assets.pkg
-          path: ./dist/AutoPkg-Assets.pkg
+          path: dist/AutoPkg-Assets.pkg
