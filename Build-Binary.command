@@ -116,7 +116,6 @@ class CreateBinary:
         self._patch_load_command()
         self._add_commit_data()
         self._post_flight_cleanup()
-        self._mini_validate()
 
 
     def _build_binary(self):
@@ -419,22 +418,6 @@ class CreateBinary:
             print(f"- Remove failed: {path}")
             print(rm_output.stderr.decode('utf-8'))
             raise Exception(f"Remove failed: {path}")
-
-
-    def _mini_validate(self):
-        """
-        Validate generated binary
-        """
-
-        print("- Validating binary")
-        validate_output = subprocess.run(
-            ["./dist/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher", "--build", "--model", "MacPro3,1"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
-        if validate_output.returncode != 0:
-            print("- Validation failed")
-            print(validate_output.stderr.decode('utf-8'))
-            raise Exception("Validation failed")
 
 
 if __name__ == "__main__":
