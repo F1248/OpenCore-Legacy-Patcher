@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip3.12 install https://files.pythonhosted.org/packages/ec/a0/38a781667c8ee84547f5c6fd4b085cad48056432259f78414c3aa10cd3c6/charset_normalizer-3.3.0-cp312-cp312-macosx_10_9_universal2.whl
-          pip3.12 install -r requirements.txt
+          pip3.12 install --upgrade --pre -r requirements.txt
           curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
           hdiutil attach Packages.dmg
           sudo installer -pkg /Volumes/Packages\ */Install\ Packages.pkg -target /
