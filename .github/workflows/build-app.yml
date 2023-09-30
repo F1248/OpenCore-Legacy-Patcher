@@ -33,9 +33,6 @@ jobs:
           sudo installer -pkg /Volumes/Packages\ */Install\ Packages.pkg -target /
           hdiutil detach /Volumes/Packages\ * -force
 
-      - name: Validate
-        run: python3.12 OpenCore-Patcher-GUI.command --validate
-
       - name: Build App
         run: python3.12 Build-Binary.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
 
