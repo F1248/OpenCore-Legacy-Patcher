@@ -46,6 +46,7 @@ Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros
 :::warning
 Additionally, due to Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
 :::
+
 No known solution to resolve supporting, a significant amount of time will be required to understand how both the T1 stack works, as well as where the core issue lies for support.
 
 :::warning The following systems have a T1 Security chip
@@ -88,4 +89,3 @@ This build includes both Legacy Metal and non-Metal patches for macOS Sonoma. Re
 
 * [Legacy Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008) 
 * [Non-Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/108)
-
