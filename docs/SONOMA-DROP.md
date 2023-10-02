@@ -29,37 +29,10 @@ OpenCore Legacy Patcher v1.0.0 will support Sonoma for all models normally suppo
 
 ## Issues
 
-* [Widgets freezing on Ivy and Haswell systems](#widgets-freezing-on-ivy-and-haswell-systems)
 * [T1 Security chip](t1-security-chip)
 * [USB 1.1 (OHCI/UHCI) Support](#usb-11-ohciuhci-support)
+* [Graphics support and issues](#graphics-support-and-issues)
 
-### Widgets freezing on Ivy and Haswell systems
-
-Opening the widget board on Intel Ivy and Haswell (3802) based systems can freeze the system.
-
-::: details Models with Ivy and Haswell GPU's
-
-__Intel Ivy Bridge__
-
-```sh
-Applicable Models:
-- MacBookAir5,x
-- MacBookPro9,x
-- MacBookPro10,x
-- iMac13,x
-- Macmini6,x
-```
-__Intel Haswell__
-
-```sh
-Applicable Models:
-- MacBookAir6,x
-- MacBookPro11,x
-- iMac14,x
-- iMac15,1 (internal, headless iGPU)
-- Macmini7,1
-```
-::: 
 
 ### T1 Security chip
 
@@ -70,11 +43,11 @@ Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros
 * Add fingerprints (if upgrading, existing fingerprints will be deleted)
 * Add cards to Apple Pay
 
-::: warning ATTENTION: Additionally, due to Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
+::: warning Additionally, due to Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
 :::
 No known solution to resolve supporting, a significant amount of time will be required to understand how both the T1 stack works, as well as where the core issue lies for support.
 
-::: warning The following systems have a T1 Security chip
+:::warning The following systems have a T1 Security chip
 
 * MacBookPro13,2:	MacBook Pro (13-inch, 2016, Four Thunderbolt 3 Ports)
 * MacBookPro13,3:	MacBook Pro (15-inch, 2016)
@@ -109,8 +82,9 @@ With OpenCore Legacy Patcher v0.6.0+, basic support has been implemented via Roo
 
 [More information here](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1021)
 
-## Graphics support
+### Graphics support and issues
 This build includes both Legacy Metal and non-Metal patches for macOS Sonoma. Refer to the following links for more information about Legacy Metal and non-Metal support and their respective issues.
 
 * [Legacy Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008) 
 * [Non-Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/108)
+
