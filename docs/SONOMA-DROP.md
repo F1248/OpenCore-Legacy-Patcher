@@ -74,6 +74,14 @@ Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros
 :::
 No known solution to resolve supporting, a significant amount of time will be required to understand how both the T1 stack works, as well as where the core issue lies for support.
 
+::: warning The following systems have a T1 Security chip
+
+* MacBookPro13,2:	MacBook Pro (13-inch, 2016, Four Thunderbolt 3 Ports)
+* MacBookPro13,3:	MacBook Pro (15-inch, 2016)
+* MacBookPro14,2:	MacBook Pro (13-inch, 2017, Four Thunderbolt 3 Ports)
+* MacBookPro14,3:	MacBook Pro (15-inch, 2017)
+:::
+
 [More information here](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1103)
 
 ### USB 1.1 (OHCI/UHCI) Support
