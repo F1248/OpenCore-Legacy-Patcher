@@ -63,7 +63,7 @@ Applicable Models:
 
 ### T1 Security chip
 
-Sonoma has removed support for T1 chips found in most 2016 and 2017 Macs. Therefore on these systems, the following will not function:
+Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros. Therefore on these systems, the following will not function:
 
 * Enable or disable FileVault
 * Open the Password Settings window
@@ -106,4 +106,3 @@ This build includes both Legacy Metal and non-Metal patches for macOS Sonoma. Re
 
 * [Legacy Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008) 
 * [Non-Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/108)
-
