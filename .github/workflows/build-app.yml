@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build App
-    runs-on: macos-13
+    runs-on: macos-14
 
     env:
       branch: ${{ github.ref }}
