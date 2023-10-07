@@ -7,6 +7,8 @@
   - Resolve unresponsive Weather app
   - Resolve full screen menubar covering the app toolbar
   - Resolve unfocused password windows
+- OpenCore Vaulting (Jazzzny)
+  - Ensures that OpenCore is not corrupted or maliciously tampered with
 - Increment Binaries:
   - PatcherSupportPkg 1.3.5 - release
   - AirportBrcmFixup 2.1.8 - release
