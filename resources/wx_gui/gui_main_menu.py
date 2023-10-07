@@ -1,4 +1,6 @@
 # Generate GUI for main menu
+# Portions of this file Copyright (c) 2023 Jazzzny
+
 import wx
 import wx.html2
 import markdown2
@@ -338,9 +340,12 @@ class MainFrame(wx.Frame):
 
     def on_update(self, oclp_url: str, oclp_version: str, oclp_github_url: str):
 
-        url = f"https://raw.githubusercontent.com/dortania/OpenCore-Legacy-Patcher/{oclp_version}/CHANGELOG.md"
-        response = requests.get(url)
-        changelog = response.text.split(f"## {self.constants.patcher_version}\n")[0]
+        ID_GITHUB = wx.NewId()
+        ID_UPDATE = wx.NewId()
+
+        url = "https://api.github.com/repos/dortania/OpenCore-Legacy-Patcher/releases/latest"
+        response = requests.get(url).json()
+        changelog = response["body"].split("## Asset Information")[0]
 
         html_markdown = markdown2.markdown(changelog)
         html_css = """
@@ -354,7 +359,6 @@ class MainFrame(wx.Frame):
     }
     h2 {
     line-height: 0.5;
-    padding-left: 10px;
     }
     a {
         color: -apple-system-control-accent;
@@ -368,8 +372,8 @@ class MainFrame(wx.Frame):
     }
 </style>
 """
-        frame = wx.Frame(None, -1, title="", size=(600, 400))
-        frame.SetMinSize((600, 400))
+        frame = wx.Dialog(None, -1, title="", size=(600, 500))
+        frame.SetMinSize((600, 500))
         frame.SetWindowStyle(wx.STAY_ON_TOP)
         panel = wx.Panel(frame)
         sizer = wx.BoxSizer(wx.VERTICAL)
@@ -379,16 +383,16 @@ class MainFrame(wx.Frame):
         self.title_text.SetFont(wx.Font(19, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, ".AppleSystemUIFont"))
         self.description.SetFont(wx.Font(13, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, ".AppleSystemUIFont"))
         self.web_view = wx.html2.WebView.New(panel, style=wx.BORDER_SUNKEN)
-        html_code = html_css+html_markdown.replace("<a href=", "<a target='_blank' href=").replace("<h1>OpenCore Legacy Patcher changelog</h1>", "")
+        html_code = html_css+html_markdown.replace("<a href=", "<a target='_blank' href=")
         self.web_view.SetPage(html_code, "")
         self.web_view.Bind(wx.html2.EVT_WEBVIEW_NEWWINDOW, self._onWebviewNav)
         self.web_view.EnableContextMenu(False)
-        self.close_button = wx.Button(panel, label="Ignore")
-        self.close_button.Bind(wx.EVT_BUTTON, lambda event: frame.Close())
-        self.view_button = wx.Button(panel, label="View on GitHub")
-        self.view_button.Bind(wx.EVT_BUTTON, lambda event: (webbrowser.open(oclp_github_url), frame.Close()))
+        self.close_button = wx.Button(panel, label="Dismiss")
+        self.close_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(wx.ID_CANCEL))
+        self.view_button = wx.Button(panel, ID_GITHUB, label="View on GitHub")
+        self.view_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(ID_GITHUB))
         self.install_button = wx.Button(panel, label="Download and Install")
-        self.install_button.Bind(wx.EVT_BUTTON, lambda event: self._onUpdateChosen(frame, oclp_url, oclp_version))
+        self.install_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(ID_UPDATE))
         self.install_button.SetDefault()
 
         buttonsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -401,16 +405,15 @@ class MainFrame(wx.Frame):
         sizer.Add(self.web_view, 1, wx.EXPAND | wx.LEFT|wx.RIGHT, 10)
         sizer.Add(buttonsizer, 0, wx.ALIGN_RIGHT | wx.ALL, 20)
         panel.SetSizer(sizer)
-        frame.Show()
         frame.Centre()
 
-    def _onWebviewNav(self, event):
-        url = event.GetURL()
-        webbrowser.open(url)
+        result = frame.ShowModal()
+        
 
-    def _onUpdateChosen(self, frame, oclp_url, oclp_version):
-        frame.Close()
-        gui_update.UpdateFrame(
+        if result == ID_GITHUB:
+            webbrowser.open(oclp_github_url)
+        elif result == ID_UPDATE:
+            gui_update.UpdateFrame(
             parent=self,
             title=self.title,
             global_constants=self.constants,
@@ -418,3 +421,7 @@ class MainFrame(wx.Frame):
             url=oclp_url,
             version_label=oclp_version
         )
+
+    def _onWebviewNav(self, event):
+        url = event.GetURL()
+        webbrowser.open(url)
