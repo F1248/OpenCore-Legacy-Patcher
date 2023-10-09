@@ -813,9 +813,6 @@ class SettingsFrame(wx.Frame):
                     "type": "button",
                     "function": self.on_nightly,
                     "description": [
-                        "If you're already here, I assume you're ok",
-                        "bricking your system 🧱.",
-                        "Check CHANGELOG before blindly updating.",
                     ],
                 },
                 "Trigger Exception": {
