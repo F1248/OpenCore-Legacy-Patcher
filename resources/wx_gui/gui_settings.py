@@ -1260,8 +1260,8 @@ Hardware Information:
         # Ask prompt for which branch
         branches = [""]
         result = network_handler.NetworkUtilities().get("https://api.github.com/repos/F1248/OpenCore-Legacy-Patcher/branches")
+        result = result.json()
         if len(result) > 1:
-            result = result.json()
             for branch in result:
                 if branch["name"] not in branches:
                     branches.append(branch["name"])
