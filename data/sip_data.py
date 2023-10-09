@@ -135,7 +135,7 @@ class system_integrity_protection:
     ]
 
     root_patch_sip_ventura = [
-        # Variables required to root patch in Ventura
+        # Variables required to root patch in Ventura and Sonoma
         "CSR_ALLOW_UNTRUSTED_KEXTS",  #            0x1   - Required for Aux Cache in Big Sur+
         "CSR_ALLOW_UNRESTRICTED_FS",  #            0x2   - Required to mount and edit root volume, as well as load modded platform binaries
         "CSR_ALLOW_UNAUTHENTICATED_ROOT",  #       0x800 - Required to avoid KC mismatch kernel panic
