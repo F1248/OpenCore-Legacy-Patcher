@@ -1261,7 +1261,7 @@ Hardware Information:
         branches = ["main"]
         if self.constants.commit_info[0] not in ["Running from source", "Built from source"]:
             branches = [self.constants.commit_info[0].split("/")[-1]]
-        result = network_handler.NetworkUtilities().get("https://api.github.com/repos/dortania/OpenCore-Legacy-Patcher/branches")
+        result = network_handler.NetworkUtilities().get("https://api.github.com/repos/f1248/OpenCore-Legacy-Patcher/branches")
         if result is not None:
             result = result.json()
             for branch in result:
@@ -1283,7 +1283,7 @@ Hardware Information:
             title=self.title,
             global_constants=self.constants,
             screen_location=self.parent.GetPosition(),
-            url=f"https://nightly.link/dortania/OpenCore-Legacy-Patcher/workflows/build-app-wxpython/{branch}/OpenCore-Patcher.app%20%28GUI%29.zip",
+            url=f"https://nightly.link/f1248/OpenCore-Legacy-Patcher/workflows/build-app-wxpython/{branch}/OpenCore-Patcher.app.zip",
             version_label="(Nightly)"
         )
 

@@ -90,7 +90,7 @@ class UpdateFrame(wx.Frame):
         download_obj = None
         def _fetch_update() -> None:
             nonlocal download_obj
-            download_obj = network_handler.DownloadObject(url, self.constants.payload_path / "OpenCore-Patcher-GUI.app.zip")
+            download_obj = network_handler.DownloadObject(url, self.constants.payload_path / "OpenCore-Patcher.app.zip")
 
         thread = threading.Thread(target=_fetch_update)
         thread.start()
@@ -190,7 +190,7 @@ class UpdateFrame(wx.Frame):
         # So we need to unzip it twice
         for i in range(2):
             result = subprocess.run(
-                ["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Patcher-GUI.app.zip"), str(self.constants.payload_path)], capture_output=True
+                ["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True
             )
             if result.returncode != 0:
                 logging.error(f"Failed to extract update. Error: {result.stderr.decode('utf-8')}")
