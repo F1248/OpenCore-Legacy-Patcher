@@ -1258,15 +1258,11 @@ Hardware Information:
 
     def on_nightly(self, event: wx.Event) -> None:
         # Ask prompt for which branch
-        branches = ["main"]
-        if self.constants.commit_info[0] not in ["Running from source", "Built from source"]:
-            branches = [self.constants.commit_info[0].split("/")[-1]]
+        branches = [""]
         result = network_handler.NetworkUtilities().get("https://api.github.com/repos/F1248/OpenCore-Legacy-Patcher/branches")
-        if result is not None:
+        if len(result) > 1:
             result = result.json()
             for branch in result:
-                if branch["name"] == "gh-pages":
-                    continue
                 if branch["name"] not in branches:
                     branches.append(branch["name"])
 
@@ -1276,7 +1272,7 @@ Hardware Information:
 
                 branch = dialog.GetStringSelection()
         else:
-            branch = "main"
+            branch = result[0]
 
         gui_update.UpdateFrame(
             parent=self.parent,
