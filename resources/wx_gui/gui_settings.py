@@ -1258,7 +1258,7 @@ Hardware Information:
 
     def on_nightly(self, event: wx.Event) -> None:
         # Ask prompt for which branch
-        branches = [""]
+        branches = []
         result = network_handler.NetworkUtilities().get("https://api.github.com/repos/F1248/OpenCore-Legacy-Patcher/branches")
         result = result.json()
         if len(result) > 1:
