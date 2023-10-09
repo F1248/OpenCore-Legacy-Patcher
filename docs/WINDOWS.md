@@ -111,7 +111,7 @@ If you aren't booted into OCLP, you may see two boot options labelled "Windows" 
 
 ### Installation: Microsoft Method
 
-Once booted into the Windows installer, proceed as you normally would on any Windows computer. If you see an error message containing “Windows could not prepare the computer to boot into the next phase of installation”, please follow the next portion of this guide (DISM Installation).
+Once booted into the Windows installer, proceed as you normally would on any Windows computer. If you see an error message containing "Windows could not prepare the computer to boot into the next phase of installation", please follow the next portion of this guide (DISM Installation).
 
 ### Installation: DISM Deployment Method
 

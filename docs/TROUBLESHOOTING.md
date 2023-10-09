@@ -68,7 +68,7 @@ bless --mount "/Volumes/Macintosh HD" --bootefi --last-sealed-snapshot
 ```
 After that, remove problematic kexts
 ```sh
-find “/Volumes/Macintosh HD/Library/Extensions” -name “*.kext” -not -name “HighPoint*” -not -name "SoftRAID*" -exec rm -rf {} \;
+find "/Volumes/Macintosh HD/Library/Extensions" -name "*.kext" -not -name "HighPoint*" -not -name "SoftRAID*" -exec rm -rf {} \
 ```
 
 Then restart and now your system should be restored to the unpatched snapshot and should be able to boot again.
@@ -135,7 +135,7 @@ A semi-common popup some users face is the "Volume Hash Mismatch" error:
 
 What this error signifies is that the OS detects that the boot volume's hash does not match what the OS is expecting, this error is generally cosmetic and can be ignored. However if your system starts to crash spontaneously shortly after, you'll want to reinstall macOS fresh without importing any data at first.
 
-* Note that this bug affects native Macs as well and is not due to issues with unsupported Macs: [OSX Daily: “Volume Hash Mismatch” Error in MacOS Monterey](https://osxdaily.com/2021/11/10/volume-hash-mismatch-error-in-macos-monterey/)
+* Note that this bug affects native Macs as well and is not due to issues with unsupported Macs: [OSX Daily: "Volume Hash Mismatch" Error in MacOS Monterey](https://osxdaily.com/2021/11/10/volume-hash-mismatch-error-in-macos-monterey/)
 
 Additionally, it can help to disable FeatureUnlock in Settings -> Misc Settings as this tool can be strenuous on systems with weaker memory stability.
 
