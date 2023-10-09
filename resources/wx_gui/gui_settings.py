@@ -77,8 +77,6 @@ class SettingsFrame(wx.Frame):
         sizer.Add(model_description, 0, wx.ALIGN_CENTER | wx.ALL, 5)
 
         tabs = list(self.settings.keys())
-        if not Path("~/.dortania_developer").expanduser().exists():
-            tabs.remove("Developer")
         for tab in tabs:
             panel = wx.Panel(notebook)
             notebook.AddPage(panel, tab)
