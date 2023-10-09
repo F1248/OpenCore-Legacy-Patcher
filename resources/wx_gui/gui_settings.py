@@ -1272,7 +1272,7 @@ Hardware Information:
 
                 branch = dialog.GetStringSelection()
         else:
-            branch = result[0]
+            branch = result[0]["name"]
 
         gui_update.UpdateFrame(
             parent=self.parent,
