@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.11
 
 # Generate stand alone application for OpenCore-Patcher
 # Copyright (C) 2022-2023 - Mykola Grymalyuk
@@ -80,7 +80,7 @@ class CreateBinary:
         if f"/usr/local/opt/python@3." in sys.executable:
             print(f"\t* NOTE: home(brew) python3 detected; using (sys.exec_prefix, python_path) ==> {sys.exec_prefix, python_path}")
             # - under brew, pip3 will install pyinstaller at:
-            #   /usr/local/lib/python3.9/site-packages/pyinstaller
+            #   /usr/local/lib/python3.x/site-packages/pyinstaller
             #   and /usr/local/bin/pyinstaller stub to load and run.
 
             pyinstaller_path = f"/usr/local/bin/pyinstaller"
