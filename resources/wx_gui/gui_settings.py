@@ -1251,7 +1251,11 @@ Hardware Information:
         if len(result) > 1:
             for branch in result:
                 if branch["name"] not in branches:
-                    branches.append(branch["name"])
+                    branch_name = branch["name"]
+                    if branch_name in ["main", "master"]:
+                        branches.insert(0, branch_name)
+                    else:
+                        branches.append(branch_name)
 
             with wx.SingleChoiceDialog(self.parent, "Which branch would you like to download?", "Branch Selection", branches) as dialog:
                 if dialog.ShowModal() == wx.ID_CANCEL:
