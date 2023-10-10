@@ -244,7 +244,7 @@ class Constants:
     @property
     def special_build(self):
         """
-        Special builds are used for testing. They do not get updates through the updater
+        Special builds are used for testing.
         """
 
         try:
