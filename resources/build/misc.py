@@ -7,7 +7,7 @@ import binascii
 
 from pathlib import Path
 
-from resources import constants, device_probe, generate_smbios, utilities
+from resources import constants, device_probe, generate_smbios
 from resources.build import support
 from data import model_array, smbios_data, cpu_data
 

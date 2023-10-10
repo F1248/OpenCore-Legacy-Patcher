@@ -22,11 +22,7 @@ from resources.wx_gui import (
     gui_sys_patch_display,
     gui_update,
 )
-from resources import (
-    constants,
-    global_settings,
-    updates
-)
+from resources import constants
 from data import os_data
 
 
