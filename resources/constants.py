@@ -136,7 +136,6 @@ class Constants:
         self.validate:                  bool = False  # Enable validation testing for CI
         self.recovery_status:           bool = False  # Detect if booted into RecoveryOS
         self.wxpython_variant:          bool = False  # Determine if using wxPython variant
-        self.has_checked_updates:       bool = False  # Determine if check for updates has been run
         self.root_patcher_succeeded:    bool = False  # Determine if root patcher succeeded
         self.start_build_install:       bool = False  # Determine if build install should be started
         self.host_is_non_metal:         bool = False  # Determine if host is non-metal (ie. enable UI hacks)

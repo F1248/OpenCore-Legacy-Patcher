@@ -210,9 +210,8 @@ class MainFrame(wx.Frame):
 
         self._fix_local_install()
 
-        if "--update_installed" in sys.argv and self.constants.has_checked_updates is False and gui_support.CheckProperties(self.constants).host_can_build():
+        if "--update_installed" in sys.argv and gui_support.CheckProperties(self.constants).host_can_build():
             # Notify user that the update has been installed
-            self.constants.has_checked_updates = True
             pop_up = wx.MessageDialog(
                 self,
                 f"OpenCore Legacy Patcher has been updated to the latest version: {self.constants.patcher_version}\n\nWould you like to update OpenCore and your root volume patches?",
@@ -247,8 +246,6 @@ class MainFrame(wx.Frame):
         """
 
         if "--update_installed" not in sys.argv:
-            return
-        if self.constants.has_checked_updates is True:
             return
 
         # Check if app exists in /Applications, and is not a symlink
