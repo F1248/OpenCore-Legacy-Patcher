@@ -45,7 +45,7 @@ class NetworkUtilities:
         Verifies that the network is available
 
         Returns:
-            bool: True if network is available, False otherwise
+            bool: True if network is available, otherwise False
         """
 
         try:
