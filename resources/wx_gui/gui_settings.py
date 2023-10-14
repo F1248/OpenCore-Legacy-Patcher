@@ -764,10 +764,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "allow_oc_everywhere",
                     "description": [
                         "Allow OpenCore to be installed",
-                        "on natively supported Macs.",
-                        "Note this will not allow unsupported",
-                        "macOS versions to be installed on",
-                        "your system.",
+                        "on natively supported Macs."
                     ],
                     "warning": "This option should only be used if your Mac natively supports the OSes you wish to run.\n\nIf you are currently running an unsupported OS, this option will break booting. Only toggle for enabling OS features on a native Mac.\n\nAre you certain you want to continue?",
                 },
