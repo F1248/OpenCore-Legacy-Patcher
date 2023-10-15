@@ -9,8 +9,12 @@
   - Resolve unfocused password windows
 - OpenCore Vaulting (Jazzzny)
   - Ensures that OpenCore is not corrupted or maliciously tampered with
+- Resolve USB 1.1 kernel panics on macOS 14.1
+- Resolve PCIe FaceTime camera support on macOS 14.1
+- Resolve T1 Security Chip support on macOS 14
+  - Applicable for MacBookPro13,2, MacBookPro13,3, MacBookPro14,2, MacBookPro14,3
 - Increment Binaries:
-  - PatcherSupportPkg 1.3.5 - release
+  - PatcherSupportPkg 1.3.9 - release
   - AirportBrcmFixup 2.1.8 - release
   - BlueToolFixup 2.6.8 - release
   - RestrictEvents 1.1.3 - release
