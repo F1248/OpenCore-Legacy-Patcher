@@ -1786,6 +1786,7 @@ smbios_dictionary = {
         ],
     },
     "Macmini9,1": {
+        "Marketing Name": "Mac mini (M1, 2020) ",
         "Board ID": None,
         "FirmwareFeatures": None,
         "SecureBootModel": "j274",
