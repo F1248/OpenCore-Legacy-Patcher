@@ -315,7 +315,7 @@ class CreateBinary:
         Apple's notarization system and inclusion of kernel extensions
         """
 
-        if Path("./payloads.dmg").exists():
+        if Path("./payloads.dmg").exists() and False:
             if not self.args.reset_binaries:
                 print("- payloads.dmg already exists, skipping creation")
                 return
@@ -338,7 +338,8 @@ class CreateBinary:
             '-volname', 'OpenCore Patcher Resources (Base)',
             '-fs', 'HFS+',
             '-srcfolder', './payloads',
-            '-passphrase', 'password', '-encryption'
+            '-passphrase', 'password', '-encryption',
+            '-verbose'
         ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if dmg_output.returncode != 0:
             print("- DMG generation failed")
