@@ -70,6 +70,7 @@ class SystemPatchDictionary():
         self.macOS_12_4:          float = 21.5
         self.macOS_12_5:          float = 21.6
         self.macOS_13_3:          float = 22.4
+        self.macOS_14_1:          float = 23.1
 
         self._generate_sys_patch_dict()
 
@@ -1341,12 +1342,18 @@ class SystemPatchDictionary():
                         },
                         # Required for Apple Pay
                         "/usr/lib": {
-                            "libNFC_Comet.dylib": "13.6",
-                            "libNFC_HAL.dylib":   "13.6",
-                            "libPN548_API.dylib": "13.6"
+                            "libNFC_Comet.dylib":          "13.6",
+                            "libNFC_HAL.dylib":            "13.6",
+
+                            "libnfshared.dylib":           "13.6",
+                            "libnfshared.dylibOld.dylib":  "13.6",
+                            "libnfstorage.dylib":          "13.6",
+
+                            "libPN548_API.dylib":          "13.6"
                         },
                         "/usr/libexec": {
-                            "biometrickitd": "13.6"  # Required for Touch ID
+                            "biometrickitd": "13.6",  # Required for Touch ID
+                            "nfcd":          "13.6",  # Required for Apple Pay
                         },
                     },
                 },
