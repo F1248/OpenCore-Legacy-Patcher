@@ -13,7 +13,6 @@ from resources.wx_gui import gui_download, gui_support
 from resources import (
     constants,
     network_handler,
-    updates
 )
 
 
@@ -44,15 +43,6 @@ class UpdateFrame(wx.Frame):
             self.Centre()
             self.screen_location = self.GetScreenPosition()
 
-
-        if url == "" or version_label == "":
-            dict = updates.CheckBinaryUpdates(self.constants).check_binary_updates()
-            if dict:
-                version_label = dict["Version"]
-                url = dict["Link"]
-            else:
-                wx.MessageBox("Failed to get update info", "Critical Error")
-                sys.exit(1)
 
         self.version_label = version_label
         self.url = url

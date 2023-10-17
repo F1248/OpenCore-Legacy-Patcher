@@ -85,10 +85,11 @@ class OpenCoreLegacyPatcher:
         # Generate commit info
         self.constants.commit_info = commit_info.ParseCommitInfo(self.constants.launcher_binary).generate_commit_info()
         if self.constants.commit_info[0] not in ["Running from source", "Built from source"]:
-            # Now that we have commit info, update nightly link
             branch = self.constants.commit_info[0]
             branch = branch.replace("refs/heads/", "")
-            self.constants.installer_pkg_url_nightly = self.constants.installer_pkg_url_nightly.replace("main", branch)
+        else:
+            branch = self.constants.fallback_branch
+        self.constants.pkg_nightly_url = self.constants.pkg_nightly_url.replace("branch_placeholder", branch)
 
         # Generate defaults
         defaults.GenerateDefaults(self.computer.real_model, True, self.constants)

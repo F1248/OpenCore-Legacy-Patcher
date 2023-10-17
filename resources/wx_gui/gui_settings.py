@@ -1241,33 +1241,42 @@ Hardware Information:
 
 
     def on_nightly(self, event: wx.Event) -> None:
-        # Ask prompt for which branch
+        result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
+        
         branches = []
-        result = network_handler.NetworkUtilities().get("https://api.github.com/repos/F1248/OpenCore-Legacy-Patcher/branches")
-        result = result.json()
-        if len(result) > 1:
-            for branch in result:
-                if branch["name"] not in branches:
-                    branch_name = branch["name"]
-                    if branch_name in ["main", "master"]:
-                        branches.insert(0, branch_name)
-                    else:
-                        branches.append(branch_name)
+        for branch in result:
+            name = branch["name"]
+            commit_url = branch["commit"]["url"]
+            brach_result = network_handler.NetworkUtilities().get(commit_url).json()
+            last_commit = brach_result["commit"]["message"]
+            description = name + " (last commit: " + last_commit + ")"
+            branches.append([name, description])
 
-            with wx.SingleChoiceDialog(self.parent, "Which branch would you like to download?", "Branch Selection", branches) as dialog:
-                if dialog.ShowModal() == wx.ID_CANCEL:
-                    return
+        for branch_name in ["master", "main", self.constants.commit_info[0]]:
+            if any(branch[0] == branch_name for branch in branches):
+                branch = next(branch for branch in branches if branch[0] == branch_name)
+                branches.remove(branch)
+                branches.insert(0, branch)
 
-                branch = dialog.GetStringSelection()
-        else:
-            branch = result[0]["name"]
+        branch_descriptions = []
+        for branch in branches:
+            branch_descriptions.append(branch[1])
+
+        with wx.SingleChoiceDialog(self.parent, "Which branch would you like to download?", "Branch Selection", branch_descriptions) as dialog:
+            if dialog.ShowModal() == wx.ID_CANCEL:
+                return
+
+            selection_index = dialog.GetSelection()
+            branch = branches[selection_index][0]
+
+        url = self.constants.app_nightly_url.replace("branch_placeholder", branch)
 
         gui_update.UpdateFrame(
             parent = self.parent,
             title = self.title,
             global_constants = self.constants,
             screen_location = self.parent.GetPosition(),
-            url = f"https://nightly.link/F1248/OpenCore-Legacy-Patcher/workflows/build-app/{branch}/OpenCore-Patcher.app.zip",
+            url = url,
             version_label = "(Nightly)"
         )
 

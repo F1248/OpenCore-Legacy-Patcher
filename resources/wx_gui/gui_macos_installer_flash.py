@@ -400,20 +400,10 @@ class macOSInstallerFlashFrame(wx.Frame):
     def _auto_package_handler(self):
         """
         Function's main goal is to grab the correct AutoPkg-Assets.pkg and unzip it
-        Note the following:
-            - When running a release build, pull from Github's release page with the same versioning
-            - When running from source/unable to find on Github, use the nightly.link variant
-            - If nightly also fails, fall back to the manually uploaded variant
         """
-        link = self.constants.installer_pkg_url
-        if network_handler.NetworkUtilities(link).validate_link() is False:
-            logging.info("Stock Install.pkg is missing on Github, falling back to Nightly")
-            link = self.constants.installer_pkg_url_nightly
+        link = self.constants.pkg_nightly_url
 
-        if link.endswith(".zip"):
-            path = self.constants.installer_pkg_zip_path
-        else:
-            path = self.constants.installer_pkg_path
+        path = self.constants.installer_pkg_zip_path
 
         autopkg_download = network_handler.DownloadObject(link, path)
         autopkg_download.download(spawn_thread=False)
@@ -425,8 +415,6 @@ class macOSInstallerFlashFrame(wx.Frame):
 
         # Download thread will re-enable Idle Sleep after downloading
         utilities.disable_sleep_while_running()
-        if not str(path).endswith(".zip"):
-            return
         if Path(self.constants.installer_pkg_path).exists():
             subprocess.run(["rm", self.constants.installer_pkg_path])
         subprocess.run(["ditto", "-V", "-x", "-k", "--sequesterRsrc", "--rsrc", self.constants.installer_pkg_zip_path, self.constants.payload_path])

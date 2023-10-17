@@ -1,10 +1,6 @@
 # Copyright (C) 2022, Mykola Grymalyuk
 # Copyright (c) 2023 Jazzzny
 
-import wx
-import wx.html2
-import requests
-import markdown2
 import logging
 import plistlib
 import subprocess
@@ -13,7 +9,7 @@ import webbrowser
 from pathlib import Path
 
 
-from resources import utilities, updates, global_settings, network_handler, constants
+from resources import utilities, global_settings, constants
 from resources.sys_patch import sys_patch_detect
 from resources.wx_gui import gui_entry
 
@@ -38,7 +34,6 @@ class AutomaticSysPatch:
             - Verify running GUI (TUI users can write their own scripts)
             - Verify the Snapshot Seal is intact (if not, assume user is running patches)
             - Verify this model needs patching (if not, assume user upgraded hardware and OCLP was not removed)
-            - Verify there are no updates for OCLP (ensure we have the latest patch sets)
 
         If all these tests pass, start Root Patcher
 
@@ -47,93 +42,6 @@ class AutomaticSysPatch:
         logging.info("- Starting Automatic Patching")
         if self.constants.wxpython_variant is False:
             logging.info("- Auto Patch option is not supported on TUI, please use GUI")
-            return
-
-        dict = updates.CheckBinaryUpdates(self.constants).check_binary_updates()
-        if dict:
-            version = dict["Version"]
-            logging.info(f"- Found new version: {version}")
-
-            app = wx.App()
-            mainframe = wx.Frame(None, -1, "OpenCore Legacy Patcher")
-
-            ID_GITHUB = wx.NewId()
-            ID_UPDATE = wx.NewId()
-
-            url = "https://api.github.com/repos/dortania/OpenCore-Legacy-Patcher/releases/latest"
-            response = requests.get(url).json()
-            changelog = response["body"].split("## Asset Information")[0]
-
-            html_markdown = markdown2.markdown(changelog)
-            html_css = """
-    <style>
-        body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.5;
-        font-size: 13px;
-        margin-top: 20px;
-        background-color: rgb(238,238,238);
-        }
-        h2 {
-        line-height: 0.5;
-        padding-left: 10px;
-        }
-        a {
-            color: -apple-system-control-accent;
-        }
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #fff;
-                background-color: rgb(47,47,47);   
-            }
-            
-        }
-    </style>
-    """
-            frame = wx.Dialog(None, -1, title="", size=(600, 500))
-            frame.SetMinSize((600, 500))
-            frame.SetWindowStyle(wx.STAY_ON_TOP)
-            panel = wx.Panel(frame)
-            sizer = wx.BoxSizer(wx.VERTICAL)
-            sizer.AddSpacer(10)
-            self.title_text = wx.StaticText(panel, label="A new version of OpenCore Legacy Patcher is available!")
-            self.description = wx.StaticText(panel, label=f"OpenCore Legacy Patcher {version} is now available - You have {self.constants.patcher_version}. Would you like to update?")
-            self.title_text.SetFont(wx.Font(19, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, ".AppleSystemUIFont"))
-            self.description.SetFont(wx.Font(13, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, ".AppleSystemUIFont"))
-            self.web_view = wx.html2.WebView.New(panel, style=wx.BORDER_SUNKEN)
-            html_code = html_css+html_markdown.replace("<a href=", "<a target='_blank' href=")
-            self.web_view.SetPage(html_code, "")
-            self.web_view.Bind(wx.html2.EVT_WEBVIEW_NEWWINDOW, self._onWebviewNav)
-            self.web_view.EnableContextMenu(False)
-            self.close_button = wx.Button(panel, label="Ignore")
-            self.close_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(wx.ID_CANCEL))
-            self.view_button = wx.Button(panel, ID_GITHUB, label="View on GitHub")
-            self.view_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(ID_GITHUB))
-            self.install_button = wx.Button(panel, label="Download and Install")
-            self.install_button.Bind(wx.EVT_BUTTON, lambda event: frame.EndModal(ID_UPDATE))
-            self.install_button.SetDefault()
-
-            buttonsizer = wx.BoxSizer(wx.HORIZONTAL)
-            buttonsizer.Add(self.close_button, 0, wx.ALIGN_CENTRE | wx.RIGHT, 5)
-            buttonsizer.Add(self.view_button, 0, wx.ALIGN_CENTRE | wx.LEFT|wx.RIGHT, 5)
-            buttonsizer.Add(self.install_button, 0, wx.ALIGN_CENTRE | wx.LEFT, 5)
-            sizer = wx.BoxSizer(wx.VERTICAL)
-            sizer.Add(self.title_text, 0, wx.ALIGN_CENTRE | wx.TOP, 20)
-            sizer.Add(self.description, 0, wx.ALIGN_CENTRE | wx.BOTTOM, 20)
-            sizer.Add(self.web_view, 1, wx.EXPAND | wx.LEFT|wx.RIGHT, 10)
-            sizer.Add(buttonsizer, 0, wx.ALIGN_RIGHT | wx.ALL, 20)
-            panel.SetSizer(sizer)
-            frame.Centre()
-
-            result = frame.ShowModal()
-            
-
-            if result == ID_GITHUB:
-                webbrowser.open(dict["Github Link"])
-            elif result == ID_UPDATE:
-                gui_entry.EntryPoint(self.constants).start(entry=gui_entry.SupportedEntryPoints.UPDATE_APP)
-
-    
             return
 
         if utilities.check_seal() is True:
@@ -153,20 +61,17 @@ class AutomaticSysPatch:
                     if patches[patch] is True and not patch.startswith("Settings") and not patch.startswith("Validation"):
                         patch_string += f"- {patch}\n"
 
-                logging.info("- No new binaries found on Github, proceeding with patching")
+                logging.info("- Proceeding with patching")
                 if self.constants.launcher_script is None:
                     args_string = f"'{self.constants.launcher_binary}' --gui_patch"
                 else:
                     args_string = f"{self.constants.launcher_binary} {self.constants.launcher_script} --gui_patch"
 
-                warning_str = ""
-                if network_handler.NetworkUtilities("https://api.github.com/repos/dortania/OpenCore-Legacy-Patcher/releases/latest").verify_network_connection() is False:
-                    warning_str = f"""\n\nWARNING: We're unable to verify whether there are any new releases of OpenCore Legacy Patcher on Github. Be aware that you may be using an outdated version for this OS. If you're unsure, verify on Github that OpenCore Legacy Patcher {self.constants.patcher_version} is the latest official release"""
 
                 args = [
                     "osascript",
                     "-e",
-                    f"""display dialog "OpenCore Legacy Patcher has detected you're running without Root Patches, and would like to install them.\n\nmacOS wipes all root patches during OS installs and updates, so they need to be reinstalled.\n\nFollowing Patches have been detected for your system: \n{patch_string}\nWould you like to apply these patches?{warning_str}" """
+                    f"""display dialog "OpenCore Legacy Patcher has detected you're running without Root Patches, and would like to install them.\n\nmacOS wipes all root patches during OS installs and updates, so they need to be reinstalled.\n\nFollowing Patches have been detected for your system: \n{patch_string}\nWould you like to apply these patches?" """
                     f'with icon POSIX file "{self.constants.app_icon_path}"',
                 ]
                 output = subprocess.run(
@@ -225,11 +130,6 @@ class AutomaticSysPatch:
             # Special builds don't have good ways to compare versions
             logging.info("- Special build detected, assuming installed is older")
             return False
-
-        # Check if installed version is newer than booted version
-        if updates.CheckBinaryUpdates(self.constants).check_if_newer(self.constants.computer.oclp_version):
-            logging.info("- Installed version is newer than booted version")
-            return True
 
         args = [
             "osascript",

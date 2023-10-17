@@ -12,6 +12,11 @@ from data import os_data
 
 class Constants:
     def __init__(self) -> None:
+        # GitHub:
+        self.user:                            str = "F1248"
+        self.repository:                      str = "OpenCore-Legacy-Patcher"
+        self.fallback_branch:                 str = "main" # Used when running / built from source
+
         # Patcher Versioning
         self.patcher_version:                 str = "1.1.0" # OpenCore-Legacy-Patcher
         self.patcher_support_pkg_version:     str = "1.4.2" # PatcherSupportPkg
@@ -22,9 +27,8 @@ class Constants:
         self.url_patcher_support_pkg:         str = "https://github.com/dortania/PatcherSupportPkg/releases/download/"
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
-        self.repo_link:                       str = "https://github.com/dortania/OpenCore-Legacy-Patcher"
-        self.installer_pkg_url:               str = f"{self.repo_link}/releases/download/{self.patcher_version}/AutoPkg-Assets.pkg"
-        self.installer_pkg_url_nightly:       str = "http://nightly.link/F1248/OpenCore-Legacy-Patcher/workflows/build-app/main/AutoPkg-Assets.pkg.zip"
+        self.pkg_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
+        self.app_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Patcher.app.zip"
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg
