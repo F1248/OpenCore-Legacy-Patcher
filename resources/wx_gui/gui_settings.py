@@ -836,9 +836,9 @@ class SettingsFrame(wx.Frame):
                     "type": "button",
                     "function": self.on_mount_root_vol,
                     "description": [
-                        "Life's too short to type 'sudo mount -o",
+                        "Life's too short to type \"sudo mount -o",
                         "nobrowse -t apfs /dev/diskXsY",
-                        "/System/Volumes/Update/mnt1' every time.",
+                        "/System/Volumes/Update/mnt1\" every time.",
                     ],
                 },
                 "wrap_around 2": {
