@@ -1263,12 +1263,12 @@ Hardware Information:
             branch = result[0]["name"]
 
         gui_update.UpdateFrame(
-            parent=self.parent,
-            title=self.title,
-            global_constants=self.constants,
-            screen_location=self.parent.GetPosition(),
-            url=f"https://nightly.link/F1248/OpenCore-Legacy-Patcher/workflows/build-app/{branch}/OpenCore-Patcher.app.zip",
-            version_label="(Nightly)"
+            parent = self.parent,
+            title = self.title,
+            global_constants = self.constants,
+            screen_location = self.parent.GetPosition(),
+            url = f"https://nightly.link/F1248/OpenCore-Legacy-Patcher/workflows/build-app/{branch}/OpenCore-Patcher.app.zip",
+            version_label = "(Nightly)"
         )
 
 
