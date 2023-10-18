@@ -1248,7 +1248,7 @@ Hardware Information:
             name = branch["name"]
             commit_url = branch["commit"]["url"]
             brach_result = network_handler.NetworkUtilities().get(commit_url).json()
-            last_commit = brach_result["commit"]["message"].replace("…\n\n…", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
+            last_commit = brach_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
             if len(last_commit) > 64:
                 last_commit = last_commit[0:63]
                 last_commit += (" …")
