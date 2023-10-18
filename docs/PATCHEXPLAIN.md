@@ -197,7 +197,7 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Reason: Fixes 3rd party NVMe support
 * RSRHelper
   * Reason: Fixes Rapid Security Response Support on root patched installs
-* 
+*
 
 ### Ethernet
 
@@ -212,15 +212,15 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Logic: Patch out conflicting symbols to not collide existing BCM5701Ethernet
   * Models: 2011 and older Broadcom Ethernet require
 * Intel82574L
-  * Reason: Resolves Ethernet Support on MacPros 
+  * Reason: Resolves Ethernet Support on MacPros
   * Models: MacPro3,1 - 5,1
 * CatalinaIntelI210Ethernet
   * Reason: Fixes Intel i210/i225 NIC support on pre-Ivy Macs
 * AppleIntel8254XEthernet
-  * Reason: Resolves Ethernet Support on MacPros 
+  * Reason: Resolves Ethernet Support on MacPros
   * Models: MacPro3,1 - 5,1
 
-### Firewire 
+### Firewire
 
 * IOFireWireFamily
   * Reason: Allows for FireWire Boot Support
@@ -247,10 +247,10 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
 ### Wifi
 
 * IO80211ElCap
-  * Reason: Re-inject WiFi drivers from El Capitan 
+  * Reason: Re-inject WiFi drivers from El Capitan
   * Models: BCM94328, BCM94322 and Atheros chipsets
 * corecaptureElCap.kext
-  * Reason: Re-inject WiFi drivers from El Capitan 
+  * Reason: Re-inject WiFi drivers from El Capitan
   * Models: BCM94328, BCM94322 and Atheros chipsets
 
 ### Misc
@@ -278,7 +278,7 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
 * AppleUSBMultitouch and AppleUSBTrackpad
   * Reason: Restore USB Trackpad support on Mac OS Ventura
 * ASPP-Override
-  * Reason: Forces ACPI_SMC_PlatformPlugin to outmatch X86PlatformPlugin and disable firmware throttling 
+  * Reason: Forces ACPI_SMC_PlatformPlugin to outmatch X86PlatformPlugin and disable firmware throttling
 * BacklightInjector
   * Reason: Fixes Brightness in iMacs with upgraded GPUs
 * BigSurSDXC
@@ -287,7 +287,7 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Reason: Spoofs legacy Bluetooth to work on Monterey and newer
 * Innie
   * Reason: Makes all PCIe drives appear internal
-  * Models: MacPro3,1 and newer & Xserve3,1 and newer 
+  * Models: MacPro3,1 and newer & Xserve3,1 and newer
 * KDKlessWorkaround
   * Reason: Helps with Mac os updates on KDKless patched systems
 * LegacyUSBVieoSupport
@@ -296,7 +296,7 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Reason: Fixes SSD support for stock SSD found in MacBookAir6,x
 * NoAVXFSCompressionTypeZlib
   * Reason: Prevents AVXFSCompressionTypeZlib crash on pre AVX1.0 systems in 12.4+
-* SimpleMSR 
+* SimpleMSR
   * Reason: Disables BD PROCHOT to prevent firmware throttling on Nehalem+ MacBooks
 * LegacyKeyboardInjector
   * Reason: Fixes function keys on MacBook5,2
@@ -344,7 +344,7 @@ Unfortunately certain on-disk patches are required to achieve full functionality
     * 0x1ea59a - 0x1ea5b3: nop
     * Replace VSLGestalt to IOLockLock or any other known symbol of the same length.
 
-* NVIDIA Web Drivers Binaries 
+* NVIDIA Web Drivers Binaries
   * GeForceAIRPluginWeb.bundle
   * GeForceGLDriverWeb.bundle
   * GeForceMTLDriverWeb.bundle
@@ -455,7 +455,7 @@ Applicable for BCM94328, BCM94322 and Atheros Wifi cards
 
 * OpenCL (libCLVMNVPTXPlugin.dylib, NVPTX.dylib)
   * Reason: Re-add Kepler hardware acceleration support
-* Metal 
+* Metal
   * Reason: 3802 based GPU's broken by 13.3, requiring a Metal downgrade to 13.2.1
 
 ### PrivateFrameworks
@@ -495,26 +495,26 @@ Applicable for BCM94328, BCM94322 and Atheros Wifi cards
   * Reason: Re-add Ivy Bridge hardware acceleration support
 * WebKit (com.apple.WebProcess.sb)
   * Reason: Re-add Ivy Bridge Safari rendering support
-* Metal 
+* Metal
   * Reason:  3802 based GPU's broken by 13.3, requiring a Metal downgrade to 13.2.1
 
 :::
 
 ::: details Intel Haswell Graphics Acceleration Patches (13.0+)
 
-### Extensions 
+### Extensions
 
 * AppleIntelFramebufferAzul.kext
 * AppleIntelHD5000Graphics.kext
 * AppleIntelHD5000GraphicsGLDriver.bundle
 * AppleIntelHD5000GraphicsMTLDriver.bundle
-* AppleIntelHD5000GraphicsVADriver.bundle 
+* AppleIntelHD5000GraphicsVADriver.bundle
 * AppleIntelHSWVA.bundle
 * AppleIntelGraphicsShared.bundle
 
-### Frameworks 
+### Frameworks
 
-* Metal 
+* Metal
   * Reason:  3802 based GPU's broken by 13.3, requiring a Metal downgrade to 13.2.1
 
 ### PrivateFrameworks
@@ -528,7 +528,7 @@ Applicable for BCM94328, BCM94322 and Atheros Wifi cards
 
 ::: details Intel Broadwell Graphics Acceleration Patches (13.0+)
 
-### Extensions 
+### Extensions
 
 * AppleIntelBDWGraphics.kext
 * AppleIntelBDWGraphicsFramebuffer.kext
@@ -542,7 +542,7 @@ Applicable for BCM94328, BCM94322 and Atheros Wifi cards
 
 ::: details Intel Skylake Graphics Acceleration Patches (13.0+)
 
-### Extensions 
+### Extensions
 
 * AppleIntelSKLGraphics.kext
 * AppleIntelSKLGraphicsFramebuffer.kext

@@ -67,7 +67,7 @@ class DownloadFrame(wx.Frame):
 
         self.download_obj.download()
         while self.download_obj.is_active():
-            
+
             percentage: int = round(self.download_obj.get_percent())
             if percentage == 0:
                 percentage = 1

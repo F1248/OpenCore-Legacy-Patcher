@@ -183,7 +183,7 @@ The following models are blacklisted from using Universal Control by Apple:
 - Macmini7,x - Mac mini 2014
 - MacPro6,x - Mac Pro Late 2013
 
-The hardware in these models are capable of supporting Universal Control, but due to blacklisting, the only solution to use Universal Control on these models is to spoof their SMBIOS. SMBIOS spoofing essentially fools some aspects of macOS to think they are running on a different machine. 
+The hardware in these models are capable of supporting Universal Control, but due to blacklisting, the only solution to use Universal Control on these models is to spoof their SMBIOS. SMBIOS spoofing essentially fools some aspects of macOS to think they are running on a different machine.
 
 With SMBIOS Spoofing, the Universal Control handshake recognizes a different SMBIOS and thus grants a blacklisted Mac to connect to other Macs and iPads with Universal Control.
 
@@ -206,7 +206,7 @@ Ventura has dropped more models which includes all of the blacklisted Macs in qu
 
 ::: details macOS Sonoma
 
-Firstly run OpenCore Legacy Patcher. 
+Firstly run OpenCore Legacy Patcher.
 
 Then go to **Settings** and **SMBIOS** tab, set SMBIOS Spoof Level to **Moderate**. Set SMBIOS Spoof Model **one listed next to your native model in the table for spoofed models below.**
 
@@ -238,7 +238,7 @@ Spoofing to any model with native Sonoma support should work, but these are the 
 
 ::: details macOS Ventura
 
-Firstly run OpenCore Legacy Patcher. 
+Firstly run OpenCore Legacy Patcher.
 
 Then go to **Settings** and **SMBIOS** tab, set SMBIOS Spoof Level to **Moderate**. Set SMBIOS Spoof Model **one listed next to your native model in the table for spoofed models below.**
 

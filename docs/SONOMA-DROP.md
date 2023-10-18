@@ -1,6 +1,6 @@
 ![](../images/sonoma.png)
 
-*Well here we are again, it's always such a pleasure~* 
+*Well here we are again, it's always such a pleasure~*
 
 Apple has yet again dropped a bunch of models, continuing their journey on discontinuing Intel Macs. With the release of OpenCore Legacy Patcher v1.0.0, early support for macOS Sonoma has been implemented.
 
@@ -17,7 +17,7 @@ With v1.0.0, we'll be switching to a proper major, minor and bug fix system ([Se
 
 * MacBook10,1:       MacBook (Retina, 12-inch, 2017)
 * MacBookPro14,1:    MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports)
-* MacBookPro14,2:    MacBook Pro (13-inch, 2017, Four Thunderbolt 3 Ports) 
+* MacBookPro14,2:    MacBook Pro (13-inch, 2017, Four Thunderbolt 3 Ports)
 * MacBookPro14,3:    MacBook Pro (15-inch, 2017)
 * iMac18,1:          iMac (21.5-inch, 2017)
 * iMac18,2:          iMac (Retina 4K, 21.5-inch, 2017)
@@ -69,7 +69,7 @@ No known solution to resolve supporting, a significant amount of time will be re
 
 ### USB 1.1 (OHCI/UHCI) Support
 
-For Penryn systems, pre-2013 Mac Pros and Xserve, USB 1.1 support was outright removed in macOS Ventura and naturally this continues in Sonoma. 
+For Penryn systems, pre-2013 Mac Pros and Xserve, USB 1.1 support was outright removed in macOS Ventura and naturally this continues in Sonoma.
 While USB 1.1 may seem unimportant, it handles many important devices on your system. These include:
 
 * Keyboard and Trackpad for laptops
@@ -95,5 +95,5 @@ With OpenCore Legacy Patcher v0.6.0+, basic support has been implemented via Roo
 ### Graphics support and issues
 This build includes both Legacy Metal and non-Metal patches for macOS Sonoma. Refer to the following links for more information about Legacy Metal and non-Metal support and their respective issues.
 
-* [Legacy Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008) 
+* [Legacy Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008)
 * [Non-Metal](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/108)

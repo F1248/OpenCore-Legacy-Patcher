@@ -100,7 +100,7 @@ module.exports = {
 				['SONOMA-DROP', 'macOS Sonoma Support'],
             ]
         },
-		  
+		
 	{
             title: 'macOS Ventura',
             collapsable: false,
@@ -108,8 +108,8 @@ module.exports = {
             children: [
 				['VENTURA-DROP', 'macOS Ventura Support'],
             ]
-        },      
-		  
+        },
+		
 	{
             title: 'macOS Monterey',
             collapsable: false,

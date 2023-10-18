@@ -27,7 +27,7 @@ To generate custom OpenCore icons, you'll need the following:
   * ResetNVRAM — Reset NVRAM system action or tool (128x128).
   * Shell — Entry with UEFI Shell name for e.g. OpenShell (128x128).
   * Tool — Any other tool (128x128).
-  
+
 Note, for each image we recommend having one of double the size. This ensures that icons are scaled correctly since .icns support dedicated images depending on HiDPI or not.
 
 Once you have a custom image you want to use(for example, as a background), download the [latest release of OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) and enter the `Utilities/icnspack/` folder:

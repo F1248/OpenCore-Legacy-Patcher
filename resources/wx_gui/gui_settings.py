@@ -284,7 +284,7 @@ class SettingsFrame(wx.Frame):
                         "tampering or corruption."
                     ],
                 },
-                
+
                 "Show OpenCore Boot Picker": {
                     "type": "checkbox",
                     "value": self.constants.showpicker,
@@ -828,7 +828,7 @@ class SettingsFrame(wx.Frame):
                         "Export constants.py values to a txt file.",
                     ],
                 },
-                
+
                 "Developer Root Volume Patching": {
                     "type": "title",
                 },
@@ -1242,7 +1242,7 @@ Hardware Information:
 
     def on_nightly(self, event: wx.Event) -> None:
         result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
-        
+
         branches = []
         for branch in result:
             name = branch["name"]
@@ -1299,7 +1299,7 @@ Hardware Information:
 
     def on_test_exception(self, event: wx.Event) -> None:
         raise Exception("Test Exception")
-    
+
     def on_mount_root_vol(self, event: wx.Event) -> None:
         if os.geteuid() != 0:
             wx.MessageDialog(self.parent, "Please relaunch as Root to mount the Root Volume", "Error", wx.OK | wx.ICON_ERROR).ShowModal()

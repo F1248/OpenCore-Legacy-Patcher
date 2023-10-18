@@ -407,7 +407,7 @@ class RemoteInstallerCatalog:
                 })
 
         available_apps = {k: v for k, v in sorted(available_apps.items(), key=lambda x: x[1]['Version'])}
-        
+
         return available_apps
 
 

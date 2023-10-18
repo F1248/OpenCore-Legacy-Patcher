@@ -3,7 +3,7 @@
 As written with the release of OpenCore Legacy Patcher 0.4.3, and macOS 12.3:
 
 > With today's macOS 12.3 release, I decided it would be best to release this build of OpenCore Legacy Patcher to ensure some important issues are resolved with today's release (namely Open/Save dialog problem introduced by Apple in the 12.3 Betas)
-> 
+>
 > As the situation develops back home with my family in Ukraine, I am unlikely to continue the development of OpenCore Legacy Patcher in the near future. At most, there may be potential PatcherSupportPkg updates from ASentientBot and the rest of the amazing non-Metal development team however otherwise development may potentially be taken over by others later on. Issues will continue to remain closed for the time being.
 >
 > With regards to the future of this project, this release should be treated as its last major release for the next couple of months. When WWDC2022 is presented, I hope my country will be in a calmer situation where we can tinker with Macs again peacefully.

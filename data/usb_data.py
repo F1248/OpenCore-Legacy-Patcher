@@ -1,7 +1,7 @@
 class AppleIDs:
     # All top case devices use Vendor ID 05ac
     Modern_AppleUSBTCKeyboard = [
-        0x223, 
+        0x223,
         0x224,
         0x225,
         0x230,
@@ -53,7 +53,7 @@ class AppleIDs:
         0x22a,
         0x22b
     ]
-    
+
     AppleUSBTrackpad = [
         0x20e,
         0x20f,
@@ -75,7 +75,7 @@ class AppleIDs:
     ]
 
     AppleUSBMultiTouch = [
-        0x223, 
+        0x223,
         0x224,
         0x225,
         0x230,

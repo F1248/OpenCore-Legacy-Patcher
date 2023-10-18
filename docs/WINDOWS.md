@@ -76,7 +76,7 @@ Once the file is downloaded, mount the .iso image:
 
 ![](../images/windows-iso.png)
 
-Then open terminal and use the `rsync` command with the disk image set as the source and your USB drive set as the target. (Replace "CCCOMA_X64" with the mounted image's partition name, and replace "InstallWin10" with your USB Drive's name). If you are installing Windows 11 you still need to run this step on the Windows 10 ISO file. 
+Then open terminal and use the `rsync` command with the disk image set as the source and your USB drive set as the target. (Replace "CCCOMA_X64" with the mounted image's partition name, and replace "InstallWin10" with your USB Drive's name). If you are installing Windows 11 you still need to run this step on the Windows 10 ISO file.
 
 ```
 rsync -r -P /Volumes/CCCOMA_X64/ /Volumes/InstallWin10
