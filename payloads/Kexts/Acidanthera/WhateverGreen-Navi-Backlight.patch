@@ -19,14 +19,14 @@ index b4f271f..162dc82 100644
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null AppleBacklightDisplay");
 -		return;
 -	}
--	
+-
 -	OSIterator *iter = IOService::getMatchingServices(matching);
 -	if (iter == nullptr) {
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null matching");
 -		matching->release();
 -		return;
 -	}
--	
+-
 -	IORegistryEntry* display = OSDynamicCast(IORegistryEntry, iter->getNextObject());
 -	if (display == nullptr) {
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null display");
@@ -34,7 +34,7 @@ index b4f271f..162dc82 100644
 -		matching->release();
 -		return;
 -	}
--	
+-
 -	OSDictionary* iodispparm = OSDynamicCast(OSDictionary, display->getProperty("IODisplayParameters"));
 -	if (iodispparm == nullptr) {
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null IODisplayParameters");
@@ -42,7 +42,7 @@ index b4f271f..162dc82 100644
 -		matching->release();
 -		return;
 -	}
--	
+-
 -	OSDictionary* linearbri = OSDynamicCast(OSDictionary, iodispparm->getObject("linear-brightness"));
 -	if (linearbri == nullptr) {
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null linear-brightness");
@@ -50,7 +50,7 @@ index b4f271f..162dc82 100644
 -		matching->release();
 -		return;
 -	}
--	
+-
 -	OSNumber* maxbri = OSDynamicCast(OSNumber, linearbri->getObject("max"));
 -	if (maxbri == nullptr) {
 -		DBGLOG("igfx", "isRadeonX6000WiredToInternalDisplay null max");
@@ -138,22 +138,22 @@ index b4f271f..162dc82 100644
 -	if (attribute != (UInt32)'bklt') {
 -		return ret;
 -	}
--	
+-
 -	if (callbackRAD->maxPwmBacklightLvl == 0) {
 -		DBGLOG("igfx", "wrapAMDRadeonX6000AmdRadeonFramebufferSetAttribute zero maxPwmBacklightLvl");
 -		return 0;
 -	}
--	
+-
 -	if (callbackRAD->panelCntlPtr == nullptr) {
 -		DBGLOG("igfx", "wrapAMDRadeonX6000AmdRadeonFramebufferSetAttribute null panel cntl");
 -		return 0;
 -	}
--	
+-
 -	if (callbackRAD->orgDceDriverSetBacklight == nullptr) {
 -		DBGLOG("igfx", "wrapAMDRadeonX6000AmdRadeonFramebufferSetAttribute null orgDcLinkSetBacklightLevel");
 -		return 0;
 -	}
--	
+-
 -	// set the backlight of AMD navi10 driver
 -	callbackRAD->curPwmBacklightLvl = (uint32_t)value;
 -	uint32_t btlper = callbackRAD->curPwmBacklightLvl * 100 / callbackRAD->maxPwmBacklightLvl;
@@ -228,14 +228,14 @@ index b4f271f..162dc82 100644
 
 -		if (!patcher.routeMultiple(index, requests, address, size, true, true))
 -			SYSLOG("igfx", "Failed to route redeon x6000 gpu tracing.");
--		
+-
 -		orgDceDriverSetBacklight = reinterpret_cast<t_DceDriverSetBacklight>(patcher.solveSymbol(index, "_dce_driver_set_backlight"));
 -		if (patcher.getError() != KernelPatcher::Error::NoError) {
 -			SYSLOG("igfx", "failed to resolve _dce_driver_set_backlight");
 -			patcher.clearError();
 -		}
 -	}
--	
+-
 -	if (kextRadeonFramebuffer.loadIndex == index) {
 -		if (force24BppMode)
 -			process24BitOutput(patcher, kextRadeonFramebuffer, address, size);
