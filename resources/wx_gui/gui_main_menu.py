@@ -3,12 +3,8 @@
 
 import wx
 import wx.html2
-import markdown2
-import requests
 import sys
 import logging
-import threading
-import webbrowser
 import subprocess
 
 from pathlib import Path
