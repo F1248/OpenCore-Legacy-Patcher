@@ -1252,7 +1252,7 @@ Hardware Information:
             if len(last_commit) > 64:
                 last_commit = last_commit[0:63]
                 last_commit += (" …")
-            description = name + " (last commit: " + last_commit + ")"
+            description = name + " (Last commit: " + last_commit + ")"
             branches.append([name, description])
 
         for branch_name in ["master", "main", self.constants.commit_info[0]]:
