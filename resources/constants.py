@@ -194,7 +194,6 @@ class Constants:
         self.disable_amfi:   bool = False  # Disable AMFI
 
         ## OS Settings
-        self.os_support:        float = 12.0
         self.detected_os:         int = 0  #  Major Kernel Version
         self.detected_os_minor:   int = 0  #  Minor Kernel Version
         self.detected_os_build:   str = ""  # OS Build
