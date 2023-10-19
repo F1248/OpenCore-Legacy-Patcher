@@ -177,7 +177,7 @@ class InitializeLoggingSupport:
             self._initialize_logging_configuration()
         except Exception as e:
             print(f"Failed to initialize logging framework: {e}")
-            print("Retrying without logging to file...")
+            print("Retrying without logging to file…")
             self._initialize_logging_configuration(log_to_file=False)
 
 

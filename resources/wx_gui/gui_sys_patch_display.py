@@ -68,7 +68,7 @@ class SysPatchDisplayFrame(wx.Frame):
         title_label.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         title_label.Centre(wx.HORIZONTAL)
 
-        # Label: Fetching patches...
+        # Label: Fetching patches…
         available_label = wx.StaticText(frame, label="Fetching patches for host", pos=(-1, title_label.GetPosition()[1] + title_label.GetSize()[1] + 10))
         available_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_BOLD))
         available_label.Centre(wx.HORIZONTAL)

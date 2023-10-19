@@ -315,7 +315,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         progress_bar_animation = gui_support.GaugePulseCallback(self.constants, progress_bar)
         progress_bar_animation.start_pulse()
 
-        bytes_written_label.SetLabel("Validating Installer Integrity...")
+        bytes_written_label.SetLabel("Validating Installer Integrity…")
         error_message = self._validate_installer_pkg(disk['identifier'])
 
         progress_bar_animation.stop_pulse()

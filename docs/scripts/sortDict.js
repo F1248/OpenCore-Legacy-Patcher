@@ -17,7 +17,7 @@ ocDictionary = ocDictionary.filter((string, index) => ocDictionary.indexOf(strin
 
 dictionary = dictionary.filter(string => !ocDictionary.includes(string));
 
-console.log("Sorting...");
+console.log("Sorting…");
 dictionary.sort();
 ocDictionary.sort();
 

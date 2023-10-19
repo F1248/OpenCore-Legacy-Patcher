@@ -160,7 +160,7 @@ class DetectRootPatch:
                             # full compatibility (namely power states, etc)
                             # Reference: https://github.com/dortania/bugtracker/issues/292
                             # TODO: Probe framebuffer families further
-                            # Sonoma note: MacBookPro14,3 has the same issue...
+                            # Sonoma note: MacBookPro14,3 has the same issue…
                             # iMac18,2/3 is partially affected, however currently it seems the generic framebuffer
                             # is sufficient. Only MacBookPro14,3 needs this for dGPU handling
                             if self.model not in ["MacBookPro13,3", "MacBookPro14,3"]:

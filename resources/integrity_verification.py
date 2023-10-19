@@ -38,10 +38,10 @@ class ChunklistVerification:
         >>> chunk_obj = ChunklistVerification("InstallAssistant.pkg", "InstallAssistant.pkg.integrityDataV1")
         >>> chunk_obj.validate()
         >>> while chunk_obj.status == ChunklistStatus.IN_PROGRESS:
-        ...     print(f"Validating {chunk_obj.current_chunk} of {chunk_obj.total_chunks}")
+        …     print(f"Validating {chunk_obj.current_chunk} of {chunk_obj.total_chunks}")
 
         >>> if chunk_obj.status == ChunklistStatus.FAILURE:
-        ...     print(chunk_obj.error_msg)
+        …     print(chunk_obj.error_msg)
     """
 
     def __init__(self, file_path: Path, chunklist_path: Union[Path, bytes]) -> None:

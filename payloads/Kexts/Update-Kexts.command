@@ -101,7 +101,7 @@ class GenerateKexts:
             return
 
         # WhateverGreen
-        print("Building modified WhateverGreen...")
+        print("Building modified WhateverGreen…")
         # We have to compile WEG ourselves
         weg_source_url = f"https://github.com/acidanthera/WhateverGreen/archive/refs/tags/{self.weg_version}.zip"
         lilu_url = f"https://github.com/acidanthera/Lilu/releases/download/{self.lilu_version}/Lilu-{self.lilu_version}-DEBUG.zip"
@@ -145,7 +145,7 @@ class GenerateKexts:
     def _iterate_over_kexts(self):
         for kext_folder in KEXT_DICTIONARY:
             for kext_name in KEXT_DICTIONARY[kext_folder]:
-                print(f"Checking {kext_name}...")
+                print(f"Checking {kext_name}…")
                 if "Override" in KEXT_DICTIONARY[kext_folder][kext_name]:
                     self._get_latest_release(kext_folder, kext_name, override_kext_zip_name=KEXT_DICTIONARY[kext_folder][kext_name]["Override"])
                 else:
@@ -201,14 +201,14 @@ class GenerateKexts:
                 if remote_version == local_version:
                     if self._is_build_nightly(kext_name, local_version) is False:
                         continue
-                    print(f"  {kext_name} {variant} is a nightly build, updating...")
+                    print(f"  {kext_name} {variant} is a nightly build, updating…")
                 else:
                     continue
 
             for asset in latest_release["assets"]:
                 if not asset["name"].endswith(f"{variant}.zip"):
                     continue
-                print(f"  Downloading {kext_name} {variant}: v{remote_version}...")
+                print(f"  Downloading {kext_name} {variant}: v{remote_version}…")
                 zip_name = f"{override_kext_zip_name}-v{remote_version}-{variant}.zip" if override_kext_zip_name else f"{kext_name}-v{remote_version}-{variant}.zip"
 
                 if Path(f"./{kext_folder}/{zip_name.replace(f'v{remote_version}', f'v{local_version}')}").exists():
@@ -249,7 +249,7 @@ class GenerateKexts:
             # Unzip file
             subprocess.run(["unzip", "-q", f"{temp_dir}/temp.zip", "-d", f"{temp_dir}"], check=True)
 
-            print(f"  Moving {file} to {file_path}...")
+            print(f"  Moving {file} to {file_path}…")
             # Zip file
             subprocess.run(["zip", "-q", "-r", Path(file_path).name, file], cwd=f"{temp_dir}", check=True)
 
@@ -258,7 +258,7 @@ class GenerateKexts:
 
 
     def _update_constants_file(self, variable_name, old_version, new_version):
-        print(f"  Updating {variable_name} to {new_version}...")
+        print(f"  Updating {variable_name} to {new_version}…")
         constants_file = Path("../../resources/constants.py")
         if not constants_file.exists():
             raise Exception("Constants file does not exist")

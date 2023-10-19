@@ -58,7 +58,7 @@ class SysPatchStartFrame(wx.Frame):
         header.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         header.Centre(wx.HORIZONTAL)
 
-        subheader = wx.StaticText(frame, label="Fetching KDK database...", pos=(-1, header.GetPosition()[1] + header.GetSize()[1] + 5))
+        subheader = wx.StaticText(frame, label="Fetching KDK database…", pos=(-1, header.GetPosition()[1] + header.GetSize()[1] + 5))
         subheader.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
         subheader.Centre(wx.HORIZONTAL)
 
@@ -108,7 +108,7 @@ class SysPatchStartFrame(wx.Frame):
         header.SetLabel(f"Validating KDK: {self.kdk_obj.kdk_url_build}")
         header.Centre(wx.HORIZONTAL)
 
-        subheader.SetLabel("Checking if checksum is valid...")
+        subheader.SetLabel("Checking if checksum is valid…")
         subheader.Centre(wx.HORIZONTAL)
         wx.Yield()
 

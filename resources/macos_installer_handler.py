@@ -518,7 +518,7 @@ class LocalInstallerCatalog:
                     "Build": "20A5343i",
                     "Path": "/Applications/Install macOS Big Sur Beta.app"
                 },
-                etc...
+                etc…
         """
 
         application_list: dict = {}

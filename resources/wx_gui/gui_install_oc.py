@@ -45,7 +45,7 @@ class InstallOCFrame(wx.Frame):
 
         Format:
             - Title label:        Install OpenCore
-            - Text:               Fetching information on local disks...
+            - Text:               Fetching information on local disks…
             - Progress bar:       {indeterminate}
         """
 
@@ -54,8 +54,8 @@ class InstallOCFrame(wx.Frame):
         title_label.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         title_label.Centre(wx.HORIZONTAL)
 
-        # Text: Parsing local disks...
-        text_label = wx.StaticText(self, label="Fetching information on local disks...", pos=(-1,30))
+        # Text: Parsing local disks…
+        text_label = wx.StaticText(self, label="Fetching information on local disks…", pos=(-1,30))
         text_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
         text_label.Centre(wx.HORIZONTAL)
         self.text_label = text_label

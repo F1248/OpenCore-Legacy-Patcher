@@ -17,7 +17,7 @@ Here are some common errors that users may experience while using this patcher:
 * [No DisplayPort Output on Mac Pros with NVIDIA Kepler](#no-displayport-output-on-mac-pros-with-NVIDIA-kepler)
 * [Volume Hash Mismatch Error in macOS Monterey](#volume-hash-mismatch-error-in-macos-monterey)
 * [Cannot Disable SIP in recoveryOS](#cannot-disable-sip-in-recoveryos)
-* [Stuck on "Less than a minute remaining..."](#stuck-on-less-than-a-minute-remaining)
+* [Stuck on "Less than a minute remaining…"](#stuck-on-less-than-a-minute-remaining)
 * [No acceleration after a Metal GPU swap on Mac Pro](#no-acceleration-after-a-metal-gpu-swap-on-mac-pro)
 * [Keyboard, Mouse and Trackpad not working in installer or after update](#keyboard-mouse-and-trackpad-not-working-in-installer-or-after-update)
 
@@ -160,7 +160,7 @@ Because of this, we recommend placing a USB 2.0/3.0 hub between your devices and
 
 * Alternatively, you can try cold-starting the hardware and see if macOS recognizes the UHCI controller properly.
 
-## Stuck on "Less than a minute remaining..."
+## Stuck on "Less than a minute remaining…"
 
 A common area for systems to get "stuck", namely for units that are missing the `AES` CPU instruction/older mobile hardware. During this stage, a lot of heavy cryptography is performed, which can make systems appear to be stuck. In reality they are working quite hard to finish up the installation.
 

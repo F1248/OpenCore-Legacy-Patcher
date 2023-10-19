@@ -123,7 +123,7 @@ class CreateBinary:
         """
 
         if Path(f"./dist/OpenCore-Patcher.app").exists():
-            print("Found OpenCore-Patcher.app, removing...")
+            print("Found OpenCore-Patcher.app, removing…")
             rm_output = subprocess.run(
                 ["rm", "-rf", "./dist/OpenCore-Patcher.app"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -135,7 +135,7 @@ class CreateBinary:
 
         self._embed_key()
 
-        print("Building GUI binary...")
+        print("Building GUI binary…")
         build_args = [self.pyinstaller_path, "./OpenCore-Patcher-GUI.spec", "--noconfirm"]
 
         build_result = subprocess.run(build_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -148,7 +148,7 @@ class CreateBinary:
             raise Exception("Build failed")
 
         # Next embed support icns into ./Resources
-        print("Embedding icns...")
+        print("Embedding icns…")
         for file in Path("payloads/Icon/AppIcons").glob("*.icns"):
             subprocess.run(
                 ["cp", str(file), "./dist/OpenCore-Patcher.app/Contents/Resources/"],
@@ -164,13 +164,13 @@ class CreateBinary:
         """
 
         if not self.args.key:
-            print("No developer key provided, skipping...")
+            print("No developer key provided, skipping…")
             return
         if not self.args.site:
-            print("No site provided, skipping...")
+            print("No site provided, skipping…")
             return
 
-        print("Embedding developer key...")
+        print("Embedding developer key…")
         if not Path("./resources/analytics_handler.py").exists():
             print("analytics_handler.py not found")
             return
@@ -195,13 +195,13 @@ class CreateBinary:
         """
 
         if not self.args.key:
-            print("No developer key provided, skipping...")
+            print("No developer key provided, skipping…")
             return
         if not self.args.site:
-            print("No site provided, skipping...")
+            print("No site provided, skipping…")
             return
 
-        print("Stripping developer key...")
+        print("Stripping developer key…")
         if not Path("./resources/analytics_handler.py").exists():
             print("analytics_handler.py not found")
             return
@@ -246,7 +246,7 @@ class CreateBinary:
         ]
 
 
-        print("Deleting extra binaries...")
+        print("Deleting extra binaries…")
         for file in Path("payloads").glob(pattern="*"):
             if file.is_dir():
                 if file.name in whitelist_folders:
@@ -270,7 +270,7 @@ class CreateBinary:
             "Universal-Binaries.dmg"
         ]
 
-        print("Downloading required resources...")
+        print("Downloading required resources…")
         for resource in required_resources:
             if Path(f"./{resource}").exists():
                 if self.args.reset_binaries:
@@ -289,7 +289,7 @@ class CreateBinary:
                 else:
                     print(f"- {resource} already exists, skipping download")
                     continue
-            print(f"- Downloading {resource}...")
+            print(f"- Downloading {resource}…")
 
             download_result = subprocess.run(
                 [
@@ -330,7 +330,7 @@ class CreateBinary:
                 print(rm_output.stderr.decode('utf-8'))
                 raise Exception("Remove failed")
 
-        print("- Generating DMG...")
+        print("- Generating DMG…")
         dmg_output = subprocess.run([
             'hdiutil', 'create', './payloads.dmg',
             '-megabytes', '32000',  # Overlays can only be as large as the disk image allows

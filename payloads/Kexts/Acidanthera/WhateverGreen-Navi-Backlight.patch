@@ -160,12 +160,12 @@ index b4f271f..162dc82 100644
 -	uint32_t pwmval = 0;
 -	if (btlper >= 100) {
 -		// This is from the dmcu_set_backlight_level function of Linux source
--		// ...
+-		// …
 -		// if (backlight_pwm_u16_16 & 0x10000)
 -		// 	   backlight_8_bit = 0xFF;
 -		// else
 -		// 	   backlight_8_bit = (backlight_pwm_u16_16 >> 8) & 0xFF;
--		// ...
+-		// …
 -		// The max brightness should have 0x10000 bit set
 -		pwmval = 0x1FF00;
 -	} else {
@@ -1913,12 +1913,12 @@ index b4f271f..162dc82 100644
 +    int pwmval = (int)((btlper / 100.0) * 0xFF) << 8;
 +    if (pwmval >= 0xFF00) {
 +        // This is from the dmcu_set_backlight_level function of Linux source
-+        // ...
++        // …
 +        // if (backlight_pwm_u16_16 & 0x10000)
 +        //        backlight_8_bit = 0xFF;
 +        // else
 +        //        backlight_8_bit = (backlight_pwm_u16_16 >> 8) & 0xFF;
-+        // ...
++        // …
 +        // The max brightness should have 0x10000 bit set
 +        pwmval = 0x1FF00;
 +    }

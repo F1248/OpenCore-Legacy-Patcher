@@ -10,7 +10,7 @@ Term | Description
 **Windows**      | Microsoft's proprietary OS that is used and supported on a wide range of devices
 **Linux**        | Family of open source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds. Linux is typically packaged in a Linux distribution. Note that while macOS and Linux may be UNIX-based, they're vastly different.
 **Bootloader**   | Piece of software that loads an OS, usually made by the OS creators. OpenCore is technically not a bootloader per se (see boot manager explanation down below). Apple's Boot.efi would be the actual boot loader in a Mac.
-**Boot Manager** | Piece of software that manages bootloaders – we have many of these: Clover, systemd-boot, OpenCore, rEFInd, rEFIt... These are generally seen as prepping the system for the actual boot loader.
+**Boot Manager** | Piece of software that manages bootloaders – we have many of these: Clover, systemd-boot, OpenCore, rEFInd, rEFIt… These are generally seen as prepping the system for the actual boot loader.
 ---
 Term | Description
 --- | ---

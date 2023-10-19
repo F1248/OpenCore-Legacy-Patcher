@@ -65,7 +65,7 @@ EOF
 cd "${OCPath}" || abort "Failed to reach ${OCPath}"
 /bin/rm -rf vault.plist vault.sig || abort "Failed to cleanup"
 
-echo "Hashing OpenCore configuration..."
+echo "Hashing OpenCore configuration…"
 
 write_header vault.plist
 

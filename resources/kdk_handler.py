@@ -572,7 +572,7 @@ class KernelDebugKitUtilities:
             return False
 
         logging.info(f"Installing KDK package: {kdk_path.name}")
-        logging.info(f"- This may take a while...")
+        logging.info(f"- This may take a while…")
 
         # TODO: Check whether enough disk space is available
 

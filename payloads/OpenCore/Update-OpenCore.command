@@ -76,7 +76,7 @@ IMPORTANT_UTILITIES = [
 class GenerateOpenCore:
 
     def __init__(self):
-        print("Generating new OpenCore bundles...")
+        print("Generating new OpenCore bundles…")
 
         self.working_dir = None
 
@@ -113,27 +113,27 @@ class GenerateOpenCore:
 
 
         # Unzip both, rename to OpenCore-DEBUG and OpenCore-RELEASE
-        print("Unzipping DEBUG zip...")
+        print("Unzipping DEBUG zip…")
         subprocess.run (
             ["unzip", f"{self.debug_zip}", "-d", f"{self.working_dir}/OpenCore-DEBUG-ROOT"],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
-        print("Unzipping RELEASE zip...")
+        print("Unzipping RELEASE zip…")
         subprocess.run (
             ["unzip", f"{self.release_zip}", "-d", f"{self.working_dir}/OpenCore-RELEASE-ROOT"],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
         for variant in BUILD_VARIANTS:
-            print(f"Moving {variant} folder...")
+            print(f"Moving {variant} folder…")
             subprocess.run (
                 ["mv", f"{self.working_dir}/OpenCore-{variant}-ROOT/X64", f"{self.working_dir}/OpenCore-{variant}"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             if variant == "DEBUG":
                 for utility in IMPORTANT_UTILITIES:
-                    print(f"Moving {utility} from {variant} variant...")
+                    print(f"Moving {utility} from {variant} variant…")
                     subprocess.run (
                         ["rm", "-rf", f"{self.working_dir}/{utility}"],
                         stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -150,7 +150,7 @@ class GenerateOpenCore:
             )
 
         # Remove zip files
-        print("Removing zip files...")
+        print("Removing zip files…")
         # remove debug_zip
         subprocess.run (
             ["rm", "-rf", self.debug_zip],
@@ -164,11 +164,11 @@ class GenerateOpenCore:
 
     def download_new_binaries(self, variant):
         # Get latest release
-        print(f"Getting latest {variant}...")
+        print(f"Getting latest {variant}…")
         latest_release = requests.get(REPO_URL).json()
 
         # Get latest release download url
-        print(f"   Getting latest {variant} download url...")
+        print(f"   Getting latest {variant} download url…")
         for asset in latest_release["assets"]:
             if asset["name"].endswith(f"{variant}.zip"):
                 download_url = asset["browser_download_url"]
@@ -183,16 +183,16 @@ class GenerateOpenCore:
             raise ValueError("Invalid variant!")
 
         # Download latest release
-        print(f"   Downloading latest {variant}...")
+        print(f"   Downloading latest {variant}…")
         download = requests.get(download_url)
         with open(f"{self.working_dir}/{asset['name']}", "wb") as f:
             f.write(download.content)
 
     def clean_old_bundles(self):
-        print("Cleaning old bundles...")
+        print("Cleaning old bundles…")
         for variant in BUILD_VARIANTS:
             if (self.working_dir / f"OpenCore-{variant}").exists():
-                print(f"   Deleting old {variant} variant...")
+                print(f"   Deleting old {variant} variant…")
                 subprocess.run (
                     ["rm", "-rf", f"{self.working_dir}/OpenCore-{variant}"],
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -205,7 +205,7 @@ class GenerateOpenCore:
 
     def generate(self):
         for variant in BUILD_VARIANTS:
-            print(f"Generating {variant} variant...")
+            print(f"Generating {variant} variant…")
             self.generate_opencore(variant)
 
     def generate_opencore(self, variant):

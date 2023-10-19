@@ -790,7 +790,7 @@ class PatchSysVolume:
         elif Path(source_folder + "/" + file_name_str).is_dir():
             # Applicable for .kext, .app, .plugin, .bundle, all of which are directories
             if Path(destination_folder + "/" + file_name).exists():
-                logging.info(f"  - Found existing {file_name}, overwriting...")
+                logging.info(f"  - Found existing {file_name}, overwriting…")
                 utilities.process_status(utilities.elevated(["rm", "-R", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             else:
                 logging.info(f"  - Installing: {file_name}")
@@ -799,7 +799,7 @@ class PatchSysVolume:
         else:
             # Assume it's an individual file, replace as normal
             if Path(destination_folder + "/" + file_name).exists():
-                logging.info(f"  - Found existing {file_name}, overwriting...")
+                logging.info(f"  - Found existing {file_name}, overwriting…")
                 utilities.process_status(utilities.elevated(["rm", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             else:
                 logging.info(f"  - Installing: {file_name}")
@@ -848,11 +848,11 @@ class PatchSysVolume:
         """
 
         if Path(self.constants.payload_local_binaries_root_path).exists():
-            logging.info("- Local PatcherSupportPkg resources available, continuing...")
+            logging.info("- Local PatcherSupportPkg resources available, continuing…")
             return True
 
         if Path(self.constants.payload_local_binaries_root_path_dmg).exists():
-            logging.info("- Local PatcherSupportPkg resources available, mounting...")
+            logging.info("- Local PatcherSupportPkg resources available, mounting…")
 
             output = subprocess.run(
                 [

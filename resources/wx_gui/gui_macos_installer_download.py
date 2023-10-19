@@ -379,7 +379,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
         title_label.SetLabel("Extracting macOS Installer")
         title_label.Centre(wx.HORIZONTAL)
 
-        chunk_label.SetLabel("May take a few minutes...")
+        chunk_label.SetLabel("May take a few minutes…")
         chunk_label.Centre(wx.HORIZONTAL)
 
         progress_bar_animation = gui_support.GaugePulseCallback(self.constants, progress_bar)

@@ -217,11 +217,11 @@ class MainFrame(wx.Frame):
             pop_up.ShowModal()
 
             if pop_up.GetReturnCode() != wx.ID_YES:
-                logging.info("Skipping OpenCore and root volume patch update...")
+                logging.info("Skipping OpenCore and root volume patch update…")
                 return
 
 
-            logging.info("Updating OpenCore and root volume patches...")
+            logging.info("Updating OpenCore and root volume patches…")
             self.constants.update_stage = gui_support.AutoUpdateStages.CHECKING
             self.Hide()
             pos = self.GetPosition()

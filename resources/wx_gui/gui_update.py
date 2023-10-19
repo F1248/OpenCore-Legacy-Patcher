@@ -59,7 +59,7 @@ class UpdateFrame(wx.Frame):
         )
 
         # Title: Preparing update
-        title_label = wx.StaticText(self.frame, label="Preparing download...", pos=(-1,1))
+        title_label = wx.StaticText(self.frame, label="Preparing download…", pos=(-1,1))
         title_label.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         title_label.Centre(wx.HORIZONTAL)
 
@@ -103,7 +103,7 @@ class UpdateFrame(wx.Frame):
             sys.exit(1)
 
         # Title: Extracting update
-        title_label.SetLabel("Extracting update...")
+        title_label.SetLabel("Extracting update…")
         title_label.Centre(wx.HORIZONTAL)
         wx.Yield()
 
@@ -114,7 +114,7 @@ class UpdateFrame(wx.Frame):
             wx.Yield()
 
         # Title: Installing update
-        title_label.SetLabel("Installing update...")
+        title_label.SetLabel("Installing update…")
         title_label.Centre(wx.HORIZONTAL)
 
         thread = threading.Thread(target=self._install_update)
@@ -141,8 +141,8 @@ class UpdateFrame(wx.Frame):
         installed_path_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
         installed_path_label.Centre(wx.HORIZONTAL)
 
-        # Label: Launching update shortly...
-        launch_label = wx.StaticText(self.frame, label="Launching update shortly...", pos=(-1, installed_path_label.GetPosition().y + 30))
+        # Label: Launching update shortly…
+        launch_label = wx.StaticText(self.frame, label="Launching update shortly…", pos=(-1, installed_path_label.GetPosition().y + 30))
         launch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
         launch_label.Centre(wx.HORIZONTAL)
 

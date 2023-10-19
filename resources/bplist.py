@@ -155,22 +155,22 @@ class BPListReader(object):
                 raise Exception("0x0F Not Implemented") # this is really pad byte, FIXME
             else:
                 raise Exception('unpack item type '+str(obj_header)+' at '+str(offset)+ 'failed')
-        elif obj_type == 0x10: #     int    0001 nnnn   ...     // # of bytes is 2^nnnn, big-endian bytes
+        elif obj_type == 0x10: #     int    0001 nnnn   …     // # of bytes is 2^nnnn, big-endian bytes
             return self.__unpackInt(offset)
-        elif obj_type == 0x20: #    real    0010 nnnn   ...     // # of bytes is 2^nnnn, big-endian bytes
+        elif obj_type == 0x20: #    real    0010 nnnn   …     // # of bytes is 2^nnnn, big-endian bytes
             return self.__unpackFloat(offset)
-        elif obj_type == 0x30: #    date    0011 0011   ...     // 8 byte float follows, big-endian bytes
+        elif obj_type == 0x30: #    date    0011 0011   …     // 8 byte float follows, big-endian bytes
             return self.__unpackDate(offset)
-        elif obj_type == 0x40: #    data    0100 nnnn   [int]   ... // nnnn is number of bytes unless 1111 then int count follows, followed by bytes
+        elif obj_type == 0x40: #    data    0100 nnnn   [int]   … // nnnn is number of bytes unless 1111 then int count follows, followed by bytes
             obj_count, objref = self.__resolveIntSize(obj_info, offset)
             return self.data[objref:objref+obj_count] # XXX: we return data as str
-        elif obj_type == 0x50: #    string  0101 nnnn   [int]   ... // ASCII string, nnnn is # of chars, else 1111 then int count, then bytes
+        elif obj_type == 0x50: #    string  0101 nnnn   [int]   … // ASCII string, nnnn is # of chars, else 1111 then int count, then bytes
             obj_count, objref = self.__resolveIntSize(obj_info, offset)
             return self.data[objref:objref+obj_count]
-        elif obj_type == 0x60: #    string  0110 nnnn   [int]   ... // Unicode string, nnnn is # of chars, else 1111 then int count, then big-endian 2-byte uint16_t
+        elif obj_type == 0x60: #    string  0110 nnnn   [int]   … // Unicode string, nnnn is # of chars, else 1111 then int count, then big-endian 2-byte uint16_t
             obj_count, objref = self.__resolveIntSize(obj_info, offset)
             return self.data[objref:objref+obj_count*2].decode('utf-16be')
-        elif obj_type == 0x80: #    uid     1000 nnnn   ...     // nnnn+1 is # of bytes
+        elif obj_type == 0x80: #    uid     1000 nnnn   …     // nnnn+1 is # of bytes
             # FIXME: Accept as a string for now
             obj_count, objref = self.__resolveIntSize(obj_info, offset)
             return self.data[objref:objref+obj_count]
