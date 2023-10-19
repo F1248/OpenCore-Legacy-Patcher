@@ -1249,10 +1249,13 @@ Hardware Information:
             commit_url = branch["commit"]["url"]
             brach_result = network_handler.NetworkUtilities().get(commit_url).json()
             last_commit = brach_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
+            installed_note = ""
+            if name == self.constants.commit_info[0] and brach_result["html_url"] == self.constants.commit_info[2]:
+                installed_note = "Currently installed, "
             if len(last_commit) > 128:
                 last_commit = last_commit[0:127]
                 last_commit += (" …")
-            description = name + " (Last commit: " + last_commit + ")"
+            description = name + " (" + installed_note + "Last commit: " + last_commit + ")"
             branches.append([name, description])
 
         for branch_name in ["master", "main", self.constants.commit_info[0]]:
