@@ -1269,7 +1269,7 @@ Hardware Information:
         for branch in branches:
             branch_descriptions.append(branch[1])
 
-        with wx.SingleChoiceDialog(self.parent, "Which branch would you like to download?", "Branch Selection", branch_descriptions) as dialog:
+        with wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions) as dialog:
             if dialog.ShowModal() == wx.ID_CANCEL:
                 return
 
