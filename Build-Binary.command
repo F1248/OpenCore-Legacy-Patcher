@@ -360,7 +360,7 @@ class CreateBinary:
             commit_url = ""
             commit_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         else:
-            branch = self.args.branch
+            branch = self.args.branch.replace("refs/heads/", "")
             commit_url = self.args.commit
             commit_date = self.args.commit_date
         print("- Adding commit data to Info.plist")
