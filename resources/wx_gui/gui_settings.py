@@ -1253,10 +1253,10 @@ Hardware Information:
                 installed_note = "Currently installed, "
             else:
                 installed_note = ""
-            if len(last_commit) > 128:
-                last_commit = last_commit[0:127]
-                last_commit += (" …")
             description = name + " (" + installed_note + "Last commit: " + last_commit + ")"
+            while len(description) > 128:
+                last_commit = last_commit[: - 1]
+                description = name + " (" + installed_note + "Last commit: " + last_commit + " …)"
             branches.append([name, description])
 
         for branch_name in ["master", "main", self.constants.commit_info[0]]:
