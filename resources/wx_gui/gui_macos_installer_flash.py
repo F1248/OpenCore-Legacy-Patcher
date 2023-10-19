@@ -14,7 +14,7 @@ from resources import (
     macos_installer_handler,
     utilities,
     network_handler,
-    kdk_handler,
+    kdk_handler
 )
 from data import os_data
 

@@ -47,7 +47,7 @@ UNUSED_DRIVERS = [
     "DpcDxe.efi",
     "DnsDxe.efi",
     "Dhcp4Dxe.efi",
-    "ArpDxe.efi",
+    "ArpDxe.efi"
 ]
 
 UNUSED_TOOLS = [
@@ -63,12 +63,12 @@ UNUSED_TOOLS = [
     "CsrUtil.efi",
     "TpmInfo.efi",
     "ListPartitions.efi",
-    "FontTester.efi",
+    "FontTester.efi"
 ]
 
 IMPORTANT_UTILITIES = [
     "macserial",
-    "ocvalidate",
+    "ocvalidate"
 ]
 
 

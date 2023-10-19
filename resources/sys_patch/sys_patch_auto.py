@@ -72,7 +72,7 @@ class AutomaticSysPatch:
                     "osascript",
                     "-e",
                     f"""display dialog "OpenCore Legacy Patcher has detected you're running without Root Patches, and would like to install them.\n\nmacOS wipes all root patches during OS installs and updates, so they need to be reinstalled.\n\nFollowing Patches have been detected for your system: \n{patch_string}\nWould you like to apply these patches?" """
-                    f'with icon POSIX file "{self.constants.app_icon_path}"',
+                    f'with icon POSIX file "{self.constants.app_icon_path}"'
                 ]
                 output = subprocess.run(
                     args,
@@ -135,7 +135,7 @@ class AutomaticSysPatch:
             "osascript",
             "-e",
             f"""display dialog "OpenCore Legacy Patcher has detected that you are booting {'a different' if self.constants.special_build else 'an outdated'} OpenCore build\n- Booted: {self.constants.computer.oclp_version}\n- Installed: {self.constants.patcher_version}\n\nWould you like to update the OpenCore bootloader?" """
-            f'with icon POSIX file "{self.constants.app_icon_path}"',
+            f'with icon POSIX file "{self.constants.app_icon_path}"'
         ]
         output = subprocess.run(
             args,
@@ -210,7 +210,7 @@ class AutomaticSysPatch:
                 "osascript",
                 "-e",
                 f"""display dialog "OpenCore Legacy Patcher has detected that you are booting OpenCore from an USB or External drive.\n\nIf you would like to boot your Mac normally without a USB drive plugged in, you can install OpenCore to the internal hard drive.\n\nWould you like to launch OpenCore Legacy Patcher and install to disk?" """
-                f'with icon POSIX file "{self.constants.app_icon_path}"',
+                f'with icon POSIX file "{self.constants.app_icon_path}"'
             ]
             output = subprocess.run(
                 args,
@@ -352,7 +352,7 @@ class AutomaticSysPatch:
         # Next add monitoring for '/System/Volumes/Preboot/{UUID}/cryptex1/OS.dmg'
         logging.info(f"  - Adding monitor: {cryptex_path}")
         rsr_monitor_plist["WatchPaths"] = [
-            cryptex_path,
+            cryptex_path
         ]
 
         # Write the RSRMonitor plist

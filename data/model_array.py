@@ -90,7 +90,7 @@ SupportedSMBIOS = [
     "MacPro6,1",
     # Xserve
     "Xserve2,1",
-    "Xserve3,1",
+    "Xserve3,1"
 ]
 
 # Audio
@@ -132,7 +132,7 @@ LegacyAudio = [
     "iMac12,1",
     "iMac12,2",
     "MacPro3,1",
-    "Dortania1,1",
+    "Dortania1,1"
 ]
 
 # GPU
@@ -222,7 +222,7 @@ LegacyBrightness = [
     "MacBook5,2",
     "iMac7,1",
     "iMac8,1",
-    "iMac9,1",
+    "iMac9,1"
 ]
 
 DualGPUPatch = [
@@ -240,14 +240,14 @@ DualGPUPatch = [
     "iMac13,2",
     "iMac14,2",
     "iMac14,3",
-    "Dortania1,1",
+    "Dortania1,1"
 ]
 
 IntelNvidiaDRM = [
     "iMac13,1",
     "iMac13,2",
     "iMac14,2",
-    "iMac14,3",
+    "iMac14,3"
 ]
 
 # Mac Pro and Xserve
@@ -277,7 +277,7 @@ AGDPSupport = [
     # "iMac20,1",
     # "iMac20,2",
     # "iMacPro1,1",
-    # "MacPro6,1",
+    # "MacPro6,1"
 ]
 
 Missing_USB_Map = [
@@ -319,7 +319,7 @@ Missing_USB_Map = [
     "MacPro3,1",
     "MacPro4,1",
     "Xserve2,1",
-    "Xserve3,1",
+    "Xserve3,1"
 ]
 
 Missing_USB_Map_Ventura = [
@@ -355,5 +355,5 @@ Missing_USB_Map_Ventura = [
     "iMac15,2",
     "iMac16,1",
     "iMac16,2",
-    "iMac17,1",
+    "iMac17,1"
 ]

@@ -236,7 +236,7 @@ class SettingsFrame(wx.Frame):
         settings = {
             "Build": {
                 "General": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "FireWire Booting": {
                     "type": "checkbox",
@@ -244,7 +244,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "firewire_boot",
                     "description": [
                         "Enable booting macOS from",
-                        "FireWire drives.",
+                        "FireWire drives."
                     ],
                     "condition": not (generate_smbios.check_firewire(self.constants.custom_model or self.constants.computer.real_model) is False)
                 },
@@ -255,7 +255,7 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Enable booting macOS from add-in",
                         "USB 3.0 expansion cards on systems",
-                        "without native support.",
+                        "without native support."
                     ],
                     "condition": not gui_support.CheckProperties(self.constants).host_has_cpu_gen(cpu_data.CPUGen.ivy_bridge) # Sandy Bridge and older do not natively support XHCI booting
                 },
@@ -268,12 +268,12 @@ class SettingsFrame(wx.Frame):
                         "drives on systems without native",
                         "support.",
                         "Note: Requires Firmware support",
-                        "for OpenCore to load from NVMe.",
+                        "for OpenCore to load from NVMe."
                     ],
                     "condition": not gui_support.CheckProperties(self.constants).host_has_cpu_gen(cpu_data.CPUGen.ivy_bridge) # Sandy Bridge and older do not natively support NVMe booting
                 },
                 "wrap_around 2": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "OpenCore Vaulting": {
                     "type": "checkbox",
@@ -282,7 +282,7 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Digitally sign OpenCore to prevent",
                         "tampering or corruption."
-                    ],
+                    ]
                 },
 
                 "Show OpenCore Boot Picker": {
@@ -291,8 +291,8 @@ class SettingsFrame(wx.Frame):
                     "variable": "showpicker",
                     "description": [
                         "When disabled, users can hold ESC to",
-                        "show picker in the firmware.",
-                    ],
+                        "show picker in the firmware."
+                    ]
                 },
                 "Boot Picker Timeout": {
                     "type": "spinctrl",
@@ -301,14 +301,14 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Timeout before boot picker selects default",
                         "entry in seconds.",
-                        "Set to 0 for no timeout.",
+                        "Set to 0 for no timeout."
                     ],
 
                     "min": 0,
-                    "max": 60,
+                    "max": 60
                 },
                 "Debug": {
-                    "type": "title",
+                    "type": "title"
                 },
 
                 "Verbose": {
@@ -316,7 +316,7 @@ class SettingsFrame(wx.Frame):
                     "value": self.constants.verbose_debug,
                     "variable": "verbose_debug",
                     "description": [
-                        "Verbose output during boot.",
+                        "Verbose output during boot."
                     ],
 
                 },
@@ -326,11 +326,11 @@ class SettingsFrame(wx.Frame):
                     "variable": "kext_debug",
                     "description": [
                         "Use DEBUG variants of kexts and",
-                        "enables additional kernel logging.",
-                    ],
+                        "enables additional kernel logging."
+                    ]
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "OpenCore Debugging": {
                     "type": "checkbox",
@@ -338,13 +338,13 @@ class SettingsFrame(wx.Frame):
                     "variable": "opencore_debug",
                     "description": [
                         "Use DEBUG variant of OpenCore",
-                        "and enables additional logging.",
-                    ],
-                },
+                        "and enables additional logging."
+                    ]
+                }
             },
             "Extras": {
                 "General (Continued)": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Wake on WLAN": {
                     "type": "checkbox",
@@ -355,8 +355,8 @@ class SettingsFrame(wx.Frame):
                         "performance degradation",
                         "on some systems from wake.",
                         "Only applies to BCM943224, 331,",
-                        "360 and 3602 chipsets.",
-                    ],
+                        "360 and 3602 chipsets."
+                    ]
                 },
                 "Disable Thunderbolt": {
                     "type": "checkbox",
@@ -364,7 +364,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "disable_tb",
                     "description": [
                         "For MacBookPro11,x with faulty",
-                        "PCHs that may crash sporadically.",
+                        "PCHs that may crash sporadically."
                     ],
                     "condition": (self.constants.custom_model and self.constants.custom_model in ["MacBookPro11,1", "MacBookPro11,2", "MacBookPro11,3"]) or self.constants.computer.real_model in ["MacBookPro11,1", "MacBookPro11,2", "MacBookPro11,3"]
                 },
@@ -374,8 +374,8 @@ class SettingsFrame(wx.Frame):
                     "variable": "dGPU_switch",
                     "description": [
                         "Allow iGPU to be exposed in Windows",
-                        "for dGPU-based MacBooks.",
-                    ],
+                        "for dGPU-based MacBooks."
+                    ]
                 },
                 "Disable CPUFriend": {
                     "type": "checkbox",
@@ -383,8 +383,8 @@ class SettingsFrame(wx.Frame):
                     "variable": "disallow_cpufriend",
                     "description": [
                         "Disables power management helper",
-                        "for unsupported models.",
-                    ],
+                        "for unsupported models."
+                    ]
                 },
                 "Disable mediaanalysisd service": {
                     "type": "checkbox",
@@ -393,12 +393,12 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "For systems that are the primary iCloud",
                         "Photo Library host with a 3802-based GPU,",
-                        "this may aid in prolonged idle stability.",
+                        "this may aid in prolonged idle stability."
                     ],
                     "condition": gui_support.CheckProperties(self.constants).host_has_3802_gpu()
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Allow AppleALC Audio": {
                     "type": "checkbox",
@@ -408,8 +408,8 @@ class SettingsFrame(wx.Frame):
                         "Allow AppleALC to manage audio",
                         "if applicable.",
                         "Only disable if your host lacks",
-                        "a GOP ROM.",
-                    ],
+                        "a GOP ROM."
+                    ]
                 },
                 "NVRAM WriteFlash": {
                     "type": "checkbox",
@@ -418,8 +418,8 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Allow OpenCore to write to NVRAM.",
                         "Disable on systems with faulty or",
-                        "degraded NVRAM.",
-                    ],
+                        "degraded NVRAM."
+                    ]
                 },
 
                 "3rd Party NVMe PM": {
@@ -428,8 +428,8 @@ class SettingsFrame(wx.Frame):
                     "variable": "allow_nvme_fixing",
                     "description": [
                         "Enable non-stock NVMe power",
-                        "management in macOS.",
-                    ],
+                        "management in macOS."
+                    ]
                 },
                 "3rd Party SATA PM": {
                     "type": "checkbox",
@@ -437,7 +437,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "allow_3rd_party_drives",
                     "description": [
                         "Enable non-stock SATA power",
-                        "management in macOS.",
+                        "management in macOS."
                     ],
                     "condition": not bool(self.constants.computer.third_party_sata_ssd is False and not self.constants.custom_model)
                 },
@@ -447,14 +447,14 @@ class SettingsFrame(wx.Frame):
                     "variable": "apfs_trim_timeout",
                     "description": [
                         "Recommended for all users, however faulty",
-                        "SSDs may benefit from disabling this.",
+                        "SSDs may benefit from disabling this."
                     ],
 
-                },
+                }
             },
             "Advanced": {
                 "Miscellaneous": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Disable Firmware Throttling": {
                     "type": "checkbox",
@@ -463,8 +463,8 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Disables firmware-based throttling",
                         "caused by missing hardware.",
-                        "Ex. Missing Display, Battery, etc.",
-                    ],
+                        "Ex. Missing Display, Battery, etc."
+                    ]
                 },
                 "Software DeMUX": {
                     "type": "checkbox",
@@ -475,33 +475,33 @@ class SettingsFrame(wx.Frame):
                         "for MacBookPro8,2 and MacBookPro8,3.",
                         "Prevents faulty dGPU from turning on.",
                         "Note: Requires associated NVRAM arg:",
-                        "'gpu-power-prefs'.",
+                        "'gpu-power-prefs'."
                     ],
                     "warning": "This settings requires 'gpu-power-prefs' NVRAM argument to be set to '1'.\n\nIf missing and this option is toggled, the system will not boot\n\nFull command:\nnvram FA4CE28D-B62F-4C99-9CC3-6815686E30F9:gpu-power-prefs=%01%00%00%00",
                     "condition": not bool((not self.constants.custom_model and self.constants.computer.real_model not in ["MacBookPro8,2", "MacBookPro8,3"]) or (self.constants.custom_model and self.constants.custom_model not in ["MacBookPro8,2", "MacBookPro8,3"]))
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "FeatureUnlock": {
                     "type": "choice",
                     "choices": [
                         "Enabled",
                         "Partial",
-                        "Disabled",
+                        "Disabled"
                     ],
                     "value": "Enabled",
                     "variable": "",
                     "description": [
                         "Configure FeatureUnlock level.",
                         "Recommend lowering if your system",
-                        "experiences memory instability.",
-                    ],
+                        "experiences memory instability."
+                    ]
                 },
                 "Populate FeatureUnlock Override": {
                     "type": "populate",
                     "function": self._populate_fu_override,
-                    "args": wx.Frame,
+                    "args": wx.Frame
                 },
                 "Hibernation Work-around": {
                     "type": "checkbox",
@@ -511,11 +511,11 @@ class SettingsFrame(wx.Frame):
                         "Only load minimum EFI drivers",
                         "to prevent hibernation issues.",
                         "Note: This may break booting from",
-                        "external drives.",
-                    ],
+                        "external drives."
+                    ]
                 },
                 "Graphics": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "AMD GOP Injection": {
                     "type": "checkbox",
@@ -523,7 +523,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "amd_gop_injection",
                     "description": [
                         "Inject AMD GOP for boot screen",
-                        "support on PC GPUs.",
+                        "support on PC GPUs."
                     ],
                     "condition": not bool((not self.constants.custom_model and self.constants.computer.real_model not in socketed_gpu_models) or (self.constants.custom_model and self.constants.custom_model not in socketed_gpu_models))
                 },
@@ -533,12 +533,12 @@ class SettingsFrame(wx.Frame):
                     "variable": "nvidia_kepler_gop_injection",
                     "description": [
                         "Inject Nvidia Kepler GOP for boot",
-                        "screen support on PC GPUs.",
+                        "screen support on PC GPUs."
                     ],
                     "condition": not bool((not self.constants.custom_model and self.constants.computer.real_model not in socketed_gpu_models) or (self.constants.custom_model and self.constants.custom_model not in socketed_gpu_models))
                 },
                 "wrap_around 2": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Graphics Override": {
                     "type": "choice",
@@ -548,26 +548,26 @@ class SettingsFrame(wx.Frame):
                         "AMD GCN",
                         "AMD Polaris",
                         "AMD Lexa",
-                        "AMD Navi",
+                        "AMD Navi"
                     ],
                     "value": "None",
                     "variable": "",
                     "description": [
                         "Override detected/assumed GPU on",
-                        "socketed MXM-based iMacs.",
+                        "socketed MXM-based iMacs."
                     ],
                     "condition": bool((not self.constants.custom_model and self.constants.computer.real_model in socketed_imac_models) or (self.constants.custom_model and self.constants.custom_model in socketed_imac_models))
                 },
                 "Populate Graphics Override": {
                     "type": "populate",
                     "function": self._populate_graphics_override,
-                    "args": wx.Frame,
+                    "args": wx.Frame
                 },
 
             },
             "Security": {
                 "Kernel Security": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Disable Library Validation": {
                     "type": "checkbox",
@@ -575,8 +575,8 @@ class SettingsFrame(wx.Frame):
                     "variable": "disable_cs_lv",
                     "description": [
                         "Required for loading modified",
-                        "system files from root patching.",
-                    ],
+                        "system files from root patching."
+                    ]
                 },
                 "Disable AMFI": {
                     "type": "checkbox",
@@ -586,11 +586,11 @@ class SettingsFrame(wx.Frame):
                         "Extended version of 'Disable",
                         "Library Validation', required",
                         "for systems with deeper",
-                        "root patches.",
-                    ],
+                        "root patches."
+                    ]
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Secure Boot Model": {
                     "type": "checkbox",
@@ -599,21 +599,21 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Set Apple Secure Boot Model Identifier",
                         "to matching T2 model if spoofing.",
-                        "Note: Incompatible with Root Patching.",
-                    ],
+                        "Note: Incompatible with Root Patching."
+                    ]
                 },
                 "System Integrity Protection": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Populate SIP": {
                     "type": "populate",
                     "function": self._populate_sip_settings,
-                    "args": wx.Frame,
-                },
+                    "args": wx.Frame
+                }
             },
             "SMBIOS": {
                 "Model Spoofing": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "SMBIOS Spoof Level": {
                     "type": "choice",
@@ -621,7 +621,7 @@ class SettingsFrame(wx.Frame):
                         "None",
                         "Minimal",
                         "Moderate",
-                        "Advanced",
+                        "Advanced"
                     ],
                     "value": self.constants.serial_settings,
                     "variable": "serial_settings",
@@ -630,8 +630,8 @@ class SettingsFrame(wx.Frame):
                         "   - None: No spoofing.",
                         "   - Minimal: Overrides Board ID.",
                         "   - Moderate: Overrides Model.",
-                        "   - Advanced: Overrides Model and serial.",
-                    ],
+                        "   - Advanced: Overrides Model and serial."
+                    ]
                 },
 
                 "SMBIOS Spoof Model": {
@@ -640,12 +640,12 @@ class SettingsFrame(wx.Frame):
                     "value": self.constants.override_smbios,
                     "variable": "override_smbios",
                     "description": [
-                        "Set Mac Model to spoof to.",
+                        "Set Mac Model to spoof to."
                     ],
 
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Allow spoofing native Macs": {
                     "type": "checkbox",
@@ -655,21 +655,21 @@ class SettingsFrame(wx.Frame):
                         "Allow OpenCore to spoof natively",
                         "supported Macs.",
                         "Primarily used for enabling",
-                        "Universal Control on unsupported Macs",
-                    ],
+                        "Universal Control on unsupported Macs"
+                    ]
                 },
                 "Serial Spoofing": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Populate Serial Spoofing": {
                     "type": "populate",
                     "function": self._populate_serial_spoofing_settings,
-                    "args": wx.Frame,
-                },
+                    "args": wx.Frame
+                }
             },
             "Root Patching": {
                 "Root Volume Patching": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "TeraScale 2 Acceleration": {
                     "type": "checkbox",
@@ -681,18 +681,18 @@ class SettingsFrame(wx.Frame):
                         "Acceleration on MacBookPro8,2 and",
                         "MacBookPro8,3.",
                         "By default this is disabled due to",
-                        "common GPU failures on these models.",
+                        "common GPU failures on these models."
                     ],
                     "condition": not bool(self.constants.computer.real_model not in ["MacBookPro8,2", "MacBookPro8,3"])
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Non-Metal Configuration": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Log out required to apply changes to SkyLight": {
-                    "type": "sub_title",
+                    "type": "sub_title"
                 },
                 "Dark Menu Bar": {
                     "type": "checkbox",
@@ -701,7 +701,7 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "If Beta Menu Bar is enabled,",
                         "menu bar colour will dynamically",
-                        "change as needed.",
+                        "change as needed."
                     ],
                     "override_function": self._update_system_defaults,
                     "condition": gui_support.CheckProperties(self.constants).host_is_non_metal(general_check=True)
@@ -711,7 +711,7 @@ class SettingsFrame(wx.Frame):
                     "value": self._get_system_settings("Moraea_BlurBeta"),
                     "variable": "Moraea_BlurBeta",
                     "description": [
-                        "Control window blur behaviour.",
+                        "Control window blur behaviour."
                     ],
                     "override_function": self._update_system_defaults,
                     "condition": gui_support.CheckProperties(self.constants).host_is_non_metal(general_check=True)
@@ -722,13 +722,13 @@ class SettingsFrame(wx.Frame):
                     "value": self._get_system_settings("Moraea.EnableSpinHack"),
                     "variable": "Moraea.EnableSpinHack",
                     "description": [
-                        "Note: May be more CPU intensive.",
+                        "Note: May be more CPU intensive."
                     ],
                     "override_function": self._update_system_defaults,
                     "condition": gui_support.CheckProperties(self.constants).host_is_non_metal(general_check=True)
                 },
                 "wrap_around 2": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Beta Menu Bar": {
                     "type": "checkbox",
@@ -738,7 +738,7 @@ class SettingsFrame(wx.Frame):
                         "Supports dynamic colour changes.",
                         "Note: Setting is still experimental.",
                         "If you experience issues, please",
-                        "disable this setting.",
+                        "disable this setting."
                     ],
                     "override_function": self._update_system_defaults,
                     "condition": gui_support.CheckProperties(self.constants).host_is_non_metal(general_check=True)
@@ -748,15 +748,15 @@ class SettingsFrame(wx.Frame):
                     "value": self._get_system_settings("Moraea_RimBetaDisabled"),
                     "variable": "Moraea_RimBetaDisabled",
                     "description": [
-                        "Control Window Rim rendering.",
+                        "Control Window Rim rendering."
                     ],
                     "override_function": self._update_system_defaults,
                     "condition": gui_support.CheckProperties(self.constants).host_is_non_metal(general_check=True)
-                },
+                }
             },
             "App": {
                 "General": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Allow native models": {
                     "type": "checkbox",
@@ -766,10 +766,10 @@ class SettingsFrame(wx.Frame):
                         "Allow OpenCore to be installed",
                         "on natively supported Macs."
                     ],
-                    "warning": "This option should only be used if your Mac natively supports the OSes you wish to run.\n\nIf you are currently running an unsupported OS, this option will break booting. Only toggle for enabling OS features on a native Mac.\n\nAre you certain you want to continue?",
+                    "warning": "This option should only be used if your Mac natively supports the OSes you wish to run.\n\nIf you are currently running an unsupported OS, this option will break booting. Only toggle for enabling OS features on a native Mac.\n\nAre you certain you want to continue?"
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Disable Reporting": {
                     "type": "checkbox",
@@ -777,9 +777,9 @@ class SettingsFrame(wx.Frame):
                     "variable": "DisableCrashAndAnalyticsReporting",
                     "description": [
                         "When enabled, patcher will not",
-                        "report any info to Dortania.",
+                        "report any info to Dortania."
                     ],
-                    "override_function": self._update_global_settings,
+                    "override_function": self._update_global_settings
                 },
                 "Remove Unused KDKs": {
                     "type": "checkbox",
@@ -789,48 +789,48 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "When enabled, the app will remove",
                         "unused Kernel Debug Kits from the system",
-                        "during root patching.",
+                        "during root patching."
                     ],
-                    "override_function": self._update_global_settings,
+                    "override_function": self._update_global_settings
                 },
                 "Statistics": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Populate Stats": {
                     "type": "populate",
                     "function": self._populate_app_stats,
-                    "args": wx.Frame,
-                },
+                    "args": wx.Frame
+                }
             },
             "Developer": {
                 "Validation": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Install latest nightly build 🧪": {
                     "type": "button",
                     "function": self.on_nightly,
                     "description": [
-                    ],
+                    ]
                 },
                 "Trigger Exception": {
                     "type": "button",
                     "function": self.on_test_exception,
                     "description": [
-                    ],
+                    ]
                 },
                 "wrap_around 1": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Export constants": {
                     "type": "button",
                     "function": self.on_export_constants,
                     "description": [
-                        "Export constants.py values to a txt file.",
-                    ],
+                        "Export constants.py values to a txt file."
+                    ]
                 },
 
                 "Developer Root Volume Patching": {
-                    "type": "title",
+                    "type": "title"
                 },
                 "Mount Root Volume": {
                     "type": "button",
@@ -838,20 +838,20 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Life's too short to type \"sudo mount -o",
                         "nobrowse -t apfs /dev/diskXsY",
-                        "/System/Volumes/Update/mnt1\" every time.",
-                    ],
+                        "/System/Volumes/Update/mnt1\" every time."
+                    ]
                 },
                 "wrap_around 2": {
-                    "type": "wrap_around",
+                    "type": "wrap_around"
                 },
                 "Save Root Volume": {
                     "type": "button",
                     "function": self.on_bless_root_vol,
                     "description": [
-                        "Rebuild kernel cache and bless snapshot 🙏",
-                    ],
-                },
-            },
+                        "Rebuild kernel cache and bless snapshot 🙏"
+                    ]
+                }
+            }
         }
 
         return settings

@@ -250,7 +250,7 @@ class WirelessCard(PCIDevice):
 
         matching_dict = {
             "IOParentMatch": ioreg.corefoundation_to_native(ioreg.IORegistryEntryIDMatching(ioreg.IORegistryEntryGetRegistryEntryID(entry, None)[1])),
-            "IOProviderClass": "IO80211Interface",
+            "IOProviderClass": "IO80211Interface"
         }
 
         interface = next(ioreg.ioiterator_to_list(ioreg.IOServiceGetMatchingServices(ioreg.kIOMasterPortDefault, matching_dict, None)[1]), None)
@@ -724,7 +724,7 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 WirelessCard.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
 
@@ -753,7 +753,7 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 SDXCController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
 
@@ -766,21 +766,21 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 XHCIController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
         ehci_controllers = ioreg.ioiterator_to_list(
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 EHCIController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
         ohci_controllers  = ioreg.ioiterator_to_list(
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 OHCIController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
 
@@ -788,7 +788,7 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 UHCIController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
         for device in xhci_controllers:
@@ -809,7 +809,7 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 EthernetController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
 
@@ -824,14 +824,14 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 SATAController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
         sas_controllers = ioreg.ioiterator_to_list(
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 SASController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
 
@@ -839,7 +839,7 @@ class Computer:
             ioreg.IOServiceGetMatchingServices(
                 ioreg.kIOMasterPortDefault,
                 NVMeController.class_code_matching_dict(),
-                None,
+                None
             )[1]
         )
         for device in sata_controllers:
@@ -892,7 +892,7 @@ class Computer:
         self.cpu = CPU(
             subprocess.run("sysctl machdep.cpu.brand_string".split(), stdout=subprocess.PIPE).stdout.decode().partition(": ")[2].strip(),
             subprocess.run("sysctl machdep.cpu.features".split(), stdout=subprocess.PIPE).stdout.decode().partition(": ")[2].strip().split(" "),
-            self.cpu_get_leafs(),
+            self.cpu_get_leafs()
         )
 
     def cpu_get_leafs(self):

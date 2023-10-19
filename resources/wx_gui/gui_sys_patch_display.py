@@ -8,7 +8,7 @@ import threading
 from pathlib import Path
 
 from resources import (
-    constants,
+    constants
 )
 from resources.sys_patch import (
     sys_patch_detect
@@ -16,7 +16,7 @@ from resources.sys_patch import (
 from resources.wx_gui import (
     gui_main_menu,
     gui_support,
-    gui_sys_patch_start,
+    gui_sys_patch_start
 )
 
 
@@ -88,7 +88,7 @@ class SysPatchDisplayFrame(wx.Frame):
             nonlocal patches
             patches = sys_patch_detect.DetectRootPatch(self.constants.computer.real_model, self.constants).detect_patch_set()
 
-        thread = threading.Thread(target=_fetch_patches, args=(self,))
+        thread = threading.Thread(target=_fetch_patches, args=(self))
         thread.start()
 
         frame.ShowWindowModal()
@@ -255,7 +255,7 @@ class SysPatchDisplayFrame(wx.Frame):
             parent=None,
             title=self.title,
             global_constants=self.constants,
-            patches=patches,
+            patches=patches
         )
         frame.start_root_patching()
         self.on_return_dismiss() if self.init_with_parent else self.on_return_to_main_menu()
@@ -266,7 +266,7 @@ class SysPatchDisplayFrame(wx.Frame):
             parent=None,
             title=self.title,
             global_constants=self.constants,
-            patches=patches,
+            patches=patches
         )
         frame.revert_root_patching()
         self.on_return_dismiss() if self.init_with_parent else self.on_return_to_main_menu()
@@ -282,7 +282,7 @@ class SysPatchDisplayFrame(wx.Frame):
         main_menu_frame = gui_main_menu.MainFrame(
             None,
             title=self.title,
-            global_constants=self.constants,
+            global_constants=self.constants
         )
         main_menu_frame.Show()
         frame.Destroy()

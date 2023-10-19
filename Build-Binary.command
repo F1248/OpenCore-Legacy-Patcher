@@ -233,7 +233,7 @@ class CreateBinary:
             "InstallPackage",
             "Kexts",
             "OpenCore",
-            "Tools",
+            "Tools"
         ]
 
         whitelist_files = [
@@ -242,7 +242,7 @@ class CreateBinary:
             "entitlements.plist",
             "launcher.sh",
             "OC-Patcher-TUI.icns",
-            "OC-Patcher.icns",
+            "OC-Patcher.icns"
         ]
 
 
@@ -369,7 +369,7 @@ class CreateBinary:
         plist["Github"] = {
             "Branch": branch,
             "Commit URL": commit_url,
-            "Commit Date": commit_date,
+            "Commit Date": commit_date
         }
         plistlib.dump(plist, Path(plist_path).open("wb"), sort_keys=True)
 

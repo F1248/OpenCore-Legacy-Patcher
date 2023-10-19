@@ -36,7 +36,7 @@ class tui_disk_installation:
                         "fs": partition_info.get("FilesystemType", partition_info["Content"]),
                         "type": partition_info["Content"],
                         "name": partition_info.get("VolumeName", ""),
-                        "size": partition_info["TotalSize"],
+                        "size": partition_info["TotalSize"]
                     }
             except KeyError:
                 # Avoid crashing with CDs installed

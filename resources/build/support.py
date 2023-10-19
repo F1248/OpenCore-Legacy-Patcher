@@ -182,7 +182,7 @@ class BuildSupport:
             "Booter": ["Patch"],
             "Kernel": ["Add", "Block", "Force", "Patch"],
             "Misc":   ["Tools"],
-            "UEFI":   ["Drivers"],
+            "UEFI":   ["Drivers"]
         }
 
         for entry in entries_to_clean:

@@ -10,7 +10,7 @@ from resources.wx_gui import (
     gui_build,
     gui_install_oc,
     gui_sys_patch_start,
-    gui_update,
+    gui_update
 )
 from resources.sys_patch import sys_patch_detect
 

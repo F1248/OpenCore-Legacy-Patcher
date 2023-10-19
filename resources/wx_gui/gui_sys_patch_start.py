@@ -12,7 +12,7 @@ from pathlib import Path
 
 from resources import (
     constants,
-    kdk_handler,
+    kdk_handler
 )
 from resources.sys_patch import (
     sys_patch,
@@ -21,7 +21,7 @@ from resources.sys_patch import (
 from resources.wx_gui import (
     gui_main_menu,
     gui_support,
-    gui_download,
+    gui_download
 )
 from data import os_data
 
@@ -225,7 +225,7 @@ class SysPatchStartFrame(wx.Frame):
         self._generate_modal(self.patches, "Root Patching")
         self.return_button.Disable()
 
-        thread = threading.Thread(target=self._start_root_patching, args=(self.patches,))
+        thread = threading.Thread(target=self._start_root_patching, args=(self.patches))
         thread.start()
 
         while thread.is_alive():
@@ -252,7 +252,7 @@ class SysPatchStartFrame(wx.Frame):
         self._generate_modal(self.patches, "Revert Root Patches")
         self.return_button.Disable()
 
-        thread = threading.Thread(target=self._revert_root_patching, args=(self.patches,))
+        thread = threading.Thread(target=self._revert_root_patching, args=(self.patches))
         thread.start()
 
         while thread.is_alive():
@@ -283,7 +283,7 @@ class SysPatchStartFrame(wx.Frame):
         main_menu_frame = gui_main_menu.MainFrame(
             None,
             title=self.title,
-            global_constants=self.constants,
+            global_constants=self.constants
         )
         main_menu_frame.Show()
         frame.Destroy()
@@ -320,7 +320,7 @@ class SysPatchStartFrame(wx.Frame):
                 [
                     "osascript", "-e",
                     'tell app "System Preferences" to activate',
-                    "-e", 'tell app "System Preferences" to reveal anchor "General" of pane id "com.apple.preference.security"',
+                    "-e", 'tell app "System Preferences" to reveal anchor "General" of pane id "com.apple.preference.security"'
                 ],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE

@@ -267,7 +267,7 @@ class InstallOCFrame(wx.Frame):
         """
         Invoke OpenCore installation
         """
-        thread = threading.Thread(target=self._install_oc, args=(partition,))
+        thread = threading.Thread(target=self._install_oc, args=(partition))
         thread.start()
 
         while thread.is_alive():

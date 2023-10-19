@@ -47,7 +47,7 @@ class HelpFrame(wx.Frame):
         buttons = {
             "Official Guide":           self.constants.guide_link,
             "Official Phone Support":   "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            "Community Discord Server": self.constants.discord_link,
+            "Community Discord Server": self.constants.discord_link
         }
 
         for button in buttons:

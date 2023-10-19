@@ -119,7 +119,7 @@ class Analytics:
             'GPUS':                self.gpus,
             'FIRMWARE':            self.firmware,
             'LOCATION':            self.location,
-            'TIMESTAMP':           self.date,
+            'TIMESTAMP':           self.date
         }
 
         # convert to JSON:

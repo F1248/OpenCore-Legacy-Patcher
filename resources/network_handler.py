@@ -210,7 +210,7 @@ class DownloadObject:
                 logging.error("Download already in progress")
                 return
             self.should_checksum = verify_checksum
-            self.active_thread = threading.Thread(target=self._download, args=(display_progress,))
+            self.active_thread = threading.Thread(target=self._download, args=(display_progress))
             self.active_thread.start()
             return
 

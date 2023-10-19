@@ -10,21 +10,21 @@ class MacBook:
         reported_model="MacBook7,1",
         reported_board_id="Mac-F22C89C8",
         gpus=[
-            device_probe.NVIDIA(vendor_id=4318, device_id=2208, class_code=196608, name="IGPU", model="NVIDIA GeForce 320M", pci_path="PciRoot(0x0)/Pci(0x2,0x0)"),
+            device_probe.NVIDIA(vendor_id=4318, device_id=2208, class_code=196608, name="IGPU", model="NVIDIA GeForce 320M", pci_path="PciRoot(0x0)/Pci(0x2,0x0)")
         ],
         igpu=device_probe.NVIDIA(vendor_id=4318, device_id=2208, class_code=196608, name="IGPU", model="NVIDIA GeForce 320M", pci_path="PciRoot(0x0)/Pci(0x2,0x0)"),
         dgpu=None,
         storage=[
-            device_probe.SATAController(vendor_id=4318, device_id=3464, class_code=67073, name="SATA", model=None, pci_path="PciRoot(0x0)/Pci(0xa,0x0)"),
+            device_probe.SATAController(vendor_id=4318, device_id=3464, class_code=67073, name="SATA", model=None, pci_path="PciRoot(0x0)/Pci(0xa,0x0)")
         ],
         wifi=device_probe.Broadcom(vendor_id=5348, device_id=17235, class_code=163840, name="ARPT", model=None, pci_path="PciRoot(0x0)/Pci(0x15,0x0)/Pci(0x0,0x0)"),
         cpu=device_probe.CPU(
             name="Intel(R) Core(TM)2 Duo CPU     P8600  @ 2.40GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "SMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
 class MacBookPro:
@@ -44,10 +44,10 @@ class MacBookPro:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'EST', 'TM2', 'SSSE3', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'TSCTMR', 'AVX1.0', 'RDRAND', 'F16C'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     MacBookPro111_Stock = device_probe.Computer(
@@ -70,7 +70,7 @@ class MacBookPro:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i5-4258U CPU @ 2.40GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'EST', 'TM2', 'SSSE3', 'FMA', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'MOVBE', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'SEGLIM64', 'TSCTMR', 'AVX1.0', 'RDRAND', 'F16C'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version='0.4.2',
         opencore_version='DBG-077-2022-01-10',
@@ -141,7 +141,7 @@ class MacBookPro:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i5-7360U CPU @ 2.30GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'SMX', 'EST', 'TM2', 'SSSE3', 'FMA', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'MOVBE', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'SEGLIM64', 'TSCTMR', 'AVX1.0', 'RDRAND', 'F16C'],
-            leafs=[],
+            leafs=[]
         ), oclp_version='0.4.1',
         opencore_version=None,
         bluetooth_chipset=None,
@@ -161,10 +161,10 @@ class MacBookPro:
         cpu=device_probe.CPU(
             name="Apple M1",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "PCLMULQDQ", "DTSE64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "AES", "SEGLIM64"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
 class Macmini:
@@ -320,7 +320,7 @@ class Macmini:
         cpu=device_probe.CPU(
             name="Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "PCLMULQDQ", "DTES64", "MON", "DSCPL", "VMX", "SMX", "EST", "TM2", "SSSE3", "FMA", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "x2APIC", "MOVBE", "POPCNT", "AES", "PCID", "XSAVE", "OSXSAVE", "SEGLIM64", "TSCTMR", "AVX1.0", "RDRAND", "F16C"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
         opencore_version=None
@@ -342,7 +342,7 @@ class Macmini:
         cpu=device_probe.CPU(
             name="Apple M1",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "PCLMULQDQ", "DTSE64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "AES", "SEGLIM64"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
         opencore_version=None
@@ -368,10 +368,10 @@ class iMac:
         cpu=device_probe.CPU(
             name="Intel(R) Core(TM)2 Duo CPU     E8135  @ 2.40GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     iMac112_Stock = device_probe.Computer(
@@ -392,10 +392,10 @@ class iMac:
         cpu=device_probe.CPU(
             name="Intel(R) Core(TM) i3 CPU         540  @ 3.07GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "POPCNT", "PCID"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     iMac122_Upgraded = device_probe.Computer(
@@ -405,7 +405,7 @@ class iMac:
         reported_board_id="Mac-942B59F58194171B",
         gpus=[
             device_probe.Intel(vendor_id=32902, device_id=258, class_code=196608, name="HD Graphics 3000", model=None, pci_path="PciRoot(0x0)/Pci(0x2,0x0)"),
-            device_probe.AMD(vendor_id=4098, device_id=26600, class_code=196608, name="GFX0", model="Radeon Pro WX4130", pci_path="PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)"),
+            device_probe.AMD(vendor_id=4098, device_id=26600, class_code=196608, name="GFX0", model="Radeon Pro WX4130", pci_path="PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)")
         ],
         igpu=device_probe.Intel(vendor_id=32902, device_id=258, class_code=196608, name="HD Graphics 3000", model=None, pci_path="PciRoot(0x0)/Pci(0x2,0x0)"),
         dgpu=device_probe.AMD(vendor_id=4098, device_id=26600, class_code=196608, name="GFX0", model="Radeon Pro WX4130", pci_path="PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)"),
@@ -416,10 +416,10 @@ class iMac:
         cpu=device_probe.CPU(
             name="Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "PCLMULQDQ", "DTES64", "MON", "DSCPL", "VMX", "SMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "xAPIC", "POPCNT", "AES", "PCID", "XSAVE", "OSXSAVE", "TSCTMR", "AVX1.0"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     iMac122_Upgraded_Nvidia = device_probe.Computer(
@@ -443,7 +443,7 @@ class iMac:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'SMX', 'EST', 'TM2', 'SSSE3', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'TSCTMR', 'AVX1.0'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version='0.3.3',
         opencore_version=None,
@@ -470,7 +470,7 @@ class iMac:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i5-4690 CPU @ 3.50GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'SMX', 'EST', 'TM2', 'SSSE3', 'FMA', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'MOVBE', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'SEGLIM64', 'TSCTMR', 'AVX1.0', 'RDRAND', 'F16C'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
         opencore_version=None,
@@ -498,7 +498,7 @@ class iMac:
         cpu=device_probe.CPU(
             name='Intel(R) Core(TM) i5-10500 CPU @ 3.10GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'SMX', 'EST', 'TM2', 'SSSE3', 'FMA', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'x2APIC', 'MOVBE', 'POPCNT', 'AES', 'PCID', 'XSAVE', 'OSXSAVE', 'SEGLIM64', 'TSCTMR', 'AVX1.0', 'RDRAND', 'F16C'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
         opencore_version=None,
@@ -526,10 +526,10 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           X5482  @ 3.20GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     MacPro31_Upgrade = device_probe.Computer(
@@ -552,10 +552,10 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           X5482  @ 3.20GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     MacPro31_Modern_AMD = device_probe.Computer(
@@ -578,10 +578,10 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           X5482  @ 3.20GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     MacPro31_Modern_Kepler = device_probe.Computer(
@@ -602,10 +602,10 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           X5482  @ 3.20GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
-        opencore_version=None,
+        opencore_version=None
     )
 
     MacPro41_Upgrade = device_probe.Computer(
@@ -622,7 +622,7 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           W3520  @ 2.67GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "POPCNT"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version=None,
         opencore_version=None
@@ -646,7 +646,7 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           W3520  @ 2.67GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "DTES64", "MON", "DSCPL", "VMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "POPCNT"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version="0.2.5",
         opencore_version="REL-071-2021-07-02"
@@ -670,7 +670,7 @@ class MacPro:
         cpu=device_probe.CPU(
             name="Intel(R) Xeon(R) CPU           X5670  @ 2.93GHz",
             flags=["FPU", "VME", "DE", "PSE", "TSC", "MSR", "PAE", "MCE", "CX8", "APIC", "SEP", "MTRR", "PGE", "MCA", "CMOV", "PAT", "PSE36", "CLFSH", "DS", "ACPI", "MMX", "FXSR", "SSE", "SSE2", "SS", "HTT", "TM", "PBE", "SSE3", "PCLMULQDQ", "DTES64", "MON", "DSCPL", "VMX", "SMX", "EST", "TM2", "SSSE3", "CX16", "TPR", "PDCM", "SSE4.1", "SSE4.2", "POPCNT", "AES", "PCID"],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version="0.2.5",
         opencore_version="REL-071-2021-07-02"
@@ -709,7 +709,7 @@ class MacPro:
         cpu=device_probe.CPU(
             name='Intel(R) Xeon(R) CPU           X5670  @ 2.93GHz',
             flags=['FPU', 'VME', 'DE', 'PSE', 'TSC', 'MSR', 'PAE', 'MCE', 'CX8', 'APIC', 'SEP', 'MTRR', 'PGE', 'MCA', 'CMOV', 'PAT', 'PSE36', 'CLFSH', 'DS', 'ACPI', 'MMX', 'FXSR', 'SSE', 'SSE2', 'SS', 'HTT', 'TM', 'PBE', 'SSE3', 'PCLMULQDQ', 'DTES64', 'MON', 'DSCPL', 'VMX', 'SMX', 'EST', 'TM2', 'SSSE3', 'CX16', 'TPR', 'PDCM', 'SSE4.1', 'SSE4.2', 'POPCNT', 'AES', 'PCID'],
-            leafs=[],
+            leafs=[]
         ),
         oclp_version='0.4.6',
         opencore_version='REL-080-2022-04-18',

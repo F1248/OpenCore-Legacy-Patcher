@@ -43,7 +43,7 @@ functions = [
     ("IOServiceNameMatching", CFDictionaryRef + b"r*"),
     ("IORegistryEntryGetRegistryEntryID", b"IIo^Q"),
     ("IORegistryEntryIDMatching", CFDictionaryRef + b"Q"),
-    ("IORegistryEntryFromPath", b"II" + const_io_name_t_ref_in),
+    ("IORegistryEntryFromPath", b"II" + const_io_name_t_ref_in)
 ]
 
 variables = [("kIOMasterPortDefault", b"I")]
