@@ -3,8 +3,6 @@ name: Build App
 on:
   push:
   workflow_dispatch:
-  release:
-    types: [published]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,8 +15,8 @@ jobs:
 
     env:
       branch: ${{ github.ref }}
-      commiturl: ${{ github.event.head_commit.url }}${{ github.event.release.html_url }}
-      commitdate: ${{ github.event.head_commit.timestamp }}${{ github.event.release.published_at }}
+      commiturl: ${{ github.event.head_commit.url }}
+      commitdate: ${{ github.event.head_commit.timestamp }}
 
     steps:
       - uses: actions/checkout@v4
