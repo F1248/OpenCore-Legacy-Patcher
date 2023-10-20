@@ -1,4 +1,4 @@
-![](../images/ventura.png)
+![](../images/macOS-13-Ventura.png)
 
 With the release of OpenCore Legacy Patcher v0.5.0 and newer, early support for macOS Ventura has been implemented for most Metal-capable Macs. This page will be used to inform users regarding current issues and will be updated as new patch sets are developed and added to our patcher.
 

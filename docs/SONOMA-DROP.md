@@ -1,4 +1,4 @@
-![](../images/sonoma.png)
+![](../images/macOS-14-Sonoma.png)
 
 *Well here we are again, it's always such a pleasure~*
 
