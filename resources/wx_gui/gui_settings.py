@@ -1309,7 +1309,7 @@ Hardware Information:
             wx.MessageDialog(self.parent, "Please relaunch as Root to mount the Root Volume", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
         else:
             #Don't need to pass model as we're bypassing all logic
-            if PatchSysVolume("",self.constants)._mount_root_vol() == True:
+            if PatchSysVolume("",self.constants)._mount_root_vol():
                 wx.MessageDialog(self.parent, "Root Volume Mounted, remember to fix permissions before saving the Root Volume", "Success", wx.OK | wx.ICON_INFORMATION).ShowModal()
             else:
                 wx.MessageDialog(self.parent, "Root Volume Mount Failed, check terminal output", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
@@ -1319,7 +1319,7 @@ Hardware Information:
             wx.MessageDialog(self.parent, "Please relaunch as Root to save changes", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
         else:
             #Don't need to pass model as we're bypassing all logic
-            if PatchSysVolume("",self.constants)._rebuild_root_volume() == True:
+            if PatchSysVolume("",self.constants)._rebuild_root_volume():
                 wx.MessageDialog(self.parent, "Root Volume saved, please reboot to apply changes", "Success", wx.OK | wx.ICON_INFORMATION).ShowModal()
             else:
                 wx.MessageDialog(self.parent, "Root Volume update Failed, check terminal output", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
