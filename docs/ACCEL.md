@@ -3,7 +3,7 @@
 * [Broken Background Blurs](#broken-background-blurs)
 * [Downloading older non-Metal Apps](#downloading-older-non-metal-apps)
 * [Unable to run Zoom](#unable-to-run-zoom)
-* [Unable to grant special permissions to apps (ie. Camera Access to Zoom)](#unable-to-grant-special-permissions-to-apps-ie-camera-access-to-zoom)
+* [Unable to grant special permissions to apps (ie. Camera Access to Zoom)](#unable-to-grant-permissions-to-apps)
 * [Keyboard Backlight broken](#keyboard-backlight-broken)
 * [Photos and Maps Apps Heavily Distorted](#photos-and-maps-apps-heavily-distorted)
 * [Cannot press "Done" when editing a Sidebar Widget](#cannot-press-done-when-editing-a-sidebar-widget)
@@ -63,12 +63,10 @@ Currently Zoom relies partially on Metal and so needs a small binary patch. Dosd
 
 * [Zoom Non-Metal Fix](https://dosdude1.com/catalina/zoomnonmetal-new.command.zip)
 
-## Unable to grant special permissions to apps (ie. Camera Access to Zoom)
-Currently for Ventura 13.3 and newer, due to new patches required, permissions are yet again broken. Use TCCPlus in the Workaround dropdown to work around the issue.
+## Unable to grant permissions to apps
+Currently for macOS Ventura 13.3 and newer, due to new patches required, permissions are yet again broken. Use TCCPlus to work around the issue.
 
-This issue is fully resolved for 13.2.1 and lower starting from 0.2.5.
-
-::: details Workaround for 0.2.4, Ventura 13.3+
+Workaround for macOS Ventura 13.3 and newer:
 
 Due to the usage of amfi_get_out_of_my_way=1, macOS will fail to prompt users for special permissions upon application start as well as omit the entires in System Preferences. To work around this, we recommend users install tccplus to manage permissions.
 
@@ -94,8 +92,6 @@ $ sudo sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or RE
 
 $ sudo sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db "INSERT or REPLACE INTO access VALUES('kTCCServiceCamera','us.zoom.xos',0,2,0,1,NULL,NULL,NULL,'UNUSED',NULL,0,1541440109);"
 ```
-
-:::
 
 ## Keyboard Backlight broken
 
@@ -136,21 +132,6 @@ This will disable the dGPU and allow the iGPU to function in Big Sur. Note that 
 * [DisplayLink USB Graphics Software for macOS - For Mojave and Catalina - 5.2.6](https://www.synaptics.com/products/displaylink-graphics/downloads/macos-5.2.6)
 
 Note: This driver only provides partial support in macOS, full graphics acceleration is not currently available on displays driven by DisplayLink.
-
-## Erratic Colours on ATI TeraScale 2 GPUs (HD5000/HD6000)
-
-Resolved with OpenCore Legacy Patcher v0.4.2
-
-::: details Legacy Fix (prior to 0.4.2)
-
-Due to an odd bug with ATI's TeraScale 2 GPUs, many users will experience erratic/strobing colours once finished installing accelerated patches and rebooting into macOS. The issue stems from an incorrect assumption in the GPU drivers where it will enforce the Billion Colour space on your display. To fix, simply force your Display into a lower color depth such as Million Colours.
-
-Applications that can set color depth are:
-
-* [SwitchResX](https://www.madrau.com)
-* [ResXtreme](https://macdownload.informer.com/resxtreme/)
-
-:::
 
 ## Unable to allow Safari Extensions
 
