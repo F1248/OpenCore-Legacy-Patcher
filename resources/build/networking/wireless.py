@@ -60,7 +60,7 @@ class BuildWirelessNetworking:
                     self.config["DeviceProperties"]["Add"][arpt_path] = {"brcmfx-country": self.computer.wifi.country_code}
                 else:
                     self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += f" brcmfx-country={self.computer.wifi.country_code}"
-                if self.constants.enable_wake_on_wlan is True:
+                if self.constants.enable_wake_on_wlan:
                     logging.info("- Enabling Wake on WLAN support")
                     self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += f" -brcmfxwowl"
             elif self.computer.wifi.chipset == device_probe.Broadcom.Chipsets.AirPortBrcm4360:

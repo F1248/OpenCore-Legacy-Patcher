@@ -184,7 +184,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
 
         self.list.SetColumnWidth(0, 280)
         self.list.SetColumnWidth(1, 65)
-        if show_full is True:
+        if show_full:
             self.list.SetColumnWidth(2, 80)
         else:
             self.list.SetColumnWidth(2, 94) # Hack to get the highlight to fill the ListCtrl
@@ -200,12 +200,12 @@ class macOSInstallerDownloadFrame(wx.Frame):
         self.select_button.Bind(wx.EVT_BUTTON, lambda event, installers=installers: self.on_download_installer(installers))
         self.select_button.SetToolTip("Download the selected macOS Installer.")
         self.select_button.SetDefault()
-        if show_full is True:
+        if show_full:
             self.select_button.Disable()
 
         self.copy_button = wx.Button(self.frame_modal, label="Copy Link", pos=(-1, -1), size=(80, -1))
         self.copy_button.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
-        if show_full is True:
+        if show_full:
             self.copy_button.Disable()
         self.copy_button.SetToolTip("Copy the download link of the selected macOS Installer.")
         self.copy_button.Bind(wx.EVT_BUTTON, lambda event, installers=installers: self.on_copy_link(installers))
@@ -215,7 +215,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
         return_button.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
 
         self.showolderversions_checkbox = wx.CheckBox(self.frame_modal, label="Show Older/Beta Versions", pos=(-1, -1))
-        if show_full is True:
+        if show_full:
             self.showolderversions_checkbox.SetValue(True)
         self.showolderversions_checkbox.Bind(wx.EVT_CHECKBOX, lambda event: self._display_available_installers(event, self.showolderversions_checkbox.GetValue()))
 
@@ -402,7 +402,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
 
         progress_bar_animation.stop_pulse()
         progress_bar.Hide()
-        chunk_label.SetLabel("Successfully extracted macOS installer" if self.result is True else "Failed to extract macOS installer")
+        chunk_label.SetLabel("Successfully extracted macOS installer" if self.result else "Failed to extract macOS installer")
         chunk_label.Centre(wx.HORIZONTAL)
 
         # Create macOS Installer button

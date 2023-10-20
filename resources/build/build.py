@@ -92,7 +92,7 @@ class BuildOpenCore:
             shutil.rmtree(self.constants.opencore_release_folder, onerror=rmtree_handler, ignore_errors=True)
 
         logging.info("")
-        logging.info(f"- Adding OpenCore v{self.constants.opencore_version} {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}")
+        logging.info(f"- Adding OpenCore v{self.constants.opencore_version} {'DEBUG' if self.constants.opencore_debug else 'RELEASE'}")
         shutil.copy(self.constants.opencore_zip_source, self.constants.build_path)
         zipfile.ZipFile(self.constants.opencore_zip_copied).extractall(self.constants.build_path)
 
@@ -115,7 +115,7 @@ class BuildOpenCore:
             self.config["#Revision"]["Hardware-Probe"] = pickle.dumps(computer_copy)
         else:
             self.config["#Revision"]["Build-Type"] = "OpenCore Built for External Machine"
-        self.config["#Revision"]["OpenCore-Version"] = f"{self.constants.opencore_version} - {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}"
+        self.config["#Revision"]["OpenCore-Version"] = f"{self.constants.opencore_version} - {'DEBUG' if self.constants.opencore_debug else 'RELEASE'}"
         self.config["#Revision"]["Original-Model"] = self.model
         self.config["NVRAM"]["Add"]["4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102"]["OCLP-Version"] = f"{self.constants.patcher_version}"
         self.config["NVRAM"]["Add"]["4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102"]["OCLP-Model"] = self.model
@@ -142,7 +142,7 @@ class BuildOpenCore:
 
         # Generate OpenCore Configuration
         self._build_efi()
-        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs is True or (self.constants.custom_serial_number != "" and self.constants.custom_board_serial_number != ""):
+        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs or (self.constants.custom_serial_number != "" and self.constants.custom_board_serial_number != ""):
             smbios.BuildSMBIOS(self.model, self.constants, self.config).set_smbios()
         support.BuildSupport(self.model, self.constants, self.config).cleanup()
         self._save_config()

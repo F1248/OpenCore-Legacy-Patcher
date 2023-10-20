@@ -143,7 +143,7 @@ class tui_disk_installation:
         if Path(self.constants.opencore_release_folder / Path("boot.efi")).exists():
             subprocess.run(["cp", self.constants.opencore_release_folder / Path("boot.efi"), mount_path / Path("boot.efi")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        if self.constants.boot_efi is True:
+        if self.constants.boot_efi:
             logging.info("Converting Bootstrap to BOOTx64.efi")
             if (mount_path / Path("EFI/BOOT")).exists():
                 subprocess.run(["rm", "-rf", mount_path / Path("EFI/BOOT")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -151,10 +151,10 @@ class tui_disk_installation:
             subprocess.run(["mv", mount_path / Path("System/Library/CoreServices/boot.efi"), mount_path / Path("EFI/BOOT/BOOTx64.efi")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             subprocess.run(["rm", "-rf", mount_path / Path("System")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        if self._determine_sd_card(sd_type) is True:
+        if self._determine_sd_card(sd_type):
             logging.info("Adding SD Card icon")
             subprocess.run(["cp", self.constants.icon_path_sd, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        elif ssd_type is True:
+        elif ssd_type:
             logging.info("Adding SSD icon")
             subprocess.run(["cp", self.constants.icon_path_ssd, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         elif disk_type == "USB":

@@ -109,7 +109,7 @@ class BuildMiscellaneous:
 
         # Resolve mediaanalysisd crashing on 3802 GPUs
         # Applicable for systems that are the primary iCloud Photos library host, with large amounts of unprocessed faces
-        if self.constants.disable_mediaanalysisd is True:
+        if self.constants.disable_mediaanalysisd:
             logging.info("- Disabling mediaanalysisd")
             re_block_args.append("media")
 
@@ -222,7 +222,7 @@ class BuildMiscellaneous:
         Thunderbolt Handler
         """
 
-        if self.constants.disable_tb is True and self.model in ["MacBookPro11,1", "MacBookPro11,2", "MacBookPro11,3", "MacBookPro11,4", "MacBookPro11,5"]:
+        if self.constants.disable_tb and self.model in ["MacBookPro11,1", "MacBookPro11,2", "MacBookPro11,3", "MacBookPro11,4", "MacBookPro11,5"]:
             logging.info("- Disabling 2013-2014 laptop Thunderbolt Controller")
             if self.model in ["MacBookPro11,3", "MacBookPro11,5"]:
                 # 15" dGPU models: IOACPIPlane:/_SB/PCI0@0/PEG1@10001/UPSB@0/DSB0@0/NHI0@0
@@ -240,11 +240,11 @@ class BuildMiscellaneous:
         """
         if self.model in smbios_data.smbios_dictionary:
             if "Legacy iSight" in smbios_data.smbios_dictionary[self.model]:
-                if smbios_data.smbios_dictionary[self.model]["Legacy iSight"] is True:
+                if smbios_data.smbios_dictionary[self.model]["Legacy iSight"]:
                     support.BuildSupport(self.model, self.constants, self.config).enable_kext("LegacyUSBVideoSupport.kext", self.constants.apple_isight_version, self.constants.apple_isight_path)
 
         if not self.constants.custom_model:
-            if self.constants.computer.pcie_webcam is True:
+            if self.constants.computer.pcie_webcam:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleCameraInterface.kext", self.constants.apple_camera_version, self.constants.apple_camera_path)
         else:
             if self.model.startswith("MacBook") and self.model in smbios_data.smbios_dictionary:
@@ -261,7 +261,7 @@ class BuildMiscellaneous:
         usb_map_path = Path(self.constants.plist_folder_path) / Path("AppleUSBMaps/Info.plist")
         if (
             usb_map_path.exists()
-            and (self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs is True)
+            and (self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs)
             and self.model not in ["Xserve2,1", "Dortania1,1"]
             and (
                 (self.model in model_array.Missing_USB_Map or self.model in model_array.Missing_USB_Map_Ventura)
@@ -304,11 +304,11 @@ class BuildMiscellaneous:
         Debug Handler for OpenCorePkg and Kernel Space
         """
 
-        if self.constants.verbose_debug is True:
+        if self.constants.verbose_debug:
             logging.info("- Enabling Verbose boot")
             self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -v"
 
-        if self.constants.kext_debug is True:
+        if self.constants.kext_debug:
             logging.info("- Enabling DEBUG Kexts")
             self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -liludbgall liludump=90"
             # Disabled due to macOS Monterey crashing shortly after kernel init
@@ -316,7 +316,7 @@ class BuildMiscellaneous:
             # self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " msgbuf=1048576"
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("DebugEnhancer.kext", self.constants.debugenhancer_version, self.constants.debugenhancer_path)
 
-        if self.constants.opencore_debug is True:
+        if self.constants.opencore_debug:
             logging.info("- Enabling DEBUG OpenCore")
             self.config["Misc"]["Debug"]["Target"] = 0x43
             self.config["Misc"]["Debug"]["DisplayLevel"] = 0x80000042
@@ -342,7 +342,7 @@ class BuildMiscellaneous:
             logging.info(f"- Setting custom OpenCore picker timeout to {self.constants.oc_timeout} seconds")
             self.config["Misc"]["Boot"]["Timeout"] = self.constants.oc_timeout
 
-        if self.constants.vault is True:
+        if self.constants.vault:
             logging.info("- Setting Vault configuration")
             self.config["Misc"]["Security"]["Vault"] = "Secure"
 

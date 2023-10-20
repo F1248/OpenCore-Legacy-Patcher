@@ -57,7 +57,7 @@ class BuildStorage:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("MonteAHCIPort.kext", self.constants.monterey_ahci_version, self.constants.monterey_ahci_path)
 
         # ThirdPartyDrives Check
-        if self.constants.allow_3rd_party_drives is True:
+        if self.constants.allow_3rd_party_drives:
             for drive in ["SATA 2.5", "SATA 3.5", "mSATA"]:
                 if not self.model in smbios_data.smbios_dictionary:
                     break
@@ -65,7 +65,7 @@ class BuildStorage:
                     break
                 if drive in smbios_data.smbios_dictionary[self.model]["Stock Storage"]:
                     if not self.constants.custom_model:
-                        if self.computer.third_party_sata_ssd is True:
+                        if self.computer.third_party_sata_ssd:
                             logging.info("- Adding SATA Hibernation Patch")
                             self.config["Kernel"]["Quirks"]["ThirdPartyDrives"] = True
                             break
@@ -95,7 +95,7 @@ class BuildStorage:
         PCIe/NVMe Handler
         """
 
-        if not self.constants.custom_model and (self.constants.allow_oc_everywhere is True or self.model in model_array.MacPro):
+        if not self.constants.custom_model and (self.constants.allow_oc_everywhere or self.model in model_array.MacPro):
             # Use Innie's same logic:
             # https://github.com/cdf/Innie/blob/v1.3.0/Innie/Innie.cpp#L90-L97
             for i, controller in enumerate(self.computer.storage):
@@ -108,7 +108,7 @@ class BuildStorage:
 
         if not self.constants.custom_model:
             nvme_devices = [i for i in self.computer.storage if isinstance(i, device_probe.NVMeController)]
-            if self.constants.allow_nvme_fixing is True:
+            if self.constants.allow_nvme_fixing:
                 for i, controller in enumerate(nvme_devices):
                     if controller.vendor_id == 0x106b:
                         continue

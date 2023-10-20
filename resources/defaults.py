@@ -36,7 +36,7 @@ class GenerateDefaults:
         self.constants.custom_serial_number:       str = ""
         self.constants.custom_board_serial_number: str = ""
 
-        if self.host_is_target is True:
+        if self.host_is_target:
             for gpu in self.constants.computer.gpus:
                 if gpu.device_id_unspoofed == -1:
                     gpu.device_id_unspoofed = gpu.device_id
@@ -60,7 +60,7 @@ class GenerateDefaults:
             # Users disabling TS2 most likely have a faulty dGPU
             # users can override this in settings
             ts2_status = global_settings.GlobalEnviromentSettings().read_property("MacBookPro_TeraScale_2_Accel")
-            if ts2_status is True:
+            if ts2_status:
                 self.constants.allow_ts2_accel = True
             else:
                 global_settings.GlobalEnviromentSettings().write_property("MacBookPro_TeraScale_2_Accel", False)
@@ -80,7 +80,7 @@ class GenerateDefaults:
         # Check if running in RecoveryOS
         self.constants.recovery_status = utilities.check_recovery()
 
-        if global_settings.GlobalEnviromentSettings().read_property("Force_Web_Drivers") is True:
+        if global_settings.GlobalEnviromentSettings().read_property("Force_Web_Drivers"):
             self.constants.force_nv_web = True
 
         result = global_settings.GlobalEnviromentSettings().read_property("ShouldNukeKDKs")
@@ -206,7 +206,7 @@ class GenerateDefaults:
         self.constants.disable_cs_lv = True
         self.constants.disable_amfi = True
 
-        if is_legacy_wifi is True:
+        if is_legacy_wifi:
             # 13.0: Enabling AirPlay to Mac patches breaks Control Center on legacy chipsets
             # AirPlay to Mac was unsupported regardless, so we can safely disable it
             self.constants.fu_status = True
@@ -282,7 +282,7 @@ class GenerateDefaults:
                     if gpu == device_probe.AMD.Archs.Legacy_GCN_7000:
                         # Check if we're running in Rosetta
                         if self.host_is_target:
-                            if self.constants.computer.rosetta_active is True:
+                            if self.constants.computer.rosetta_active:
                                 continue
 
                     # Allow H.265 on AMD

@@ -42,12 +42,12 @@ class GenerateRootPatchSets:
 
         logging.info("The following patches will be applied:")
 
-        if self.hardware_details["Graphics: Intel Ironlake"] is True:
+        if self.hardware_details["Graphics: Intel Ironlake"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
             required_patches.update({"Intel Ironlake": all_hardware_patchset["Graphics"]["Intel Ironlake"]})
 
-        if self.hardware_details["Graphics: Intel Sandy Bridge"] is True:
+        if self.hardware_details["Graphics: Intel Sandy Bridge"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"High Sierra GVA": all_hardware_patchset["Graphics"]["High Sierra GVA"]})
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
@@ -56,7 +56,7 @@ class GenerateRootPatchSets:
             if self.constants.computer.real_model not in ["Macmini5,2", "iMac12,1", "iMac12,2"]:
                 required_patches.update({"Revert Non-Metal ColorSync Workaround": all_hardware_patchset["Graphics"]["Revert Non-Metal ColorSync Workaround"]})
 
-        if self.hardware_details["Graphics: Intel Ivy Bridge"] is True:
+        if self.hardware_details["Graphics: Intel Ivy Bridge"]:
             required_patches.update({"Metal 3802 Common": all_hardware_patchset["Graphics"]["Metal 3802 Common"]})
             required_patches.update({"Metal 3802 Common Extended": all_hardware_patchset["Graphics"]["Metal 3802 Common Extended"]})
             required_patches.update({"Catalina GVA": all_hardware_patchset["Graphics"]["Catalina GVA"]})
@@ -65,29 +65,29 @@ class GenerateRootPatchSets:
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
             required_patches.update({"Intel Ivy Bridge": all_hardware_patchset["Graphics"]["Intel Ivy Bridge"]})
 
-        if self.hardware_details["Graphics: Intel Haswell"] is True:
+        if self.hardware_details["Graphics: Intel Haswell"]:
             required_patches.update({"Metal 3802 Common": all_hardware_patchset["Graphics"]["Metal 3802 Common"]})
             required_patches.update({"Metal 3802 Common Extended": all_hardware_patchset["Graphics"]["Metal 3802 Common Extended"]})
             required_patches.update({"Monterey GVA": all_hardware_patchset["Graphics"]["Monterey GVA"]})
             required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
             required_patches.update({"Intel Haswell": all_hardware_patchset["Graphics"]["Intel Haswell"]})
 
-        if self.hardware_details["Graphics: Intel Broadwell"] is True:
+        if self.hardware_details["Graphics: Intel Broadwell"]:
             required_patches.update({"Monterey GVA": all_hardware_patchset["Graphics"]["Monterey GVA"]})
             required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
             required_patches.update({"Intel Broadwell": all_hardware_patchset["Graphics"]["Intel Broadwell"]})
 
-        if self.hardware_details["Graphics: Intel Skylake"] is True:
+        if self.hardware_details["Graphics: Intel Skylake"]:
             required_patches.update({"Revert GVA Downgrade": all_hardware_patchset["Graphics"]["Revert GVA Downgrade"]})
             required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
             required_patches.update({"Intel Skylake": all_hardware_patchset["Graphics"]["Intel Skylake"]})
 
-        if self.hardware_details["Graphics: Nvidia Tesla"] is True:
+        if self.hardware_details["Graphics: Nvidia Tesla"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
             required_patches.update({"Nvidia Tesla": all_hardware_patchset["Graphics"]["Nvidia Tesla"]})
 
-        if self.hardware_details["Graphics: Nvidia Web Drivers"] is True:
+        if self.hardware_details["Graphics: Nvidia Web Drivers"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"Non-Metal IOAccelerator Common": all_hardware_patchset["Graphics"]["Non-Metal IOAccelerator Common"]})
             required_patches.update({"Non-Metal CoreDisplay Common": all_hardware_patchset["Graphics"]["Non-Metal CoreDisplay Common"]})
@@ -95,7 +95,7 @@ class GenerateRootPatchSets:
             required_patches.update({"Nvidia Web Drivers": all_hardware_patchset["Graphics"]["Nvidia Web Drivers"]})
             required_patches.update({"Non-Metal Enforcement": all_hardware_patchset["Graphics"]["Non-Metal Enforcement"]})
 
-        if self.hardware_details["Graphics: Nvidia Kepler"] is True:
+        if self.hardware_details["Graphics: Nvidia Kepler"]:
             required_patches.update({"Metal 3802 Common": all_hardware_patchset["Graphics"]["Metal 3802 Common"]})
             required_patches.update({"Metal 3802 Common Extended": all_hardware_patchset["Graphics"]["Metal 3802 Common Extended"]})
             required_patches.update({"Catalina GVA": all_hardware_patchset["Graphics"]["Catalina GVA"]})
@@ -110,13 +110,13 @@ class GenerateRootPatchSets:
                         del(required_patches["Catalina GVA"])
                     break
 
-        if self.hardware_details["Graphics: AMD TeraScale 1"] is True:
+        if self.hardware_details["Graphics: AMD TeraScale 1"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
             required_patches.update({"AMD TeraScale Common": all_hardware_patchset["Graphics"]["AMD TeraScale Common"]})
             required_patches.update({"AMD TeraScale 1": all_hardware_patchset["Graphics"]["AMD TeraScale 1"]})
 
-        if self.hardware_details["Graphics: AMD TeraScale 2"] is True:
+        if self.hardware_details["Graphics: AMD TeraScale 2"]:
             required_patches.update({"Non-Metal Common": all_hardware_patchset["Graphics"]["Non-Metal Common"]})
             required_patches.update({"Non-Metal IOAccelerator Common": all_hardware_patchset["Graphics"]["Non-Metal IOAccelerator Common"]})
             required_patches.update({"WebKit Monterey Common": all_hardware_patchset["Graphics"]["WebKit Monterey Common"]})
@@ -127,61 +127,61 @@ class GenerateRootPatchSets:
                 # Additionally, AMDRadeonX3000 requires IOAccelerator downgrade which is not installed without 'Non-Metal IOAccelerator Common'
                 del(required_patches["AMD TeraScale 2"]["Install"]["/System/Library/Extensions"]["AMDRadeonX3000.kext"])
 
-        if self.hardware_details["Graphics: AMD Legacy GCN"] is True or self.hardware_details["Graphics: AMD Legacy Polaris"] is True:
+        if self.hardware_details["Graphics: AMD Legacy GCN"] or self.hardware_details["Graphics: AMD Legacy Polaris"]:
             if self.hardware_details["Graphics: Intel Skylake"] is False:
                 # GVA downgrade not required if Skylake is present
                 required_patches.update({"Monterey GVA": all_hardware_patchset["Graphics"]["Monterey GVA"]})
             required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
-            if self.hardware_details["Graphics: AMD Legacy GCN"] is True:
+            if self.hardware_details["Graphics: AMD Legacy GCN"]:
                 required_patches.update({"AMD Legacy GCN": all_hardware_patchset["Graphics"]["AMD Legacy GCN"]})
             else:
                 required_patches.update({"AMD Legacy Polaris": all_hardware_patchset["Graphics"]["AMD Legacy Polaris"]})
                 required_patches.update({"Revert GVA Downgrade": all_hardware_patchset["Graphics"]["Revert GVA Downgrade"]})
             if "AVX2" not in self.constants.computer.cpu.leafs:
                 required_patches.update({"AMD OpenCL": all_hardware_patchset["Graphics"]["AMD OpenCL"]})
-        if self.hardware_details["Graphics: AMD Legacy GCN (2017)"] is True:
+        if self.hardware_details["Graphics: AMD Legacy GCN (2017)"]:
             required_patches.update({"AMD Legacy GCN v2": all_hardware_patchset["Graphics"]["AMD Legacy GCN v2"]})
 
-        if self.hardware_details["Graphics: AMD Legacy Vega"] is True:
+        if self.hardware_details["Graphics: AMD Legacy Vega"]:
             required_patches.update({"Monterey GVA": all_hardware_patchset["Graphics"]["Monterey GVA"]})
             required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
             required_patches.update({"AMD Legacy Vega": all_hardware_patchset["Graphics"]["AMD Legacy Vega"]})
             required_patches.update({"AMD OpenCL": all_hardware_patchset["Graphics"]["AMD OpenCL"]})
-            if self.hardware_details["Graphics: AMD Legacy GCN"] is True:
+            if self.hardware_details["Graphics: AMD Legacy GCN"]:
                 required_patches.update({"AMD Legacy Vega Extended": all_hardware_patchset["Graphics"]["AMD Legacy Vega Extended"]})
             else:
                 required_patches.update({"Revert GVA Downgrade": all_hardware_patchset["Graphics"]["Revert GVA Downgrade"]})
 
-        if self.hardware_details["Brightness: Legacy Backlight Control"] is True:
+        if self.hardware_details["Brightness: Legacy Backlight Control"]:
             required_patches.update({"Legacy Backlight Control": all_hardware_patchset["Brightness"]["Legacy Backlight Control"]})
 
-        if self.hardware_details["Audio: Legacy Realtek"] is True:
+        if self.hardware_details["Audio: Legacy Realtek"]:
             if self.model in ["iMac7,1", "iMac8,1"]:
                 required_patches.update({"Legacy Realtek": all_hardware_patchset["Audio"]["Legacy Realtek"]})
             else:
                 required_patches.update({"Legacy Non-GOP": all_hardware_patchset["Audio"]["Legacy Non-GOP"]})
 
-        if self.hardware_details["Networking: Legacy Wireless"] is True:
+        if self.hardware_details["Networking: Legacy Wireless"]:
             required_patches.update({"Legacy Wireless": all_hardware_patchset["Networking"]["Legacy Wireless"]})
             required_patches.update({"Legacy Wireless Extended": all_hardware_patchset["Networking"]["Legacy Wireless Extended"]})
 
-        if self.hardware_details["Networking: Modern Wireless"] is True:
+        if self.hardware_details["Networking: Modern Wireless"]:
             required_patches.update({"Legacy Wireless": all_hardware_patchset["Networking"]["Modern Wireless"]})
 
-        if self.hardware_details["Miscellaneous: Legacy GMUX"] is True:
+        if self.hardware_details["Miscellaneous: Legacy GMUX"]:
             required_patches.update({"Legacy GMUX": all_hardware_patchset["Miscellaneous"]["Legacy GMUX"]})
 
-        if self.hardware_details["Miscellaneous: Legacy Keyboard Backlight"] is True:
+        if self.hardware_details["Miscellaneous: Legacy Keyboard Backlight"]:
             required_patches.update({"Legacy Keyboard Backlight": all_hardware_patchset["Miscellaneous"]["Legacy Keyboard Backlight"]})
 
-        if self.hardware_details["Miscellaneous: Legacy USB 1.1"] is True:
+        if self.hardware_details["Miscellaneous: Legacy USB 1.1"]:
             required_patches.update({"Legacy USB 1.1": all_hardware_patchset["Miscellaneous"]["Legacy USB 1.1"]})
             required_patches.update({"Legacy USB 1.1 Extended": all_hardware_patchset["Miscellaneous"]["Legacy USB 1.1 Extended"]})
 
-        if self.hardware_details["Miscellaneous: PCIe FaceTime Camera"] is True:
+        if self.hardware_details["Miscellaneous: PCIe FaceTime Camera"]:
             required_patches.update({"PCIe FaceTime Camera": all_hardware_patchset["Miscellaneous"]["PCIe FaceTime Camera"]})
 
-        if self.hardware_details["Miscellaneous: T1 Security Chip"] is True:
+        if self.hardware_details["Miscellaneous: T1 Security Chip"]:
             required_patches.update({"T1 Security Chip": all_hardware_patchset["Miscellaneous"]["T1 Security Chip"]})
 
         if required_patches:

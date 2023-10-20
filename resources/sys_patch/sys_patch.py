@@ -79,7 +79,7 @@ class PatchSysVolume:
         if custom_root_mount_path and custom_data_mount_path:
             self.mount_location = custom_root_mount_path
             self.data_mount_location = custom_data_mount_path
-        elif self.root_supports_snapshot is True:
+        elif self.root_supports_snapshot:
             # Big Sur and newer use APFS snapshots
             self.mount_location = "/System/Volumes/Update/mnt1"
             self.mount_location_data = ""
@@ -111,7 +111,7 @@ class PatchSysVolume:
                 logging.info("- Root Volume is already mounted")
                 return True
             else:
-                if self.root_supports_snapshot is True:
+                if self.root_supports_snapshot:
                     logging.info("- Mounting APFS Snapshot as writable")
                     result = utilities.elevated(["mount", "-o", "nobrowse", "-t", "apfs", f"/dev/{self.root_mount_path}", self.mount_location], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
                     if result.returncode == 0:
@@ -138,7 +138,7 @@ class PatchSysVolume:
                                 Required for USB 1.1 downgrades on Ventura and newer
         """
 
-        if self.skip_root_kmutil_requirement is True:
+        if self.skip_root_kmutil_requirement:
             return
         if self.constants.detected_os < os_data.os_data.ventura:
             return
@@ -206,7 +206,7 @@ class PatchSysVolume:
 
         # Due to some IOHIDFamily oddities, we need to ensure their CodeSignature is retained
         cs_path = Path(self.mount_location) / Path("System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDEventDriver.kext/Contents/_CodeSignature")
-        if save_hid_cs is True and cs_path.exists():
+        if save_hid_cs and cs_path.exists():
             logging.info("- Backing up IOHIDEventDriver CodeSignature")
             # Note it's a folder, not a file
             utilities.elevated(["cp", "-r", cs_path, f"{self.constants.payload_path}/IOHIDEventDriver_CodeSignature.bak"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -226,7 +226,7 @@ class PatchSysVolume:
         logging.info("- Successfully merged KDK with Root Volume")
 
         # Restore IOHIDEventDriver CodeSignature
-        if save_hid_cs is True and Path(f"{self.constants.payload_path}/IOHIDEventDriver_CodeSignature.bak").exists():
+        if save_hid_cs and Path(f"{self.constants.payload_path}/IOHIDEventDriver_CodeSignature.bak").exists():
             logging.info("- Restoring IOHIDEventDriver CodeSignature")
             if not cs_path.exists():
                 logging.info("  - CodeSignature folder missing, creating")
@@ -271,13 +271,13 @@ class PatchSysVolume:
             bool: True if successful, False if not
         """
 
-        if self._rebuild_kernel_collection() is True:
+        if self._rebuild_kernel_collection():
             self._update_preboot_kernel_cache()
             self._rebuild_dyld_shared_cache()
-            if self._create_new_apfs_snapshot() is True:
+            if self._create_new_apfs_snapshot():
                 logging.info("- Patching complete")
                 logging.info("\nPlease reboot the machine for patches to take effect")
-                if self.needs_kmutil_exemptions is True:
+                if self.needs_kmutil_exemptions:
                     logging.info("Note: Apple will require you to open System Preferences -> Security to allow the new kernel extensions to be loaded")
                 self.constants.root_patcher_succeeded = True
                 return True
@@ -302,7 +302,7 @@ class PatchSysVolume:
             # Base Arguments
             args = ["kmutil", "install"]
 
-            if self.skip_root_kmutil_requirement is True:
+            if self.skip_root_kmutil_requirement:
                 # Only rebuild the Auxiliary Kernel Collection
                 args.append("--new")
                 args.append("aux")
@@ -341,7 +341,7 @@ class PatchSysVolume:
                 #              Use kmutil create --update-install instead'
                 args[1] = "create"
 
-            if self.needs_kmutil_exemptions is True:
+            if self.needs_kmutil_exemptions:
                 # When installing to '/Library/Extensions', following args skip kext consent
                 # prompt in System Preferences when SIP's disabled
                 logging.info("  (You will get a prompt by System Preferences, ignore for now)")
@@ -367,7 +367,7 @@ class PatchSysVolume:
             logging.info("\nPlease reboot the machine to avoid potential issues rerunning the patcher")
             return False
 
-        if self.skip_root_kmutil_requirement is True:
+        if self.skip_root_kmutil_requirement:
             # Force rebuild the Auxiliary KC
             result = utilities.elevated(["killall", "syspolicyd", "kernelmanagerd"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             if result.returncode != 0:
@@ -396,7 +396,7 @@ class PatchSysVolume:
             bool: True if snapshot was created, False if not
         """
 
-        if self.root_supports_snapshot is True:
+        if self.root_supports_snapshot:
             logging.info("- Creating new APFS snapshot")
             bless = utilities.elevated(
                 [
@@ -647,7 +647,7 @@ class PatchSysVolume:
         else:
             self._execute_patchset(sys_patch_generate.GenerateRootPatchSets(self.computer.real_model, self.constants, self.hardware_details).patchset)
 
-        if self.constants.wxpython_variant is True and self.constants.detected_os >= os_data.os_data.big_sur:
+        if self.constants.wxpython_variant and self.constants.detected_os >= os_data.os_data.big_sur:
             sys_patch_auto.AutomaticSysPatch(self.constants).install_auto_patcher_launch_agent()
 
         self._rebuild_root_volume()
@@ -707,8 +707,8 @@ class PatchSysVolume:
             if "Processes" in required_patches[patch]:
                 for process in required_patches[patch]["Processes"]:
                     # Some processes need sudo, however we cannot directly call sudo in some scenarios
-                    # Instead, call elevated funtion if string's boolean is True
-                    if required_patches[patch]["Processes"][process] is True:
+                    # Instead, call elevated funtion if string's boolean
+                    if required_patches[patch]["Processes"][process]:
                         logging.info(f"- Running Process as Root:\n{process}")
                         utilities.process_status(utilities.elevated(process.split(" "), stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
                     else:
@@ -962,10 +962,10 @@ class PatchSysVolume:
             return
 
         logging.info("- Verifying whether Root Patching possible")
-        if sys_patch_detect.DetectRootPatch(self.computer.real_model, self.constants).verify_patch_allowed(print_errors=not self.constants.wxpython_variant) is True:
+        if sys_patch_detect.DetectRootPatch(self.computer.real_model, self.constants).verify_patch_allowed(print_errors=not self.constants.wxpython_variant):
             logging.info("- Patcher is capable of patching")
             if self._check_files():
-                if self._mount_root_vol() is True:
+                if self._mount_root_vol():
                     self._patch_root_vol()
                 else:
                     logging.info("- Recommend rebooting the machine and trying to patch again")
@@ -977,8 +977,8 @@ class PatchSysVolume:
         """
 
         logging.info("- Starting Unpatch Process")
-        if sys_patch_detect.DetectRootPatch(self.computer.real_model, self.constants).verify_patch_allowed(print_errors=True) is True:
-            if self._mount_root_vol() is True:
+        if sys_patch_detect.DetectRootPatch(self.computer.real_model, self.constants).verify_patch_allowed(print_errors=True):
+            if self._mount_root_vol():
                 self._unpatch_root_vol()
             else:
                 logging.info("- Recommend rebooting the machine and trying to patch again")

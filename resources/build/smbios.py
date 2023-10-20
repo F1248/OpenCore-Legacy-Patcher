@@ -35,7 +35,7 @@ class BuildSMBIOS:
         Kick off SMBIOS Build Process
         """
 
-        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs is True:
+        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs:
             if self.constants.serial_settings == "None":
                 # Credit to Parrotgeek1 for boot.efi and hv_vmm_present patch sets
                 logging.info("- Enabling Board ID exemption patch")
@@ -67,7 +67,7 @@ class BuildSMBIOS:
         if self.constants.override_smbios == "Default":
             if self.constants.serial_settings != "None":
                 logging.info("- Setting macOS Monterey Supported SMBIOS")
-                if self.constants.allow_native_spoofs is True:
+                if self.constants.allow_native_spoofs:
                     spoofed_model = self.model
                 else:
                     spoofed_model = generate_smbios.set_smbios_model_spoof(self.model)
@@ -84,7 +84,7 @@ class BuildSMBIOS:
         self.spoofed_model = spoofed_model
         self.spoofed_board = spoofed_board
 
-        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs is True:
+        if self.constants.allow_oc_everywhere is False or self.constants.allow_native_spoofs:
             self.config["#Revision"]["Spoofed-Model"] = f"{self.spoofed_model} - {self.constants.serial_settings}"
 
         if self.constants.serial_settings == "Moderate":

@@ -108,7 +108,7 @@ class SysPatchDisplayFrame(wx.Frame):
 
         can_unpatch: bool = patches["Validation: Unpatching Possible"]
 
-        if not any(not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True for patch in patches):
+        if not any(not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] for patch in patches):
             logging.info("No applicable patches available")
             patches = []
 
@@ -124,7 +124,7 @@ class SysPatchDisplayFrame(wx.Frame):
         else:
             # Add Label for each patch
             i = 0
-            if no_new_patches is True:
+            if no_new_patches:
                 patch_label = wx.StaticText(frame, label="All applicable patches already installed", pos=(-1, available_label.GetPosition()[1] + 20))
                 patch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
                 patch_label.Centre(wx.HORIZONTAL)
@@ -132,7 +132,7 @@ class SysPatchDisplayFrame(wx.Frame):
             else:
                 longest_patch = ""
                 for patch in patches:
-                    if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+                    if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                         if len(patch) > len(longest_patch):
                             longest_patch = patch
                 anchor = wx.StaticText(frame, label=longest_patch, pos=(-1, available_label.GetPosition()[1] + 20))
@@ -142,7 +142,7 @@ class SysPatchDisplayFrame(wx.Frame):
 
                 logging.info("Available patches:")
                 for patch in patches:
-                    if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+                    if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                         i = i + 20
                         logging.info(f"- {patch}")
                         patch_label = wx.StaticText(frame, label=f"- {patch}", pos=(anchor.GetPosition()[0], available_label.GetPosition()[1] + i))
@@ -317,7 +317,7 @@ class SysPatchDisplayFrame(wx.Frame):
 
         oclp_plist_data = plistlib.load(open(oclp_plist, "rb"))
         for patch in patches:
-            if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+            if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                 # Patches should share the same name as the plist key
                 # See sys_patch_dict.py for more info
                 patch_installed = False

@@ -144,7 +144,7 @@ def csr_decode(os_sip):
 
     # Can be adjusted to whatever OS needs patching
     sip_needs_change = all(sip_data.system_integrity_protection.csr_values[i] for i in os_sip)
-    if sip_needs_change is True:
+    if sip_needs_change:
         return False
     else:
         return True

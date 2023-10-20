@@ -73,7 +73,7 @@ class BuildFirmware:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleIntelCPUPowerManagement.kext", self.constants.aicpupm_version, self.constants.aicpupm_path)
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleIntelCPUPowerManagementClient.kext", self.constants.aicpupm_version, self.constants.aicpupm_client_path)
 
-        if smbios_data.smbios_dictionary[self.model]["CPU Generation"] <= cpu_data.CPUGen.sandy_bridge.value or self.constants.disable_fw_throttle is True:
+        if smbios_data.smbios_dictionary[self.model]["CPU Generation"] <= cpu_data.CPUGen.sandy_bridge.value or self.constants.disable_fw_throttle:
             # With macOS 12.3 Beta 1, Apple dropped the 'plugin-type' check within X86PlatformPlugin
             # Because of this, X86PP will match onto the CPU instead of ACPI_SMC_PlatformPlugin
             # This causes power management to break on pre-Ivy Bridge CPUs as they don't have correct
@@ -81,11 +81,11 @@ class BuildFirmware:
             # This patch will simply increase ASPP's 'IOProbeScore' to outmatch X86PP
             logging.info("- Overriding ACPI SMC matching")
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("ASPP-Override.kext", self.constants.aspp_override_version, self.constants.aspp_override_path)
-            if self.constants.disable_fw_throttle is True:
+            if self.constants.disable_fw_throttle:
                 # Only inject on older OSes if user requests
                 support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["Kernel"]["Add"], "BundlePath", "ASPP-Override.kext")["MinKernel"] = ""
 
-        if self.constants.disable_fw_throttle is True and smbios_data.smbios_dictionary[self.model]["CPU Generation"] >= cpu_data.CPUGen.nehalem.value:
+        if self.constants.disable_fw_throttle and smbios_data.smbios_dictionary[self.model]["CPU Generation"] >= cpu_data.CPUGen.nehalem.value:
             logging.info("- Disabling Firmware Throttling")
             # Nehalem and newer systems force firmware throttling via MSR_POWER_CTL
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("SimpleMSR.kext", self.constants.simplemsr_version, self.constants.simplemsr_path)
@@ -149,7 +149,7 @@ class BuildFirmware:
             logging.info("- Adding SurPlus Patch for Race Condition")
             support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["Kernel"]["Patch"], "Comment", "SurPlus v1 - PART 1 of 2 - Patch read_erandom (inlined in _early_random)")["Enabled"] = True
             support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["Kernel"]["Patch"], "Comment", "SurPlus v1 - PART 2 of 2 - Patch register_and_init_prng")["Enabled"] = True
-            if self.constants.force_surplus is True:
+            if self.constants.force_surplus:
                 # Syncretic forces SurPlus to only run on Beta 7 and older by default for saftey reasons
                 # If users desires, allow forcing in newer OSes
                 logging.info("- Allowing SurPlus on all newer OSes")
@@ -192,13 +192,13 @@ class BuildFirmware:
             support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("ExFatDxeLegacy.efi", "UEFI", "Drivers")["Enabled"] = True
 
         # NVMe check
-        if self.constants.nvme_boot is True:
+        if self.constants.nvme_boot:
             logging.info("- Enabling NVMe boot support")
             shutil.copy(self.constants.nvme_driver_path, self.constants.drivers_path)
             support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("NvmExpressDxe.efi", "UEFI", "Drivers")["Enabled"] = True
 
         # USB check
-        if self.constants.xhci_boot is True:
+        if self.constants.xhci_boot:
             logging.info("- Adding USB 3.0 Controller Patch")
             logging.info("- Adding XhciDxe.efi and UsbBusDxe.efi")
             shutil.copy(self.constants.xhci_driver_path, self.constants.drivers_path)
@@ -251,7 +251,7 @@ class BuildFirmware:
             # - https://github.com/apple-oss-distributions/IOPCIFamily/blob/IOPCIFamily-583.40.1/IOPCIConfigurator.cpp#L1009
             support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["Kernel"]["Patch"], "Comment", "Fix PCI bus enumeration (Sonoma)")["Enabled"] = True
 
-        if self.constants.set_vmm_cpuid is True:
+        if self.constants.set_vmm_cpuid:
             logging.info("- Enabling VMM patch")
             self.config["Kernel"]["Emulate"]["Cpuid1Data"] = binascii.unhexlify("00000000000000000000008000000000")
             self.config["Kernel"]["Emulate"]["Cpuid1Mask"] = binascii.unhexlify("00000000000000000000008000000000")
@@ -270,7 +270,7 @@ class BuildFirmware:
 
         # Works-around Hibernation bug where connecting all firmware drivers breaks the transition from S4
         # Mainly applicable for MacBookPro9,1
-        if self.constants.disable_connectdrivers is True:
+        if self.constants.disable_connectdrivers:
             logging.info("- Disabling ConnectDrivers")
             self.config["UEFI"]["ConnectDrivers"] = False
 
@@ -316,7 +316,7 @@ class BuildFirmware:
 
         # Setup diags.efi chainloading
         Path(self.constants.opencore_release_folder / Path("System/Library/CoreServices/.diagnostics/Drivers/HardwareDrivers")).mkdir(parents=True, exist_ok=True)
-        if self.constants.boot_efi is True:
+        if self.constants.boot_efi:
             path_oc_loader = self.constants.opencore_release_folder / Path("EFI/BOOT/BOOTx64.efi")
         else:
             path_oc_loader = self.constants.opencore_release_folder / Path("System/Library/CoreServices/boot.efi")

@@ -160,7 +160,7 @@ class SysPatchStartFrame(wx.Frame):
             # Get longest patch label, then create anchor for patch labels
             longest_patch = ""
             for patch in patches:
-                if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+                if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                     if len(patch) > len(longest_patch):
                         longest_patch = patch
 
@@ -173,7 +173,7 @@ class SysPatchStartFrame(wx.Frame):
             i = 0
             logging.info("Available patches:")
             for patch in patches:
-                if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+                if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                     logging.info(f"- {patch}")
                     patch_label = wx.StaticText(dialog, label=f"- {patch}", pos=(anchor.GetPosition()[0], label.GetPosition()[1] + 20 + i))
                     patch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_BOLD))
@@ -218,7 +218,7 @@ class SysPatchStartFrame(wx.Frame):
         while gui_support.PayloadMount(self.constants, self).is_unpack_finished() is False:
             wx.Yield()
 
-        if self.patches["Settings: Kernel Debug Kit missing"] is True:
+        if self.patches["Settings: Kernel Debug Kit missing"]:
             if self._kdk_download(self) is False:
                 sys.exit(1)
 
@@ -356,7 +356,7 @@ class SysPatchStartFrame(wx.Frame):
 
         oclp_plist_data = plistlib.load(open(oclp_plist, "rb"))
         for patch in patches:
-            if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True):
+            if (not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch]):
                 # Patches should share the same name as the plist key
                 # See sys_patch_dict.py for more info
                 patch_installed = False

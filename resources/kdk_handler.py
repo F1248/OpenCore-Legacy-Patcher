@@ -388,7 +388,7 @@ class KernelDebugKitObject:
             str: Path to KDK if valid, None if not
         """
 
-        if self.ignore_installed is True:
+        if self.ignore_installed:
             return None
 
         if match is None:
@@ -449,7 +449,7 @@ class KernelDebugKitObject:
             kdk_path (str): Path to KDK
         """
 
-        if self.passive is True:
+        if self.passive:
             return
 
         if os.getuid() != 0:
@@ -480,7 +480,7 @@ class KernelDebugKitObject:
                                              If None, defaults to host and closest match builds.
         """
 
-        if self.passive is True:
+        if self.passive:
             return
 
         if exclude_builds is None:

@@ -273,7 +273,7 @@ class InstallOCFrame(wx.Frame):
         while thread.is_alive():
             wx.Yield()
 
-        if self.result is True:
+        if self.result:
             if self.constants.update_stage != gui_support.AutoUpdateStages.INACTIVE and self.constants.detected_os >= os_data.os_data.big_sur:
                 self.constants.update_stage = gui_support.AutoUpdateStages.ROOT_PATCHING
                 popup_message = wx.MessageDialog(
