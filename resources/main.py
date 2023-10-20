@@ -84,9 +84,8 @@ class OpenCoreLegacyPatcher:
 
         # Generate commit info
         self.constants.commit_info = commit_info.ParseCommitInfo(self.constants.launcher_binary).generate_commit_info()
-        if " " not in self.constants.commit_info[0]:
-            branch = self.constants.commit_info[0]
-        else:
+        branch = self.constants.commit_info[0]
+        if " " in branch:
             branch = self.constants.fallback_branch
         self.constants.pkg_nightly_url = self.constants.pkg_nightly_url.replace("branch_placeholder", branch)
 
