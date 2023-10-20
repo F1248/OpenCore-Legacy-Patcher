@@ -84,7 +84,7 @@ class OpenCoreLegacyPatcher:
 
         # Generate commit info
         self.constants.commit_info = commit_info.ParseCommitInfo(self.constants.launcher_binary).generate_commit_info()
-        if self.constants.commit_info[0] not in ["Running from source", "Built from source"]:
+        if " " not in self.constants.commit_info[0]:
             branch = self.constants.commit_info[0]
         else:
             branch = self.constants.fallback_branch
