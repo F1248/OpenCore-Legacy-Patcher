@@ -4,7 +4,7 @@ With OpenCore Legacy Patcher v0.1.7 and newer, we've implemented beta macOS Mont
 
 ## Newly dropped hardware
 
-With Monterey, Apple continues their their somewhat ruthless march of dropping Intel hardware. This release saw the removal, and thus addition into OpenCore Legacy Patcher, of the following models:
+With macOS Monterey, Apple continues their their somewhat ruthless march of dropping Intel hardware. This release saw the removal, and thus addition into OpenCore Legacy Patcher, of the following models:
 
 * iMac14,4
 * iMac15,1
@@ -33,7 +33,7 @@ With Monterey, Apple continues their their somewhat ruthless march of dropping I
 
 All of these models now have support in OpenCore Legacy Patcher.
 
-## Current Monterey Issues
+## Current macOS Monterey Issues
 
 ### MacBookPro11,3 booting issue without Kepler acceleration
 
@@ -125,7 +125,7 @@ Here are the firmwares macOS Monterey Dropped (previously located within IOBluet
 
 * Intel HD4000 iGPUs lost support
 
-By default these machines require root volume patches to gain graphics acceleration in Monterey. OpenCore Legacy Patcher supports readding support however SIP can no longer be enabled due to root patching:
+By default these machines require root volume patches to gain graphics acceleration in macOS Monterey. OpenCore Legacy Patcher supports readding support however SIP can no longer be enabled due to root patching:
 
 * Macmini6,x
 * MacBookAir5,x
@@ -138,7 +138,7 @@ By default these machines require root volume patches to gain graphics accelerat
 
 * NVIDIA Kepler dGPUs lost support
 
-By default these machines require root volume patches to gain graphics acceleration in Monterey. OpenCore Legacy Patcher supports readding support however SIP can no longer be enabled due to root patching:
+By default these machines require root volume patches to gain graphics acceleration in macOS Monterey. OpenCore Legacy Patcher supports readding support however SIP can no longer be enabled due to root patching:
 
 * MacBookPro9,1
 * MacBookPro10,1
@@ -155,7 +155,7 @@ By default these machines require root volume patches to gain graphics accelerat
   * NVIDIA Tesla and Fermi GPUs
   * AMD TeraScale 1 and 2 GPUs
 
-The following machines cannot gain graphics acceleration at all in Monterey, only basic framebuffer and brightness control (iMac8,1/9,1 and MacBook5,2 excluded):
+The following machines cannot gain graphics acceleration at all in macOS Monterey, only basic framebuffer and brightness control (iMac8,1/9,1 and MacBook5,2 excluded):
 
 * iMac12,x and older
 * Macmini5,x and older

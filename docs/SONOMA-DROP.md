@@ -25,7 +25,7 @@ With v1.0.0, we'll be switching to a proper major, minor and bug fix system ([Se
 
 ## Current status
 
-OpenCore Legacy Patcher v1.0.0 will support Sonoma for all models normally supported by the Patcher, however some challenges remain. You can find information about them below.
+OpenCore Legacy Patcher v1.0.0 will support macOS Sonoma for all models normally supported by the Patcher, however some challenges remain. You can find information about them below.
 
 ## Issues
 
@@ -43,7 +43,7 @@ Dual boots may also bring the issue back even after the reset.
 
 ### T1 Security chip
 
-Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros. Therefore on these systems, the following will not function:
+MacOS Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros. Therefore on these systems, the following will not function:
 
 * Enable or disable FileVault
 * Open the Password Settings window
@@ -52,7 +52,7 @@ Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros
 * Join FaceTime calls
 
 :::warning
-Additionally, due to Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
+Additionally, due to macOS Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
 :::
 
 No known solution to resolve supporting, a significant amount of time will be required to understand how both the T1 stack works, as well as where the core issue lies for support.
@@ -69,7 +69,7 @@ No known solution to resolve supporting, a significant amount of time will be re
 
 ### USB 1.1 (OHCI/UHCI) Support
 
-For Penryn systems, pre-2013 Mac Pros and Xserve, USB 1.1 support was outright removed in macOS Ventura and naturally this continues in Sonoma.
+For Penryn systems, pre-2013 Mac Pros and Xserve, USB 1.1 support was outright removed in macOS Ventura and naturally this continues in macOS Sonoma.
 While USB 1.1 may seem unimportant, it handles many important devices on your system. These include:
 
 * Keyboard and Trackpad for laptops

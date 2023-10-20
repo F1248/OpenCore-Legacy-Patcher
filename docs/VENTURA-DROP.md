@@ -4,7 +4,7 @@ With the release of OpenCore Legacy Patcher v0.5.0 and newer, early support for 
 
 ## Newly dropped hardware
 
-Ventura's release dropped a large amount of Intel hardware, thus requiring the usage of OpenCore Legacy Patcher on the following models (in addition to previously removed models):
+MacOS Ventura's release dropped a large amount of Intel hardware, thus requiring the usage of OpenCore Legacy Patcher on the following models (in addition to previously removed models):
 
 * iMac16,1 (21.5-inch, Late 2015)
 * iMac16,2 (21.5-inch and 21.5-inch 4K, Late 2015)
@@ -28,18 +28,18 @@ Ventura's release dropped a large amount of Intel hardware, thus requiring the u
 
 For older hardware, see below sections:
 
-* [Currently Unsupported/Broken Hardware in Ventura](#currently-unsupportedbroken-hardware-in-ventura)
+* [Currently Unsupported/Broken Hardware in macOS Ventura](#currently-unsupportedbroken-hardware-in-macos-ventura)
   * [AMD Polaris, Vega and Navi support on pre-2019 Mac Pros and pre-2012 iMacs](#amd-polaris-vega-and-navi-support-on-pre-2019-mac-pros-and-pre-2012-imacs)
   * [USB 1.1 (OHCI/UHCI) Support](#usb-11-ohciuhci-support)
   * [Ethernet issue with Early 2008 Mac Pro](#ethernet-issue-with-early-2008-mac-pro)
 
 The team is doing their best to investigate and fix the aforementioned issues, however no estimated time can be provided.
 
-## Currently Unsupported/Broken Hardware in Ventura
+## Currently Unsupported/Broken Hardware in macOS Ventura
 
 ### AMD Polaris, Vega and Navi support on pre-2019 Mac Pros and pre-2012 iMacs
 
-For users with 2008 to 2013 Mac Pros (MacPro3,1-6,1) and 2009 to 2011 iMacs (iMac9,1-12,2), keep in mind that macOS Ventura now requires [AVX2.0 support in the CPU](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2) for native graphics acceleration. Thus while your GPU may be natively supported, you cannot run Ventura officially with these GPUs.
+For users with 2008 to 2013 Mac Pros (MacPro3,1-6,1) and 2009 to 2011 iMacs (iMac9,1-12,2), keep in mind that macOS Ventura now requires [AVX2.0 support in the CPU](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2) for native graphics acceleration. Thus while your GPU may be natively supported, you cannot run macOS Ventura officially with these GPUs.
 
 * CPUs supporting AVX2.0 are Haswell or newer, which no pre-2019 Mac Pros can be upgraded with.
 
@@ -83,7 +83,7 @@ With OpenCore Legacy Patcher v0.6.0, basic support has been implemented via Root
 
 ### Legacy Wireless Support
 
-For systems that required Root Patches in macOS Monterey to achieve Wireless support, unfortunately macOS Ventura has broken the patch set. Currently the following Wifi cards are unsupported:
+For systems that required Root Patches in macOS macOS Monterey to achieve Wireless support, unfortunately macOS Ventura has broken the patch set. Currently the following Wifi cards are unsupported:
 
 * Atheros: All models
 * Broadcom: BCM94328 and BCM94322
@@ -109,7 +109,7 @@ Currently BCM943224, BCM94331, BCM94360 and BCM943602 are still fully supported 
 
 ### Non-Metal Graphics Acceleration
 
-Regarding non-Metal, the team is hard at work to get non-Metal working, however this is our greatest challenge since Big Sur.
+Regarding non-Metal, the team is hard at work to get non-Metal working, however this is our greatest challenge since macOS Big Sur.
 
 Apple has made significant changes to the graphics stack in order to facilitate fancy effects, and in particularly, Stage Manager. We will update you as we work on development, however, now is not the best time to ask about ETAs.
 
