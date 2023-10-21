@@ -77,11 +77,11 @@ The patcher is designed to target **macOS Big Sur 11.x to macOS Sonoma 14.x**.
 | MacBook Pro (Retina, 15-inch, Mid 2015) | `MacBookPro11,4`<br>`MacBookPro11,5` | ^^ |
 | MacBook Pro (Retina, 13-inch, Early 2015) | `MacBookPro12,1` | ^^ |
 | MacBook Pro (13-inch, 2016, 2 Thunderbolt 3 ports) | `MacBookPro13,1` | ^^ |
-| MacBook Pro (13-inch, 2016, 4 Thunderbolt 3 ports) | `MacBookPro13,2` | - [Legacy Metal (macOS 13+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008)<br>- [T1 Support (macOS 14+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1103) |
+| MacBook Pro (13-inch, 2016, 4 Thunderbolt 3 ports) | `MacBookPro13,2` | ^^ |
 | MacBook Pro (15-inch, 2016) | `MacBookPro13,3` | ^^ |
 | MacBook Pro (13-inch, 2017, 2 Thunderbolt 3 ports) | `MacBookPro14,1` | - Supported by OpenCore Legacy Patcher |
-| MacBook Pro (13-inch, 2017, 4 Thunderbolt 3 ports) | `MacBookPro14,2` | - [T1 Support (macOS 14+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1103) |
-| MacBook Pro (15-inch, 2017) | `MacBookPro14,3` | - [Legacy Metal (macOS 14+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008)<br>- [T1 Support (macOS 14+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1103) |
+| MacBook Pro (13-inch, 2017, 4 Thunderbolt 3 ports) | `MacBookPro14,2` | ^^ |
+| MacBook Pro (15-inch, 2017) | `MacBookPro14,3` | - [Legacy Metal (macOS 14+)](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1008) |
 | MacBook Pro (13-inch, 2018, 4 Thunderbolt 3 ports)<br>MacBook Pro (13-inch, 2019, 4 Thunderbolt 3 ports) | `MacBookPro15,2` | - Supported by Apple |
 | MacBook Pro (15-inch, 2018)<br>MacBook Pro (15-inch, 2019) | `MacBookPro15,1` | ^^ |
 | MacBook Pro (13-inch, 2019, 2 Thunderbolt 3 ports) | `MacBookPro15,4` | ^^ |

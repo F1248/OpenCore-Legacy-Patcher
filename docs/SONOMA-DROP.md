@@ -30,7 +30,6 @@ OpenCore Legacy Patcher v1.0.0 will support macOS Sonoma for all models normally
 ## Issues
 
 * [Bluetooth](#bluetooth)
-* [T1 Security chip](#t1-security-chip)
 * [USB 1.1 (OHCI/UHCI) Support](#usb-11-ohciuhci-support)
 * [Graphics support and issues](#graphics-support-and-issues)
 
@@ -40,32 +39,6 @@ OpenCore Legacy Patcher v1.0.0 will support macOS Sonoma for all models normally
 Sometimes Bluetooth may not work after boot on pre-2012 models. Running NVRAM reset can alleviate it.
 
 Dual boots may also bring the issue back even after the reset.
-
-### T1 Security chip
-
-MacOS Sonoma has removed support for T1 chips found in most 2016 and 2017 MacBook Pros. Therefore on these systems, the following will not function:
-
-* Enable or disable FileVault
-* Open the Password Settings window
-* Add fingerprints (if upgrading, existing fingerprints will be deleted)
-* Add cards to Apple Pay
-* Join FaceTime calls
-
-:::warning
-Additionally, due to macOS Sonoma no longer caring about T1, erasing the entire drive will remove the T1 firmware and it won't be reinstalled.
-:::
-
-No known solution to resolve supporting, a significant amount of time will be required to understand how both the T1 stack works, as well as where the core issue lies for support.
-
-:::warning The following systems have a T1 Security chip
-
-* MacBookPro13,2:	MacBook Pro (13-inch, 2016, Four Thunderbolt 3 Ports)
-* MacBookPro13,3:	MacBook Pro (15-inch, 2016)
-* MacBookPro14,2:	MacBook Pro (13-inch, 2017, Four Thunderbolt 3 Ports)
-* MacBookPro14,3:	MacBook Pro (15-inch, 2017)
-:::
-
-[More information here](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1103)
 
 ### USB 1.1 (OHCI/UHCI) Support
 
