@@ -16,7 +16,6 @@ from resources.wx_gui import (
     gui_help,
     gui_settings,
     gui_sys_patch_display,
-    gui_update
 )
 from resources import constants
 from data import os_data

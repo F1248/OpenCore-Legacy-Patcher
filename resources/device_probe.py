@@ -1,7 +1,6 @@
 # Hardware probing
 # Copyright (C) 2020-2022, Dhinak G, Mykola Grymalyuk
 
-import binascii
 import enum
 import itertools
 import subprocess
@@ -9,7 +8,7 @@ import plistlib
 import hashlib
 from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Any, ClassVar, Optional, Type, Union
+from typing import ClassVar, Optional, Type, Union
 
 from resources import utilities, ioreg
 from data import pci_data, usb_data

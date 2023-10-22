@@ -10,7 +10,7 @@ import subprocess
 
 from pathlib import Path
 
-from resources import constants, utilities
+from resources import constants
 
 
 class BuildSupport:

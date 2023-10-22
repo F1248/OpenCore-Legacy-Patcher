@@ -1,8 +1,6 @@
-import datetime
 import logging
 import os
 import plistlib
-import random
 import subprocess
 import sys
 import threading

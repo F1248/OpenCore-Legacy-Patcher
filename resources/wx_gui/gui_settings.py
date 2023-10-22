@@ -6,7 +6,6 @@ import py_sip_xnu
 import subprocess
 import os
 
-from pathlib import Path
 from resources.sys_patch.sys_patch import PatchSysVolume
 
 from resources.wx_gui import (

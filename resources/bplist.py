@@ -278,7 +278,6 @@ def unplist(s):
     return NSPropertyListSerialization.propertyListWithData_options_format_error_(d, 0, None, None)
 
 if __name__ == "__main__":
-    import os
     import sys
     import json
     file_path = sys.argv[1]
