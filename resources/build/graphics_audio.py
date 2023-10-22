@@ -51,7 +51,7 @@ class BuildGraphicsAudio:
         """
 
         if self.constants.allow_oc_everywhere is False and self.constants.serial_settings != "None":
-            if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"]:
+            if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_version, self.constants.whatevergreen_path)
 
         # Mac Pro handling
@@ -96,7 +96,7 @@ class BuildGraphicsAudio:
                 logging.info("- Adding Mac Pro, Xserve DRM patches")
                 self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " shikigva=128 unfairgva=1 -wegtree"
 
-            if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"]:
+            if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_version, self.constants.whatevergreen_path)
 
         # Web Driver specific
@@ -105,7 +105,7 @@ class BuildGraphicsAudio:
                 if isinstance(device, device_probe.NVIDIA):
                     if (
                         device.arch in [device_probe.NVIDIA.Archs.Fermi, device_probe.NVIDIA.Archs.Maxwell, device_probe.NVIDIA.Archs.Pascal] or
-                        (self.constants.force_nv_web and device.arch in [device_probe.NVIDIA.Archs.Tesla, device_probe.NVIDIA.Archs.Kepler])
+                        (self.constants.force_nv_web is True and device.arch in [device_probe.NVIDIA.Archs.Tesla, device_probe.NVIDIA.Archs.Kepler])
                     ):
                         logging.info(f"- Enabling Web Driver Patches for GPU ({i + 1}): {utilities.friendly_hex(device.vendor_id)}:{utilities.friendly_hex(device.device_id)}")
                         if device.pci_path and device.acpi_path:
@@ -168,7 +168,7 @@ class BuildGraphicsAudio:
         iMac Nvidia Kepler MXM Handler
         """
 
-        if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"]:
+        if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
             # Ensure WEG is enabled as we need if for Backlight patching
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_navi_version, self.constants.whatevergreen_navi_path)
         if self.model in ["iMac11,1", "iMac11,2", "iMac11,3", "iMac10,1"]:
@@ -216,7 +216,7 @@ class BuildGraphicsAudio:
         """
 
         logging.info("- Adding AMD DRM patches")
-        if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"]:
+        if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
             # Ensure WEG is enabled as we need if for Backlight patching
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_navi_version, self.constants.whatevergreen_navi_path)
 
@@ -304,11 +304,11 @@ class BuildGraphicsAudio:
         Audio Handler
         """
 
-        if (self.model in model_array.LegacyAudio or self.model in model_array.MacPro) and self.constants.set_alc_usage:
+        if (self.model in model_array.LegacyAudio or self.model in model_array.MacPro) and self.constants.set_alc_usage is True:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleALC.kext", self.constants.applealc_version, self.constants.applealc_path)
 
         # Audio Patch
-        if self.constants.set_alc_usage:
+        if self.constants.set_alc_usage is True:
             if smbios_data.smbios_dictionary[self.model]["Max OS Supported"] <= os_data.os_data.high_sierra:
                 # Models dropped in Mojave also lost Audio support
                 # Xserves and MacPro4,1 are exceptions
@@ -337,7 +337,7 @@ class BuildGraphicsAudio:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleALC.kext", self.constants.applealc_version, self.constants.applealc_path)
 
         # Due to regression in AppleALC 1.6.4+, temporarily use 1.6.3 and set override
-        if support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("AppleALC.kext")["Enabled"]:
+        if support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("AppleALC.kext")["Enabled"] is True:
             self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -lilubetaall"
 
 
@@ -352,7 +352,7 @@ class BuildGraphicsAudio:
             self.config["UEFI"]["Output"]["GopPassThrough"] = "Apple"
 
         # GMUX handling
-        if self.constants.software_demux and self.model in ["MacBookPro8,2", "MacBookPro8,3"]:
+        if self.constants.software_demux is True and self.model in ["MacBookPro8,2", "MacBookPro8,3"]:
             logging.info("- Enabling software demux")
             # Add ACPI patches
             support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["ACPI"]["Add"], "Path", "SSDT-DGPU.aml")["Enabled"] = True
@@ -370,24 +370,24 @@ class BuildGraphicsAudio:
             # Add AMDGPUWakeHandler
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AMDGPUWakeHandler.kext", self.constants.gpu_wake_version, self.constants.gpu_wake_path)
 
-        if self.constants.dGPU_switch and "Switchable GPUs" in smbios_data.smbios_dictionary[self.model]:
+        if self.constants.dGPU_switch is True and "Switchable GPUs" in smbios_data.smbios_dictionary[self.model]:
             logging.info("- Allowing GMUX switching in Windows")
             self.config["Booter"]["Quirks"]["SignalAppleOS"] = True
 
         # Force Output support PC VBIOS on Mac Pros
-        if self.constants.force_output_support:
+        if self.constants.force_output_support is True:
             logging.info("- Forcing GOP Support")
             self.config["UEFI"]["Quirks"]["ForgeUefiSupport"] = True
             self.config["UEFI"]["Quirks"]["ReloadOptionRoms"] = True
 
         # AMD GOP VBIOS injection for AMD GCN 1-4 GPUs
-        if self.constants.amd_gop_injection:
+        if self.constants.amd_gop_injection is True:
             logging.info("- Adding AMDGOP.efi")
             shutil.copy(self.constants.amd_gop_driver_path, self.constants.drivers_path)
             support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("AMDGOP.efi", "UEFI", "Drivers")["Enabled"] = True
 
         # Nvidia Kepler GOP VBIOS injection
-        if self.constants.nvidia_kepler_gop_injection:
+        if self.constants.nvidia_kepler_gop_injection is True:
             logging.info("- Adding NVGOP_GK.efi")
             shutil.copy(self.constants.nvidia_kepler_gop_driver_path, self.constants.drivers_path)
             support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("NVGOP_GK.efi", "UEFI", "Drivers")["Enabled"] = True
@@ -438,7 +438,7 @@ class BuildGraphicsAudio:
                     logging.info("- Failed to find GFX0 Device path, falling back on known logic")
                 self.gfx0_path = "PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)"
 
-            if self.model in model_array.IntelNvidiaDRM and self.constants.drm_support:
+            if self.model in model_array.IntelNvidiaDRM and self.constants.drm_support is True:
                 logging.info("- Prioritizing DRM support over Intel QuickSync")
                 self.config["DeviceProperties"]["Add"][self.gfx0_path] = {"agdpmod": "vit9696", "shikigva": 256}
                 self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x2,0x0)"] = {
@@ -462,7 +462,7 @@ class BuildGraphicsAudio:
 
         self._backlight_path_detection()
         # Check GPU Vendor
-        if self.constants.metal_build:
+        if self.constants.metal_build is True:
             logging.info("- Adding Metal GPU patches on request")
             if self.constants.imac_vendor == "AMD":
                 self._amd_mxm_patch(self.gfx0_path)
@@ -551,7 +551,7 @@ class BuildGraphicsAudio:
                     # MacBookPro13,3 has AVX2.0 however the GPU has an unsupported framebuffer
                     has_kdk_gpu = True
 
-        if has_kdkless_gpu and has_kdk_gpu is False:
+        if has_kdkless_gpu is True and has_kdk_gpu is False:
             # KDKlessWorkaround is required for KDKless GPUs
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("KDKlessWorkaround.kext", self.constants.kdkless_version, self.constants.kdkless_path)
             return

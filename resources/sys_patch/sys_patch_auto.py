@@ -44,10 +44,10 @@ class AutomaticSysPatch:
             logging.info("- Auto Patch option is not supported on TUI, please use GUI")
             return
 
-        if utilities.check_seal():
+        if utilities.check_seal() is True:
             logging.info("- Detected Snapshot seal intact, detecting patches")
             patches = sys_patch_detect.DetectRootPatch(self.constants.computer.real_model, self.constants).detect_patch_set()
-            if not any(not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] for patch in patches):
+            if not any(not patch.startswith("Settings") and not patch.startswith("Validation") and patches[patch] is True for patch in patches):
                 patches = []
             if patches:
                 logging.info("- Detected applicable patches, determining whether possible to patch")
@@ -58,7 +58,7 @@ class AutomaticSysPatch:
                 logging.info("- Determined patching is possible, checking for OCLP updates")
                 patch_string = ""
                 for patch in patches:
-                    if patches[patch] and not patch.startswith("Settings") and not patch.startswith("Validation"):
+                    if patches[patch] is True and not patch.startswith("Settings") and not patch.startswith("Validation"):
                         patch_string += f"- {patch}\n"
 
                 logging.info("- Proceeding with patching")
@@ -125,7 +125,7 @@ class AutomaticSysPatch:
             logging.info("- Versions match")
             return True
 
-        if self.constants.special_build:
+        if self.constants.special_build is True:
             # Version doesn't match and we're on a special build
             # Special builds don't have good ways to compare versions
             logging.info("- Special build detected, assuming installed is older")
@@ -169,7 +169,7 @@ class AutomaticSysPatch:
         if should_notify is False:
             logging.info("- Skipping due to user preference")
             return
-        if self.constants.host_is_hackintosh:
+        if self.constants.host_is_hackintosh is True:
             logging.info("- Skipping due to hackintosh")
             return
         if not self.constants.booted_oc_disk:
@@ -192,7 +192,7 @@ class AutomaticSysPatch:
                 disk_match = True
                 break
 
-        if disk_match:
+        if disk_match is True:
             return
 
         # Check if OpenCore is on a USB drive
@@ -288,7 +288,7 @@ class AutomaticSysPatch:
         utilities.process_status(utilities.elevated(["chown", "root:wheel", "/Library/LaunchAgents/com.dortania.opencore-legacy-patcher.auto-patch.plist"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         # Copy over our launch daemon
-        if self._create_rsr_monitor_daemon():
+        if self._create_rsr_monitor_daemon() is True:
             logging.info("- Copying rsr-monitor.plist Launch Daemon to /Library/LaunchDaemons/")
             if Path("/Library/LaunchDaemons/com.dortania.opencore-legacy-patcher.rsr-monitor.plist").exists():
                 logging.info("- Deleting existing rsr-monitor.plist")

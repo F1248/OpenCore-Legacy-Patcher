@@ -72,7 +72,7 @@ class OSProbe:
         """
 
         file_path = "/System/Library/CoreServices/SystemVersion.plist"
-        if rsr:
+        if rsr is True:
             file_path = f"/System/Volumes/Preboot/Cryptexes/OS{file_path}"
 
         try:

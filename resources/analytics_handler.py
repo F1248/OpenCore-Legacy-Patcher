@@ -48,7 +48,7 @@ class Analytics:
 
 
     def send_analytics(self) -> None:
-        if global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting"):
+        if global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting") is True:
             return
 
         self._generate_base_data()
@@ -60,7 +60,7 @@ class Analytics:
             return
         if SITE_KEY == "":
             return
-        if global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting"):
+        if global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting") is True:
             return
         if not log_file.exists():
             return

@@ -92,7 +92,7 @@ class BuildSupport:
             # Check failed
             return
 
-        if kext["Enabled"]:
+        if kext["Enabled"] is True:
             return
 
         logging.info(f"- Adding {kext_name} {kext_version}")

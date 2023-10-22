@@ -274,7 +274,7 @@ class Constants:
     # OpenCore
     @property
     def opencore_zip_source(self):
-        return self.payload_path / Path(f"OpenCore/OpenCore-{'DEBUG' if self.opencore_debug else 'RELEASE'}.zip")
+        return self.payload_path / Path(f"OpenCore/OpenCore-{'DEBUG' if self.opencore_debug is True else 'RELEASE'}.zip")
 
     @property
     def plist_template(self):
@@ -616,7 +616,7 @@ class Constants:
 
     @property
     def opencore_zip_copied(self):
-        return self.build_path / Path(f"OpenCore-{'DEBUG' if self.opencore_debug else 'RELEASE'}.zip")
+        return self.build_path / Path(f"OpenCore-{'DEBUG' if self.opencore_debug is True else 'RELEASE'}.zip")
 
     @property
     def oc_folder(self):

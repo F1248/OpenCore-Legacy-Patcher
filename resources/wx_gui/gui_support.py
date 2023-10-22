@@ -88,7 +88,7 @@ class GaugePulseCallback:
         self.max_value: int = gauge.GetRange()
 
         self.non_metal_alternative: bool = CheckProperties(global_constants).host_is_non_metal()
-        if self.non_metal_alternative:
+        if self.non_metal_alternative is True:
             if CheckProperties(global_constants).host_psp_version() >= packaging.version.Version("1.1.2"):
                 self.non_metal_alternative = False
 
@@ -138,9 +138,9 @@ class CheckProperties:
         """
         if self.constants.custom_model:
             return True
-        if self.constants.host_is_hackintosh:
+        if self.constants.host_is_hackintosh is True:
             return False
-        if self.constants.allow_oc_everywhere:
+        if self.constants.allow_oc_everywhere is True:
             return True
         if self.constants.computer.real_model in model_array.SupportedSMBIOS:
             return True
@@ -156,7 +156,7 @@ class CheckProperties:
 
         if self.constants.detected_os < os_data.os_data.monterey and general_check is False:
             return False
-        if self.constants.detected_os < os_data.os_data.big_sur and general_check:
+        if self.constants.detected_os < os_data.os_data.big_sur and general_check is True:
             return False
         if not Path("/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLightOld.dylib").exists():
             # SkyLight stubs are only used on non-Metal

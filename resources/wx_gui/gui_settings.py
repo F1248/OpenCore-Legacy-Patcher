@@ -915,7 +915,7 @@ class SettingsFrame(wx.Frame):
         # Label: SIP Status
         if self.constants.custom_sip_value is not None:
             self.sip_value = int(self.constants.custom_sip_value, 16)
-        elif self.constants.sip_status:
+        elif self.constants.sip_status is True:
             self.sip_value = 0x00
         else:
             self.sip_value = 0x803
@@ -1024,7 +1024,7 @@ Hardware Information:
         """
         label = event.GetEventObject().GetLabel()
         value = event.GetEventObject().GetValue()
-        if warning_pop != "" and value:
+        if warning_pop != "" and value is True:
             warning = wx.MessageDialog(self.frame_modal, warning_pop, f"Warning: {label}", wx.YES_NO | wx.ICON_WARNING | wx.NO_DEFAULT)
             if warning.ShowModal() == wx.ID_NO:
                 event.GetEventObject().SetValue(not event.GetEventObject().GetValue())
@@ -1039,13 +1039,13 @@ Hardware Information:
                         if dlg.ShowModal() == wx.ID_NO:
                             event.GetEventObject().SetValue(not event.GetEventObject().GetValue())
                             return
-        if override_function:
+        if override_function is True:
             self.settings[self._find_parent_for_key(label)][label]["override_function"](self.settings[self._find_parent_for_key(label)][label]["variable"], value, self.settings[self._find_parent_for_key(label)][label]["constants_variable"] if "constants_variable" in self.settings[self._find_parent_for_key(label)][label] else None)
             return
 
         self._update_setting(self.settings[self._find_parent_for_key(label)][label]["variable"], value)
         if label == "Allow native models":
-            if gui_support.CheckProperties(self.constants).host_can_build():
+            if gui_support.CheckProperties(self.constants).host_can_build() is True:
                 self.parent.build_button.Enable()
             else:
                 self.parent.build_button.Disable()
@@ -1094,7 +1094,7 @@ Hardware Information:
         """
         dict = sip_data.system_integrity_protection.csr_values_extended[f"CSR_{event.GetEventObject().GetLabel()}"]
 
-        if event.GetEventObject().GetValue():
+        if event.GetEventObject().GetValue() is True:
             self.sip_value = self.sip_value + dict["value"]
         else:
             self.sip_value = self.sip_value - dict["value"]

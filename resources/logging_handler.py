@@ -158,7 +158,7 @@ class InitializeLoggingSupport:
             format="[%(asctime)s] [%(filename)-32s] [%(lineno)-4d]: %(message)s",
             handlers=[
                 logging.StreamHandler(stream = sys.stdout),
-                logging.FileHandler(self.log_filepath) if log_to_file else logging.NullHandler()
+                logging.FileHandler(self.log_filepath) if log_to_file is True else logging.NullHandler()
             ]
         )
         logging.getLogger().setLevel(logging.INFO)
@@ -218,7 +218,7 @@ class InitializeLoggingSupport:
                 # Likely a GUI error, don't display error dialog
                 return
 
-            if self.constants.cli_mode:
+            if self.constants.cli_mode is True:
                 threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath)).start()
                 return
 
@@ -234,7 +234,7 @@ class InitializeLoggingSupport:
             if self.constants.commit_info[0].startswith("refs/tags"):
                 cant_log = True
 
-            if cant_log:
+            if cant_log is True:
                 error_msg += "\n\nReveal log file?"
             else:
                 error_msg += "\n\nSend crash report to Dortania?"
@@ -249,7 +249,7 @@ class InitializeLoggingSupport:
             if result[applescript.AEType(b'bhit')] != "Yes":
                 return
 
-            if cant_log:
+            if cant_log is True:
                 subprocess.run(["open", "--reveal", self.log_filepath])
                 return
 

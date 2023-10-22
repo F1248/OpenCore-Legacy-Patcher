@@ -36,7 +36,7 @@ class BuildSecurity:
             self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " ipc_control_port_options=0"
             # Adds AutoPkgInstaller for Automatic OpenCore-Patcher installation
             # Only install if running the GUI (AutoPkg-Assets.pkg requires the GUI)
-            if self.constants.wxpython_variant:
+            if self.constants.wxpython_variant is True:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("AutoPkgInstaller.kext", self.constants.autopkg_version, self.constants.autopkg_path)
             if self.constants.custom_sip_value:
                 logging.info(f"- Setting SIP value to: {self.constants.custom_sip_value}")
@@ -59,10 +59,10 @@ class BuildSecurity:
             self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -nokcmismatchpanic"
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("RSRHelper.kext", self.constants.rsrhelper_version, self.constants.rsrhelper_path)
 
-        if self.constants.disable_cs_lv:
+        if self.constants.disable_cs_lv is True:
             # In Ventura, LV patch broke. For now, add AMFI arg
             # Before merging into mainline, this needs to be resolved
-            if self.constants.disable_amfi:
+            if self.constants.disable_amfi is True:
                 logging.info("- Disabling AMFI")
                 self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " amfi=0x80"
             else:

@@ -150,7 +150,7 @@ class DetectRootPatch:
                     device_probe.AMD.Archs.Polaris
                 ]:
                     if self.constants.detected_os > os_data.os_data.monterey:
-                        if self.constants.computer.rosetta_active:
+                        if self.constants.computer.rosetta_active is True:
                             continue
 
                         if gpu.arch == device_probe.AMD.Archs.Polaris:
@@ -232,7 +232,7 @@ class DetectRootPatch:
 
 
 
-        if self.supports_metal:
+        if self.supports_metal is True:
             # Avoid patching Metal and non-Metal GPUs if both present, prioritize Metal GPU
             # Main concerns are for iMac12,x with Sandy iGPU and Kepler dGPU
             self.nvidia_tesla = False
@@ -243,7 +243,7 @@ class DetectRootPatch:
             self.sandy_gpu = False
             self.legacy_keyboard_backlight = False
 
-        if self.legacy_gcn or self.legacy_gcn_v2:
+        if self.legacy_gcn is True or self.legacy_gcn_v2 is True:
             # We can only support one or the other due to the nature of relying
             # on portions of the native AMD stack for Polaris and Vega
             # Thus we'll prioritize legacy GCN due to being the internal card
@@ -255,7 +255,7 @@ class DetectRootPatch:
             # Always assume Root KC requirement on Monterey and older
             self.requires_root_kc = True
         else:
-            if self.requires_root_kc:
+            if self.requires_root_kc is True:
                 self.missing_kdk = not self._check_kdk()
 
 
@@ -272,7 +272,7 @@ class DetectRootPatch:
         """
 
         # Increase OS check if modern wifi is detected
-        if self.constants.detected_os < (os_data.os_data.ventura if self.legacy_wifi else os_data.os_data.sonoma):
+        if self.constants.detected_os < (os_data.os_data.ventura if self.legacy_wifi is True else os_data.os_data.sonoma):
             return
         if self.legacy_wifi is False and self.modern_wifi is False:
             return
@@ -280,7 +280,7 @@ class DetectRootPatch:
             return
         if self.missing_kdk is False:
             return
-        if self.has_network:
+        if self.has_network is True:
             return
 
         # Verify whether OCLP already installed network patches to the root volume
@@ -399,7 +399,7 @@ class DetectRootPatch:
                 return True
         for gpu in self.constants.computer.gpus:
             if isinstance(gpu, device_probe.NVIDIA):
-                if gpu.disable_metal:
+                if gpu.disable_metal is True:
                     return True
         return False
 
@@ -420,7 +420,7 @@ class DetectRootPatch:
                 return True
         for gpu in self.constants.computer.gpus:
             if isinstance(gpu, device_probe.NVIDIA):
-                if gpu.force_compatible:
+                if gpu.force_compatible is True:
                     return True
         return False
 
@@ -467,7 +467,7 @@ class DetectRootPatch:
         """
 
         if self.constants.detected_os > os_data.os_data.catalina:
-            if self.nvidia_web:
+            if self.nvidia_web is True:
                 sip = sip_data.system_integrity_protection.root_patch_sip_big_sur_3rd_part_kexts
                 sip_hex = "0xA03"
                 sip_value = (
@@ -504,7 +504,7 @@ class DetectRootPatch:
             return False
 
         # If we're on a hackintosh, check for UHCI/OHCI controllers
-        if self.constants.host_is_hackintosh:
+        if self.constants.host_is_hackintosh is True:
             for controller in self.constants.computer.usb_controllers:
                 if (
                     isinstance(controller, device_probe.UHCIController) or
@@ -543,10 +543,10 @@ class DetectRootPatch:
             self.legacy_pcie_webcam = self.constants.computer.pcie_webcam
             self.legacy_t1_chip = self.constants.computer.t1_chip
 
-            if self.legacy_t1_chip:
+            if self.legacy_t1_chip is True:
                 self.amfi_must_disable = True
 
-        if self._check_uhci_ohci():
+        if self._check_uhci_ohci() is True:
             self.legacy_uhci_ohci = True
             self.requires_root_kc = True
 
@@ -593,7 +593,7 @@ class DetectRootPatch:
             if self.constants.detected_os > os_data.os_data.high_sierra:
                 if self.model in ["MacBookPro8,2", "MacBookPro8,3"]:
                     # Ref: https://doslabelectronics.com/Demux.html
-                    if self._detect_demux():
+                    if self._detect_demux() is True:
                         self.legacy_gmux = True
                 else:
                     self.legacy_gmux = True
@@ -637,13 +637,13 @@ class DetectRootPatch:
             f"Validation: SIP is enabled (Required: {self._check_sip()[2]} or higher)":  self.sip_enabled,
             f"Validation: Currently Booted SIP: ({hex(py_sip_xnu.SipXnu().get_sip_status().value)})":         self.sip_enabled,
             "Validation: SecureBootModel is enabled":      self.sbm_enabled,
-            f"Validation: {'AMFI' if self.constants.host_is_hackintosh or self._get_amfi_level_needed() > 2 else 'Library Validation'} is enabled":                 self.amfi_enabled if self.amfi_must_disable else False,
+            f"Validation: {'AMFI' if self.constants.host_is_hackintosh is True or self._get_amfi_level_needed() > 2 else 'Library Validation'} is enabled":                 self.amfi_enabled if self.amfi_must_disable is True else False,
             "Validation: FileVault is enabled":            self.fv_enabled,
             "Validation: System is dosdude1 patched":      self.dosdude_patched,
-            "Validation: WhateverGreen.kext missing":      self.missing_whatever_green if self.nvidia_web else False,
-            "Validation: Force OpenGL property missing":   self.missing_nv_web_opengl  if self.nvidia_web else False,
-            "Validation: Force compat property missing":   self.missing_nv_compat      if self.nvidia_web else False,
-            "Validation: nvda_drv(_vrl) variable missing": self.missing_nv_web_nvram   if self.nvidia_web else False,
+            "Validation: WhateverGreen.kext missing":      self.missing_whatever_green if self.nvidia_web is True else False,
+            "Validation: Force OpenGL property missing":   self.missing_nv_web_opengl  if self.nvidia_web is True else False,
+            "Validation: Force compat property missing":   self.missing_nv_compat      if self.nvidia_web is True else False,
+            "Validation: nvda_drv(_vrl) variable missing": self.missing_nv_web_nvram   if self.nvidia_web is True else False,
             "Validation: Network Connection Required":     (not self.has_network) if (self.requires_root_kc and self.missing_kdk and self.constants.detected_os >= os_data.os_data.ventura.value) else False
         }
 
@@ -671,7 +671,7 @@ class DetectRootPatch:
                 return amfi_detect.AmfiConfigDetectLevel.NO_CHECK
 
         if self.constants.detected_os >= os_data.os_data.ventura:
-            if self.amfi_shim_bins:
+            if self.amfi_shim_bins is True:
                 # Currently we require AMFI outright disabled
                 # in Ventura to work with shim'd binaries
                 return amfi_detect.AmfiConfigDetectLevel.ALLOW_ALL
@@ -699,52 +699,52 @@ class DetectRootPatch:
 
         self.unsupported_os = not self._check_os_compat()
 
-        if self.nvidia_web:
+        if self.nvidia_web is True:
             self.missing_nv_web_nvram   = not self._check_nv_web_nvram()
             self.missing_nv_web_opengl  = not self._check_nv_web_opengl()
             self.missing_nv_compat      = not self._check_nv_compat()
             self.missing_whatever_green = not self._check_whatevergreen()
 
-        if print_errors:
-            if self.sip_enabled:
+        if print_errors is True:
+            if self.sip_enabled is True:
                 logging.info("\nCannot patch! Please disable System Integrity Protection (SIP).")
                 logging.info("Disable SIP in Patcher Settings and Rebuild OpenCore\n")
                 logging.info("Ensure the following bits are set for csr-active-config:")
                 logging.info("\n".join(sip))
                 logging.info(sip_value)
 
-            if self.sbm_enabled:
+            if self.sbm_enabled is True:
                 logging.info("\nCannot patch! Please disable Apple Secure Boot.")
                 logging.info("Disable SecureBootModel in Patcher Settings and Rebuild OpenCore")
                 logging.info("For Hackintoshes, set SecureBootModel to Disabled")
 
-            if self.fv_enabled:
+            if self.fv_enabled is True:
                 logging.info("\nCannot patch! Please disable FileVault.")
                 logging.info("For OCLP Macs, please rebuild your config with 0.2.5 or newer")
                 logging.info("For others, Go to System Preferences -> Security and disable FileVault")
 
-            if self.amfi_enabled and self.amfi_must_disable:
+            if self.amfi_enabled is True and self.amfi_must_disable is True:
                 logging.info("\nCannot patch! Please disable AMFI.")
                 logging.info("For Hackintoshes, please add amfi_get_out_of_my_way=1 to boot-args")
 
-            if self.dosdude_patched:
+            if self.dosdude_patched is True:
                 logging.info("\nCannot patch! Detected machine has already been patched by another patcher")
                 logging.info("Please ensure your install is either clean or patched with OpenCore Legacy Patcher")
 
-            if self.nvidia_web:
-                if self.missing_nv_web_opengl:
+            if self.nvidia_web is True:
+                if self.missing_nv_web_opengl is True:
                     logging.info("\nCannot patch! Force OpenGL property missing")
                     logging.info("Please ensure ngfxgl=1 is set in boot-args")
 
-                if self.missing_nv_compat:
+                if self.missing_nv_compat is True:
                     logging.info("\nCannot patch! Force Nvidia compatibility property missing")
                     logging.info("Please ensure ngfxcompat=1 is set in boot-args")
 
-                if self.missing_nv_web_nvram:
+                if self.missing_nv_web_nvram is True:
                     logging.info("\nCannot patch! nvda_drv(_vrl) variable missing")
                     logging.info("Please ensure nvda_drv_vrl=1 is set in boot-args")
 
-                if self.missing_whatever_green:
+                if self.missing_whatever_green is True:
                     logging.info("\nCannot patch! WhateverGreen.kext missing")
                     logging.info("Please ensure WhateverGreen.kext is installed")
 
@@ -752,7 +752,7 @@ class DetectRootPatch:
                 logging.info("\nCannot patch! Network Connection Required")
                 logging.info("Please ensure you have an active internet connection")
 
-            if self.unsupported_os:
+            if self.unsupported_os is True:
                 logging.info("\nCannot patch! Unsupported Host OS")
                 logging.info("Please ensure you are running a patcher-supported OS")
 
@@ -762,13 +762,13 @@ class DetectRootPatch:
                 self.sip_enabled, self.sbm_enabled, self.fv_enabled, self.dosdude_patched, self.unsupported_os,
 
                 # non-Metal specific
-                self.amfi_enabled if self.amfi_must_disable else False,
+                self.amfi_enabled if self.amfi_must_disable is True else False,
 
                 # Web Driver specific
-                self.missing_nv_web_nvram   if self.nvidia_web  else False,
-                self.missing_nv_web_opengl  if self.nvidia_web  else False,
-                self.missing_nv_compat      if self.nvidia_web  else False,
-                self.missing_whatever_green if self.nvidia_web  else False,
+                self.missing_nv_web_nvram   if self.nvidia_web is True  else False,
+                self.missing_nv_web_opengl  if self.nvidia_web is True  else False,
+                self.missing_nv_compat      if self.nvidia_web is True  else False,
+                self.missing_whatever_green if self.nvidia_web is True  else False,
 
                 # KDK specific
                 (not self.has_network) if (self.requires_root_kc and self.missing_kdk and self.constants.detected_os >= os_data.os_data.ventura.value) else False
