@@ -957,7 +957,7 @@ class Computer:
             if usb_device.device_id == 0x1281:
                 # Break down serial number into components
                 #   ex. "CPID:8002 CPRV:10 CPFM:03 SCEP:01 BDID:12 ECID:000E5C8E34600026 IBFL:3D"
-                # Is this overcomplicating T1 detection? Probably...
+                # Is this overcomplicating T1 detection? Probably…
                 if usb_device.serial_number is None:
                     continue
                 serial_number = usb_device.serial_number.split(" ")

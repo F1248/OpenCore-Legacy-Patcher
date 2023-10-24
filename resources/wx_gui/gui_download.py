@@ -99,5 +99,3 @@ class DownloadFrame(wx.Frame):
             logging.info("User cancelled download")
             self.user_cancelled = True
             self.download_obj.stop()
-
-
