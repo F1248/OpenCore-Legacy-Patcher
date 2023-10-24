@@ -12,7 +12,8 @@ from data import os_data
 
 class Constants:
     def __init__(self) -> None:
-        # GitHub:
+
+        # GitHub
         self.user:                            str = "F1248"
         self.repository:                      str = "OpenCore-Legacy-Patcher"
         self.fallback_branch:                 str = "main" # Used when running / built from source
