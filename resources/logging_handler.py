@@ -38,7 +38,7 @@ class InitializeLoggingSupport:
 
         log_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
 
-        self.log_filename: str  = f"OpenCore-Patcher_{self.constants.patcher_version}_{log_time}.log"
+        self.log_filename: str  = f"OpenCore-Legacy-Patcher_{self.constants.patcher_version}_{log_time}.log"
         self.log_filepath: Path = None
 
         self.original_excepthook:        sys       = sys.excepthook
@@ -92,7 +92,7 @@ class InitializeLoggingSupport:
         logs = []
 
         for path in paths:
-            for file in path.glob("OpenCore-Patcher*"):
+            for file in path.glob("OpenCore-Legacy-Patcher*"):
                 if not file.is_file():
                     continue
 
@@ -125,7 +125,7 @@ class InitializeLoggingSupport:
             return
 
         paths = [
-            self.log_filepath,        # ~/Library/Logs/Dortania/OpenCore-Patcher_{version}_{date}.log
+            self.log_filepath,        # ~/Library/Logs/Dortania/OpenCore-Legacy-Patcher_{version}_{date}.log
             self.log_filepath.parent, # ~/Library/Logs/Dortania
         ]
 

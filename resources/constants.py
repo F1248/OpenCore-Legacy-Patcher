@@ -29,7 +29,7 @@ class Constants:
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
         self.pkg_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
-        self.app_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Patcher.app.zip"
+        self.app_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg
@@ -698,7 +698,7 @@ class Constants:
 
     @property
     def oclp_helper_path(self):
-        return self.payload_path / Path("Tools/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher")
+        return self.payload_path / Path("Tools/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher")
 
     @property
     def rsrrepair_userspace_path(self):

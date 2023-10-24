@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.11
 
-# Generate stand alone application for OpenCore-Patcher
+# Generate stand alone application for OpenCore-Legacy-Patcher
 # Copyright (C) 2022-2023 - Mykola Grymalyuk
 
 import os
@@ -17,7 +17,7 @@ from resources import constants
 
 class CreateBinary:
     """
-    Library for creating OpenCore-Patcher application
+    Library for creating OpenCore-Legacy-Patcher application
 
     This script's main purpose is to handle the following:
        - Download external dependencies (ex. PatcherSupportPkg)
@@ -56,7 +56,7 @@ class CreateBinary:
         Parse arguments passed to script
         """
 
-        parser = argparse.ArgumentParser(description='Builds OpenCore-Patcher binary')
+        parser = argparse.ArgumentParser(description='Builds OpenCore-Legacy-Patcher binary')
         parser.add_argument('--branch', type=str, help='Git branch name')
         parser.add_argument('--commit', type=str, help='Git commit URL')
         parser.add_argument('--commit_date', type=str, help='Git commit date')
@@ -122,10 +122,10 @@ class CreateBinary:
         Build binary via pyinstaller
         """
 
-        if Path(f"./dist/OpenCore-Patcher.app").exists():
-            print("Found OpenCore-Patcher.app, removing…")
+        if Path(f"./dist/OpenCore-Legacy-Patcher.app").exists():
+            print("Found OpenCore-Legacy-Patcher.app, removing…")
             rm_output = subprocess.run(
-                ["rm", "-rf", "./dist/OpenCore-Patcher.app"],
+                ["rm", "-rf", "./dist/OpenCore-Legacy-Patcher.app"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             if rm_output.returncode != 0:
@@ -136,7 +136,7 @@ class CreateBinary:
         self._embed_key()
 
         print("Building GUI binary…")
-        build_args = [self.pyinstaller_path, "./OpenCore-Patcher-GUI.spec", "--noconfirm"]
+        build_args = [self.pyinstaller_path, "./OpenCore-Legacy-Patcher-GUI.spec", "--noconfirm"]
 
         build_result = subprocess.run(build_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -151,7 +151,7 @@ class CreateBinary:
         print("Embedding icns…")
         for file in Path("payloads/Icon/AppIcons").glob("*.icns"):
             subprocess.run(
-                ["cp", str(file), "./dist/OpenCore-Patcher.app/Contents/Resources/"],
+                ["cp", str(file), "./dist/OpenCore-Legacy-Patcher.app/Contents/Resources/"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
@@ -364,7 +364,7 @@ class CreateBinary:
             commit_url = self.args.commit
             commit_date = self.args.commit_date
         print("- Adding commit data to Info.plist")
-        plist_path = Path("./dist/OpenCore-Patcher.app/Contents/Info.plist")
+        plist_path = Path("./dist/OpenCore-Legacy-Patcher.app/Contents/Info.plist")
         plist = plistlib.load(Path(plist_path).open("rb"))
         plist["Github"] = {
             "Branch": branch,
@@ -383,7 +383,7 @@ class CreateBinary:
         and instead we're able to support 10.10 without issues.
 
         To verify set version:
-          otool -l ./dist/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher
+          otool -l ./dist/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher
 
               cmd LC_VERSION_MIN_MACOSX
           cmdsize 16
@@ -393,7 +393,7 @@ class CreateBinary:
         """
 
         print("- Patching LC_VERSION_MIN_MACOSX")
-        path = './dist/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher'
+        path = './dist/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher'
         find = b'\x00\x0D\x0A\x00' # 10.13 (0xA0D)
         replace = b'\x00\x0A\x0A\x00' # 10.10 (0xA0A)
         with open(path, 'rb') as f:
@@ -408,7 +408,7 @@ class CreateBinary:
         Post flight cleanup
         """
 
-        path = "./dist/OpenCore-Patcher"
+        path = "./dist/OpenCore-Legacy-Patcher"
         print(f"- Removing {path}")
         rm_output = subprocess.run(
             ["rm", "-rf", path],

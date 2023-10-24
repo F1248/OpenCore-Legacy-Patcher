@@ -1,8 +1,8 @@
 #!/bin/sh
-app_path="/Library/Application Support/Dortania/OpenCore-Patcher.app"
+app_path="/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"
 launch_agent_path="/Library/LaunchAgents/com.dortania.opencore-legacy-patcher.auto-patch.plist"
 if [ -d "$app_path" ]; then
-    echo "Found OpenCore-Patcher.app, removing…"
+    echo "Found OpenCore-Legacy-Patcher.app, removing…"
     rm -rf "$app_path"
 fi
 

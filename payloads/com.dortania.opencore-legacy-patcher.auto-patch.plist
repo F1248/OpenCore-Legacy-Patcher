@@ -8,7 +8,7 @@
 	<string>com.dortania.opencore-legacy-patcher.auto-patch</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Library/Application Support/Dortania/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher</string>
+		<string>/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher</string>
 		<string>--auto_patch</string>
 	</array>
 	<key>RunAtLoad</key>

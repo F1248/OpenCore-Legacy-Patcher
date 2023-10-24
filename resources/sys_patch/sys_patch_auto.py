@@ -231,7 +231,7 @@ class AutomaticSysPatch:
         Install the Auto Patcher Launch Agent
 
         Installs the following:
-            - OpenCore-Patcher.app in /Library/Application Support/Dortania/
+            - OpenCore-Legacy-Patcher.app in /Library/Application Support/Dortania/
             - com.dortania.opencore-legacy-patcher.auto-patch.plist in /Library/LaunchAgents/
 
         See start_auto_patch() comments for more info
@@ -254,23 +254,23 @@ class AutomaticSysPatch:
             utilities.process_status(utilities.elevated(["mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         logging.info("- Copying OpenCore-Legacy-Patcher to /Library/Application Support/Dortania/")
-        if Path("/Library/Application Support/Dortania/OpenCore-Patcher.app").exists():
-            logging.info("- Deleting existing OpenCore-Patcher")
-            utilities.process_status(utilities.elevated(["rm", "-R", "/Library/Application Support/Dortania/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+        if Path("/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app").exists():
+            logging.info("- Deleting existing OpenCore-Legacy-Patcher")
+            utilities.process_status(utilities.elevated(["rm", "-R", "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        # Strip everything after OpenCore-Patcher.app
-        path = str(self.constants.launcher_binary).split("/Contents/MacOS/OpenCore-Patcher")[0]
+        # Strip everything after OpenCore-Legacy-Patcher.app
+        path = str(self.constants.launcher_binary).split("/Contents/MacOS/OpenCore-Legacy-Patcher")[0]
         logging.info(f"- Copying {path} to /Library/Application Support/Dortania/")
-        utilities.process_status(utilities.elevated(["ditto", path, "/Library/Application Support/Dortania/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+        utilities.process_status(utilities.elevated(["ditto", path, "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        if not Path("/Library/Application Support/Dortania/OpenCore-Patcher.app").exists():
-            # Sometimes the binary the user launches may have a suffix (ie. OpenCore-Patcher 3.app)
-            # We'll want to rename it to OpenCore-Patcher.app
+        if not Path("/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app").exists():
+            # Sometimes the binary the user launches may have a suffix (ie. OpenCore-Legacy-Patcher 3.app)
+            # We'll want to rename it to OpenCore-Legacy-Patcher.app
             path = path.split("/")[-1]
-            logging.info(f"- Renaming {path} to OpenCore-Patcher.app")
-            utilities.process_status(utilities.elevated(["mv", f"/Library/Application Support/Dortania/{path}", "/Library/Application Support/Dortania/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            logging.info(f"- Renaming {path} to OpenCore-Legacy-Patcher.app")
+            utilities.process_status(utilities.elevated(["mv", f"/Library/Application Support/Dortania/{path}", "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        subprocess.run(["xattr", "-cr", "/Library/Application Support/Dortania/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["xattr", "-cr", "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         # Copy over our launch agent
         logging.info("- Copying auto-patch.plist Launch Agent to /Library/LaunchAgents/")
@@ -306,9 +306,9 @@ class AutomaticSysPatch:
         # Making app alias
         # Simply an easy way for users to notice the app
         # If there's already an alias or exiting app, skip
-        if not Path("/Applications/OpenCore-Patcher.app").exists():
+        if not Path("/Applications/OpenCore-Legacy-Patcher.app").exists():
             logging.info("- Making app alias")
-            utilities.process_status(utilities.elevated(["ln", "-s", "/Library/Application Support/Dortania/OpenCore-Patcher.app", "/Applications/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["ln", "-s", "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app", "/Applications/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
 
     def _create_rsr_monitor_daemon(self) -> bool:

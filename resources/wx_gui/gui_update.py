@@ -34,7 +34,7 @@ class UpdateFrame(wx.Frame):
 
         self.title: str = title
         self.constants: constants.Constants = global_constants
-        self.application_path = self.constants.payload_path / "OpenCore-Patcher.app"
+        self.application_path = self.constants.payload_path / "OpenCore-Legacy-Patcher.app"
         self.screen_location: wx.Point = screen_location
         if parent:
             self.parent.Centre()
@@ -80,7 +80,7 @@ class UpdateFrame(wx.Frame):
         download_obj = None
         def _fetch_update() -> None:
             nonlocal download_obj
-            download_obj = network_handler.DownloadObject(url, self.constants.payload_path / "OpenCore-Patcher.app.zip")
+            download_obj = network_handler.DownloadObject(url, self.constants.payload_path / "OpenCore-Legacy-Patcher.app.zip")
 
         thread = threading.Thread(target=_fetch_update)
         thread.start()
@@ -180,7 +180,7 @@ class UpdateFrame(wx.Frame):
         # So we need to unzip it twice
         for i in range(2):
             result = subprocess.run(
-                ["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True
+                ["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Legacy-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True
             )
             if result.returncode != 0:
                 logging.error(f"Failed to extract update. Error: {result.stderr.decode('utf-8')}")
@@ -204,7 +204,7 @@ class UpdateFrame(wx.Frame):
 
     def _install_update(self) -> None:
         """
-        Installs update to '/Library/Application Support/Dortania/OpenCore-Patcher.app'
+        Installs update to '/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app'
         """
         logging.info(f"Installing update: {self.application_path}")
 
@@ -215,20 +215,20 @@ if [ ! -d "/Library/Application Support/Dortania" ]; then
     mkdir -p "/Library/Application Support/Dortania"
 fi
 
-# Check if 'OpenCore-Patcher.app' exists
-if [ -d "/Library/Application Support/Dortania/OpenCore-Patcher.app" ]; then
-    rm -rf "/Library/Application Support/Dortania/OpenCore-Patcher.app"
+# Check if 'OpenCore-Legacy-Patcher.app' exists
+if [ -d "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app" ]; then
+    rm -rf "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"
 fi
 
-if [ -d "/Applications/OpenCore-Patcher.app" ]; then
-    rm -rf "/Applications/OpenCore-Patcher.app"
+if [ -d "/Applications/OpenCore-Legacy-Patcher.app" ]; then
+    rm -rf "/Applications/OpenCore-Legacy-Patcher.app"
 fi
 
-# Move '/tmp/OpenCore-Patcher.app' to '/Library/Application Support/Dortania'
-mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore-Patcher.app"
+# Move '/tmp/OpenCore-Legacy-Patcher.app' to '/Library/Application Support/Dortania'
+mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"
 
-# Check if '/Applications/OpenCore-Patcher.app' exists
-ln -s "/Library/Application Support/Dortania/OpenCore-Patcher.app" "/Applications/OpenCore-Patcher.app"
+# Check if '/Applications/OpenCore-Legacy-Patcher.app' exists
+ln -s "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app" "/Applications/OpenCore-Legacy-Patcher.app"
 
 # Create update.plist with info about update
 cat << EOF > "/Library/Application Support/Dortania/update.plist"
@@ -270,5 +270,5 @@ EOF
         """
         Launches newly installed update
         """
-        logging.info("Launching update: '/Library/Application Support/Dortania/OpenCore-Patcher.app'")
-        subprocess.Popen(["/Library/Application Support/Dortania/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher", "--update_installed"])
+        logging.info("Launching update: '/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app'")
+        subprocess.Popen(["/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher", "--update_installed"])
