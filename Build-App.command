@@ -335,7 +335,7 @@ class CreateBinary:
             'hdiutil', 'create', './payloads.dmg',
             '-megabytes', '32000',  # Overlays can only be as large as the disk image allows
             '-format', 'UDZO', '-ov',
-            '-volname', 'OpenCore Patcher Resources (Base)',
+            '-volname', 'OpenCore Legacy Patcher Resources (Base)',
             '-fs', 'HFS+',
             '-srcfolder', './payloads',
             '-passphrase', 'password', '-encryption',
