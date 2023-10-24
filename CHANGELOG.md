@@ -135,9 +135,9 @@
   - Setting must be re-enabled after patching
 - Update non-Metal Binaries:
   - Resolve window placement defaulting past top of screen for some apps
-    - ex. OpenCore-Legacy-Patcher.app during root patching
+    - ex. OpenCore-Patcher.app during root patching
   - Resolve indeterminate progress bars not rendering with wxWidgets in Monterey and later
-    - ex. OpenCore-Legacy-Patcher.app
+    - ex. OpenCore-Patcher.app
 - UI changes:
   - Add "Show Log File" button to menubar
 - Avoid listing unsupported installer to download by default
@@ -151,7 +151,7 @@
     - Implement formatted logging
       - Allowing easier debugging
     - Implement per-version, per-run file logging
-      - ex. OpenCore-Legacy-Patcher (0.6.7) (2021-12-31-12-34-56-666903).log
+      - ex. OpenCore-Patcher (0.6.7) (2021-12-31-12-34-56-666903).log
     - Keep only 10 latest log files
     - Reveal log file in Finder on main thread crash
     - Avoid writing username to log file
@@ -191,7 +191,7 @@
     - May require tccplus for permissions
 - Resolve Application alias not being created with AutoPatcher
 - Backend changes:
-  - Rename OCLP-Helper to OpenCore-Legacy-Patcher
+  - Rename OCLP-Helper to OpenCore-Patcher
     - Allows for better identification when displaying prompts
   - Reimplement wxPython GUI into modularized system:
     - Allows for easier maintenance and future expansion
@@ -336,7 +336,7 @@
     - Support local loose matching when no network connection is available
     - Implement pkg receipt verification to validate integrity of KDKs
   - Implemented logging framework usage for more reliable logging
-    - Logs are stored under `~/Library/Logs/OpenCore-Legacy-Patcher.log`
+    - Logs are stored under `~/Library/Logs/OpenCore-Patcher.log`
     - Subsequent runs are appended to the log, allowing for easy debugging
   - Implemented new network_handler.py module
     - Allows for more reliable network calls and downloads
@@ -686,7 +686,7 @@
   - Post OS Updates:
     - After OS updates, Patcher will detect whether system requires root patches and prompt you
     - Implemented via Launch Agent in `/Library/LaunchAgents`
-    - OpenCore-Legacy-Patcher.app will be copied to `/Library/Application Support/Dortania` for storage
+    - OpenCore-Patcher.app will be copied to `/Library/Application Support/Dortania` for storage
   - Notify users when OpenCore is booted from external disk not matching macOS (ie. USB installer)
     - Disable notification via `defaults write com.dortania.opencore-legacy-patcher AutoPatch_Notify_Mismatched_Disks -bool FALSE`
 - GUI Enhancements:
@@ -1298,7 +1298,7 @@
 
 ## 0.0.12
 
-- Convert OpenCore-Legacy-Patcher binary to OpenCore-Legacy-Patcher.app
+- Convert OpenCore-Patcher binary to OpenCore-Patcher.app
 - Add Backlight patches for modded Nvidia GPUs in iMac10,x-12,x
 - Fix sleep for iMac12,x with upgraded GPUs
 
@@ -1306,7 +1306,7 @@
 
 - Re-add OpenCore GUI
 - Rewrite in py3
-- Add OpenCore-Legacy-Patcher binary for releases avoiding local python requirement
+- Add OpenCore-Patcher binary for releases avoiding local python requirement
 - Increment binaries
   - OpenCore cbd2fa3 (0.6.7 release)
   - WhateverGreen 2e19d1b (1.4.8 release)
