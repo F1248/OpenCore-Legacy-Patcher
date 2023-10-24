@@ -756,7 +756,7 @@
 							<key>LANGUAGE</key>
 							<string>English</string>
 							<key>VALUE</key>
-							<string>AutoPkg-Assets.pkg should never be used by end-users manually, please use the OpenCore-Patcher.app listed on Github</string>
+							<string>AutoPkg-Assets.pkg should never be used by manually!</string>
 						</dict>
 					</array>
 					<key>NAME</key>
