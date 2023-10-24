@@ -13,7 +13,7 @@ The below tables can be used to reference issues with a particular model, and se
 * [Mac Pro](#mac-pro)
 * [Xserve](#xserve)
 
-::: details OpenCore-Legacy-Patcher application
+::: details OpenCore Legacy Patcher application
 The patcher application requires **OS X Yosemite 10.10** or later to run.
 * **OS X El Capitan 10.11** or later is required to make installers for macOS Ventura and later.
 

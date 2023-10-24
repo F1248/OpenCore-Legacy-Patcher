@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.11
 
-# Generate stand alone application for OpenCore-Legacy-Patcher
+# Generate stand alone application for OpenCore Legacy Patcher
 # Copyright (C) 2022-2023 - Mykola Grymalyuk
 
 import os
@@ -17,7 +17,7 @@ from resources import constants
 
 class CreateBinary:
     """
-    Library for creating OpenCore-Legacy-Patcher application
+    Library for creating OpenCore Legacy Patcher application
 
     This script's main purpose is to handle the following:
        - Download external dependencies (ex. PatcherSupportPkg)
@@ -56,7 +56,7 @@ class CreateBinary:
         Parse arguments passed to script
         """
 
-        parser = argparse.ArgumentParser(description='Builds OpenCore-Legacy-Patcher binary')
+        parser = argparse.ArgumentParser(description='Builds OpenCore Legacy Patcher binary')
         parser.add_argument('--branch', type=str, help='Git branch name')
         parser.add_argument('--commit', type=str, help='Git commit URL')
         parser.add_argument('--commit_date', type=str, help='Git commit date')

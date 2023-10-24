@@ -1,6 +1,6 @@
 <div align="center">
-             <img src="images/OC-Patcher.png" alt="OpenCore-Legacy-Patcher Logo" width="256" />
-             <h1>OpenCore Legacy Patcher</h1>
+  <img src="images/OC-Patcher.png" alt="OpenCore Legacy Patcher Logo" width="256" />
+  <h1>OpenCore Legacy Patcher</h1>
 </div>
 
 A Python-based project revolving around [Acidanthera's](https://github.com/acidanthera)[OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and [Lilu](https://github.com/acidanthera/Lilu) for both running and unlocking features in macOS on supported and unsupported Macs.
@@ -46,7 +46,7 @@ To start using the project, please see our in-depth guide:
 
 This project is offered on an AS-IS basis, we do not guarantee support for any issues that may arise. However, there is a community server with other passionate users and developers that can aid you:
 
-* [OpenCore-Legacy-Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN)
+* [OpenCore Legacy Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN)
   * Keep in mind that the Discord server is maintained by the community, so we ask everyone to be respectful.
   * Please review our docs on [how to debug with OpenCore](https://dortania.github.io/OpenCore-Legacy-Patcher/DEBUG.html) to gather important information to help others with troubleshooting.
 

@@ -253,9 +253,9 @@ class AutomaticSysPatch:
             logging.info("- Creating /Library/Application Support/Dortania/")
             utilities.process_status(utilities.elevated(["mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        logging.info("- Copying OpenCore-Legacy-Patcher to /Library/Application Support/Dortania/")
+        logging.info("- Copying OpenCore Legacy Patcher to /Library/Application Support/Dortania/")
         if Path("/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app").exists():
-            logging.info("- Deleting existing OpenCore-Legacy-Patcher")
+            logging.info("- Deleting existing OpenCore Legacy Patcher")
             utilities.process_status(utilities.elevated(["rm", "-R", "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         # Strip everything after OpenCore-Legacy-Patcher.app
@@ -264,7 +264,7 @@ class AutomaticSysPatch:
         utilities.process_status(utilities.elevated(["ditto", path, "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         if not Path("/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app").exists():
-            # Sometimes the binary the user launches may have a suffix (ie. OpenCore-Legacy-Patcher 3.app)
+            # Sometimes the binary the user launches may have a suffix
             # We'll want to rename it to OpenCore-Legacy-Patcher.app
             path = path.split("/")[-1]
             logging.info(f"- Renaming {path} to OpenCore-Legacy-Patcher.app")
