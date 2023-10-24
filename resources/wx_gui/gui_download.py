@@ -30,7 +30,7 @@ class DownloadFrame(wx.Frame):
 
         self.user_cancelled: bool = False
 
-        self.frame_modal = wx.Dialog(parent, title=title, size=(400, 200))
+        self.frame_modal = wx.Dialog(parent, title=title, size=(512, 200))
 
         self._generate_elements(self.frame_modal)
 
