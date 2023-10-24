@@ -241,7 +241,7 @@ class Constants:
             os_data.os_data.big_sur,
             os_data.os_data.monterey,
             os_data.os_data.ventura,
-            os_data.os_data.sonoma
+            os_data.os_data.sonoma,
         ]
 
     @property

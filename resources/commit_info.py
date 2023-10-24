@@ -41,10 +41,10 @@ class ParseCommitInfo:
                 return (
                     plist_info["Github"]["Branch"],
                     plist_info["Github"]["Commit Date"],
-                    plist_info["Github"]["Commit URL"]
+                    plist_info["Github"]["Commit URL"],
                 )
         return (
             "Running from source",
             "Not applicable",
-            ""
+            "",
         )

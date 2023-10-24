@@ -208,7 +208,7 @@ class CheckProperties:
             if gpu in [
                 device_probe.Intel.Archs.Ivy_Bridge,
                 device_probe.Intel.Archs.Haswell,
-                device_probe.NVIDIA.Archs.Kepler
+                device_probe.NVIDIA.Archs.Kepler,
             ]:
                 return True
 
@@ -332,7 +332,7 @@ class RelaunchApplicationAsRoot:
             f'''do shell script "{program_arguments}"'''
             ' with prompt "OpenCore Legacy Patcher needs administrator privileges to relaunch as admin."'
             " with administrator privileges"
-            " without altering line endings"
+            " without altering line endings",
         ]
 
         self.frame.DestroyChildren()

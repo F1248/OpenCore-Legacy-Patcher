@@ -24,35 +24,35 @@ class system_integrity_protection:
             "description": "Allows Unsigned Kexts to be hot loaded from disk",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x1
+            "value": 0x1,
         },
         "CSR_ALLOW_UNRESTRICTED_FS": {
             "name": "CSR_ALLOW_UNRESTRICTED_FS",
             "description": "File System Access",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x2
+            "value": 0x2,
         },
         "CSR_ALLOW_TASK_FOR_PID": {
             "name": "CSR_ALLOW_TASK_FOR_PID",
             "description": "Unrestricted task_for_pid()",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x4
+            "value": 0x4,
         },
         "CSR_ALLOW_KERNEL_DEBUGGER": {
             "name": "CSR_ALLOW_KERNEL_DEBUGGER",
             "description": "Allow Kernel Debugger",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x8
+            "value": 0x8,
         },
         "CSR_ALLOW_APPLE_INTERNAL": {
             "name": "CSR_ALLOW_APPLE_INTERNAL",
             "description": "Set AppleInternal Features",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x10
+            "value": 0x10,
         },
         # "CSR_ALLOW_DESTRUCTIVE_DTRACE": {
         #     "name": "CSR_ALLOW_DESTRUCTIVE_DTRACE",
@@ -67,50 +67,50 @@ class system_integrity_protection:
             "description": "Unrestricted DTrace usage",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x20
+            "value": 0x20,
         },
         "CSR_ALLOW_UNRESTRICTED_NVRAM": {
             "name": "CSR_ALLOW_UNRESTRICTED_NVRAM",
             "description": "Unrestricted NVRAM write",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x40
+            "value": 0x40,
         },
         "CSR_ALLOW_DEVICE_CONFIGURATION": {
             "name": "CSR_ALLOW_DEVICE_CONFIGURATION",
             "description": "Allow custom DeviceTree (iOS)",
             "introduced": os_data.os_data.el_capitan.value,
             "introduced_friendly": "El Capitan",
-            "value": 0x80
+            "value": 0x80,
         },
         "CSR_ALLOW_ANY_RECOVERY_OS": {
             "name": "CSR_ALLOW_ANY_RECOVERY_OS",
             "description": "Skip BaseSystem Verification",
             "introduced": os_data.os_data.sierra.value,
             "introduced_friendly": "Sierra",
-            "value": 0x100
+            "value": 0x100,
         },
         "CSR_ALLOW_UNAPPROVED_KEXTS": {
             "name": "CSR_ALLOW_UNAPPROVED_KEXTS",
             "description": "Allow Unnotarized Kexts to be hot loaded from disk",
             "introduced": os_data.os_data.high_sierra.value,
             "introduced_friendly": "High Sierra",
-            "value": 0x200
+            "value": 0x200,
         },
         "CSR_ALLOW_EXECUTABLE_POLICY_OVERRIDE": {
             "name": "CSR_ALLOW_EXECUTABLE_POLICY_OVERRIDE",
             "description": "Override Executable Policy",
             "introduced": os_data.os_data.mojave.value,
             "introduced_friendly": "Mojave",
-            "value": 0x400
+            "value": 0x400,
         },
         "CSR_ALLOW_UNAUTHENTICATED_ROOT": {
             "name": "CSR_ALLOW_UNAUTHENTICATED_ROOT",
             "description": "Allow Root Volume Mounting",
             "introduced": os_data.os_data.big_sur.value,
             "introduced_friendly": "Big Sur",
-            "value": 0x800
-        }
+            "value": 0x800,
+        },
     }
 
     root_patch_sip_mojave = [

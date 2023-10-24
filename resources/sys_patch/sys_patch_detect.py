@@ -120,7 +120,7 @@ class DetectRootPatch:
                     device_probe.NVIDIA.Archs.Fermi,
                     device_probe.NVIDIA.Archs.Kepler,
                     device_probe.NVIDIA.Archs.Maxwell,
-                    device_probe.NVIDIA.Archs.Pascal
+                    device_probe.NVIDIA.Archs.Pascal,
                 ]:
                     if self.constants.detected_os > os_data.os_data.mojave:
                         self.nvidia_web = True
@@ -147,7 +147,7 @@ class DetectRootPatch:
                     device_probe.AMD.Archs.Legacy_GCN_7000,
                     device_probe.AMD.Archs.Legacy_GCN_8000,
                     device_probe.AMD.Archs.Legacy_GCN_9000,
-                    device_probe.AMD.Archs.Polaris
+                    device_probe.AMD.Archs.Polaris,
                 ]:
                     if self.constants.detected_os > os_data.os_data.monterey:
                         if self.constants.computer.rosetta_active is True:
@@ -578,7 +578,7 @@ class DetectRootPatch:
                 device_probe.Broadcom.Chipsets.AirPortBrcm4360,
                 device_probe.Broadcom.Chipsets.AirportBrcmNIC,
                 # We don't officially support this chipset, however we'll throw a bone to hackintosh users
-                device_probe.Broadcom.Chipsets.AirPortBrcmNICThirdParty
+                device_probe.Broadcom.Chipsets.AirPortBrcmNICThirdParty,
             ]):
             if self.constants.detected_os > os_data.os_data.ventura:
                 self.modern_wifi = True
@@ -644,7 +644,7 @@ class DetectRootPatch:
             "Validation: Force OpenGL property missing":   self.missing_nv_web_opengl  if self.nvidia_web is True else False,
             "Validation: Force compat property missing":   self.missing_nv_compat      if self.nvidia_web is True else False,
             "Validation: nvda_drv(_vrl) variable missing": self.missing_nv_web_nvram   if self.nvidia_web is True else False,
-            "Validation: Network Connection Required":     (not self.has_network) if (self.requires_root_kc and self.missing_kdk and self.constants.detected_os >= os_data.os_data.ventura.value) else False
+            "Validation: Network Connection Required":     (not self.has_network) if (self.requires_root_kc and self.missing_kdk and self.constants.detected_os >= os_data.os_data.ventura.value) else False,
         }
 
         return self.root_patch_dict

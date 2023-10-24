@@ -1265,7 +1265,7 @@ class marvell_ids:
         0x9E00,
         0x2200,
         0x9E00,
-        0x2200
+        0x2200,
     ]
 
 
@@ -1280,7 +1280,7 @@ class syskonnect_ids:
         0x4362,
         0x4363,
         0x00BA,
-        0x436A
+        0x436A,
     ]
 
 

@@ -156,7 +156,7 @@ class GenerateDefaults:
                     isinstance(self.constants.computer.wifi, device_probe.Broadcom) and
                     self.constants.computer.wifi.chipset in [
                         device_probe.Broadcom.Chipsets.AirPortBrcm4331,
-                        device_probe.Broadcom.Chipsets.AirPortBrcm43224
+                        device_probe.Broadcom.Chipsets.AirPortBrcm43224,
                     ]
                 ) or (
                     isinstance(self.constants.computer.wifi, device_probe.Atheros) and
@@ -169,7 +169,7 @@ class GenerateDefaults:
                     isinstance(self.constants.computer.wifi, device_probe.Broadcom) and
                     self.constants.computer.wifi.chipset in [
                         device_probe.Broadcom.Chipsets.AirPortBrcm4360,
-                        device_probe.Broadcom.Chipsets.AirportBrcmNIC
+                        device_probe.Broadcom.Chipsets.AirportBrcmNIC,
                     ]
                 )
             ):
@@ -183,14 +183,14 @@ class GenerateDefaults:
                 smbios_data.smbios_dictionary[self.model]["Wireless Model"] in [
                     device_probe.Broadcom.Chipsets.AirPortBrcm4331,
                     device_probe.Broadcom.Chipsets.AirPortBrcm43224,
-                    device_probe.Atheros.Chipsets.AirPortAtheros40
+                    device_probe.Atheros.Chipsets.AirPortAtheros40,
                 ]
             ):
                 is_legacy_wifi = True
             elif (
                     smbios_data.smbios_dictionary[self.model]["Wireless Model"] in [
                     device_probe.Broadcom.Chipsets.AirPortBrcm4360,
-                    device_probe.Broadcom.Chipsets.AirportBrcmNIC
+                    device_probe.Broadcom.Chipsets.AirportBrcmNIC,
                 ]
             ):
                 print("Modern WiFi")
@@ -261,12 +261,12 @@ class GenerateDefaults:
                 device_probe.AMD.Archs.Polaris,
                 device_probe.AMD.Archs.Polaris_Spoof,
                 device_probe.AMD.Archs.Vega,
-                device_probe.AMD.Archs.Navi
+                device_probe.AMD.Archs.Navi,
             ]:
                 if gpu in [
                     device_probe.Intel.Archs.Ivy_Bridge,
                     device_probe.Intel.Archs.Haswell,
-                    device_probe.NVIDIA.Archs.Kepler
+                    device_probe.NVIDIA.Archs.Kepler,
                 ]:
                     self.constants.disable_amfi = True
 
@@ -277,7 +277,7 @@ class GenerateDefaults:
                         device_probe.AMD.Archs.Polaris,
                         device_probe.AMD.Archs.Polaris_Spoof,
                         device_probe.AMD.Archs.Vega,
-                        device_probe.AMD.Archs.Navi
+                        device_probe.AMD.Archs.Navi,
                 ]:
                     if gpu == device_probe.AMD.Archs.Legacy_GCN_7000:
                         # Check if we're running in Rosetta
@@ -295,7 +295,7 @@ class GenerateDefaults:
                     device_probe.AMD.Archs.Polaris,
                     device_probe.AMD.Archs.Polaris_Spoof,
                     device_probe.AMD.Archs.Vega,
-                    device_probe.AMD.Archs.Navi
+                    device_probe.AMD.Archs.Navi,
                 ]:
                     if self.host_is_target:
                         if "AVX2" in self.constants.computer.cpu.leafs:
@@ -318,7 +318,7 @@ class GenerateDefaults:
                 device_probe.NVIDIA.Archs.Maxwell,
                 device_probe.NVIDIA.Archs.Pascal,
                 device_probe.AMD.Archs.TeraScale_1,
-                device_probe.AMD.Archs.TeraScale_2
+                device_probe.AMD.Archs.TeraScale_2,
             ]:
                 self.constants.sip_status = False
                 self.constants.secure_status = False

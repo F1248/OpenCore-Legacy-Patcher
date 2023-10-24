@@ -178,7 +178,7 @@ class BuildGraphicsAudio:
                 "@0,backlight-control": binascii.unhexlify("01000000"),
                 "@0,built-in": binascii.unhexlify("01000000"),
                 "shikigva": 256,
-                "agdpmod": "vit9696"
+                "agdpmod": "vit9696",
             }
             if self.constants.custom_model and self.model == "iMac11,2":
                 # iMac11,2 can have either PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0) or PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
@@ -188,7 +188,7 @@ class BuildGraphicsAudio:
                     "@0,backlight-control": binascii.unhexlify("01000000"),
                     "@0,built-in": binascii.unhexlify("01000000"),
                     "shikigva": 256,
-                    "agdpmod": "vit9696"
+                    "agdpmod": "vit9696",
                 }
         elif self.model in ["iMac12,1", "iMac12,2"]:
             logging.info("- Adding Nvidia Brightness Control and DRM patches")
@@ -197,12 +197,12 @@ class BuildGraphicsAudio:
                 "@0,backlight-control": binascii.unhexlify("01000000"),
                 "@0,built-in": binascii.unhexlify("01000000"),
                 "shikigva": 256,
-                "agdpmod": "vit9696"
+                "agdpmod": "vit9696",
             }
             logging.info("- Disabling unsupported iGPU")
             self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x2,0x0)"] = {
                 "name": binascii.unhexlify("23646973706C6179"),
-                "class-code": binascii.unhexlify("FFFFFFFF")
+                "class-code": binascii.unhexlify("FFFFFFFF"),
             }
         shutil.copy(self.constants.backlight_injector_path, self.constants.kexts_path)
         support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("BacklightInjector.kext")["Enabled"] = True
@@ -246,7 +246,7 @@ class BuildGraphicsAudio:
             logging.info("- Disabling unsupported iGPU")
             self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x2,0x0)"] = {
                 "name": binascii.unhexlify("23646973706C6179"),
-                "class-code": binascii.unhexlify("FFFFFFFF")
+                "class-code": binascii.unhexlify("FFFFFFFF"),
             }
         elif self.model in ["iMac9,1", "iMac10,1"]:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AAAMouSSE.kext", self.constants.mousse_version, self.constants.mousse_path)
@@ -257,7 +257,7 @@ class BuildGraphicsAudio:
                     "CAIL,CAIL_DisableDrmdmaPowerGating": 1,
                     "CAIL,CAIL_DisableGfxCGPowerGating": 1,
                     "CAIL,CAIL_DisableUVDPowerGating": 1,
-                    "CAIL,CAIL_DisableVCEPowerGating": 1
+                    "CAIL,CAIL_DisableVCEPowerGating": 1,
                 })
         if self.constants.imac_model == "GCN":
             logging.info("- Adding Legacy GCN Power Gate Patches")
@@ -265,25 +265,25 @@ class BuildGraphicsAudio:
                 "CAIL,CAIL_DisableDrmdmaPowerGating": 1,
                 "CAIL,CAIL_DisableGfxCGPowerGating": 1,
                 "CAIL,CAIL_DisableUVDPowerGating": 1,
-                "CAIL,CAIL_DisableVCEPowerGating": 1
+                "CAIL,CAIL_DisableVCEPowerGating": 1,
             })
             if self.model == "iMac11,2":
                 self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)"].update({
                     "CAIL,CAIL_DisableDrmdmaPowerGating": 1,
                     "CAIL,CAIL_DisableGfxCGPowerGating": 1,
                     "CAIL,CAIL_DisableUVDPowerGating": 1,
-                    "CAIL,CAIL_DisableVCEPowerGating": 1
+                    "CAIL,CAIL_DisableVCEPowerGating": 1,
                 })
         elif self.constants.imac_model == "Lexa":
             logging.info("- Adding Lexa Spoofing Patches")
             self.config["DeviceProperties"]["Add"][backlight_path].update({
                 "model": "AMD Radeon Pro WX 3200",
-                "device-id": binascii.unhexlify("FF67")
+                "device-id": binascii.unhexlify("FF67"),
             })
             if self.model == "iMac11,2":
                 self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)"].update({
                     "model": "AMD Radeon Pro WX 3200",
-                    "device-id": binascii.unhexlify("FF67")
+                    "device-id": binascii.unhexlify("FF67"),
                 })
         elif self.constants.imac_model == "Navi":
             logging.info("- Adding Navi Spoofing Patches")
@@ -323,13 +323,13 @@ class BuildGraphicsAudio:
                         self.config["DeviceProperties"]["Add"][hdef_path] = {
                             "apple-layout-id": 90,
                             "use-apple-layout-id": 1,
-                            "alc-layout-id": 13
+                            "alc-layout-id": 13,
                         }
                     else:
                         self.config["DeviceProperties"]["Add"][hdef_path] = {
                             "apple-layout-id": 90,
                             "use-apple-layout-id": 1,
-                            "use-layout-id": 1
+                            "use-layout-id": 1,
                         }
                     support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleALC.kext", self.constants.applealc_version, self.constants.applealc_path)
             elif (self.model.startswith("MacPro") and self.model != "MacPro6,1") or self.model.startswith("Xserve"):
@@ -444,7 +444,7 @@ class BuildGraphicsAudio:
                 self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x2,0x0)"] = {
                     "name": binascii.unhexlify("23646973706C6179"),
                     "IOName": "#display",
-                    "class-code": binascii.unhexlify("FFFFFFFF")
+                    "class-code": binascii.unhexlify("FFFFFFFF"),
                 }
             elif self.constants.serial_settings != "None":
                 if self.gfx0_path not in self.config["DeviceProperties"]["Add"] or "agdpmod" not in self.config["DeviceProperties"]["Add"][self.gfx0_path]:
@@ -479,7 +479,7 @@ class BuildGraphicsAudio:
                 device_probe.AMD.Archs.Polaris,
                 device_probe.AMD.Archs.Polaris_Spoof,
                 device_probe.AMD.Archs.Vega,
-                device_probe.AMD.Archs.Navi
+                device_probe.AMD.Archs.Navi,
             ]:
                 self._amd_mxm_patch(self.gfx0_path)
             elif self.computer.dgpu.arch == device_probe.NVIDIA.Archs.Kepler:
@@ -513,7 +513,7 @@ class BuildGraphicsAudio:
                 device_probe.Intel.Archs.Haswell,
                 device_probe.Intel.Archs.Broadwell,
                 device_probe.Intel.Archs.Skylake,
-                device_probe.NVIDIA.Archs.Kepler
+                device_probe.NVIDIA.Archs.Kepler,
             ]:
                 has_kdkless_gpu = True
 
@@ -525,7 +525,7 @@ class BuildGraphicsAudio:
                 device_probe.AMD.Archs.TeraScale_1,
                 device_probe.AMD.Archs.TeraScale_2,
                 device_probe.Intel.Archs.Iron_Lake,
-                device_probe.Intel.Archs.Sandy_Bridge
+                device_probe.Intel.Archs.Sandy_Bridge,
             ]:
                 has_kdk_gpu = True
 
@@ -533,7 +533,7 @@ class BuildGraphicsAudio:
                 # Metal KDK (always)
                 device_probe.AMD.Archs.Legacy_GCN_7000,
                 device_probe.AMD.Archs.Legacy_GCN_8000,
-                device_probe.AMD.Archs.Legacy_GCN_9000
+                device_probe.AMD.Archs.Legacy_GCN_9000,
             ]:
                 has_kdk_gpu = True
 
@@ -542,7 +542,7 @@ class BuildGraphicsAudio:
                 device_probe.AMD.Archs.Polaris,
                 device_probe.AMD.Archs.Polaris_Spoof,
                 device_probe.AMD.Archs.Vega,
-                device_probe.AMD.Archs.Navi
+                device_probe.AMD.Archs.Navi,
             ]:
                 if (
                     self.model == "MacBookPro13,3" or
@@ -567,7 +567,7 @@ class BuildGraphicsAudio:
                 device_probe.AMD.Archs.Polaris,
                 device_probe.AMD.Archs.Polaris_Spoof,
                 device_probe.AMD.Archs.Vega,
-                device_probe.AMD.Archs.Navi
+                device_probe.AMD.Archs.Navi,
             ]:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("KDKlessWorkaround.kext", self.constants.kdkless_version, self.constants.kdkless_path)
                 return

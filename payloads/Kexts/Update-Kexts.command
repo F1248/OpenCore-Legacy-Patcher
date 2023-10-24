@@ -14,7 +14,7 @@ KEXT_DICTIONARY = {
     "Acidanthera": {
         "AirportBrcmFixup": {
             "Repository": "https://github.com/acidanthera/AirportBrcmFixup",
-            "Constants Variable": "self.airportbcrmfixup_version"
+            "Constants Variable": "self.airportbcrmfixup_version",
         },
         # Due to issues with legacy Macs, don't update
         # "AppleALC": {
@@ -24,52 +24,52 @@ KEXT_DICTIONARY = {
         "BlueToolFixup": {
             "Repository": "https://github.com/acidanthera/BrcmPatchRAM",
             "Constants Variable": "self.bluetool_version",
-            "Override": "BrcmPatchRAM"
+            "Override": "BrcmPatchRAM",
         },
         "CPUFriend": {
             "Repository": "https://github.com/acidanthera/CPUFriend",
-            "Constants Variable": "self.cpufriend_version"
+            "Constants Variable": "self.cpufriend_version",
         },
         "CryptexFixup": {
             "Repository": "https://github.com/acidanthera/CryptexFixup",
-            "Constants Variable": "self.cryptexfixup_version"
+            "Constants Variable": "self.cryptexfixup_version",
         },
         "DebugEnhancer": {
             "Repository": "https://github.com/acidanthera/DebugEnhancer",
-            "Constants Variable": "self.debugenhancer_version"
+            "Constants Variable": "self.debugenhancer_version",
         },
         "FeatureUnlock": {
             "Repository": "https://github.com/acidanthera/FeatureUnlock",
-            "Constants Variable": "self.featureunlock_version"
+            "Constants Variable": "self.featureunlock_version",
         },
         "Lilu": {
             "Repository": "https://github.com/acidanthera/Lilu",
-            "Constants Variable": "self.lilu_version"
+            "Constants Variable": "self.lilu_version",
         },
         "NVMeFix": {
             "Repository": "https://github.com/acidanthera/NVMeFix",
-            "Constants Variable": "self.nvmefix_version"
+            "Constants Variable": "self.nvmefix_version",
         },
         "RestrictEvents": {
             "Repository": "https://github.com/acidanthera/RestrictEvents",
-            "Constants Variable": "self.restrictevents_version"
+            "Constants Variable": "self.restrictevents_version",
         },
         "RSRHelper": {
             "Repository": "https://github.com/khronokernel/RSRHelper",
-            "Constants Variable": "self.rsrhelper_version"
+            "Constants Variable": "self.rsrhelper_version",
         },
         "WhateverGreen": {
             "Repository": "https://github.com/acidanthera/WhateverGreen",
-            "Constants Variable": "self.whatevergreen_version"
-        }
+            "Constants Variable": "self.whatevergreen_version",
+        },
     },
 
     "Misc": {
         "Innie": {
             "Repository": "https://github.com/cdf/Innie",
-            "Constants Variable": "self.innie_version"
-        }
-    }
+            "Constants Variable": "self.innie_version",
+        },
+    },
 }
 
 

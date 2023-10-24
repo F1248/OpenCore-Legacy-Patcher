@@ -18,7 +18,7 @@ from resources import (
     reroute_payloads,
     commit_info,
     logging_handler,
-    analytics_handler
+    analytics_handler,
 )
 
 
@@ -79,7 +79,7 @@ class OpenCoreLegacyPatcher:
         self.constants.launcher_script = launcher_script
 
         # Initialize working directory
-        self.constants.unpack_thread = threading.Thread(target=reroute_payloads.RoutePayloadDiskImage, args=(self.constants))
+        self.constants.unpack_thread = threading.Thread(target=reroute_payloads.RoutePayloadDiskImage, args=(self.constants,))
         self.constants.unpack_thread.start()
 
         # Generate commit info

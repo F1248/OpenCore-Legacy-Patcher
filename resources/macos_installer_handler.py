@@ -31,7 +31,7 @@ CATALOG_URL_VARIANTS:     list = [
     "mountainlion",
     "lion",
     "snowleopard",
-    "leopard"
+    "leopard",
 ]
 
 tmp_dir = tempfile.TemporaryDirectory()
@@ -60,7 +60,7 @@ class InstallerCreation():
                 f'''do shell script "installer -pkg {Path(download_path)}/InstallAssistant.pkg -target /"'''
                 ' with prompt "OpenCore Legacy Patcher needs administrator privileges to extract the installer."'
                 " with administrator privileges"
-                " without altering line endings"
+                " without altering line endings",
             ).run()
         except Exception as e:
             logging.info("Failed to install InstallAssistant")
@@ -206,7 +206,7 @@ fi
                 disk: {
                     "identifier": all_disks[disk]["identifier"],
                     "name": all_disks[disk]["name"],
-                    "size": all_disks[disk]["size"]
+                    "size": all_disks[disk]["size"],
                 }
             })
 
@@ -516,7 +516,7 @@ class LocalInstallerCatalog:
                     "Short Name": "Big Sur Beta",
                     "Version": "11.0",
                     "Build": "20A5343i",
-                    "Path": "/Applications/Install macOS Big Sur Beta.app"
+                    "Path": "/Applications/Install macOS Big Sur Beta.app",
                 },
                 etc…
         """
@@ -625,7 +625,7 @@ class LocalInstallerCatalog:
                 [
                     "hdiutil", "attach", "-noverify", sharedsupport_path,
                     "-mountpoint", tmpdir,
-                    "-nobrowse"
+                    "-nobrowse",
                 ],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT
             )

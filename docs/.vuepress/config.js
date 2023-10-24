@@ -20,7 +20,7 @@ module.exports = {
         ["link", {
             rel: "'stylesheet",
             href: "/styles/website.css"
-        }]
+        },]
     ],
     base: '/OpenCore-Legacy-Patcher/',
 
@@ -68,7 +68,7 @@ module.exports = {
             sidebarDepth: 1,
             children: [
 				'START',
-				'MODELS'
+				'MODELS',
             ]
 
         },
@@ -78,7 +78,7 @@ module.exports = {
             sidebarDepth: 1,
             children: [
                 'INSTALLER',
-				'BUILD'
+				'BUILD',
             ]
 
         },
@@ -88,7 +88,7 @@ module.exports = {
             sidebarDepth: 1,
             children: [
 				'BOOT',
-				'POST-INSTALL'
+				'POST-INSTALL',
             ]
 
         },
@@ -97,7 +97,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-				['SONOMA-DROP', 'macOS Sonoma Support']
+				['SONOMA-DROP', 'macOS Sonoma Support'],
             ]
         },
 
@@ -106,7 +106,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-				['VENTURA-DROP', 'macOS Ventura Support']
+				['VENTURA-DROP', 'macOS Ventura Support'],
             ]
         },
 
@@ -115,7 +115,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-				['MONTEREY-DROP', 'macOS Monterey Support']
+				['MONTEREY-DROP', 'macOS Monterey Support'],
             ]
         },
         {
@@ -130,7 +130,7 @@ module.exports = {
 				'UNINSTALL',
 				'ICNS',
 				'WINDOWS',
-				'UNIVERSALCONTROL'
+				'UNIVERSALCONTROL',
             ]
         },
         {
@@ -139,7 +139,7 @@ module.exports = {
             sidebarDepth: 1,
             children: [
 				'DONATE',
-				'LICENSE'
+				'LICENSE',
             ]
 
         },
@@ -151,11 +151,11 @@ module.exports = {
 				'ISSUES-HOLD',
 				'TERMS',
 				'HOW',
-				'PATCHEXPLAIN'
+				'PATCHEXPLAIN',
             ]
 
-        }
-        ]
+        },
+        ],
     },
     plugins: [
         '@vuepress/plugin-back-to-top',
@@ -166,6 +166,6 @@ module.exports = {
                 options: {
                     background: 'var(--bodyBgColor)'
                 }
-            }]
+            }],
     ]
 }

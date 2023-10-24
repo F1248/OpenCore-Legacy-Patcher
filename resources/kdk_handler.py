@@ -287,7 +287,7 @@ class KernelDebugKitObject:
 
         kdk_dict = {
             "build": self.kdk_url_build,
-            "version": self.kdk_url_version
+            "version": self.kdk_url_version,
         }
 
         try:
@@ -363,7 +363,7 @@ class KernelDebugKitObject:
             "System.kext/PlugIns/Libkern.kext/Libkern",
             "apfs.kext/Contents/MacOS/apfs",
             "IOUSBHostFamily.kext/Contents/MacOS/IOUSBHostFamily",
-            "AMDRadeonX6000.kext/Contents/MacOS/AMDRadeonX6000"
+            "AMDRadeonX6000.kext/Contents/MacOS/AMDRadeonX6000",
         ]
 
         for kext in KEXT_CATALOG:
@@ -486,7 +486,7 @@ class KernelDebugKitObject:
         if exclude_builds is None:
             exclude_builds = [
                 self.kdk_url_build,
-                self.kdk_closest_match_url_build
+                self.kdk_closest_match_url_build,
             ]
 
         if self.constants.should_nuke_kdks is False:

@@ -521,7 +521,7 @@ def block_os_updaters():
         "softwareupdate",
         "SoftwareUpdate",
         "Software Update",
-        "MobileSoftwareUpdate"
+        "MobileSoftwareUpdate",
     ]
     output = subprocess.check_output(["ps", "-ax"])
     lines = output.splitlines()

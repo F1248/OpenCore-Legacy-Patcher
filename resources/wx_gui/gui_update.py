@@ -12,7 +12,7 @@ from pathlib import Path
 from resources.wx_gui import gui_download, gui_support
 from resources import (
     constants,
-    network_handler
+    network_handler,
 )
 
 

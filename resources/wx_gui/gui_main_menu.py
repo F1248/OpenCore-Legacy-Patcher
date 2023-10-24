@@ -81,39 +81,39 @@ class MainFrame(wx.Frame):
                     "to boot unsupported OSes.",
                     "Use on installers or internal drives."
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Build.icns")
+                "icon": str(self.constants.icns_resource_path / "OC-Build.icns"),
             },
             "Create macOS Installer": {
                 "function": self.on_create_macos_installer,
                 "description": [
                     "Download and flash a macOS",
-                    "Installer for your system."
+                    "Installer for your system.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Installer.icns")
+                "icon": str(self.constants.icns_resource_path / "OC-Installer.icns"),
             },
             "⚙️ Settings": {
                 "function": self.on_settings,
                 "description": [
-                ]
+                ],
             },
             "Post-Install Root Patch": {
                 "function": self.on_post_install_root_patch,
                 "description": [
                     "Installs hardware drivers and",
                     "patches for your system after",
-                    "installing a new version of macOS."
+                    "installing a new version of macOS.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Patch.icns")
+                "icon": str(self.constants.icns_resource_path / "OC-Patch.icns"),
             },
 
             "Support": {
                 "function": self.on_help,
                 "description": [
                     "Resources for OpenCore Legacy",
-                    "Patcher."
+                    "Patcher.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Support.icns")
-            }
+                "icon": str(self.constants.icns_resource_path / "OC-Support.icns"),
+            },
         }
         button_x = 30
         button_y = model_label.GetPosition()[1] + 30

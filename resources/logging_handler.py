@@ -159,7 +159,7 @@ class InitializeLoggingSupport:
             handlers=[
                 logging.StreamHandler(stream = sys.stdout),
                 logging.FileHandler(self.log_filepath) if log_to_file is True else logging.NullHandler()
-            ]
+            ],
         )
         logging.getLogger().setLevel(logging.INFO)
         logging.getLogger().handlers[0].setFormatter(logging.Formatter("%(message)s"))
@@ -219,7 +219,7 @@ class InitializeLoggingSupport:
                 return
 
             if self.constants.cli_mode is True:
-                threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath)).start()
+                threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath,)).start()
                 return
 
             error_msg = f"OpenCore Legacy Patcher encountered the following internal error:\n\n"
@@ -253,7 +253,7 @@ class InitializeLoggingSupport:
                 subprocess.run(["open", "--reveal", self.log_filepath])
                 return
 
-            threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath)).start()
+            threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath,)).start()
 
 
         def custom_thread_excepthook(args) -> None:
