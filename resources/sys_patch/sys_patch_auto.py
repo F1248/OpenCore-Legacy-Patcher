@@ -253,7 +253,7 @@ class AutomaticSysPatch:
             logging.info("- Creating /Library/Application Support/Dortania/")
             utilities.process_status(utilities.elevated(["mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        logging.info("- Copying OpenCore Patcher to /Library/Application Support/Dortania/")
+        logging.info("- Copying OpenCore-Legacy-Patcher to /Library/Application Support/Dortania/")
         if Path("/Library/Application Support/Dortania/OpenCore-Patcher.app").exists():
             logging.info("- Deleting existing OpenCore-Patcher")
             utilities.process_status(utilities.elevated(["rm", "-R", "/Library/Application Support/Dortania/OpenCore-Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))

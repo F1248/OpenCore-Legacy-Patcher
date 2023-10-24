@@ -12,6 +12,6 @@ As written with the release of OpenCore Legacy Patcher 0.4.3, and macOS 12.3:
 >
 > -- Mykola
 
-If you encounter new issues with the patcher that do not have solutions easily available, our helpful community in the [OpenCore Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN) can provide support in the meantime. You should still provide as much information as you can by [gathering debug logs](DEBUG.md) when you ask for help.
+If you encounter new issues with the patcher that do not have solutions easily available, our helpful community in the [OpenCore-Legacy-Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN) can provide support in the meantime. You should still provide as much information as you can by [gathering debug logs](DEBUG.md) when you ask for help.
 
 <!-- And from us developers, tinkerers, and dreamers in this little community, it's definitely a mutual thanks and welcome! crystall1nedev <3 -->

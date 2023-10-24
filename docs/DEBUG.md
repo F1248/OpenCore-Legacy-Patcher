@@ -1,6 +1,6 @@
 # How to debug with OpenCore
 
-For those who've hit an odd bug and are unsure if it's user error or within the patcher, we recommend asking on the [OpenCore Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN) for help.
+For those who've hit an odd bug and are unsure if it's user error or within the patcher, we recommend asking on the [OpenCore-Legacy-Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN) for help.
 
 ## Debugging yourself
 
@@ -37,7 +37,7 @@ From there, you'll have a log on your desktop.
 ## Filing an issue with us
 
 ::: warning
-Currently issues have been disabled due to [current events](ISSUES-HOLD.md). You can continue to receive support in the [OpenCore Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN), where there are active members of the community available.
+Currently issues have been disabled due to [current events](ISSUES-HOLD.md). You can continue to receive support in the [OpenCore-Legacy-Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN), where there are active members of the community available.
 :::
 
 Now that you have proper logs, you can now [file issues with us](https://github.com/dortania/OpenCore-Legacy-Patcher/issues). This is a reminder to include the following info:
