@@ -1,5 +1,5 @@
 # pylint: disable=multiple-statements
-# Defines versioning, file paths and other settings for the patcher
+# Defines versioning, file paths and other settings for OpenCore Legacy Patcher
 # Copyright (C) 2020-2023, Dhinak G, Mykola Grymalyuk
 
 from pathlib import Path
@@ -18,7 +18,7 @@ class Constants:
         self.repository:                      str = "OpenCore-Legacy-Patcher"
         self.fallback_branch:                 str = "main" # Used when running / built from source
 
-        # Patcher Versioning
+        # Patcher
         self.patcher_version:                 str = "1.2.0" # OpenCore-Legacy-Patcher
         self.patcher_support_pkg_version:     str = "1.4.2" # PatcherSupportPkg
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
