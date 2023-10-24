@@ -334,12 +334,12 @@ class BuildMiscellaneous:
         support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("OpenLinuxBoot.efi", "UEFI", "Drivers")["Enabled"] = True
         support.BuildSupport(self.model, self.constants, self.config).get_efi_binary_by_path("ResetNvramEntry.efi", "UEFI", "Drivers")["Enabled"] = True
 
-        if self.constants.showpicker is False:
-            logging.info("- Hiding OpenCore picker")
-            self.config["Misc"]["Boot"]["ShowPicker"] = False
+        if self.constants.showpicker is True:
+            logging.info("- Showing OpenCore picker")
+            self.config["Misc"]["Boot"]["ShowPicker"] = True
 
-        if self.constants.oc_timeout != 5:
-            logging.info(f"- Setting custom OpenCore picker timeout to {self.constants.oc_timeout} seconds")
+        if self.constants.oc_timeout > 0:
+            logging.info(f"- Setting OpenCore picker timeout to {self.constants.oc_timeout} seconds")
             self.config["Misc"]["Boot"]["Timeout"] = self.constants.oc_timeout
 
         if self.constants.vault is True:
