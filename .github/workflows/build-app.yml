@@ -28,6 +28,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          pip3.11 install --upgrade --pre pip setuptools
           pip3.11 install https://files.pythonhosted.org/packages/f4/db/048bf61f44c21287509d60bbe394f35f93b7db14ade99b8f5f9035ef04fc/charset_normalizer-3.3.1-cp311-cp311-macosx_10_9_universal2.whl # from https://pypi.org/project/charset-normalizer/#files
           pip3.11 install --upgrade --pre -r requirements.txt
           curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
