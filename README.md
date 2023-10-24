@@ -50,10 +50,6 @@ This project is offered on an AS-IS basis, we do not guarantee support for any i
   * Keep in mind that the Discord server is maintained by the community, so we ask everyone to be respectful.
   * Please review our docs on [how to debug with OpenCore](https://dortania.github.io/OpenCore-Legacy-Patcher/DEBUG.html) to gather important information to help others with troubleshooting.
 
-## Running from source
-
-To run the project from source, see here: [Build and run from source](./SOURCE.md)
-
 ## Credits
 
 * [Acidanthera](https://github.com/Acidanthera)
