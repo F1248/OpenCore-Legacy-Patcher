@@ -1,6 +1,6 @@
 ![](../images/macOS-12-Monterey.png)
 
-With OpenCore Legacy Patcher v0.1.7 and newer, we've implemented beta macOS Monterey support for users. Please note that Apple has dropped a lot of hardware with this release as well as broken many of our previous patch sets. This page will be used to inform users regarding current issues and will be updated as new patch sets are developed and added to our patcher.
+With the release of OpenCore Legacy Patcher 0.1.7, support for macOS Monterey has been implemented. This page informs about regarding issues.
 
 ## Newly dropped hardware
 
