@@ -18,7 +18,7 @@ class Constants:
         self.fallback_branch:                 str = "main" # Used when running / built from source
 
         # Patcher Versioning
-        self.patcher_version:                 str = "1.1.0" # OpenCore-Legacy-Patcher
+        self.patcher_version:                 str = "1.2.0" # OpenCore-Legacy-Patcher
         self.patcher_support_pkg_version:     str = "1.4.2" # PatcherSupportPkg
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
         self.patcher_name:                    str = "OpenCore Legacy Patcher"
@@ -98,7 +98,7 @@ class Constants:
         self.aspp_override_version:          str = "1.0.1"  # ACPI_SMC_PlatformPlugin Override
         self.ecm_override_version:           str = "1.0.0"  # AppleUSBECM Override
         self.rsrhelper_version:              str = "1.0.0"  # RSRHelper
-        self.amfipass_version:               str = "1.3.1"  # AMFIPass
+        self.amfipass_version:               str = "1.4.0"  # AMFIPass
         self.amfipass_compatibility_version: str = "1.2.1"  # Minimum AMFIPass version required
 
         ## Syncretic
