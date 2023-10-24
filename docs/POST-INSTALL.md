@@ -46,7 +46,7 @@ If you're unsure whether you should enable SIP, leave it as-is. Systems where yo
 
 :::warning
 
-If you need to use Migration Assistant to bring over data to your new macOS install, it is **highly recommended** to avoid restoring from inside Setup Assistant and waiting to install root patches until after the transfer is complete. If root patches were automatically installed, you can use the options available in the OCLP app to remove them. 
+If you need to use Migration Assistant to bring over data to your new macOS install, it is **highly recommended** to avoid restoring from inside Setup Assistant and waiting to install root patches until after the transfer is complete. If root patches were automatically installed, you can use the options available in the OCLP app to remove them.
 
 Using Migration Assistant while patches are installed can lead to an unbootable system, requiring a reinstall of macOS.
 
