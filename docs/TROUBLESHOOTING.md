@@ -40,7 +40,7 @@ However, if the 🚫 Symbol only appears after the boot process has already star
 
 ## Cannot boot macOS without the USB
 
-By default, the OpenCore-Legacy-Patcher won't install OpenCore onto the internal drive itself during installs.
+By default, the OpenCore Legacy Patcher won't install OpenCore onto the internal drive itself during installs.
 
 After installing macOS, OpenCore Legacy Patcher should automatically prompt you to install OpenCore onto the internal drive. However, if it doesn't show the prompt, you'll need to either [manually transfer](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) OpenCore to the internal drive's EFI or Build and Install again and select your internal drive.
 
