@@ -10,7 +10,7 @@ from pathlib import Path
 from data import model_array, os_data
 from resources.build import build
 from resources.sys_patch import sys_patch, sys_patch_auto
-from resources import defaults, utilities, validation, constants
+from resources import defaults, utilities, constants
 
 
 # Generic building args
@@ -28,10 +28,6 @@ class arguments:
         """
         Parses arguments passed to the patcher
         """
-
-        if self.args.validate:
-            self._validation_handler()
-            return
 
         if self.args.build:
             self._build_handler()
@@ -53,14 +49,6 @@ class arguments:
         if self.args.auto_patch:
             self._sys_patch_auto_handler()
             return
-
-
-    def _validation_handler(self) -> None:
-        """
-        Enter validation mode
-        """
-        logging.info("Set Validation Mode")
-        validation.PatcherValidation(self.constants)
 
 
     def _sys_patch_handler(self) -> None:
