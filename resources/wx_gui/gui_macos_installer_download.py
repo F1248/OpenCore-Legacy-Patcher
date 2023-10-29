@@ -6,19 +6,8 @@ import locale
 
 from pathlib import Path
 
-from resources.wx_gui import (
-    gui_main_menu,
-    gui_support,
-    gui_download,
-    gui_macos_installer_flash
-)
-from resources import (
-    constants,
-    macos_installer_handler,
-    utilities,
-    network_handler,
-    integrity_verification
-)
+from resources.wx_gui import gui_main_menu, gui_support, gui_download, gui_macos_installer_flash
+from resources import constants, macos_installer_handler, utilities, network_handler, integrity_verification
 from data import os_data, smbios_data, cpu_data
 
 

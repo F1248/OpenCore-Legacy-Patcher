@@ -2,11 +2,7 @@
 import wx
 import logging
 
-from resources import (
-    constants,
-    network_handler,
-    utilities
-)
+from resources import constants, network_handler, utilities
 
 from resources.wx_gui import gui_support
 

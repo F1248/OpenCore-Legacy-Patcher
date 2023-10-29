@@ -11,8 +11,7 @@ import packaging.version
 import py_sip_xnu
 
 from data import cpu_data, model_array, os_data, sip_data, smbios_data
-from resources import (amfi_detect, constants, device_probe, kdk_handler,
-                       network_handler, utilities)
+from resources import amfi_detect, constants, device_probe, kdk_handler, network_handler, utilities
 
 
 class DetectRootPatch:

@@ -7,17 +7,9 @@ import threading
 
 from pathlib import Path
 
-from resources import (
-    constants,
-)
-from resources.sys_patch import (
-    sys_patch_detect
-)
-from resources.wx_gui import (
-    gui_main_menu,
-    gui_support,
-    gui_sys_patch_start,
-)
+from resources import constants
+from resources.sys_patch import sys_patch_detect
+from resources.wx_gui import gui_main_menu, gui_support, gui_sys_patch_start
 
 
 class SysPatchDisplayFrame(wx.Frame):

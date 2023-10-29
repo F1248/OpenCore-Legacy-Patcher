@@ -8,24 +8,9 @@ import os
 
 from resources.sys_patch.sys_patch import PatchSysVolume
 
-from resources.wx_gui import (
-    gui_support,
-    gui_update
-)
-from resources import (
-    constants,
-    global_settings,
-    defaults,
-    generate_smbios,
-    network_handler
-)
-from data import (
-    model_array,
-    sip_data,
-    smbios_data,
-    os_data,
-    cpu_data
-)
+from resources.wx_gui import gui_support, gui_update
+from resources import constants, global_settings, defaults, generate_smbios, network_handler
+from data import model_array, sip_data, smbios_data, os_data, cpu_data
 
 
 class SettingsFrame(wx.Frame):

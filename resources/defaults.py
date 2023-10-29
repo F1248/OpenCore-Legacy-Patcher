@@ -1,18 +1,8 @@
 # Generate Default Data
 import subprocess
 
-from resources import (
-    utilities,
-    device_probe,
-    generate_smbios,
-    global_settings,
-    constants
-)
-from data import (
-    smbios_data,
-    cpu_data,
-    os_data
-)
+from resources import utilities, device_probe, generate_smbios, global_settings, constants
+from data import smbios_data, cpu_data, os_data
 
 
 class GenerateDefaults:

@@ -10,19 +10,9 @@ import subprocess
 
 from pathlib import Path
 
-from resources import (
-    constants,
-    kdk_handler,
-)
-from resources.sys_patch import (
-    sys_patch,
-    sys_patch_detect
-)
-from resources.wx_gui import (
-    gui_main_menu,
-    gui_support,
-    gui_download,
-)
+from resources import constants, kdk_handler
+from resources.sys_patch import sys_patch, sys_patch_detect
+from resources.wx_gui import gui_main_menu, gui_support, gui_download
 from data import os_data
 
 

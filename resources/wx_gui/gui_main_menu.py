@@ -9,14 +9,7 @@ import subprocess
 
 from pathlib import Path
 
-from resources.wx_gui import (
-    gui_build,
-    gui_macos_installer_download,
-    gui_support,
-    gui_help,
-    gui_settings,
-    gui_sys_patch_display,
-)
+from resources.wx_gui import gui_build, gui_macos_installer_download, gui_support, gui_help, gui_settings, gui_sys_patch_display
 from resources import constants
 from data import os_data
 

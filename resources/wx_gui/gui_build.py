@@ -6,11 +6,7 @@ import traceback
 
 from resources import constants
 from resources.build import build
-from resources.wx_gui import (
-    gui_main_menu,
-    gui_install_oc,
-    gui_support
-)
+from resources.wx_gui import gui_main_menu, gui_install_oc, gui_support
 
 
 class BuildFrame(wx.Frame):

@@ -10,10 +10,7 @@ import subprocess
 from pathlib import Path
 
 from resources.wx_gui import gui_download, gui_support
-from resources import (
-    constants,
-    network_handler,
-)
+from resources import constants, network_handler
 
 
 class UpdateFrame(wx.Frame):

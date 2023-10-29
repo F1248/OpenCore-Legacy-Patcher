@@ -9,13 +9,7 @@ import subprocess
 from pathlib import Path
 
 from resources.wx_gui import gui_main_menu, gui_build, gui_support
-from resources import (
-    constants,
-    macos_installer_handler,
-    utilities,
-    network_handler,
-    kdk_handler,
-)
+from resources import constants, macos_installer_handler, utilities, network_handler, kdk_handler
 from data import os_data
 
 
