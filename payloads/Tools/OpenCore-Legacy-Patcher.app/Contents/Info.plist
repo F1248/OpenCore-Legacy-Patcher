@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>OpenCore-Legacy-Patcher</string>
+	<string>OpenCore LegacyPatcher</string>
 	<key>CFBundleExecutable</key>
 	<string>OpenCore-Legacy-Patcher</string>
 	<key>CFBundleIconFile</key>
