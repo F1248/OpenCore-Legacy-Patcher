@@ -4,7 +4,6 @@
 # Copyright (C) 2022-2023 - Mykola Grymalyuk
 
 import os
-import sys
 import time
 import argparse
 import plistlib

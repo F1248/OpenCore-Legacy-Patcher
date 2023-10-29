@@ -923,7 +923,7 @@ class PatchSysVolume:
                                     """
                                 ).run()
                                 return False
-                            except Exception as e:
+                            except Exception:
                                 pass
                             break
                         msg = f"Decryption failed, please try again. {2 - i} attempts remaining. "
@@ -936,7 +936,7 @@ class PatchSysVolume:
                                 """
                             ).run()
                             return False
-                    except Exception as e:
+                    except Exception:
                         break
 
             return True
