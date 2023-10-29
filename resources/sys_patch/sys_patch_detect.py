@@ -67,7 +67,7 @@ class DetectRootPatch:
         self.sbm_enabled     = False
         self.amfi_enabled    = False
         self.fv_enabled      = False
-        self.dosdude_patched = False
+        self.dosdude1_patched = False
         self.missing_kdk     = False
         self.has_network     = False
         self.unsupported_os  = False
@@ -639,7 +639,7 @@ class DetectRootPatch:
             "Validation: SecureBootModel is enabled":      self.sbm_enabled,
             f"Validation: {'AMFI' if self.constants.host_is_hackintosh is True or self._get_amfi_level_needed() > 2 else 'Library Validation'} is enabled":                 self.amfi_enabled if self.amfi_must_disable is True else False,
             "Validation: FileVault is enabled":            self.fv_enabled,
-            "Validation: System is dosdude1 patched":      self.dosdude_patched,
+            "Validation: System is dosdude1 patched":      self.dosdude1_patched,
             "Validation: WhateverGreen.kext missing":      self.missing_whatever_green if self.nvidia_web is True else False,
             "Validation: Force OpenGL property missing":   self.missing_nv_web_opengl  if self.nvidia_web is True else False,
             "Validation: Force compat property missing":   self.missing_nv_compat      if self.nvidia_web is True else False,
@@ -694,7 +694,7 @@ class DetectRootPatch:
         sip = sip_dict[0]
         sip_value = sip_dict[1]
 
-        self.sip_enabled, self.sbm_enabled, self.fv_enabled, self.dosdude_patched = utilities.patching_status(sip, self.constants.detected_os)
+        self.sip_enabled, self.sbm_enabled, self.fv_enabled, self.dosdude1_patched = utilities.patching_status(sip, self.constants.detected_os)
         self.amfi_enabled = not amfi_detect.AmfiConfigurationDetection().check_config(self._get_amfi_level_needed())
 
         self.unsupported_os = not self._check_os_compat()
@@ -727,7 +727,7 @@ class DetectRootPatch:
                 logging.info("\nCannot patch! Please disable AMFI.")
                 logging.info("For Hackintoshes, please add amfi_get_out_of_my_way=1 to boot-args")
 
-            if self.dosdude_patched is True:
+            if self.dosdude1_patched is True:
                 logging.info("\nCannot patch! Detected machine has already been patched by another patcher")
                 logging.info("Please ensure your install is either clean or patched with OpenCore Legacy Patcher")
 
@@ -759,7 +759,7 @@ class DetectRootPatch:
         if any(
             [
                 # General patch checks
-                self.sip_enabled, self.sbm_enabled, self.fv_enabled, self.dosdude_patched, self.unsupported_os,
+                self.sip_enabled, self.sbm_enabled, self.fv_enabled, self.dosdude1_patched, self.unsupported_os,
 
                 # non-Metal specific
                 self.amfi_enabled if self.amfi_must_disable is True else False,

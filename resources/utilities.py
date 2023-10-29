@@ -292,7 +292,7 @@ def patching_status(os_sip, os):
     sip_enabled = True  #  System Integrity Protection
     sbm_enabled = True  #  Secure Boot Status (SecureBootModel)
     fv_enabled = True  #   FileVault
-    dosdude_patched = True
+    dosdude1_patched = True
 
     gen6_kext = "/System/Library/Extension/AppleIntelHDGraphics.kext"
     gen7_kext = "/System/Library/Extension/AppleIntelHD3000Graphics.kext"
@@ -314,9 +314,9 @@ def patching_status(os_sip, os):
         fv_enabled = False
 
     if not (Path(gen6_kext).exists() and Path(gen7_kext).exists()):
-        dosdude_patched = False
+        dosdude1_patched = False
 
-    return sip_enabled, sbm_enabled, fv_enabled, dosdude_patched
+    return sip_enabled, sbm_enabled, fv_enabled, dosdude1_patched
 
 
 clear = True
