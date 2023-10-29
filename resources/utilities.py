@@ -593,7 +593,6 @@ def check_cli_args():
         args.build or
         args.patch_sys_vol or
         args.unpatch_sys_vol or
-        args.validate or
         args.auto_patch or
         args.prepare_for_update
     ):
