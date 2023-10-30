@@ -755,16 +755,6 @@ class SettingsFrame(wx.Frame):
                 "wrap_around 1": {
                     "type": "wrap_around",
                 },
-                "Disable Reporting": {
-                    "type": "checkbox",
-                    "value": global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting"),
-                    "variable": "DisableCrashAndAnalyticsReporting",
-                    "description": [
-                        "When enabled, patcher will not",
-                        "report any info to Dortania.",
-                    ],
-                    "override_function": self._update_global_settings,
-                },
                 "Remove Unused KDKs": {
                     "type": "checkbox",
                     "value": global_settings.GlobalEnviromentSettings().read_property("ShouldNukeKDKs") or self.constants.should_nuke_kdks,

@@ -10,7 +10,7 @@ import applescript
 from pathlib import Path
 from datetime import datetime
 
-from resources import constants, analytics_handler, global_settings
+from resources import constants
 
 
 class InitializeLoggingSupport:
@@ -220,42 +220,20 @@ class InitializeLoggingSupport:
                 return
 
             if self.constants.cli_mode is True:
-                threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath,)).start()
                 return
 
-            error_msg = f"OpenCore Legacy Patcher encountered the following internal error:\n\n"
-            error_msg += f"{type.__name__}: {value}"
-            if tb:
-                error_msg += f"\n\n{traceback.extract_tb(tb)[-1]}"
+            tb_error_msg = f"{traceback.extract_tb(tb)[-1]}\n\n" if tb else ""
+            error_msg = f"OpenCore Legacy Patcher encountered the following internal error:\n\n{type.__name__}: {value}\n\n{tb_error_msg}Reveal log file?"
 
-            cant_log: bool = global_settings.GlobalEnviromentSettings().read_property("DisableCrashAndAnalyticsReporting")
-            if not isinstance(cant_log, bool):
-                cant_log = False
-
-            if self.constants.commit_info[0].startswith("refs/tags"):
-                cant_log = True
-
-            if cant_log is True:
-                error_msg += "\n\nReveal log file?"
-            else:
-                error_msg += "\n\nSend crash report to Dortania?"
-
-            # Ask user if they want to send crash report
             try:
                 result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher ({self.constants.patcher_version})" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
             except Exception as e:
                 logging.error(f"Failed to display crash report dialog: {e}")
                 return
 
-            if result[applescript.AEType(b'bhit')] != "Yes":
-                return
-
-            if cant_log is True:
+            if result[applescript.AEType(b'bhit')] == "Yes":
                 subprocess.run(["open", "--reveal", self.log_filepath])
-                return
-
-            threading.Thread(target=analytics_handler.Analytics(self.constants).send_crash_report, args=(self.log_filepath,)).start()
-
+            return
 
         def custom_thread_excepthook(args) -> None:
             """

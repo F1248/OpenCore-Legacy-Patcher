@@ -8,7 +8,7 @@ import threading
 from pathlib import Path
 
 from resources.wx_gui import gui_entry
-from resources import constants, utilities, device_probe, os_probe, defaults, arguments, reroute_payloads, commit_info, logging_handler, analytics_handler
+from resources import constants, utilities, device_probe, os_probe, defaults, arguments, reroute_payloads, commit_info, logging_handler
 
 
 class OpenCoreLegacyPatcher:
@@ -80,7 +80,6 @@ class OpenCoreLegacyPatcher:
 
         # Generate defaults
         defaults.GenerateDefaults(self.computer.real_model, True, self.constants)
-        threading.Thread(target=analytics_handler.Analytics(self.constants).send_analytics).start()
 
         if utilities.check_cli_args() is None:
             self.constants.cli_mode = False
