@@ -990,7 +990,7 @@ Hardware Information:
     {pprint.pformat(self.constants.computer, indent=4)}
 """
         # TextCtrl: properties
-        self.app_stats = wx.TextCtrl(panel, value=lines, pos=(-1, title.GetPosition()[1] + 30), size=(600, 240), style=wx.TE_READONLY | wx.TE_MULTILINE | wx.TE_RICH2)
+        self.app_stats = wx.TextCtrl(panel, value=lines, pos=(-1, title.GetPosition()[1] + 30), size=(600, 312), style=wx.TE_READONLY | wx.TE_MULTILINE | wx.TE_RICH2)
         self.app_stats.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
 
 
