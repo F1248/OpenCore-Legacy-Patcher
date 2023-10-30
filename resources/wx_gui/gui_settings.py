@@ -1214,10 +1214,10 @@ Hardware Information:
 
 
     def on_nightly(self, event: wx.Event) -> None:
-        result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
+        branches_result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
 
         branches = []
-        for branch in result:
+        for branch in branches_result:
             branch_name = branch["name"]
             commit_url = branch["commit"]["url"]
             commit_result = network_handler.NetworkUtilities().get(commit_url).json()
