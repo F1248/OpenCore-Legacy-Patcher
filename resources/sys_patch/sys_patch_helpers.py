@@ -57,7 +57,7 @@ class SysPatchHelpers:
             logging.info(f"Error: Board ID {self.constants.computer.reported_board_id} is longer than {board_to_patch}")
             raise Exception("Host's Board ID is longer than the kext's Board ID, cannot patch!!!")
 
-        path = source_files_path + "/10.13.6/System/Library/Extensions/AppleIntelSNBGraphicsFB.kext/Contents/MacOS/AppleIntelSNBGraphicsFB"
+        path = f"{source_files_path}/10.13.6/System/Library/Extensions/AppleIntelSNBGraphicsFB.kext/Contents/MacOS/AppleIntelSNBGraphicsFB"
         if not Path(path).exists():
             logging.info(f"Error: Could not find {path}")
             raise Exception("Failed to find AppleIntelSNBGraphicsFB.kext, cannot patch!!!")

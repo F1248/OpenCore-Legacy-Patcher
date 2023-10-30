@@ -287,5 +287,5 @@ if __name__ == "__main__":
 
     out = BPListReader(data).parse()
 
-    with open(file_path + ".json", "w") as fp:
+    with open(f"{file_path}.json", "w") as fp:
         json.dump(out, indent=4)

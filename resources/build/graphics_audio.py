@@ -78,9 +78,9 @@ class BuildGraphicsAudio:
                             logging.info("- Adding Mac Pro, Xserve DRM patches")
                             if "shikigva=128 unfairgva=1" not in self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"]:
                                 logging.info("- Falling back to boot-args")
-                                self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " shikigva=128 unfairgva=1 agdpmod=pikera radgva=1" + (
-                                    " -wegtree" if "-wegtree" not in self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] else ""
-                                )
+                                self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " shikigva=128 unfairgva=1 agdpmod=pikera radgva=1"
+                                if '-wegtree' not in self.config['NVRAM']['Add']['7C436110-AB2A-4BBB-A880-FE41995C9F82']['boot-args']:
+                                    self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " -wegtree"
                         elif isinstance(device, device_probe.NVIDIA):
                             logging.info("- Enabling Nvidia Output Patch")
                             if "-wegtree agdpmod=vit9696" not in self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"]:
@@ -287,7 +287,7 @@ class BuildGraphicsAudio:
                 })
         elif self.constants.imac_model == "Navi":
             logging.info("- Adding Navi Spoofing Patches")
-            navi_backlight_path = backlight_path+"/Pci(0x0,0x0)/Pci(0x0,0x0)"
+            navi_backlight_path = f"{backlight_path}/Pci(0x0,0x0)/Pci(0x0,0x0)"
             self.config["DeviceProperties"]["Add"][navi_backlight_path] = {
                 "ATY,bin_image": binascii.unhexlify(video_bios_data.RX5500XT_64K),
                 "shikigva": 128,

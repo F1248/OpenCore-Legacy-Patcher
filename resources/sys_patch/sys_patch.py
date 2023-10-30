@@ -583,7 +583,7 @@ class PatchSysVolume:
         if self.constants.detected_os < os_data.os_data.ventura:
             return destination_folder_path
 
-        updated_install_location = str(self.mount_location_data) + "/Library/Extensions"
+        updated_install_location = f"{self.mount_location_data}/Library/Extensions"
 
         logging.info(f"  - Adding AuxKC support to {install_file}")
         plist_path = Path(Path(source_folder_path) / Path(install_file) / Path("Contents/Info.plist"))
@@ -664,11 +664,11 @@ class PatchSysVolume:
         source_files_path = str(self.constants.payload_local_binaries_root_path)
         self._preflight_checks(required_patches, source_files_path)
         for patch in required_patches:
-            logging.info("- Installing Patchset: " + patch)
+            logging.info(f"- Installing Patchset: {patch}")
             for method_remove in ["Remove", "Remove Non-Root"]:
                 if method_remove in required_patches[patch]:
                     for remove_patch_directory in required_patches[patch][method_remove]:
-                        logging.info("- Remove Files at: " + remove_patch_directory)
+                        logging.info(f"- Remove Files at: {remove_patch_directory}")
                         for remove_patch_file in required_patches[patch][method_remove][remove_patch_directory]:
                             if method_remove == "Remove":
                                 destination_folder_path = str(self.mount_location) + remove_patch_directory
@@ -682,7 +682,7 @@ class PatchSysVolume:
                     for install_patch_directory in list(required_patches[patch][method_install]):
                         logging.info(f"- Handling Installs in: {install_patch_directory}")
                         for install_file in list(required_patches[patch][method_install][install_patch_directory]):
-                            source_folder_path = source_files_path + "/" + required_patches[patch][method_install][install_patch_directory][install_file] + install_patch_directory
+                            source_folder_path = f"{source_files_path}/{required_patches[patch][method_install][install_patch_directory][install_file]}{install_patch_directory}"
                             if method_install == "Install":
                                 destination_folder_path = str(self.mount_location) + install_patch_directory
                             else:
@@ -750,7 +750,7 @@ class PatchSysVolume:
                 if method_type in required_patches[patch]:
                     for install_patch_directory in required_patches[patch][method_type]:
                         for install_file in required_patches[patch][method_type][install_patch_directory]:
-                            source_file = source_files_path + "/" + required_patches[patch][method_type][install_patch_directory][install_file] + install_patch_directory + "/" + install_file
+                            source_file = f"{source_files_path}/{required_patches[patch][method_type][install_patch_directory][install_file]}{install_patch_directory}/{install_file}"
                             if not Path(source_file).exists():
                                 raise Exception(f"Failed to find {source_file}")
 
@@ -784,25 +784,25 @@ class PatchSysVolume:
             # merge with rsync
             logging.info(f"  - Installing: {file_name}")
             utilities.elevated(["rsync", "-r", "-i", "-a", f"{source_folder}/{file_name}", f"{destination_folder}/"], stdout=subprocess.PIPE)
-            self._fix_permissions(destination_folder + "/" + file_name)
-        elif Path(source_folder + "/" + file_name_str).is_dir():
+            self._fix_permissions(f"{destination_folder}/{file_name}")
+        elif Path(f"{source_folder}/{file_name_str}").is_dir():
             # Applicable for .kext, .app, .plugin, .bundle, all of which are directories
-            if Path(destination_folder + "/" + file_name).exists():
+            if Path(f"{destination_folder}/{file_name}").exists():
                 logging.info(f"  - Found existing {file_name}, overwriting…")
                 utilities.process_status(utilities.elevated(["rm", "-R", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             else:
                 logging.info(f"  - Installing: {file_name}")
             utilities.process_status(utilities.elevated(["cp", "-R", f"{source_folder}/{file_name}", destination_folder], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            self._fix_permissions(destination_folder + "/" + file_name)
+            self._fix_permissions(f"{destination_folder}/{file_name}")
         else:
             # Assume it's an individual file, replace as normal
-            if Path(destination_folder + "/" + file_name).exists():
+            if Path(f"{destination_folder}/{file_name}").exists():
                 logging.info(f"  - Found existing {file_name}, overwriting…")
                 utilities.process_status(utilities.elevated(["rm", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             else:
                 logging.info(f"  - Installing: {file_name}")
             utilities.process_status(utilities.elevated(["cp", f"{source_folder}/{file_name}", destination_folder], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            self._fix_permissions(destination_folder + "/" + file_name)
+            self._fix_permissions(f"{destination_folder}/{file_name}")
 
 
     def _remove_file(self, destination_folder: Path, file_name: str) -> None:
@@ -814,9 +814,9 @@ class PatchSysVolume:
             file_name           (str): Name of the file to remove
         """
 
-        if Path(destination_folder + "/" + file_name).exists():
+        if Path(f"{destination_folder}/{file_name}").exists():
             logging.info(f"  - Removing: {file_name}")
-            if Path(destination_folder + "/" + file_name).is_dir():
+            if Path(f"{destination_folder}/{file_name}").is_dir():
                 utilities.process_status(utilities.elevated(["rm", "-R", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             else:
                 utilities.process_status(utilities.elevated(["rm", f"{destination_folder}/{file_name}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))

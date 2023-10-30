@@ -124,7 +124,7 @@ class InstallOCFrame(wx.Frame):
             if disk_root:
                 # disk6s1 -> disk6
                 disk_root = self.constants.booted_oc_disk.strip("disk")
-                disk_root = "disk" + disk_root.split("s")[0]
+                disk_root = f"disk{disk_root.split('s')[0]}"
                 logging.info(f"Checking if booted disk is present: {disk_root}")
 
             # Add buttons for each disk

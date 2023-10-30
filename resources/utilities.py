@@ -26,7 +26,7 @@ def hexswap(input_hex: str):
 
 def string_to_hex(input_string):
     if not (len(input_string) % 2) == 0:
-        input_string = "0" + input_string
+        input_string = f"0{input_string}"
     input_string = hexswap(input_string)
     input_string = binascii.unhexlify(input_string)
     return input_string

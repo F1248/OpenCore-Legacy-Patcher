@@ -415,16 +415,16 @@ class macOSInstallerFlashFrame(wx.Frame):
 
 
     def _install_installer_pkg(self, disk):
-        disk = disk + "s2" # ESP sits at 1, and we know macOS will have created the main partition at 2
+        disk = f"{disk}s2" # ESP sits at 1, and we know macOS will have created the main partition at 2
 
         if not Path(self.constants.installer_pkg_path).exists():
             return
 
         path = utilities.grab_mount_point_from_disk(disk)
-        if not Path(path + "/System/Library/CoreServices/SystemVersion.plist").exists():
+        if not Path(f"{path}/System/Library/CoreServices/SystemVersion.plist").exists():
             return
 
-        os_version = plistlib.load(Path(path + "/System/Library/CoreServices/SystemVersion.plist").open("rb"))
+        os_version = plistlib.load(Path(f"{path}/System/Library/CoreServices/SystemVersion.plist").open("rb"))
         kernel_version = os_data.os_conversion.os_to_kernel(os_version["ProductVersion"])
         if int(kernel_version) < os_data.os_data.big_sur:
             logging.info("Installer unsupported, requires Big Sur or newer")
@@ -433,7 +433,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         subprocess.run(["mkdir", "-p", f"{path}/Library/Packages/"])
         subprocess.run(["cp", "-r", self.constants.installer_pkg_path, f"{path}/Library/Packages/"])
 
-        self._kdk_chainload(os_version["ProductBuildVersion"], os_version["ProductVersion"], Path(path + "/Library/Packages/"))
+        self._kdk_chainload(os_version["ProductBuildVersion"], os_version["ProductVersion"], Path(f"{path}/Library/Packages/"))
 
 
     def _kdk_chainload(self, build: str, version: str, download_dir: str):
@@ -518,7 +518,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         error_message = ""
         def _integrity_check():
             nonlocal error_message
-            for folder in Path(utilities.grab_mount_point_from_disk(disk + "s2")).glob("*.app"):
+            for folder in Path(utilities.grab_mount_point_from_disk(f"{disk}s2")).glob("*.app"):
                 if folder.is_dir():
                     dmg_path = folder / "Contents" / "SharedSupport" / "SharedSupport.dmg"
                     break
@@ -531,10 +531,10 @@ class macOSInstallerFlashFrame(wx.Frame):
             if result.returncode != 0:
                 if result.stdout:
                     logging.error(result.stdout.decode("utf-8"))
-                    error_message = "STDOUT: " + result.stdout.decode("utf-8")
+                    error_message = f"STDOUT: {result.stdout.decode('utf-8')}"
                 if result.stderr:
                     logging.error(result.stderr.decode("utf-8"))
-                    error_message += "\n\nSTDERR: " + result.stderr.decode("utf-8")
+                    error_message += f"\n\nSTDERR: {result.stderr.decode('utf-8')}"
 
 
         thread = threading.Thread(target=_integrity_check)

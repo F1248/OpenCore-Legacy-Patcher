@@ -177,7 +177,7 @@ class AutomaticSysPatch:
             return
 
         root_disk = self.constants.booted_oc_disk.strip("disk")
-        root_disk = "disk" + root_disk.split("s")[0]
+        root_disk = f"disk{root_disk.split('s')[0]}"
 
         logging.info(f"  - Boot Drive: {self.constants.booted_oc_disk} ({root_disk})")
         macOS_disk = utilities.get_disk_path()
