@@ -1222,10 +1222,7 @@ Hardware Information:
             commit_url = branch["commit"]["url"]
             commit_result = network_handler.NetworkUtilities().get(commit_url).json()
             last_commit = commit_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
-            if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2]:
-                installed_note = "Currently installed, "
-            else:
-                installed_note = ""
+            installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
             description = branch_name + " (" + installed_note + "Last commit: " + last_commit + ")"
             while len(description) > 128:
                 last_commit = last_commit[: - 1]
