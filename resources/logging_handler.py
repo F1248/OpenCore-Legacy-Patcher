@@ -186,7 +186,7 @@ class InitializeLoggingSupport:
         Start logging, used as easily identifiable start point in logs
         """
 
-        str_msg = f"# OpenCore Legacy Patcher #"
+        str_msg = "# OpenCore Legacy Patcher #"
         str_len = len(str_msg)
 
         logging.info('#' * str_len)

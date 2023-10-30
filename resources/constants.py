@@ -371,7 +371,7 @@ class Constants:
 
     @property
     def efi_disabler_path(self):
-        return self.payload_kexts_path / Path(f"Acidanthera/EFICheckDisabler.zip")
+        return self.payload_kexts_path / Path("Acidanthera/EFICheckDisabler.zip")
 
     @property
     def bcm570_path(self):
@@ -617,7 +617,7 @@ class Constants:
 
     @property
     def opencore_release_folder(self):
-        return self.build_path / Path(f"OpenCore-Build")
+        return self.build_path / Path("OpenCore-Build")
 
     @property
     def opencore_zip_copied(self):
@@ -698,7 +698,7 @@ class Constants:
 
     @property
     def ocvalidate_path(self):
-        return self.payload_path / Path(f"OpenCore/ocvalidate")
+        return self.payload_path / Path("OpenCore/ocvalidate")
 
     @property
     def oclp_helper_path(self):

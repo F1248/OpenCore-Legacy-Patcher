@@ -102,7 +102,7 @@ class KernelDebugKitObject:
             results = network_handler.NetworkUtilities().get(
                 KDK_API_LINK,
                 headers={
-                    "User-Agent": f"OCLP"
+                    "User-Agent": "OpenCore-Legacy-Patcher"
                 },
                 timeout=5
             )

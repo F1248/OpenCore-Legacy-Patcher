@@ -107,7 +107,7 @@ class SystemPatchDictionary():
                         "/System/Library/PrivateFrameworks": {
                             "GPUSupport.framework": "10.14.3",
                             "SkyLight.framework":  f"10.14.6-{self.os_major}",
-                            **({"FaceCore.framework":  f"13.5"} if self.os_major >= os_data.os_data.sonoma else {}),
+                            **({"FaceCore.framework":  "13.5"} if self.os_major >= os_data.os_data.sonoma else {}),
                         },
                         "/System/Applications": {
                             **({ "Photo Booth.app": "11.7.9"} if self.os_major >= os_data.os_data.monterey else {}),
@@ -584,7 +584,7 @@ class SystemPatchDictionary():
                             "NVDAStartup.kext":        "12.0 Beta 6",
                             "GeForceAIRPlugin.bundle": "11.0 Beta 3",
                             "GeForceGLDriver.bundle":  "11.0 Beta 3",
-                            "GeForceMTLDriver.bundle": "11.0 Beta 3" if self.os_major <= os_data.os_data.monterey else f"11.0 Beta 3-22",
+                            "GeForceMTLDriver.bundle": "11.0 Beta 3" if self.os_major <= os_data.os_data.monterey else "11.0 Beta 3-22",
                             "GeForceVADriver.bundle":  "12.0 Beta 6",
                         },
                         "/System/Library/Frameworks": {

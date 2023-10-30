@@ -263,11 +263,11 @@ class RemoteInstallerCatalog:
 
         url += f"-{os_version}"
         if seed_type == SeedType.DeveloperSeed:
-            url += f"seed"
+            url += "seed"
         elif seed_type == SeedType.PublicSeed:
-            url += f"beta"
+            url += "beta"
         elif seed_type == SeedType.CustomerSeed:
-            url += f"customerseed"
+            url += "customerseed"
 
         did_find_variant: bool = False
         for variant in CATALOG_URL_VARIANTS:

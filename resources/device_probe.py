@@ -978,7 +978,7 @@ class Computer:
     def sata_disk_probe(self):
         # Get all SATA Controllers/Disks from 'system_profiler SPSerialATADataType'
         # Determine whether SATA SSD is present and Apple-made
-        sp_sata_data = plistlib.loads(subprocess.run(f"system_profiler SPSerialATADataType -xml".split(), stdout=subprocess.PIPE).stdout.decode().strip().encode())
+        sp_sata_data = plistlib.loads(subprocess.run("system_profiler SPSerialATADataType -xml".split(), stdout=subprocess.PIPE).stdout.decode().strip().encode())
         for root in sp_sata_data:
             for ahci_controller in root["_items"]:
                 # Each AHCI controller will have its own entry
