@@ -349,7 +349,3 @@ class InstallOCFrame(wx.Frame):
         )
         main_menu_frame.Show()
         self.Destroy()
-
-
-
-

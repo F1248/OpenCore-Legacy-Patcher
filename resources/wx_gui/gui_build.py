@@ -152,5 +152,3 @@ class BuildFrame(wx.Frame):
             screen_location=self.GetScreenPosition()
         )
         install_oc_frame.Show()
-
-

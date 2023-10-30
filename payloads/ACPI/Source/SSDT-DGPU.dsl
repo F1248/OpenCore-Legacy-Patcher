@@ -100,4 +100,3 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "dGPU_OFF", 0x00001000)
         }
     }
 }
-

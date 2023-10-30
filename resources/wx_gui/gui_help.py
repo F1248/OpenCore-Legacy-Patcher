@@ -62,8 +62,3 @@ class HelpFrame(wx.Frame):
 
         # Set size of frame
         frame.SetSize((-1, return_button.GetPosition()[1] + return_button.GetSize()[1] + 40))
-
-
-
-
-

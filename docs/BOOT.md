@@ -74,4 +74,3 @@ If your Mac is looping back into the beginning of the setup after the first rebo
 :::
 
 # Once installed and booting, head to [Post-Installation](./POST-INSTALL.md)
-
