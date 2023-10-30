@@ -1218,19 +1218,19 @@ Hardware Information:
 
         branches = []
         for branch in result:
-            name = branch["name"]
+            branch_name = branch["name"]
             commit_url = branch["commit"]["url"]
             commit_result = network_handler.NetworkUtilities().get(commit_url).json()
             last_commit = commit_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
-            if name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2]:
+            if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2]:
                 installed_note = "Currently installed, "
             else:
                 installed_note = ""
-            description = name + " (" + installed_note + "Last commit: " + last_commit + ")"
+            description = branch_name + " (" + installed_note + "Last commit: " + last_commit + ")"
             while len(description) > 128:
                 last_commit = last_commit[: - 1]
-                description = name + " (" + installed_note + "Last commit: " + last_commit + " …)"
-            branches.append([name, description])
+                description = branch_name + " (" + installed_note + "Last commit: " + last_commit + " …)"
+            branches.append([branch_name, description])
 
         for branch_name in ["master", "main", self.constants.commit_info[0]]:
             if any(branch[0] == branch_name for branch in branches):
