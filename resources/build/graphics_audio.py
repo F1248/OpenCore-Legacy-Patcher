@@ -169,7 +169,7 @@ class BuildGraphicsAudio:
         """
 
         if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
-            # Ensure WEG is enabled as we need if for Backlight patching
+            # Ensure WhateverGreen is enabled as we need if for Backlight patching
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_navi_version, self.constants.whatevergreen_navi_path)
         if self.model in ["iMac11,1", "iMac11,2", "iMac11,3", "iMac10,1"]:
             logging.info("- Adding Nvidia Brightness Control and DRM patches")
@@ -217,7 +217,7 @@ class BuildGraphicsAudio:
 
         logging.info("- Adding AMD DRM patches")
         if not support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("WhateverGreen.kext")["Enabled"] is True:
-            # Ensure WEG is enabled as we need if for Backlight patching
+            # Ensure WhateverGreen is enabled as we need if for Backlight patching
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("WhateverGreen.kext", self.constants.whatevergreen_navi_version, self.constants.whatevergreen_navi_path)
 
         if self.model == "iMac9,1":

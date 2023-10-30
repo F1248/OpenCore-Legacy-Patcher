@@ -94,15 +94,15 @@ class GenerateKexts:
     def _special_kext_handling(self):
         # Generate custom WhateverGreen
         if self.weg_version is None or self.lilu_version is None or self.weg_old is None:
-            raise Exception("Unable to find latest WEG version!")
+            raise Exception("Unable to find latest WhateverGreen version!")
 
         if packaging.version.parse(self.weg_version) <= packaging.version.parse(self.weg_old):
-            print("   WEG is up to date!")
+            print("   WhateverGreen is up to date!")
             return
 
         # WhateverGreen
         print("Building modified WhateverGreen…")
-        # We have to compile WEG ourselves
+        # We have to compile WhateverGreen ourselves
         weg_source_url = f"https://github.com/acidanthera/WhateverGreen/archive/refs/tags/{self.weg_version}.zip"
         lilu_url = f"https://github.com/acidanthera/Lilu/releases/download/{self.lilu_version}/Lilu-{self.lilu_version}-DEBUG.zip"
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -120,14 +120,14 @@ class GenerateKexts:
             lilu_zip = f"{temp_dir}/Lilu-{self.lilu_version}-DEBUG.zip"
             subprocess.run(["curl", "-L", lilu_url, "-o", lilu_zip], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-            # Unzip Lilu into WEG source
+            # Unzip Lilu into WhateverGreen source
             subprocess.run(["unzip", lilu_zip, "-d", f"{temp_dir}/WhateverGreen-{self.weg_version}"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
             # Apply patch
             patch_path = Path("./Acidanthera/WhateverGreen-Navi-Backlight.patch").absolute()
             subprocess.run(["git", "apply", patch_path], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=f"{temp_dir}/WhateverGreen-{self.weg_version}")
 
-            # Build WEG
+            # Build WhateverGreen
             for variant in ["Release", "Debug"]:
                 subprocess.run(["xcodebuild", "-configuration", variant], cwd=f"{temp_dir}/WhateverGreen-{self.weg_version}", check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
