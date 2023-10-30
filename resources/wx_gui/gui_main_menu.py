@@ -1,5 +1,5 @@
 # Generate GUI for main menu
-# Portions of this file Copyright (c) 2023 Jazzzny
+# Portions of this file Copyright (C) 2023 Jazzzny
 
 import wx
 import wx.html2

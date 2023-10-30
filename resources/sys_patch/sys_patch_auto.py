@@ -1,5 +1,5 @@
 # Copyright (C) 2022, Mykola Grymalyuk
-# Copyright (c) 2023 Jazzzny
+# Copyright (C) 2023 Jazzzny
 
 import logging
 import plistlib
