@@ -40,21 +40,10 @@ class MainFrame(wx.Frame):
     def _generate_elements(self) -> None:
         """
         Generate UI elements for the main menu
-
-        Format:
-          - Title label: OpenCore Legacy Patcher v{X.Y.Z}
-          - Text:        Model: {Build or Host Model}
-          - Buttons:
-            - Build and Install OpenCore
-            - Post-Install Root Patch
-            - Create macOS Installer
-            - Settings
-            - Help
-          - Text:        Copyright
         """
 
-        # Title label: OpenCore Legacy Patcher v{X.Y.Z}
-        title_label = wx.StaticText(self, label=f"OpenCore Legacy Patcher {'' if self.constants.special_build else ''}{self.constants.patcher_version}{' (Nightly)' if not self.constants.commit_info[0].startswith('refs/tags') else ''}", pos=(-1, 10))
+        # Title label: OpenCore Legacy Patcher
+        title_label = wx.StaticText(self, label=self.constants.patcher_name, pos=(-1, 10))
         title_label.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         title_label.Centre(wx.HORIZONTAL)
 

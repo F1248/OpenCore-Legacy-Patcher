@@ -102,7 +102,7 @@ class KernelDebugKitObject:
             results = network_handler.NetworkUtilities().get(
                 KDK_API_LINK,
                 headers={
-                    "User-Agent": f"OCLP/{self.constants.patcher_version}"
+                    "User-Agent": f"OCLP"
                 },
                 timeout=5
             )

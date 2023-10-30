@@ -33,20 +33,14 @@ class AboutFrame(wx.Frame):
         title.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
         title.Centre(wx.HORIZONTAL)
 
-        # Set version
-        version = wx.StaticText(frame, label=f"Version: {self.constants.patcher_version}", pos=(-1, title.GetPosition()[1] + title.GetSize()[1] + 5))
-        version.SetFont(gui_support.font_factory(11, wx.FONTWEIGHT_NORMAL))
-        version.Centre(wx.HORIZONTAL)
-
         # Description
         description = [
             "Written by a small group of Mac hobbyists who just",
             "want to keep old machines out of the landfill!",
-
         ]
         spacer = 5
         for line in description:
-            desc = wx.StaticText(frame, label=line, pos=(-1, version.GetPosition()[1] + version.GetSize()[1] + 5 + spacer))
+            desc = wx.StaticText(frame, label=line, pos=(-1, title.GetPosition()[1] + title.GetSize()[1] + 5 + spacer))
             desc.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
             desc.Centre(wx.HORIZONTAL)
 

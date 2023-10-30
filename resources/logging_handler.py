@@ -38,7 +38,7 @@ class InitializeLoggingSupport:
 
         log_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
 
-        self.log_filename: str  = f"OpenCore-Legacy-Patcher_{self.constants.patcher_version}_{log_time}.log"
+        self.log_filename: str  = f"OpenCore-Legacy-Patcher_{log_time}.log"
         self.log_filepath: Path = None
 
         self.original_excepthook:        sys       = sys.excepthook
@@ -186,7 +186,7 @@ class InitializeLoggingSupport:
         Start logging, used as easily identifiable start point in logs
         """
 
-        str_msg = f"# OpenCore Legacy Patcher ({self.constants.patcher_version}) #"
+        str_msg = f"# OpenCore Legacy Patcher #"
         str_len = len(str_msg)
 
         logging.info('#' * str_len)
@@ -226,7 +226,7 @@ class InitializeLoggingSupport:
             error_msg = f"OpenCore Legacy Patcher encountered the following internal error:\n\n{type.__name__}: {value}\n\n{tb_error_msg}Reveal log file?"
 
             try:
-                result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher ({self.constants.patcher_version})" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
+                result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
             except Exception as e:
                 logging.error(f"Failed to display crash report dialog: {e}")
                 return
