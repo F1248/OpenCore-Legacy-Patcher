@@ -1214,8 +1214,9 @@ Hardware Information:
 
 
     def on_nightly(self, event: wx.Event) -> None:
+        actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
+        actions_result = network_handler.NetworkUtilities().get(actions_url).json()
         branches_result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
-
         branches = []
         for branch in branches_result:
             branch_name = branch["name"]
@@ -1223,10 +1224,21 @@ Hardware Information:
             commit_result = network_handler.NetworkUtilities().get(commit_url).json()
             last_commit = commit_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
             installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
-            description = branch_name + " (" + installed_note + "Last commit: " + last_commit + ")"
+            for run in actions_result["workflow_runs"]:
+                if run["head_branch"] == branch_name:
+                    if run["status"] == "completed":
+                        if run["conclusion"] == "success":
+                            status = ""
+                        else:
+                            status = f"Conclusion: {run['conclusion']}, "
+                    else:
+                        status = f"Status: {run['status']}, "
+                    status = status.replace("_", " ")
+                    break
+            description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit})"
             while len(description) > 128:
                 last_commit = last_commit[: - 1]
-                description = branch_name + " (" + installed_note + "Last commit: " + last_commit + " …)"
+                description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit}…)"
             branches.append([branch_name, description])
 
         for branch_name in ["master", "main", self.constants.commit_info[0]]:
