@@ -464,7 +464,7 @@
   - Resolve AMD Polaris external display output support
     - AMD Polaris and legacy GCN cannot be mixed in the same system
       - Legacy GCN support will be prioritized when both are present
-      - AMD Polaris GPU can still be used headless for rendering with legacy GCN (ex. [macOS: Prefer External GPU option](https://support.apple.com/en-ca/HT208544))
+      - AMD Polaris GPU can still be used headless for rendering with legacy GCN (ex. [macOS: Prefer External GPU option](https://support.apple.com/HT208544))
   - Disables unsupported `mediaanalysisd` on Metal 1 GPUs
     - Alleviates kernel panic when on prolonged idle
   - Automatically remove unsupported News Widgets on Ivy Bridge and Haswell iGPUs

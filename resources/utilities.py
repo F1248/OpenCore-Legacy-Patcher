@@ -279,7 +279,7 @@ def check_secure_boot_level():
         # Genuine Mac logic:
         #   - On genuine non-T2 Macs, they always return 0
         #   - T2 Macs will return based on their Startup Policy (Full(2), Medium(1), Disabled(0))
-        # Ref: https://support.apple.com/en-us/HT208198
+        # Ref: https://support.apple.com/HT208198
         if check_ap_security_policy() != 0:
             return True
         else:
