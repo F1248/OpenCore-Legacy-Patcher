@@ -203,7 +203,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
         return_button.Bind(wx.EVT_BUTTON, self.on_return_to_main_menu)
         return_button.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
 
-        self.showolderversions_checkbox = wx.CheckBox(self.frame_modal, label="Show Older/Beta Versions", pos=(-1, -1))
+        self.showolderversions_checkbox = wx.CheckBox(self.frame_modal, label="Show Older and Beta Versions", pos=(-1, -1))
         if show_full is True:
             self.showolderversions_checkbox.SetValue(True)
         self.showolderversions_checkbox.Bind(wx.EVT_CHECKBOX, lambda event: self._display_available_installers(event, self.showolderversions_checkbox.GetValue()))
