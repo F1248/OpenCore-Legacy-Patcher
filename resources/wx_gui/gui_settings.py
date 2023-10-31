@@ -278,12 +278,12 @@ class SettingsFrame(wx.Frame):
                         "show picker in the firmware.",
                     ],
                 },
-                "Boot Picker Timeout": {
+                "OpenCore Boot Picker Timeout": {
                     "type": "spinctrl",
                     "value": self.constants.oc_timeout,
                     "variable": "oc_timeout",
                     "description": [
-                        "Timeout before Boot Picker selects default",
+                        "Timeout before OpenCore Boot Picker selects default",
                         "entry in seconds.",
                         "Set to 0 for no timeout.",
                     ],

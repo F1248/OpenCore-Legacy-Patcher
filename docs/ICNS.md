@@ -1,14 +1,14 @@
-# Creating custom icons for OpenCore and Mac Boot Picker
+# Creating custom OpenCore and Mac Boot Picker icons
 
 For users who want to customize their setup to be more personal, OpenCore does allow for custom icons and images in the Boot Picker.
 
-* [Custom OpenCore icons](#custom-opencore-icons)
+* [Custom OpenCore Boot Picker icons](#custom-opencore-boot-picker-icons)
 * [Custom Mac Boot Picker icons](#custom-mac-boot-picker-icons)
 * [Installing updated icons](#installing-updated-icons)
 
-# Custom OpenCore icons
+# Custom OpenCore Boot Picker icons
 
-To generate custom OpenCore icons, you'll need the following:
+To generate custom icons for the OpenCore Boot Picker, you'll need the following:
 
 * Images in PNG format
 * Each image, with the following res:
@@ -46,7 +46,7 @@ Once done, you'll see your custom icon generated in `icnspack`'s folder:
 
 # Custom Mac Boot Picker icons
 
-Custom Boot Picker icons are much more complicated on Legacy Macs. On late 2013+ Macs, the [Custom OpenCore icons](#custom-opencore-icons) method will work just fine. However, on many 2012 and older Macs, the icons generated will be incompatible with the firmware.
+Custom icons for the Mac Boot Picker are much more complicated on Legacy Macs. On late 2013+ Macs, the [Custom OpenCore icons](#custom-opencore-icons) method will work just fine. However, on many 2012 and older Macs, the icons generated will be incompatible with the firmware.
 
 To generate legacy icons, you'll need the following:
 
@@ -83,10 +83,10 @@ Now that you've verified that you can edit OpenCore safely, you'll need to mount
 
 Select the drive you installed OpenCore to and mount it.
 
-* [Updating OpenCore icons](#updating-opencore-icons)
+* [Updating OpenCore Boot Picker icons](#updating-opencore-boot-picker-icons)
 * [Updating Mac Boot Picker icons](#updating-mac-boot-picker-icons)
 
-### Updating OpenCore icons
+### Updating OpenCore Boot Picker icons
 
 Head to `EFI/OC/Resources/Image/` on your drive and you'll see all the custom icons. For Background.icns, we need to ensure the file matches the theme OpenCore has set so we add the prefix `Modern` to it:
 

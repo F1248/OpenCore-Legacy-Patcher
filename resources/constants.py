@@ -163,7 +163,7 @@ class Constants:
         ## OpenCore Settings
         self.opencore_debug: bool = False # Enable OpenCore debug
         self.boot_efi:       bool = False # Use EFI/BOOT/BOOTx64.efi vs boot.efi bootstrap
-        self.showpicker:     bool = False # Show or Hide OpenCore's Boot Picker
+        self.showpicker:     bool = False # Show or Hide OpenCore Boot Picker
         self.nvram_write:    bool = True  # Write to hardware NVRAM
         self.oc_timeout:      int = 0     # Set OpenCore timeout
 

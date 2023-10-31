@@ -1,7 +1,7 @@
 # Installing Windows in UEFI Mode
 
-Modern versions of Windows officially support two types of firmware: UEFI and BIOS. Users may want to boot Windows through the OCLP Boot Picker, but only UEFI Installations of Windows will show up in the OCLP Boot Picker.
-Many older Macs do not "officially" support UEFI Windows installations, leading to installation failures and strange behaviour, but OCLP can be used to prevent almost all of these issues.
+Modern versions of Windows officially support two types of firmware: UEFI and BIOS. Users may want to boot Windows through the OpenCore, but only UEFI Installations of Windows will show up in the OpenCore Boot Picker.
+Many older Macs do not officially support UEFI Windows installations, leading to installation failures and strange behaviour, but OpenCore Legacy Patcher can be used to prevent almost all of these issues.
 
 ## Minimum Requirements
 
@@ -53,7 +53,7 @@ Recommended size is 200MB and the partition format **must** be FAT32 for OpenCor
 
 * Note 1: For machines with dedicated drives for Windows, having different partitions for OpenCore is not required.
 * Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Boot Picker are removed. See "Removing the Windows option from the stock Boot Picker" for further information.
-* Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac's Boot Picker.
+* Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac Boot Picker.
 
 ![](../images/windows-partition-2.png)
 
@@ -100,11 +100,11 @@ Now copy that file onto your USB in the same directory. Now you can follow the r
 
 ## Installation Process
 
-Once you reboot your machine, you should see a new boot option in the OCLP Boot Picker labelled as "EFI Boot" or "Windows". It may or may not have the Boot Camp icon.
+Once you reboot your machine, you should see a new boot option in the OpenCore Boot Picker labelled as `EFI Boot` or `Windows`. It may or may not have the Boot Camp icon.
 
 :::warning
 
-If you aren't booted into OCLP, you may see **two** boot options labelled "Windows" and "EFI Boot". Do not choose either of the options and boot into OCLP to continue.
+If you aren't booted into the OpenCore Boot Picker, you may see **two** boot options labelled `Windows` and `EFI Boot`. Do not choose either of the options and select the OpenCore Boot Picker to continue.
 
 :::
 
@@ -153,7 +153,7 @@ Once `dism` finishes its thing, run `bcdboot E:\Windows`, substituting "E" for t
 
 ![](../images/DISM-7.png)
 
-Windows is now installed. It should be recognized as "EFI Boot" or "Windows" with a Boot Camp icon in the OCLP Boot Picker.
+Windows is now installed. It should be recognized as "EFI Boot" or "Windows" with a Boot Camp icon in the OpenCore Boot Picker.
 
 :::warning
 
@@ -167,7 +167,7 @@ Removing the Windows boot option from the stock Boot Picker is **HIGHLY RECOMMEN
 
 Start up a command prompt window in the Windows Setup environment by running `cmd`.
 
-Next, enter the EFI Folder by running `C:`, substituting "C" for the EFI Partition Drive Letter. Then run `cd EFI` to enter the EFI Partition. Then, run `rmdir Boot /S /Q` to remove the boot files that can be detected by the stock Boot Picker. The OCLP Picker will still be able to detect and boot Windows.
+Next, enter the EFI Folder by running `C:`, substituting "C" for the EFI Partition Drive Letter. Then run `cd EFI` to enter the EFI Partition. Then, run `rmdir Boot /S /Q` to remove the boot files that can be detected by the stock Boot Picker. The OpenCore Boot Picker will still be able to detect and boot Windows.
 
 ![](../images/DISM-8.png)
 

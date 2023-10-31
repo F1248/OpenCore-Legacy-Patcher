@@ -53,7 +53,7 @@ With OpenCore Legacy Patcher, we rely on Apple Secure Boot to ensure OS updates 
 
 ## Stuck on boot after root patching
 
-Boot into recoveryOS by pressing space when your disk is selected on the OCLP Boot Picker (if you have it hidden, hold ESC while starting up)
+Boot into recoveryOS by pressing space when your disk is selected on the OpenCore Boot Picker (if you have it hidden, hold ESC while starting up)
 
 * **Note:** If your disk name is something other than "Macintosh HD", make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
 
@@ -110,7 +110,7 @@ You should have been prompted to install Root Volume patches after the first boo
 
 Due to Apple dropping NVIDIA Kepler support in macOS Monterey, [MacBookPro11,3's GMUX has difficulties switching back to the iGPU to display macOS correctly.](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522) To work-around this issue, boot the MacBookPro11,3 in Safe Mode and once macOS is installed, run OpenCore Legacy Patcher 's Post Install Root Patches to enable GPU Acceleration for the NVIDIA dGPU.
 
-* Safe Mode can be started by holding `Shift` + `Enter` when selecting macOS Monterey in OpenCore Legacy Patcher 's Boot Menu.
+* Safe Mode can be started by holding `Shift` + `Enter` when selecting macOS in OpenCore Boot Picker.
 
 ## No DisplayPort Output on Mac Pros with NVIDIA Kepler
 

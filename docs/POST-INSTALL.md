@@ -1,7 +1,7 @@
 # Post-Installation
 
 * [Booting without USB drive](#booting-without-usb-drive)
-* [Booting seamlessly without Boot Picker](#booting-seamlessly-without-boot-picker)
+* [Booting seamlessly without Boot Pickers](#booting-seamlessly-without-boot-pickers)
 * [Applying Post Install Volume Patches](#applying-post-install-volume-patches)
 
 ## Booting without USB drive
@@ -16,9 +16,9 @@ Once you've installed macOS through OpenCore, you can boot up and go through the
 
 And voila! No more USB drive required.
 
-## Booting seamlessly without Boot Picker
+## Booting seamlessly without Boot Pickers
 
-To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Bootpicker" on the Build tab:
+To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Boot Picker" on the Build tab:
 
 ![](../images/OCLP-GUI-Settings-ShowPicker.png)
 
