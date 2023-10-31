@@ -134,7 +134,7 @@ Additionally, it can help to disable FeatureUnlock in Settings -> Misc Settings 
 
 ## Cannot Disable SIP in recoveryOS
 
-With OpenCore Legacy Patcher , the patcher will always overwrite the current SIP value on boot to ensure that users don't brick an installation after an NVRAM reset. However, for users wanting to disable SIP entirely, this can be done easily.
+With OpenCore Legacy Patcher, the patcher will always overwrite the current SIP value on boot to ensure that users don't brick an installation after an NVRAM reset. However, for users wanting to disable SIP entirely, this can be done easily.
 
 Head into the GUI, go to Patcher Settings, and toggle the bits you need disabled from SIP:
 

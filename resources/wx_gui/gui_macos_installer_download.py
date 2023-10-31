@@ -161,7 +161,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
             locale.setlocale(locale.LC_TIME, '')
             logging.info(f"Available installers on SUCatalog ({'All entries' if show_full else 'Latest only'}):")
             for item in installers:
-                extra = " Beta" if installers[item]['Variant'] in ["DeveloperSeed" , "PublicSeed"] else ""
+                extra = " Beta" if installers[item]['Variant'] in ["DeveloperSeed", "PublicSeed"] else ""
                 logging.info(f"- macOS {installers[item]['Version']} ({installers[item]['Build']}):\n  - Size: {utilities.human_fmt(installers[item]['Size'])}\n  - Source: {installers[item]['Source']}\n  - Variant: {installers[item]['Variant']}\n  - Link: {installers[item]['Link']}\n")
                 index = self.list.InsertItem(self.list.GetItemCount(), f"macOS {installers[item]['Version']} {os_data.os_conversion.convert_kernel_to_marketing_name(int(installers[item]['Build'][:2]))}{extra} ({installers[item]['Build']})")
                 self.list.SetItemImage(index, self._macos_version_to_icon(int(installers[item]['Build'][:2])))
