@@ -18,7 +18,7 @@ And voila! No more USB drive required.
 
 ## Booting seamlessly without Boot Picker
 
-To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Bootpicker" on the Build tab:
+To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Boot Picker" on the Build tab:
 
 ![](../images/OCLP-GUI-Settings-ShowPicker.png)
 

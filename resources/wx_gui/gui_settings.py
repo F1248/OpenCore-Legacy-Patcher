@@ -283,7 +283,7 @@ class SettingsFrame(wx.Frame):
                     "value": self.constants.oc_timeout,
                     "variable": "oc_timeout",
                     "description": [
-                        "Timeout before boot picker selects default",
+                        "Timeout before Boot Picker selects default",
                         "entry in seconds.",
                         "Set to 0 for no timeout.",
                     ],

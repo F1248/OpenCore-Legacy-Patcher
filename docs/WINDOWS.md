@@ -1,6 +1,6 @@
 # Installing Windows in UEFI Mode
 
-Modern versions of Windows officially support two types of firmware: UEFI and BIOS. Users may want to boot Windows through the OCLP Bootpicker, but only UEFI Installations of Windows will show up in the OCLP Bootpicker.
+Modern versions of Windows officially support two types of firmware: UEFI and BIOS. Users may want to boot Windows through the OCLP Boot Picker, but only UEFI Installations of Windows will show up in the OCLP Boot Picker.
 Many older Macs do not "officially" support UEFI Windows installations, leading to installation failures and strange behaviour, but OCLP can be used to prevent almost all of these issues.
 
 ## Minimum Requirements
@@ -52,8 +52,8 @@ If you plan to use the same hard drive for macOS and Windows, we recommend creat
 Recommended size is 200MB and the partition format **must** be FAT32 for OpenCore to operate correctly. You will next want to install OpenCore onto the new partition, either moving from the ESP with [MountEFI](https://github.com/corpnewt/MountEFI) or rerunning the OpenCore-Legacy-Patcher.app
 
 * Note 1: For machines with dedicated drives for Windows, having different partitions for OpenCore is not required.
-* Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Bootpicker are removed. See "Removing the Windows option from the stock bootpicker" for further information.
-* Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac's boot picker.
+* Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Boot Picker are removed. See "Removing the Windows option from the stock Boot Picker" for further information.
+* Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac's Boot Picker.
 
 ![](../images/windows-partition-2.png)
 
@@ -100,7 +100,7 @@ Now copy that file onto your USB in the same directory. Now you can follow the r
 
 ## Installation Process
 
-Once you reboot your machine, you should see a new boot option in the OCLP Bootpicker labelled as "EFI Boot" or "Windows". It may or may not have the Boot Camp icon.
+Once you reboot your machine, you should see a new boot option in the OCLP Boot Picker labelled as "EFI Boot" or "Windows". It may or may not have the Boot Camp icon.
 
 :::warning
 
@@ -153,21 +153,21 @@ Once `dism` finishes its thing, run `bcdboot E:\Windows`, substituting "E" for t
 
 ![](../images/DISM-7.png)
 
-Windows is now installed. It should be recognized as "EFI Boot" or "Windows" with a Boot Camp icon in the OCLP Bootpicker.
+Windows is now installed. It should be recognized as "EFI Boot" or "Windows" with a Boot Camp icon in the OCLP Boot Picker.
 
 :::warning
 
-After the boot files are created, **DO NOT** reboot if you are using a MacPro4,1, MacPro5,1, or Xserve3,1 system! A bug in the Windows bootloader exists that will completely brick the system if it is loaded through the stock bootpicker. See the "Installation: Removing the Windows option from the stock bootpicker" section for a workaround.
+After the boot files are created, **DO NOT** reboot if you are using a MacPro4,1, MacPro5,1, or Xserve3,1 system! A bug in the Windows bootloader exists that will completely brick the system if it is loaded through the stock Boot Picker. See the "Installation: Removing the Windows option from the stock Boot Picker" section for a workaround.
 
 :::
 
-### Installation: Removing the Windows option from the stock bootpicker
+### Installation: Removing the Windows option from the stock Boot Picker
 
-Removing the Windows boot option from the stock bootpicker is **HIGHLY RECOMMENDED** on MacPro4,1, MacPro5,1, and Xserve3,1 systems in order to prevent Secure Boot NVRAM corruption and bricking.
+Removing the Windows boot option from the stock Boot Picker is **HIGHLY RECOMMENDED** on MacPro4,1, MacPro5,1, and Xserve3,1 systems in order to prevent Secure Boot NVRAM corruption and bricking.
 
 Start up a command prompt window in the Windows Setup environment by running `cmd`.
 
-Next, enter the EFI Folder by running `C:`, substituting "C" for the EFI Partition Drive Letter. Then run `cd EFI` to enter the EFI Partition. Then, run `rmdir Boot /S /Q` to remove the boot files that can be detected by the stock Bootpicker. The OCLP Picker will still be able to detect and boot Windows.
+Next, enter the EFI Folder by running `C:`, substituting "C" for the EFI Partition Drive Letter. Then run `cd EFI` to enter the EFI Partition. Then, run `rmdir Boot /S /Q` to remove the boot files that can be detected by the stock Boot Picker. The OCLP Picker will still be able to detect and boot Windows.
 
 ![](../images/DISM-8.png)
 

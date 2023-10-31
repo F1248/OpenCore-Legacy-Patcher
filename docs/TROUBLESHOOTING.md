@@ -32,7 +32,7 @@ If the application won't launch (e.g. icon will bounce in the Dock), try launchi
 
 ## Stuck on `This version of Mac OS X is not supported on this platform` or (🚫) Prohibited Symbol
 
-This means macOS has detected an SMBIOS it does not support. To resolve this, ensure you're booting OpenCore **before** the macOS installer in the boot picker. Reminder that the option will be called `EFI Boot`.
+This means macOS has detected an SMBIOS it does not support. To resolve this, ensure you're booting OpenCore **before** the macOS installer in the Boot Picker. Reminder that the option will be called `EFI Boot`.
 
 Once you've booted OpenCore at least once, your hardware should now auto-boot it until either an NVRAM reset occurs, or you remove the drive with OpenCore installed.
 
@@ -44,7 +44,7 @@ By default, the OpenCore Legacy Patcher won't install OpenCore onto the internal
 
 After installing macOS, OpenCore Legacy Patcher should automatically prompt you to install OpenCore onto the internal drive. However, if it doesn't show the prompt, you'll need to either [manually transfer](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) OpenCore to the internal drive's EFI or Build and Install again and select your internal drive.
 
-Reminder that once this is done, you'll need to select OpenCore in the boot picker again for your hardware to remember this entry and auto boot from then on.
+Reminder that once this is done, you'll need to select OpenCore in the Boot Picker again for your hardware to remember this entry and auto boot from then on.
 
 ## Infinite Recovery OS Booting
 
@@ -54,7 +54,7 @@ With OpenCore Legacy Patcher, we rely on Apple Secure Boot to ensure OS updates 
 
 ## Stuck on boot after root patching
 
-Boot into recovery by pressing space when your disk is selected on the OCLP bootpicker (if you have it hidden, hold ESC while starting up)
+Boot into recovery by pressing space when your disk is selected on the OCLP Boot Picker (if you have it hidden, hold ESC while starting up)
 
 * **Note:** If your disk name is something other than "Macintosh HD", make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
 
@@ -168,7 +168,7 @@ Because this step can take a few hours or more depending on drive speeds, be pat
 
 ## No acceleration after a Metal GPU swap on Mac Pro
 
-If you finished installing Monterey with the original card installed (to see bootpicker for example) and swapped your GPU to a Metal supported one, you may notice that you're missing acceleration. To fix this, open OCLP and revert root patches to get your Metal-supported GPU work again.
+If you finished installing Monterey with the original card installed (to see Boot Picker for example) and swapped your GPU to a Metal supported one, you may notice that you're missing acceleration. To fix this, open OCLP and revert root patches to get your Metal-supported GPU work again.
 
 Alternatively, you can remove "AutoPkg-Assets.pkg" from /Library/Packages on the USB drive before proceeding with the installation. To see the folder, enable hidden files with `Command` + `Shift` + `.`
 

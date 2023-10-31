@@ -8,11 +8,11 @@ Reboot the machine while holding `Option` to select the EFI Boot entry with the 
 
 ![](../images/efi-boot.png)
 
-::: details Note for Mac Pros/Xserves/iMacs with unflashed GPUs
+::: details Note for Mac Pros, Xserves and iMacs with unflashed GPUs
 
 (Adapted from the [OpenCore on the Mac Pro guide](https://forums.macrumors.com/threads/opencore-on-the-mac-pro.2207814/))
 
-For Mac Pro, Xserve and, iMac users with non-flashed GPUs, you can still easily boot OpenCore and view the entire boot process.
+For Mac Pro, Xserve and iMac users with non-flashed GPUs, you can still easily boot OpenCore and view the entire boot process.
 
 Firstly, open the Terminal and run the following command:
 ```sh

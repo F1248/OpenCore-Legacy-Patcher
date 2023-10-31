@@ -1,6 +1,6 @@
 # Creating custom icons for OpenCore and Mac Boot Picker
 
-For users who want to customize their setup to be more personal, OpenCore does allow for custom icons and images in the boot picker.
+For users who want to customize their setup to be more personal, OpenCore does allow for custom icons and images in the Boot Picker.
 
 * [Custom OpenCore icons](#custom-opencore-icons)
 * [Custom Mac Boot Picker icons](#custom-mac-boot-picker-icons)
@@ -46,7 +46,7 @@ Once done, you'll see your custom icon generated in `icnspack`'s folder:
 
 # Custom Mac Boot Picker icons
 
-Custom boot picker icons are much more complicated on Legacy Macs. On late 2013+ Macs, the [Custom OpenCore icons](#custom-opencore-icons) method will work just fine. However, on many 2012 and older Macs, the icons generated will be incompatible with the firmware.
+Custom Boot Picker icons are much more complicated on Legacy Macs. On late 2013+ Macs, the [Custom OpenCore icons](#custom-opencore-icons) method will work just fine. However, on many 2012 and older Macs, the icons generated will be incompatible with the firmware.
 
 To generate legacy icons, you'll need the following:
 
