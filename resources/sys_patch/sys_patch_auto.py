@@ -33,7 +33,7 @@ class AutomaticSysPatch:
         Conditions for running:
             - Verify running GUI (TUI users can write their own scripts)
             - Verify the Snapshot Seal is intact (if not, assume user is running patches)
-            - Verify this model needs patching (if not, assume user upgraded hardware and OCLP was not removed)
+            - Verify this model needs patching (if not, assume user upgraded hardware and OpenCore Legacy Patcher was not removed)
 
         If all these tests pass, start Root Patcher
 
@@ -55,7 +55,7 @@ class AutomaticSysPatch:
                     logging.info("- Cannot run patching")
                     return
 
-                logging.info("- Determined patching is possible, checking for OCLP updates")
+                logging.info("- Determined patching is possible, checking for OpenCore Legacy Patcher updates")
                 patch_string = ""
                 for patch in patches:
                     if patches[patch] is True and not patch.startswith("Settings") and not patch.startswith("Validation"):
@@ -108,7 +108,7 @@ class AutomaticSysPatch:
 
     def _determine_if_versions_match(self):
         """
-        Determine if the booted version of OCLP matches the installed version
+        Determine if the booted version of OpenCore Legacy Patcher matches the installed version
 
         ie. Installed app is 0.2.0, but EFI version is 0.1.0
 
@@ -116,7 +116,7 @@ class AutomaticSysPatch:
             bool: True if versions match, False if not
         """
 
-        logging.info("- Checking booted vs installed OCLP Build")
+        logging.info("- Checking booted vs installed OpenCore Legacy Patcher Build")
         if self.constants.computer.oclp_version is None:
             logging.info("- Booted version not found")
             return True

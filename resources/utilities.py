@@ -306,7 +306,7 @@ def patching_status(os_sip, os):
         sip_enabled = False
 
     if os > os_data.os_data.catalina and not check_filevault_skip():
-        # Assume non-OpenCore-Legacy-Patcher Macs do not have our APFS seal patch
+        # Assume non-OpenCore Legacy Patcher Macs do not have our APFS seal patch
         fv_status: str = subprocess.run("fdesetup status".split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.decode()
         if "FileVault is Off" in fv_status:
             fv_enabled = False

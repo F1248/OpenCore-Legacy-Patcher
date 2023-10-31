@@ -94,7 +94,7 @@ This error occurs when macOS determines that the current firmware does not have 
 
 ## No Brightness Control
 
-OpenCore-Legacy-Patcher supports brightness control on many models. However, some users may have noticed that their brightness keys do not work.
+OpenCore Legacy Patcher supports brightness control on many models. However, some users may have noticed that their brightness keys do not work.
 
 As a work-around, we recommend users try out the below app:
 
@@ -108,9 +108,9 @@ You should have been prompted to install Root Volume patches after the first boo
 
 ## Black Screen on MacBookPro11,3 in macOS Monterey
 
-Due to Apple dropping NVIDIA Kepler support in macOS Monterey, [MacBookPro11,3's GMUX has difficulties switching back to the iGPU to display macOS correctly.](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522) To work-around this issue, boot the MacBookPro11,3 in Safe Mode and once macOS is installed, run OCLP's Post Install Root Patches to enable GPU Acceleration for the NVIDIA dGPU.
+Due to Apple dropping NVIDIA Kepler support in macOS Monterey, [MacBookPro11,3's GMUX has difficulties switching back to the iGPU to display macOS correctly.](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522) To work-around this issue, boot the MacBookPro11,3 in Safe Mode and once macOS is installed, run OpenCore Legacy Patcher 's Post Install Root Patches to enable GPU Acceleration for the NVIDIA dGPU.
 
-* Safe Mode can be started by holding `Shift` + `Enter` when selecting macOS Monterey in OCLP's Boot Menu.
+* Safe Mode can be started by holding `Shift` + `Enter` when selecting macOS Monterey in OpenCore Legacy Patcher 's Boot Menu.
 
 ## No DisplayPort Output on Mac Pros with NVIDIA Kepler
 
@@ -134,7 +134,7 @@ Additionally, it can help to disable FeatureUnlock in Settings -> Misc Settings 
 
 ## Cannot Disable SIP in recoveryOS
 
-With OCLP, the patcher will always overwrite the current SIP value on boot to ensure that users don't brick an installation after an NVRAM reset. However, for users wanting to disable SIP entirely, this can be done easily.
+With OpenCore Legacy Patcher , the patcher will always overwrite the current SIP value on boot to ensure that users don't brick an installation after an NVRAM reset. However, for users wanting to disable SIP entirely, this can be done easily.
 
 Head into the GUI, go to Patcher Settings, and toggle the bits you need disabled from SIP:
 

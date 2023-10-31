@@ -117,8 +117,8 @@ class InitializeLoggingSupport:
         """
         Fixes file permission for log file
 
-        If OCLP was invoked as root, file permission will only allow root to write to log file
-        This in turn breaks normal OCLP execution to write to log file
+        If OpenCore Legacy Patcher was invoked as root, file permission will only allow root to write to log file
+        This in turn breaks normal OpenCore Legacy Patcher execution to write to log file
         """
 
         if os.geteuid() != 0:

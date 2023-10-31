@@ -326,7 +326,7 @@ class SysPatchStartFrame(wx.Frame):
         """
         Checks if any new patches are needed for the user to install
         Newer users will assume the root patch menu will present missing patches.
-        Thus we'll need to see if the exact same OCLP build was used already
+        Thus we'll need to see if the exact same OpenCore Legacy Patcher build was used already
         """
 
         logging.info("Checking if new patches are needed")

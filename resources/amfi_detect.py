@@ -47,7 +47,7 @@ class AmfiConfigurationDetection:
 
     def _init_nvram_dicts(self) -> None:
         """
-        Initialize the boot-args and OCLP-Settings NVRAM dictionaries
+        Initialize the boot-args and OpenCore Legacy Patcher -Settings NVRAM dictionaries
         """
 
         boot_args = utilities.get_nvram("boot-args", decode=True)
@@ -123,7 +123,7 @@ class AmfiConfigurationDetection:
 
     def _parse_oclp_configuration(self) -> None:
         """
-        Parse the OCLP configuration
+        Parse the OpenCore Legacy Patcher configuration
         """
 
         if "-allow_amfi" in self.oclp_args:

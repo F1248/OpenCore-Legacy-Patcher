@@ -106,8 +106,8 @@ class GlobalEnviromentSettings:
         """
         Fixes file permission for log file
 
-        If OCLP was invoked as root, file permission will only allow root to write to settings file
-        This in turn breaks normal OCLP execution to write to settings file
+        If OpenCore Legacy Patcher was invoked as root, file permission will only allow root to write to settings file
+        This in turn breaks normal OpenCore Legacy Patcher execution to write to settings file
         """
 
         if os.geteuid() != 0:

@@ -104,7 +104,7 @@ class SysPatchDisplayFrame(wx.Frame):
             logging.info("No applicable patches available")
             patches = []
 
-        # Check if OpenCore-Legacy-Patcher has already applied the same patches
+        # Check if OpenCore Legacy Patcher has already applied the same patches
         no_new_patches = not self._check_if_new_patches_needed(patches) if patches else False
 
         if not patches:
@@ -289,7 +289,7 @@ class SysPatchDisplayFrame(wx.Frame):
         """
         Checks if any new patches are needed for the user to install
         Newer users will assume the root patch menu will present missing patches.
-        Thus we'll need to see if the exact same OCLP build was used already
+        Thus we'll need to see if the exact same OpenCore Legacy Patcher build was used already
         """
 
         logging.info("Checking if new patches are needed")

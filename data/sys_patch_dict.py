@@ -285,7 +285,6 @@ class SystemPatchDictionary():
                 # Temporary work-around for Kepler GPUs on Ventura
                 # We removed the reliance on Metal.framework downgrade, however the new Kepler
                 # patchset breaks with the old Metal. Thus we need to ensure stock variant is used
-                # Remove this when OpenCore-Legacy-Patcher is merged onto mainline
                 "Revert Metal Downgrade": {
                     "Display Name": "",
                     "OS Support": {

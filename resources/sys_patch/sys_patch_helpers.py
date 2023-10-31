@@ -220,7 +220,7 @@ class SysPatchHelpers:
         """
         Fix GPUCompiler.framework's libraries to resolve linking issues
 
-        On 13.3 with 3802 GPUs, OCLP will downgrade GPUCompiler to resolve
+        On 13.3 with 3802 GPUs, OpenCore Legacy Patcher will downgrade GPUCompiler to resolve
         graphics support. However the binary hardcodes the library names,
         and thus we need to adjust the libraries to match (31001.669)
 

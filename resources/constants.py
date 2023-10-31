@@ -149,7 +149,7 @@ class Constants:
         self.should_nuke_kdks:          bool = True  #  Determine if KDKs should be nuked if unused in /L*/D*/KDKs
         self.launcher_binary:            str = None  #  Determine launch binary path (ie. Python vs PyInstaller)
         self.launcher_script:            str = None  #  Determine launch file path   (None if PyInstaller)
-        self.booted_oc_disk:             str = None  #  Determine current disk OpenCore-Legacy-Patcher booted from
+        self.booted_oc_disk:             str = None  #  Determine current disk OpenCore Legacy Patcher booted from
         self.unpack_thread                   = None  #  Determine if unpack thread finished (threading.Thread)
         self.update_stage:               int = 0  #     Determine update stage (see gui_support.py)
         self.log_filepath:              Path = None  #  Path to log file

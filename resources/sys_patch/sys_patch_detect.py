@@ -282,7 +282,7 @@ class DetectRootPatch:
         if self.has_network is True:
             return
 
-        # Verify whether OpenCore-Legacy-Patcher already installed network patches to the root volume
+        # Verify whether OpenCore Legacy Patcher already installed network patches to the root volume
         # If so, require networking to be enabled (user just needs to connect to wifi)
         oclp_patch_path = "/System/Library/CoreServices/OpenCore-Legacy-Patcher.plist"
         if Path(oclp_patch_path).exists():
@@ -719,7 +719,6 @@ class DetectRootPatch:
 
             if self.fv_enabled is True:
                 logging.info("\nCannot patch! Please disable FileVault.")
-                logging.info("For OCLP Macs, please rebuild your config with 0.2.5 or newer")
                 logging.info("For others, Go to System Preferences -> Security and disable FileVault")
 
             if self.amfi_enabled is True and self.amfi_must_disable is True:

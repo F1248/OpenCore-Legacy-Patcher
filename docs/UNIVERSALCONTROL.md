@@ -300,7 +300,7 @@ Any model after the list of officially blacklisted Macs should be supported, but
 
 :::
 
-**Note:** Unless you are building OpenCore on a different machine than it's targeted for, **do not** change the model in the main settings view. It is important to understand that OCLP targets this model regardless of what you may have spoofed to, as your Mac is still what the Native SMBIOS shows.
+**Note:** Unless you are building OpenCore on a different machine than it's targeted for, **do not** change the model in the main settings view. It is important to understand that OpenCore Legacy Patcher targets this model regardless of what you may have spoofed to, as your Mac is still what the Native SMBIOS shows.
 
 Lastly, Build and install OpenCore again, and reboot back to the OS. Enable Universal Control as explained in the [Enabling Universal Control section.](#enabling-universal-control)
 
