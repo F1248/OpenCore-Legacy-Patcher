@@ -11,11 +11,10 @@ Here are some common errors that users may experience while using this patcher:
 * [How to Boot Recovery through OpenCore Legacy Patcher](#how-to-boot-recovery-through-opencore-legacy-patcher)
 * [Stuck on "Your Mac needs a firmware update"](#stuck-on-your-mac-needs-a-firmware-update)
 * [No Brightness Control](#no-brightness-control)
-* [Cannot connect Wi-Fi on Monterey with legacy cards](#cannot-connect-Wi-Fi-on-Monterey-with-legacy-cards)
 * [No Graphics Acceleration](#no-graphics-acceleration)
 * [Black Screen on MacBookPro11,3 in macOS Monterey](#black-screen-on-macbookpro113-in-macos-monterey)
 * [No DisplayPort Output on Mac Pros with NVIDIA Kepler](#no-displayport-output-on-mac-pros-with-NVIDIA-kepler)
-* [Volume Hash Mismatch Error in macOS Monterey](#volume-hash-mismatch-error-in-macos-monterey)
+* [Volume Hash Mismatch Error](#volume-hash-mismatch-error)
 * [Cannot Disable SIP in recoveryOS](#cannot-disable-sip-in-recoveryos)
 * [Stuck on "Less than a minute remaining…"](#stuck-on-less-than-a-minute-remaining)
 * [No acceleration after a Metal GPU swap on Mac Pro](#no-acceleration-after-a-metal-gpu-swap-on-mac-pro)
@@ -24,7 +23,7 @@ Here are some common errors that users may experience while using this patcher:
 
 ## OpenCore Legacy Patcher not launching
 
-If the application won't launch (e.g. icon will bounce in the Dock), try launching OCLP via Terminal by typing the following command, make sure you've moved the app to `/Applications` before this.
+If the application won't launch (e.g. icon will bounce in the Dock), try launching it via Terminal by typing the following command, make sure you've moved the app to `/Applications` before this.
 
 ```sh
 /Applications/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher
@@ -95,23 +94,17 @@ This error occurs when macOS determines that the current firmware does not have 
 
 ## No Brightness Control
 
-With OCLP v0.0.22, we've added support for brightness control on many models. However, some users may have noticed that their brightness keys do not work.
+OpenCore-Legacy-Patcher supports brightness control on many models. However, some users may have noticed that their brightness keys do not work.
 
 As a work-around, we recommend users try out the below app:
 
 * [Brightness Slider](https://actproductions.net/free-apps/brightness-slider/)
 
-## Cannot connect Wi-Fi on Monterey with legacy cards
-
-With OCLP v0.2.5, we've added support for legacy Wi-Fi on Monterey. However, some users may have noticed that they can't connect to wireless networks.
-
-To work-around this, we recommend that users manually connect using the "Other" option in the Wi-Fi menu bar or manually adding the network in the "Network" preference pane.
-
 ## No Graphics Acceleration
 
-In macOS, GPU drivers are often dropped from the OS with each major release of it. With macOS Big Sur, currently, all non-Metal GPUs require additional patches to gain acceleration. In addition, macOS Monterey removed Graphics Drivers for both Intel Ivy Bridge and NVIDIA Kepler graphics processors.
+In macOS, GPU drivers are often dropped from the OS with each major release of it. All non-Metal GPUs require additional patches to gain acceleration.
 
-If you're using OCLP v0.4.4, you should have been prompted to install Root Volume patches after the first boot from installation of macOS. If you need to do this manually, you can do so within the patcher app. Once rebooted, acceleration will be re-enabled as well as brightness control for laptops.
+You should have been prompted to install Root Volume patches after the first boot from installation of macOS. If you need to do this manually, you can do so within the patcher app. Once rebooted, acceleration will be re-enabled as well as brightness control for laptops.
 
 ## Black Screen on MacBookPro11,3 in macOS Monterey
 
@@ -125,7 +118,7 @@ If you're having trouble with DisplayPort output on Mac Pros, try enabling Minim
 
 ![](../images/OCLP-GUI-SMBIOS-Minimal.png)
 
-## Volume Hash Mismatch Error in macOS Monterey
+## Volume Hash Mismatch Error
 
 A semi-common popup some users face is the "Volume Hash Mismatch" error:
 
@@ -172,7 +165,7 @@ If you finished installing Monterey with the original card installed (to see Boo
 
 Alternatively, you can remove "AutoPkg-Assets.pkg" from /Library/Packages on the USB drive before proceeding with the installation. To see the folder, enable hidden files with `Command` + `Shift` + `.`
 
-The reason for this is that the autopatcher will assume that you will be using the original graphics card and therefore does non-metal patching, which includes removing some drivers for other cards. This causes Metal cards to not accelerate after swapping.
+The reason for this is that the autopatcher will assume that you will be using the original graphics card and therefore does non-Metal patching, which includes removing some drivers for other cards. This causes Metal cards to not accelerate after swapping.
 
 ## Keyboard, Mouse and Trackpad not working in installer or after update
 

@@ -18,7 +18,7 @@ And voila! No more USB drive required.
 
 ## Booting seamlessly without Boot Picker
 
-To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Boot Picker" on the Build tab:
+To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then uncheck "Show OpenCore Bootpicker" on the Build tab:
 
 ![](../images/OCLP-GUI-Settings-ShowPicker.png)
 
@@ -66,7 +66,7 @@ Users can also see whether applicable patches have been installed, date and vers
 
 ### Running Post Install patches manually
 
-If you're using OCLP v0.4.3 or earlier, or need to run the patcher manually, you can do so with the app. There is no harm in trying to run the Patcher, as without compatible hardware, nothing will be done. You can see below on whether your hardware needs root volume patching or not.
+If you need to run the patcher manually, you can do so with the app. There is no harm in trying to run the Patcher, as without compatible hardware, nothing will be done. You can see below on whether your hardware needs root volume patching or not.
 
 There is also an option to remove root patches, which may be required in some situations, such as switching GPUs in Mac Pros or using Migration Assistant.
 
@@ -91,7 +91,7 @@ Machines that require this are those with AMD Metal dGPUs:
 
 Below entries represent GPUs no longer natively supported, ie. requiring root volume patching with OpenCore Legacy Patcher:
 
-:::details GPUs requiring patching in macOS Big Sur
+:::details GPUs requiring patching in macOS Big Sur and newer
 
 * NVIDIA:
   * Tesla (8000 - 300 series)
@@ -103,7 +103,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details GPUs requiring patching in macOS Monterey
+:::details GPUs requiring patching in macOS Monterey  and newer
 
 * NVIDIA:
   * Tesla (8000 - 300 series)
@@ -117,7 +117,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details Wireless Cards requiring patching in macOS Monterey
+:::details Wireless Cards requiring patching in macOS Monterey  and newer
 
 * Broadcom:
   * BCM94328
@@ -126,7 +126,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details GPUs requiring patching in macOS Ventura
+:::details GPUs requiring patching in macOS Ventura  and newer
 
 * NVIDIA:
   * Kepler (600 - 800 series)

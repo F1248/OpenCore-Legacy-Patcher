@@ -29,15 +29,14 @@ MacOS Ventura's release dropped a large amount of Intel hardware, thus requiring
 For older hardware, see below sections:
 
 * [Currently Unsupported/Broken Hardware in macOS Ventura](#currently-unsupportedbroken-hardware-in-macos-ventura)
-  * [AMD Polaris, Vega and Navi support on pre-2019 Mac Pros and pre-2012 iMacs](#amd-polaris-vega-and-navi-support-on-pre-2019-mac-pros-and-pre-2012-imacs)
+  * [AMD Polaris, Vega and Navi support on Mac Pros and pre-2012 iMacs](#amd-polaris-vega-and-navi-support-on-mac-pros-and-pre-2012-imacs)
   * [USB 1.1 (OHCI/UHCI) Support](#usb-11-ohciuhci-support)
-  * [Ethernet issue with Early 2008 Mac Pro](#ethernet-issue-with-early-2008-mac-pro)
 
 The team is doing their best to investigate and fix the aforementioned issues, however no estimated time can be provided.
 
 ## Currently Unsupported/Broken Hardware in macOS Ventura
 
-### AMD Polaris, Vega and Navi support on pre-2019 Mac Pros and pre-2012 iMacs
+### AMD Polaris, Vega and Navi support on Mac Pros and pre-2012 iMacs
 
 For users with 2008 to 2013 Mac Pros (MacPro3,1-6,1) and 2009 to 2011 iMacs (iMac9,1-12,2), keep in mind that macOS Ventura now requires [AVX2.0 support in the CPU](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2) for native graphics acceleration. Thus while your GPU may be natively supported, you cannot run macOS Ventura officially with these GPUs.
 
@@ -62,18 +61,17 @@ For Penryn systems and pre-2013 Mac Pros, USB 1.1 support was outright removed i
 * IR Receivers
 * Bluetooth
 
-With OpenCore Legacy Patcher v0.6.0, basic support has been implemented via Root Volume patching. However due to this, users will need to use a USB hub for installation and post-OS updates when patches are cleaned:
+OpenCore Legacy Patcher has basic support via Root Volume patching. However due to this, users will need to use a USB hub for installation and post-OS updates when patches are cleaned:
 
 ![](../images/usb11-chart.png)
 
 ::: warning The following systems rely on USB 1.1
 
 * iMac10,x and older
-* Macmini3,1 and older
-* MacBook7,1 and older
-* MacBookAir3,1 and older
-* MacBookPro7,1 and older
-  * MacBookPro6,x is exempt
-* MacPro5,1 and older
+* Macmini3,x and older
+* MacBook7,x and older
+* MacBookAir3,x and older
+* MacBookPro7,x and MacBookPro5,x and older
+* MacPro5,x and older
 
 :::
