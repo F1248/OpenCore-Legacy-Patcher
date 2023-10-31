@@ -143,7 +143,7 @@ class Constants:
         self.wxpython_variant:          bool = False  # Determine if using wxPython variant
         self.root_patcher_succeeded:    bool = False  # Determine if root patcher succeeded
         self.start_build_install:       bool = False  # Determine if build install should be started
-        self.host_is_non_metal:         bool = False  # Determine if host is non-metal (ie. enable UI hacks)
+        self.host_is_non_metal:         bool = False  # Determine if host is non-Metal (ie. enable UI hacks)
         self.needs_to_open_preferences: bool = False  # Determine if preferences need to be opened
         self.host_is_hackintosh:        bool = False  # Determine if host is Hackintosh
         self.should_nuke_kdks:          bool = True  #  Determine if KDKs should be nuked if unused in /L*/D*/KDKs
