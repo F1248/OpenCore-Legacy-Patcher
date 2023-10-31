@@ -35,7 +35,7 @@ class SystemPatchDictionary():
                 - File (array: [ "File" ])
         - Processes: Additional processes to run
             - Process (dict: { "Process": "Requires Root" })
-        - Display Name: User-friendly name (string, "" if user-friendly name is not required)
+        - Display Name: User-friendly name (string, "" if user-friendly name isn't required)
 
 
     Schema file storage is based off the origin, ie. '10.13.6/System/Library/Extensions/IOSurface.kext':
@@ -821,7 +821,7 @@ class SystemPatchDictionary():
                 },
 
                 # Used only for AMD Polaris with host lacking AVX2.0
-                # Note missing framebuffers are not restored (ex. 'ATY,Berbice')
+                # Note missing framebuffers aren't restored (ex. 'ATY,Berbice')
                 "AMD Legacy Polaris": {
                     "Display Name": "Graphics: AMD Legacy Polaris",
                     "OS Support": {

@@ -813,7 +813,7 @@ index b4f271f..162dc82 100644
 -					else
 -						DBGLOG("rad", "prop %s was not merged due to no value", name);
 -				} else {
--					//DBGLOG("rad", "prop %s does not match %s prefix", safeString(name), prefix);
+-					//DBGLOG("rad", "prop %s doesn't match %s prefix", safeString(name), prefix);
 -				}
 -			}
 +};
@@ -2668,7 +2668,7 @@ index b4f271f..162dc82 100644
 +                    else
 +                        DBGLOG("rad", "prop %s was not merged due to no value", name);
 +                } else {
-+                    //DBGLOG("rad", "prop %s does not match %s prefix", safeString(name), prefix);
++                    //DBGLOG("rad", "prop %s doesn't match %s prefix", safeString(name), prefix);
 +                }
 +            }
 +

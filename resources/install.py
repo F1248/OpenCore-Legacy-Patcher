@@ -19,7 +19,7 @@ class tui_disk_installation:
 
     def list_disks(self):
         all_disks = {}
-        # TODO: AllDisksAndPartitions is not supported in Snow Leopard and older
+        # TODO: AllDisksAndPartitions isn't supported in Snow Leopard and older
         try:
             # High Sierra and newer
             disks = plistlib.loads(subprocess.run("diskutil list -plist physical".split(), stdout=subprocess.PIPE).stdout.decode().strip().encode())

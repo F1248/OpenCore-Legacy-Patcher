@@ -41,7 +41,7 @@ class AutomaticSysPatch:
 
         logging.info("- Starting Automatic Patching")
         if self.constants.wxpython_variant is False:
-            logging.info("- Auto Patch option is not supported on TUI, please use GUI")
+            logging.info("- Auto Patch option isn't supported on TUI, please use GUI")
             return
 
         if utilities.check_seal() is True:
@@ -52,7 +52,7 @@ class AutomaticSysPatch:
             if patches:
                 logging.info("- Detected applicable patches, determining whether possible to patch")
                 if patches["Validation: Patching Possible"] is False:
-                    logging.info("- Cannot run patching")
+                    logging.info("- Can't run patching")
                     return
 
                 logging.info("- Determined patching is possible, checking for OpenCore Legacy Patcher updates")
@@ -134,7 +134,7 @@ class AutomaticSysPatch:
         args = [
             "osascript",
             "-e",
-            f"""display dialog "OpenCore Legacy Patcher has detected that you are booting {'a different' if self.constants.special_build else 'an outdated'} OpenCore build\n- Booted: {self.constants.computer.oclp_version}\n- Installed: {self.constants.patcher_version}\n\nWould you like to update the OpenCore bootloader?" """
+            f"""display dialog "OpenCore Legacy Patcher has detected that you're booting {'a different' if self.constants.special_build else 'an outdated'} OpenCore build\n- Booted: {self.constants.computer.oclp_version}\n- Installed: {self.constants.patcher_version}\n\nWould you like to update the OpenCore bootloader?" """
             f'with icon POSIX file "{self.constants.app_icon_path}"',
         ]
         output = subprocess.run(
@@ -156,7 +156,7 @@ class AutomaticSysPatch:
         ie. Booted from USB, but macOS is on internal disk
 
         Goal of this function is to determine whether the user
-        is using a USB drive to Boot OpenCore but macOS does not
+        is using a USB drive to Boot OpenCore but macOS doesn't
         reside on the same drive as the USB.
 
         If we determine them to be mismatched, notify the user
@@ -196,12 +196,12 @@ class AutomaticSysPatch:
             return
 
         # Check if OpenCore is on a USB drive
-        logging.info("- Boot Drive does not match macOS drive, checking if OpenCore is on a USB drive")
+        logging.info("- Boot Drive doesn't match macOS drive, checking if OpenCore is on a USB drive")
 
         disk_info = plistlib.loads(subprocess.run(["diskutil", "info", "-plist", root_disk], stdout=subprocess.PIPE).stdout)
         try:
             if disk_info["Ejectable"] is False:
-                logging.info("- Boot Disk is not removable, skipping prompt")
+                logging.info("- Boot Disk isn't removable, skipping prompt")
                 return
 
             logging.info("- Boot Disk is ejectable, prompting user to install to internal")
@@ -209,7 +209,7 @@ class AutomaticSysPatch:
             args = [
                 "osascript",
                 "-e",
-                """display dialog "OpenCore Legacy Patcher has detected that you are booting OpenCore from an USB or External drive.\n\nIf you would like to boot your Mac normally without a USB drive plugged in, you can install OpenCore to the internal hard drive.\n\nWould you like to launch OpenCore Legacy Patcher and install to disk?" """
+                """display dialog "OpenCore Legacy Patcher has detected that you're booting OpenCore from an USB or External drive.\n\nIf you'd like to boot your Mac normally without a USB drive plugged in, you can install OpenCore to the internal hard drive.\n\nWould you like to launch OpenCore Legacy Patcher and install to disk?" """
                 f'with icon POSIX file "{self.constants.app_icon_path}"',
             ]
             output = subprocess.run(
@@ -326,7 +326,7 @@ class AutomaticSysPatch:
             logging.info(f"  - Found kext with GPUCompanionBundles: {kext.name}")
             kexts.append(kext.name)
 
-        # If we have no kexts, we don't need to run the RSRMonitor
+        # If we've no kexts, we don't need to run the RSRMonitor
         if not kexts:
             logging.info("- No kexts found with GPUCompanionBundles, skipping RSRMonitor")
             return False

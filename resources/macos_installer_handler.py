@@ -101,7 +101,7 @@ class InstallerCreation():
         # To resolve, we'll copy into our temp directory and run from there
 
         # Create a new tmp directory
-        # Our current one is a disk image, thus CoW will not work
+        # Our current one is a disk image, thus CoW won't work
         global tmp_dir
         ia_tmp = tmp_dir.name
 
@@ -113,10 +113,10 @@ class InstallerCreation():
         # Copy installer to tmp (use CoW to avoid extra disk writes)
         args = ["cp", "-cR", installer_path, ia_tmp]
         if utilities.check_filesystem_type() != "apfs":
-            # HFS+ disks do not support CoW
+            # HFS+ disks don't support CoW
             args[1] = "-R"
 
-            # Ensure we have enough space for the duplication
+            # Ensure we've enough space for the duplication
             space_available = utilities.get_free_space()
             space_needed = Path(ia_tmp).stat().st_size
             if space_available < space_needed:
@@ -167,7 +167,7 @@ fi
         - External
 
         Current limitations:
-        - Does not support PCIe based SD cards readers
+        - Doesn't support PCIe based SD cards readers
 
         Returns:
             dict: Dictionary of disks
@@ -176,7 +176,7 @@ fi
         all_disks:  dict = {}
         list_disks: dict = {}
 
-        # TODO: AllDisksAndPartitions is not supported in Snow Leopard and older
+        # TODO: AllDisksAndPartitions isn't supported in Snow Leopard and older
         try:
             # High Sierra and newer
             disks = plistlib.loads(subprocess.run("diskutil list -plist physical".split(), stdout=subprocess.PIPE).stdout.decode().strip().encode())
@@ -258,7 +258,7 @@ class RemoteInstallerCatalog:
         os_version: str = os_data.os_conversion.kernel_to_os(os_kernel)
         os_version = "10.16" if os_version == "11" else os_version
         if os_version not in CATALOG_URL_VARIANTS:
-            logging.error(f"OS version {os_version} is not supported, defaulting to latest")
+            logging.error(f"OS version {os_version} isn't supported, defaulting to latest")
             os_version = CATALOG_URL_VARIANTS[0]
 
         url += f"-{os_version}"
@@ -349,7 +349,7 @@ class RemoteInstallerCatalog:
                 if "Build" not in build_plist["MobileAssetProperties"]:
                     continue
 
-                # Ensure Apple Silicon specific Installers are not listed
+                # Ensure Apple Silicon specific Installers aren't listed
                 if "VMM-x86_64" not in build_plist["MobileAssetProperties"]["SupportedDeviceModels"]:
                     continue
 
@@ -415,7 +415,7 @@ class RemoteInstallerCatalog:
         """
         Returns a dictionary of the newest macOS installers only.
         Primarily used to avoid overwhelming the user with a list of
-        installers that are not the newest version.
+        installers that aren't the newest version.
 
         Returns:
             dict: A dictionary of the newest macOS installers only.
@@ -449,7 +449,7 @@ class RemoteInstallerCatalog:
                             if int(remote_version[1]) > remote_version_security:
                                 remote_version_security = int(remote_version[1])
 
-            # Now remove all versions that are not the largest
+            # Now remove all versions that aren't the largest
             for ia in list(newest_apps):
                 # Don't use Beta builds to determine latest version
                 if newest_apps[ia]["Variant"] in ["CustomerSeed", "DeveloperSeed", "PublicSeed"]:

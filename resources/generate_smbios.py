@@ -37,7 +37,7 @@ def set_smbios_model_spoof(model):
             return "Macmini8,1"
         elif model.startswith("iMac"):
             if smbios_data.smbios_dictionary[model]["Max OS Supported"] <= os_data.os_data.high_sierra:
-                # Models dropped in Mojave either do not have an iGPU, or should have them disabled
+                # Models dropped in Mojave either don't have an iGPU, or should have them disabled
                 return "iMacPro1,1"
             else:
                 return "iMac18,3"

@@ -1,4 +1,3 @@
-
 # Universal Control on unsupported Macs
 
 Introduced in macOS 12 Monterey, Universal Control is a feature that allows a Mac to control other Macs and/or iPads, share input devices, and share files across them simultaneously. With OpenCore and FeatureUnlock, Universal Control can be unlocked for most unsupported Macs, as long as they meet the technical requirements listed on this page.
@@ -44,7 +43,7 @@ Other requirements:
 
 ### Table of models
 
-This table shows which models do and do not support Universal Control out of box (OOB) and what is required to gain support.
+This table shows which models do and don't support Universal Control out of box and what is required to gain support.
 Note: For AirPort upgrades, only the best/newest cards are listed.
 
 ::: details MacBook
@@ -183,7 +182,7 @@ The following models are blacklisted from using Universal Control by Apple:
 - Macmini7,x - Mac mini 2014
 - MacPro6,x - Mac Pro Late 2013
 
-The hardware in these models are capable of supporting Universal Control, but due to blacklisting, the only solution to use Universal Control on these models is to spoof their SMBIOS. SMBIOS spoofing essentially fools some aspects of macOS to think they are running on a different machine.
+The hardware in these models are capable of supporting Universal Control, but due to blacklisting, the only solution to use Universal Control on these models is to spoof their SMBIOS. SMBIOS spoofing essentially fools some aspects of macOS to think they're running on a different machine.
 
 With SMBIOS Spoofing, the Universal Control handshake recognizes a different SMBIOS and thus grants a blacklisted Mac to connect to other Macs and iPads with Universal Control.
 
@@ -196,13 +195,13 @@ With SMBIOS Spoofing, the Universal Control handshake recognizes a different SMB
 
 :::warning
 
-Before we continue, please keep in mind that SMBIOS Spoofing is an advanced feature of OpenCore. Reckless usage of it could potentially break important functionality and leave your installation in a non-working state. Once you boot into a spoofed state, it is highly recommended that you stay spoofed, and avoid booting macOS without OpenCore.
+Before we continue, please keep in mind that SMBIOS Spoofing is an advanced feature of OpenCore. Reckless usage of it could potentially break important functionality and leave your installation in a non-working state. Once you boot into a spoofed state, it's highly recommended that you stay spoofed, and avoid booting macOS without OpenCore.
 
 :::
 
 ### How to spoof
 
-Ventura has dropped more models which includes all of the blacklisted Macs in question, making the procedure slightly different. It is important to follow the guide for the version you're on, failing to do so is likely to cause boot issues.
+Ventura has dropped more models which includes all of the blacklisted Macs in question, making the procedure slightly different. It's important to follow the guide for the version you're on, failing to do so is likely to cause boot issues.
 
 ::: details macOS Sonoma
 
@@ -210,7 +209,7 @@ Firstly run OpenCore Legacy Patcher.
 
 Then go to **Settings** and **SMBIOS** tab, set SMBIOS Spoof Level to **Moderate**. Set SMBIOS Spoof Model **one listed next to your native model in the table for spoofed models below.**
 
-Notice that "Allow native models" and "Allow Native Spoofs" **are NOT** enabled unlike on Monterey, this is on purpose. They are no longer relevant on Sonoma and enabling them will cause boot issues.
+Notice that "Allow native models" and "Allow Native Spoofs" **aren't** enabled unlike on Monterey, this is on purpose. They're no longer relevant on Sonoma and enabling them will cause boot issues.
 
 | Main Settings view | SMBIOS settings |
 | :--- | :--- |
@@ -222,7 +221,7 @@ Notice that "Allow native models" and "Allow Native Spoofs" **are NOT** enabled 
 
 Spoofing to any model with native Sonoma support should work, but these are the earliest Macs natively supported by Sonoma and thus chosen for the sake of simplicity.
 
-**Reminder:** Macs that are not listed on this table work without spoofing, including systems that do not natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
+**Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
 
 
 | Mac by name | Native SMBIOS | Spoof SMBIOS |
@@ -242,7 +241,7 @@ Firstly run OpenCore Legacy Patcher.
 
 Then go to **Settings** and **SMBIOS** tab, set SMBIOS Spoof Level to **Moderate**. Set SMBIOS Spoof Model **one listed next to your native model in the table for spoofed models below.**
 
-Notice that "Allow native models" and "Allow Native Spoofs" **are NOT** enabled unlike on Monterey, this is on purpose. They are no longer relevant on Ventura and enabling them will cause boot issues.
+Notice that "Allow native models" and "Allow Native Spoofs" **aren't** enabled unlike on Monterey, this is on purpose. They're no longer relevant on Ventura and enabling them will cause boot issues.
 
 | Main Settings view | SMBIOS settings |
 | :--- | :--- |
@@ -254,7 +253,7 @@ Notice that "Allow native models" and "Allow Native Spoofs" **are NOT** enabled 
 
 Spoofing to any model with native Ventura support should work, but these are the earliest Macs natively supported by Ventura and thus chosen for the sake of simplicity.
 
-**Reminder:** Macs that are not listed on this table work without spoofing, including systems that do not natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
+**Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
 
 
 | Mac by name | Native SMBIOS | Spoof SMBIOS |
@@ -286,7 +285,7 @@ Then, go to **SMBIOS** tab, tick **Allow spoofing native Macs**, set SMBIOS Spoo
 
 Any model after the list of officially blacklisted Macs should be supported, but these are the earliest Macs with Universal Control support, and thus chosen for the sake of simplicity.
 
-**Reminder:** Macs that are not listed on this table work without spoofing, including systems that do not natively support Monterey, as long as the other requirements are met, since they aren't blacklisted.
+**Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Monterey, as long as the other requirements are met, since they aren't blacklisted.
 
 
 | Mac by name | Native SMBIOS | Spoof SMBIOS |
@@ -300,10 +299,10 @@ Any model after the list of officially blacklisted Macs should be supported, but
 
 :::
 
-**Note:** Unless you are building OpenCore on a different machine than it's targeted for, **do not** change the model in the main settings view. It is important to understand that OpenCore Legacy Patcher targets this model regardless of what you may have spoofed to, as your Mac is still what the Native SMBIOS shows.
+**Note:** Unless you're building OpenCore on a different machine than it's targeted for, **don't** change the model in the main settings view. It's important to understand that OpenCore Legacy Patcher targets this model regardless of what you may have spoofed to, as your Mac is still what the Native SMBIOS shows.
 
 Lastly, Build and install OpenCore again, and reboot back to the OS. Enable Universal Control as explained in the [Enabling Universal Control section.](#enabling-universal-control)
 
 
 
-You should now be prompted to log back into iCloud by your Mac. If you get this prompt, you have successfully configured SMBIOS spoofing. Otherwise, verify that you have correctly followed the steps listed above, or ask on the Discord server for further assistance in [#misc-help](https://discord.gg/rqdPgH8xSN).
+You should now be prompted to log back into iCloud by your Mac. If you get this prompt, you've successfully configured SMBIOS spoofing. Otherwise, verify that you've correctly followed the steps listed above, or ask on the Discord server for further assistance in [#misc-help](https://discord.gg/rqdPgH8xSN).

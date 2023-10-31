@@ -340,7 +340,7 @@ class DetectRootPatch:
         """
 
         # If GFX0 is missing, assume machine was demuxed
-        # -wegnoegpu would also trigger this, so ensure arg is not present
+        # -wegnoegpu would also trigger this, so ensure arg isn't present
         if not "-wegnoegpu" in (utilities.get_nvram("boot-args", decode=True) or ""):
             igpu = self.constants.computer.igpu
             dgpu = self._check_dgpu_status()
@@ -357,7 +357,7 @@ class DetectRootPatch:
             bool: True if legacy keyboard backlight, False otherwise
         """
 
-        # iMac12,x+ have an 'ACPI0008' device, but it's not a keyboard backlight
+        # iMac12,x+ have an 'ACPI0008' device, but it isn't a keyboard backlight
         # Best to assume laptops will have a keyboard backlight
         if self.model.startswith("MacBook"):
             return self.constants.computer.ambient_light_sensor
@@ -706,53 +706,53 @@ class DetectRootPatch:
 
         if print_errors is True:
             if self.sip_enabled is True:
-                logging.info("\nCannot patch! Please disable System Integrity Protection (SIP).")
+                logging.info("\nCan't patch! Please disable System Integrity Protection (SIP).")
                 logging.info("Disable SIP in Patcher Settings and Rebuild OpenCore\n")
                 logging.info("Ensure the following bits are set for csr-active-config:")
                 logging.info("\n".join(sip))
                 logging.info(sip_value)
 
             if self.sbm_enabled is True:
-                logging.info("\nCannot patch! Please disable Apple Secure Boot.")
+                logging.info("\nCan't patch! Please disable Apple Secure Boot.")
                 logging.info("Disable SecureBootModel in Patcher Settings and Rebuild OpenCore")
                 logging.info("For Hackintoshes, set SecureBootModel to Disabled")
 
             if self.fv_enabled is True:
-                logging.info("\nCannot patch! Please disable FileVault.")
+                logging.info("\nCan't patch! Please disable FileVault.")
                 logging.info("For others, Go to System Preferences -> Security and disable FileVault")
 
             if self.amfi_enabled is True and self.amfi_must_disable is True:
-                logging.info("\nCannot patch! Please disable AMFI.")
+                logging.info("\nCan't patch! Please disable AMFI.")
                 logging.info("For Hackintoshes, please add amfi_get_out_of_my_way=1 to boot-args")
 
             if self.dosdude1_patched is True:
-                logging.info("\nCannot patch! Detected machine has already been patched by another patcher")
+                logging.info("\nCan't patch! Detected machine has already been patched by another patcher")
                 logging.info("Please ensure your install is either clean or patched with OpenCore Legacy Patcher")
 
             if self.nvidia_web is True:
                 if self.missing_nv_web_opengl is True:
-                    logging.info("\nCannot patch! Force OpenGL property missing")
+                    logging.info("\nCan't patch! Force OpenGL property missing")
                     logging.info("Please ensure ngfxgl=1 is set in boot-args")
 
                 if self.missing_nv_compat is True:
-                    logging.info("\nCannot patch! Force Nvidia compatibility property missing")
+                    logging.info("\nCan't patch! Force Nvidia compatibility property missing")
                     logging.info("Please ensure ngfxcompat=1 is set in boot-args")
 
                 if self.missing_nv_web_nvram is True:
-                    logging.info("\nCannot patch! nvda_drv(_vrl) variable missing")
+                    logging.info("\nCan't patch! nvda_drv(_vrl) variable missing")
                     logging.info("Please ensure nvda_drv_vrl=1 is set in boot-args")
 
                 if self.missing_whatever_green is True:
-                    logging.info("\nCannot patch! WhateverGreen.kext missing")
+                    logging.info("\nCan't patch! WhateverGreen.kext missing")
                     logging.info("Please ensure WhateverGreen.kext is installed")
 
             if (not self.has_network) if (self.requires_root_kc and self.missing_kdk and self.constants.detected_os >= os_data.os_data.ventura.value) else False:
-                logging.info("\nCannot patch! Network Connection Required")
-                logging.info("Please ensure you have an active internet connection")
+                logging.info("\nCan't patch! Network Connection Required")
+                logging.info("Please ensure you've an active internet connection")
 
             if self.unsupported_os is True:
-                logging.info("\nCannot patch! Unsupported Host OS")
-                logging.info("Please ensure you are running a patcher-supported OS")
+                logging.info("\nCan't patch! Unsupported Host OS")
+                logging.info("Please ensure you're running a patcher-supported OS")
 
         if any(
             [

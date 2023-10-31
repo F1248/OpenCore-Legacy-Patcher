@@ -42,7 +42,7 @@ class BuildStorage:
         """
 
         # MacBookAir6,x ship with an AHCI over PCIe SSD model 'APPLE SSD TS0128F' and 'APPLE SSD TS0256F'
-        # This controller is not supported properly in macOS Ventura, instead populating itself as 'Media' with no partitions
+        # This controller isn't supported properly in macOS Ventura, instead populating itself as 'Media' with no partitions
         # To work-around this, use Monterey's AppleAHCI driver to force support
         if not self.constants.custom_model:
             sata_devices = [i for i in self.computer.storage if isinstance(i, device_probe.SATAController)]

@@ -145,4 +145,4 @@ class system_integrity_protection:
     # CSR_ALLOW_EXECUTABLE_POLICY_OVERRIDE (introduced with Mojave):
     # This bit is quite strange and was originally assumed to be required for modded platform binaries
     # However after extensive testing, this doesn't seem true. In addition, this bit is never flipped via
-    # 'csrutil disable'. Usage within the kernel is not present.
+    # 'csrutil disable'. Usage within the kernel isn't present.

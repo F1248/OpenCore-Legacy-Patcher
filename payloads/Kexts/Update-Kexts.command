@@ -102,7 +102,7 @@ class GenerateKexts:
 
         # WhateverGreen
         print("Building modified WhateverGreen…")
-        # We have to compile WhateverGreen ourselves
+        # We've to compile WhateverGreen ourselves
         weg_source_url = f"https://github.com/acidanthera/WhateverGreen/archive/refs/tags/{self.weg_version}.zip"
         lilu_url = f"https://github.com/acidanthera/Lilu/releases/download/{self.lilu_version}/Lilu-{self.lilu_version}-DEBUG.zip"
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -233,7 +233,7 @@ class GenerateKexts:
                     local_version = local_version[1:]
                 return local_version[:5]
 
-        raise Exception(f"Could not find local version for {kext_name} {variant}")
+        raise Exception(f"Couldn't find local version for {kext_name} {variant}")
 
 
     def _download_file(self, url, file_path, file):
@@ -261,7 +261,7 @@ class GenerateKexts:
         print(f"  Updating {variable_name} to {new_version}…")
         constants_file = Path("../../resources/constants.py")
         if not constants_file.exists():
-            raise Exception("Constants file does not exist")
+            raise Exception("Constants file doesn't exist")
         constants_file_contents = constants_file.read_text()
 
         # Replace version

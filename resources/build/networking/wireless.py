@@ -161,7 +161,7 @@ class BuildWirelessNetworking:
                 elif self.model in ("MacPro4,1", "MacPro5,1"):
                     arpt_path = "PciRoot(0x0)/Pci(0x1C,0x5)/Pci(0x0,0x0)"
                 else:
-                    # Assumes we have a laptop with Intel chipset
+                    # Assumes we've a laptop with Intel chipset
                     # iMac11,x-12,x also apply
                     arpt_path = "PciRoot(0x0)/Pci(0x1C,0x1)/Pci(0x0,0x0)"
             logging.info(f"- Using known ARPT Path: {arpt_path}")

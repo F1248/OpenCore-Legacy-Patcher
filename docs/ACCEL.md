@@ -6,16 +6,16 @@
 * [Unable to grant special permissions to apps (ie. Camera Access to Zoom)](#unable-to-grant-permissions-to-apps)
 * [Keyboard Backlight broken](#keyboard-backlight-broken)
 * [Photos and Maps Apps Heavily Distorted](#photos-and-maps-apps-heavily-distorted)
-* [Cannot press "Done" when editing a Sidebar Widget](#cannot-press-done-when-editing-a-sidebar-widget)
+* [Can't press "Done" when editing a Sidebar Widget](#can't-press-done-when-editing-a-sidebar-widget)
 * [Wake from sleep heavily distorted on AMD/ATI from macOS 11.3 to macOS Monterey](#wake-from-sleep-heavily-distorted-on-amdati-from-macos-113-to-macos-monterey)
 * [Unable to switch GPUs on 2011 15" and 17" MacBook Pros](#unable-to-switch-gpus-on-2011-15-and-17-macbook-pros)
 * [Erratic Colours on ATI TeraScale 2 GPUs (HD5000/HD6000)](#erratic-colours-on-ati-terascale-2-gpus-hd5000-hd6000)
 * [Unable to allow Safari Extensions](#unable-to-allow-safari-Extensions)
-* [Cannot Login on 2011 15" and 17" MacBook Pros](#cannot-login-on-2011-15-and-17-macbook-pros)
+* [Can't Login on 2011 15" and 17" MacBook Pros](#can't-login-on-2011-15-and-17-macbook-pros)
 * [Black Boxes on HD3000 iGPUs](#black-boxes-on-hd3000-igpus)
-* [Cannot Pair Bluetooth Devices](#cannot-pair-bluetooth-devices)
+* [Can't Pair Bluetooth Devices](#can't-pair-bluetooth-devices)
 
-The below page is for users experiencing issues with their overall usage of macOS Big Sur / Monterey / Ventura and the Legacy Graphics Acceleration patches. Note that the following GPUs currently do not have acceleration support in Big Sur / Monterey / Ventura:
+The below page is for users experiencing issues with their overall usage of macOS Big Sur / Monterey / Ventura and the Legacy Graphics Acceleration patches. Note that the following GPUs currently don't have acceleration support in Big Sur / Monterey / Ventura:
 
 * Intel 3rd and 4th Gen - GMA series
 
@@ -55,7 +55,7 @@ Many Apple apps now have direct reliance on Metal for proper functioning, howeve
 
 * [Apple Apps for Non-Metal Macs](https://archive.org/details/apple-apps-for-non-metal-macs)
 
-Note: This archive assumes that you own these copies of these apps through the Mac App Store, Dortania does not condone piracy
+Note: This archive assumes that you own these copies of these apps through the Mac App Store, Dortania doesn't condone piracy
 
 ## Unable to run Zoom
 
@@ -101,7 +101,7 @@ Due to forcing `hidd` into spinning up with the fallback mode enabled, this can 
 
 Due to the Metal Backend, the enhanced color output of these apps seems to heavily break overall UI usage. To work around this, [users reported](https://forums.macrumors.com/threads/macos-11-big-sur-on-unsupported-macs-thread.2242172/post-29870324) forcing the color output of their monitor from Billions to Millions of colors helped greatly. Apps easily allowing this customization are [SwitchResX](https://www.madrau.com), [ResXreme](https://macdownload.informer.com/resxtreme/) and [EasyRes](http://easyresapp.com).
 
-## Cannot press "Done" when editing a Sidebar Widget
+## Can't press "Done" when editing a Sidebar Widget
 
 Workaround: Press some combination of Tab, or Tab and then Shift-Tab, or just Shift-Tab until the "Done" button is highlighted. Then press spacebar to activate the button, the same as in any other dialog with a highlighted button halo.
 
@@ -111,7 +111,7 @@ Workaround: Press some combination of Tab, or Tab and then Shift-Tab, or just Sh
 
 For older versions, only known solution is to downgrade to macOS 11.2.3 or older. Additionally, logging out and logging back in can resolve the issue without requiring a reboot.
 
-* Note, this issue should be exclusive to TeraScale 1 GPUs (ie. HD2000-4000). TeraScale 2 GPUs should not exhibit this issue.
+* Note, this issue should be exclusive to TeraScale 1 GPUs (ie. HD2000-4000). TeraScale 2 GPUs shouldn't exhibit this issue.
 
 In the event Apple removes 11.2.3 from their catalogue, we've provided a mirror below:
 
@@ -131,7 +131,7 @@ This will disable the dGPU and allow the iGPU to function in Big Sur. Note that 
 
 * [DisplayLink USB Graphics Software for macOS - For Mojave and Catalina - 5.2.6](https://www.synaptics.com/products/displaylink-graphics/downloads/macos-5.2.6)
 
-Note: This driver only provides partial support in macOS, full graphics acceleration is not currently available on displays driven by DisplayLink.
+Note: This driver only provides partial support in macOS, full graphics acceleration isn't currently available on displays driven by DisplayLink.
 
 ## Unable to allow Safari Extensions
 
@@ -141,11 +141,11 @@ The following tool can be used to work-around this issue:
 
 * [Non-Metal Safari Extensions](https://github.com/moosethegoose2213/Non-Metal-Safari-Extensions/)
 
-## Cannot Login on 2011 15" and 17" MacBook Pros
+## Can't Login on 2011 15" and 17" MacBook Pros
 
 By default, OpenCore Legacy Patcher will assume MacBookPro8,2/3 have a faulty dGPU and disable acceleration. This is the safest option for most users as enabling dGPU acceleration on faulty Macs will result in failed booting.
 
-However, if your machine does not have the dGPU disabled via NVRAM, you'll experience a login loop. To work around this is quite simple:
+However, if your machine doesn't have the dGPU disabled via NVRAM, you'll experience a login loop. To work around this is quite simple:
 
 1. Boot macOS in Single User Mode
     * Press Cmd+S in OpenCore's menu when you turn the Mac on
@@ -173,7 +173,7 @@ A somewhat strange issue on Intel HD3000-based Macs, on 3rd party displays somet
 | :---                  | :---                       |
 | ![](../images/HD3000-Default-Colors.png) | ![](../images/HD3000-Display-Colors.png) |
 
-## Cannot Pair Bluetooth Devices
+## Can't Pair Bluetooth Devices
 
 In macOS Ventura, hover states may not function correctly which results in the "Connect" button not appearing in System Settings. To resolve:
 

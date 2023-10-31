@@ -191,10 +191,10 @@ class UpdateFrame(wx.Frame):
                 break
 
             if i == 1:
-                logging.error("Failed to extract update. Error: Update file does not exist")
+                logging.error("Failed to extract update. Error: Update file doesn't exist")
                 wx.CallAfter(self.progress_bar_animation.stop_pulse)
                 wx.CallAfter(self.progress_bar.SetValue, 0)
-                wx.CallAfter(wx.MessageBox, "Failed to extract update. Error: Update file does not exist", "Critical Error!", wx.OK | wx.ICON_ERROR)
+                wx.CallAfter(wx.MessageBox, "Failed to extract update. Error: Update file doesn't exist", "Critical Error!", wx.OK | wx.ICON_ERROR)
                 wx.CallAfter(sys.exit, 1)
                 break
 

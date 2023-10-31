@@ -176,7 +176,7 @@ class MainFrame(wx.Frame):
             # Notify user they're booting an unsupported configuration
             pop_up = wx.MessageDialog(
                 self,
-                f"We found you are currently booting OpenCore built for a different unit: {self.constants.computer.build_model}\n\nWe builds configs to match individual units and cannot be mixed or reused with different Macs.\n\nPlease Build and Install a new OpenCore config, and reboot your Mac.",
+                f"We found you're currently booting OpenCore built for a different unit: {self.constants.computer.build_model}\n\nWe builds configs to match individual units and can't be mixed or reused with different Macs.\n\nPlease Build and Install a new OpenCore config, and reboot your Mac.",
                 "Unsupported Configuration Detected!",
                 style=wx.OK | wx.ICON_EXCLAMATION
             )
@@ -224,7 +224,7 @@ class MainFrame(wx.Frame):
         if "--update_installed" not in sys.argv:
             return
 
-        # Check if app exists in /Applications, and is not a symlink
+        # Check if app exists in /Applications, and isn't a symlink
         if Path("/Applications/OpenCore-Legacy-Patcher.app").exists() and Path("/Applications/OpenCore-Legacy-Patcher.app").is_symlink() is False:
             logging.info("Found user-installed app in /Applications, replacing with symlink")
             # Delete app

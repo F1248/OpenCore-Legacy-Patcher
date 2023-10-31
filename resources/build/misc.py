@@ -152,7 +152,7 @@ class BuildMiscellaneous:
             # CPUFriendDataProvider handling
             pp_map_path = Path(self.constants.platform_plugin_plist_path) / Path(f"{self.model}/Info.plist")
             if not pp_map_path.exists():
-                raise Exception(f"{pp_map_path} does not exist!!! Please file an issue stating file is missing for {self.model}.")
+                raise Exception(f"{pp_map_path} doesn't exist! Please file an issue stating file is missing for {self.model}.")
             Path(self.constants.pp_kext_folder).mkdir()
             Path(self.constants.pp_contents_folder).mkdir()
             shutil.copy(pp_map_path, self.constants.pp_contents_folder)

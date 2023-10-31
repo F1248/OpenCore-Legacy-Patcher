@@ -167,7 +167,7 @@ class os_conversion:
         for build_outer_loop in build_array_split:
             for build_inner_loop in list(build_array_split):
                 for i in range(len(build_outer_loop)):
-                    # remove any builds that are not the largest
+                    # remove any builds that aren't the largest
                     if int(build_outer_loop[i]) > int(build_inner_loop[i]):
                         build_array_split.remove(build_inner_loop)
                         break

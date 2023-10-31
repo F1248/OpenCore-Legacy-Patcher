@@ -138,7 +138,7 @@ class arguments:
                 defaults.GenerateDefaults(self.constants.custom_model, False, self.constants)
             elif self.constants.computer.real_model not in model_array.SupportedSMBIOS and self.constants.allow_oc_everywhere is False:
                 logging.info(
-                    """Your model is not supported by this patcher for running unsupported OSes!"
+                    """Your model isn't supported by this patcher for running unsupported OSes!"
 
 If you plan to create the USB for another machine, please select the "Change Model" option in the menu."""
                 )

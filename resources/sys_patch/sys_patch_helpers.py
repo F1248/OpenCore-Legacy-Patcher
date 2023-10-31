@@ -55,12 +55,12 @@ class SysPatchHelpers:
             reported_board_hex = reported_board_hex + bytes(len(board_to_patch_hex) - len(reported_board_hex))
         elif len(board_to_patch_hex) < len(reported_board_hex):
             logging.info(f"Error: Board ID {self.constants.computer.reported_board_id} is longer than {board_to_patch}")
-            raise Exception("Host's Board ID is longer than the kext's Board ID, cannot patch!!!")
+            raise Exception("Host's Board ID is longer than the kext's Board ID, can't patch!")
 
         path = f"{source_files_path}/10.13.6/System/Library/Extensions/AppleIntelSNBGraphicsFB.kext/Contents/MacOS/AppleIntelSNBGraphicsFB"
         if not Path(path).exists():
-            logging.info(f"Error: Could not find {path}")
-            raise Exception("Failed to find AppleIntelSNBGraphicsFB.kext, cannot patch!!!")
+            logging.info(f"Error: Couldn't find {path}")
+            raise Exception("Failed to find AppleIntelSNBGraphicsFB.kext, can't patch!")
 
         with open(path, 'rb') as f:
             data = f.read()
@@ -234,7 +234,7 @@ class SysPatchHelpers:
                 - opencl-c.h
             - lib (entire directory)
 
-        Note: With macOS Sonoma, 32023 compiler is used instead and so this patch is not needed
+        Note: With macOS Sonoma, 32023 compiler is used instead and so this patch isn't needed
 
         Parameters:
             mount_point: The mount point of the target volume

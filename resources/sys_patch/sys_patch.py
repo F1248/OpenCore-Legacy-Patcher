@@ -28,7 +28,7 @@
 # Alternative to mounting via 'mount', Apple's update system uses 'mount_apfs' directly
 #   '/sbin/mount_apfs -R /dev/disk5s5 /System/Volumes/Update/mnt1'
 
-# With macOS Ventura, you will also need to install the KDK onto root if you plan to use kmutil
+# With macOS Ventura, you'll also need to install the KDK onto root if you plan to use kmutil
 # This is because Apple removed on-disk binaries (ref: https://github.com/dortania/OpenCore-Legacy-Patcher/issues/998)
 #   'sudo ditto /Library/Developer/KDKs/<KDK Version>/System /System/Volumes/Update/mnt1/System'
 
@@ -60,7 +60,7 @@ class PatchSysVolume:
         self.kdk_path = None
 
         # GUI will detect hardware patches before starting PatchSysVolume()
-        # However the TUI will not, so allow for data to be passed in manually avoiding multiple calls
+        # However the TUI won't, so allow for data to be passed in manually avoiding multiple calls
         if hardware_details is None:
             hardware_details = sys_patch_detect.DetectRootPatch(self.computer.real_model, self.constants).detect_patch_set()
         self.hardware_details = hardware_details
@@ -157,15 +157,15 @@ class PatchSysVolume:
 
             kdk_download_obj = kdk_obj.retrieve_download()
             if not kdk_download_obj:
-                logging.info(f"Could not retrieve KDK: {kdk_obj.error_msg}")
+                logging.info(f"Couldn't retrieve KDK: {kdk_obj.error_msg}")
 
             # Hold thread until download is complete
             kdk_download_obj.download(spawn_thread=False)
 
             if kdk_download_obj.download_complete is False:
                 error_msg = kdk_download_obj.error_msg
-                logging.info(f"Could not download KDK: {error_msg}")
-                raise Exception(f"Could not download KDK: {error_msg}")
+                logging.info(f"Couldn't download KDK: {error_msg}")
+                raise Exception(f"Couldn't download KDK: {error_msg}")
 
             if kdk_obj.validate_kdk_checksum() is False:
                 logging.info(f"KDK checksum validation failed: {kdk_obj.error_msg}")
@@ -241,7 +241,7 @@ class PatchSysVolume:
         """
 
         if self.constants.detected_os <= os_data.os_data.big_sur or self.root_supports_snapshot is False:
-            logging.info("- OS version does not support snapshotting, skipping revert")
+            logging.info("- OS version doesn't support snapshotting, skipping revert")
 
         logging.info("- Reverting to last signed APFS snapshot")
         result = utilities.elevated(["bless", "--mount", self.mount_location, "--bootefi", "--last-sealed-snapshot"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -335,7 +335,7 @@ class PatchSysVolume:
                 # /System/Library/Extensions and not the entire KDK
                 args.append("--allow-missing-kdk")
 
-                # 'install' and '--update-all' cannot be used together in Ventura.
+                # 'install' and '--update-all' can't be used together in Ventura.
                 # kmutil will request the usage of 'create' instead:
                 #     Warning: kmutil install's usage of --update-all is deprecated.
                 #              Use kmutil create --update-install instead'
@@ -344,7 +344,7 @@ class PatchSysVolume:
             if self.needs_kmutil_exemptions is True:
                 # When installing to '/Library/Extensions', following args skip kext consent
                 # prompt in System Preferences when SIP's disabled
-                logging.info("  (You will get a prompt by System Preferences, ignore for now)")
+                logging.info("  (You'll get a prompt by System Preferences, ignore for now)")
                 args.append("--no-authentication")
                 args.append("--no-authorization")
         else:
@@ -561,7 +561,7 @@ class PatchSysVolume:
             If a kext is labeled as 'OSBundleRequired: Root' or 'OSBundleRequired: Safe Boot',
             kernelmanagerd will require the kext to be installed in the Boot/SysKC
 
-            Additionally, kexts starting with 'com.apple.' are not natively allowed to be installed
+            Additionally, kexts starting with 'com.apple.' aren't natively allowed to be installed
             in the AuxKC. So we need to explicitly set our 'OSBundleRequired' to 'Auxiliary'
 
         Parameters:
@@ -607,7 +607,7 @@ class PatchSysVolume:
     def _check_kexts_needs_authentication(self, kext_name: str):
         """
         Verify whether the user needs to authenticate in System Preferences
-        Sets 'needs_to_open_preferences' to True if the kext is not in the AuxKC
+        Sets 'needs_to_open_preferences' to True if the kext isn't in the AuxKC
 
         Logic:
             Under 'private/var/db/KernelManagement/AuxKC/CurrentAuxKC/com.apple.kcgen.instructions.plist'
@@ -706,7 +706,7 @@ class PatchSysVolume:
 
             if "Processes" in required_patches[patch]:
                 for process in required_patches[patch]["Processes"]:
-                    # Some processes need sudo, however we cannot directly call sudo in some scenarios
+                    # Some processes need sudo, however we can't directly call sudo in some scenarios
                     # Instead, call elevated funtion if string's boolean is True
                     if required_patches[patch]["Processes"][process] is True:
                         logging.info(f"- Running Process as Root:\n{process}")
@@ -735,9 +735,9 @@ class PatchSysVolume:
 
         # Make sure old SkyLight plugins aren't being used
         self._clean_skylight_plugins()
-        # Make sure non-Metal Enforcement preferences are not present
+        # Make sure non-Metal Enforcement preferences aren't present
         self._delete_nonmetal_enforcement()
-        # Make sure we clean old kexts in /L*/E* that are not in the patchset
+        # Make sure we clean old kexts in /L*/E* that aren't in the patchset
         self._clean_auxiliary_kc()
 
         # Make sure SNB kexts are compatible with the host
@@ -777,7 +777,7 @@ class PatchSysVolume:
         file_name_str = str(file_name)
 
         if not Path(destination_folder).exists():
-            logging.info(f"  - Skipping {file_name}, cannot locate {source_folder}")
+            logging.info(f"  - Skipping {file_name}, can't locate {source_folder}")
             return
 
         if file_name_str.endswith(".framework"):
@@ -941,7 +941,7 @@ class PatchSysVolume:
 
             return True
 
-        logging.info("- PatcherSupportPkg resources missing, Patcher likely corrupted!!!")
+        logging.info("- PatcherSupportPkg resources missing, Patcher likely corrupted!")
         return False
 
 

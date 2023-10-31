@@ -1,8 +1,8 @@
 # Supported Models
 Any Intel-based Mac listed below can install and make use of OpenCore Legacy Patcher. To check your hardware model, open System Information and look for the `Model Identifier` key.
 * This applies even if Apple supports the model natively.
-* OpenCore Legacy Patcher does not support PowerPC- or Apple Silicon-based Macs.
-* If your model is not listed below, it is not supported by this patcher.
+* OpenCore Legacy Patcher doesn't support PowerPC- or Apple Silicon-based Macs.
+* If your model isn't listed below, it isn't supported by this patcher.
 
 The below tables can be used to reference issues with a particular model, and see which OS would work best on your machine.
 * [MacBook](#macbook)

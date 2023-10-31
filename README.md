@@ -28,7 +28,7 @@ Noteworthy features of OpenCore Legacy Patcher:
 
 ----------
 
-Note: Only clean-installs and upgrades are supported. Installs already patched with other patchers, such as [Patched Sur](https://github.com/BenSova/Patched-Sur) or [bigmac](https://github.com/StarPlayrX/bigmac), cannot be used due to broken file integrity with APFS snapshots and SIP.
+Note: Only clean-installs and upgrades are supported. Installs already patched with other patchers, such as [Patched Sur](https://github.com/BenSova/Patched-Sur) or [bigmac](https://github.com/StarPlayrX/bigmac), can't be used due to broken file integrity with APFS snapshots and SIP.
 
 * You can, however, reinstall macOS with this patcher and retain your original data
 
@@ -44,7 +44,7 @@ To start using the project, please see our in-depth guide:
 
 ## Support
 
-This project is offered on an AS-IS basis, we do not guarantee support for any issues that may arise. However, there is a community server with other passionate users and developers that can aid you:
+This project is offered on an AS-IS basis, we don't guarantee support for any issues that may arise. However, there's a community server with other passionate users and developers that can aid you:
 
 * [OpenCore Legacy Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN)
   * Keep in mind that the Discord server is maintained by the community, so we ask everyone to be respectful.

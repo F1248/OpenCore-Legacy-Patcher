@@ -1,6 +1,6 @@
 # Building and installing OpenCore
 
-Now that we have a macOS installer, let's now build our OpenCore configuration!
+Now that we've a macOS installer, let's now build our OpenCore configuration!
 
 Next, run the `OpenCore-Legacy-Patcher.app`:
 
@@ -8,7 +8,7 @@ Next, run the `OpenCore-Legacy-Patcher.app`:
 
 ::: warning
 OpenCore configurations are hardware specific.
-If you're building OpenCore for a different model than you're currently running, it is absolutely necessary to select the proper model from Settings.
+If you're building OpenCore for a different model than you're currently running, it's absolutely necessary to select the proper model from Settings.
 :::
 
 Here we'll select Build and Install OpenCore and start building:

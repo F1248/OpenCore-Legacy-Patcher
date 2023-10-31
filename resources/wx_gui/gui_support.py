@@ -297,7 +297,7 @@ class RelaunchApplicationAsRoot:
 
         self.dialog = wx.MessageDialog(
             self.frame,
-            "OpenCore Legacy Patcher needs to relaunch as admin to continue. You will be prompted to enter your password.",
+            "OpenCore Legacy Patcher needs to relaunch as admin to continue. You'll be prompted to enter your password.",
             "Relaunch as root?",
             wx.YES_NO | wx.ICON_QUESTION
         )

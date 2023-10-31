@@ -180,7 +180,7 @@ def check_kext_loaded(bundle_id: str) -> str:
         bundle_id (str): The bundle ID of the kext to check
 
     Returns:
-        str: The version of the kext if it is loaded, or "" if it is not loaded
+        str: The version of the kext if it's loaded, or "" if it isn't loaded
     """
     # Name (Version) UUID <Linked Against>
     # no UUID for kextstat
@@ -306,7 +306,7 @@ def patching_status(os_sip, os):
         sip_enabled = False
 
     if os > os_data.os_data.catalina and not check_filevault_skip():
-        # Assume non-OpenCore Legacy Patcher Macs do not have our APFS seal patch
+        # Assume non-OpenCore Legacy Patcher Macs don't have our APFS seal patch
         fv_status: str = subprocess.run("fdesetup status".split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.decode()
         if "FileVault is Off" in fv_status:
             fv_enabled = False
@@ -332,7 +332,7 @@ def cls():
     if not clear:
         return
     if check_cli_args() is None:
-        # Our GUI does not support clear screen
+        # Our GUI doesn't support clear screen
         if not check_recovery():
             os.system("cls" if os.name == "nt" else "clear")
         else:
@@ -348,7 +348,7 @@ def check_command_line_tools():
         return False
 
 def get_nvram(variable: str, uuid: str = None, *, decode: bool = False):
-    # TODO: Properly fix for El Capitan, which does not print the XML representation even though we say to
+    # TODO: Properly fix for El Capitan, which doesn't print the XML representation even though we say to
 
     if uuid is not None:
         uuid += ":"
@@ -380,7 +380,7 @@ def get_nvram(variable: str, uuid: str = None, *, decode: bool = False):
 
 
 def get_rom(variable: str, *, decode: bool = False):
-    # TODO: Properly fix for El Capitan, which does not print the XML representation even though we say to
+    # TODO: Properly fix for El Capitan, which doesn't print the XML representation even though we say to
 
     rom = ioreg.IORegistryEntryFromPath(ioreg.kIOMasterPortDefault, "IODeviceTree:/rom".encode())
 
@@ -545,7 +545,7 @@ def check_boot_mode():
         return None
 
 def elevated(*args, **kwargs) -> subprocess.CompletedProcess:
-    # When running through our GUI, we run as root, however we do not get uid 0
+    # When running through our GUI, we run as root, however we don't get uid 0
     # Best to assume CLI is running as root
     if os.getuid() == 0 or check_cli_args() is not None:
         return subprocess.run(*args, **kwargs)

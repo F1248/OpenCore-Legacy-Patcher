@@ -194,8 +194,8 @@ class CreateBinary:
                 if self.args.reset_binaries:
                     print(f"  - Removing old {resource}")
                     # Just to be safe
-                    assert resource, "Resource cannot be empty"
-                    assert resource not in ("/", "."), "Resource cannot be root"
+                    assert resource, "Resource can't be empty"
+                    assert resource not in ("/", "."), "Resource can't be root"
                     rm_output = subprocess.run(
                         ["rm", "-rf", f"./{resource}"],
                         stdout=subprocess.PIPE, stderr=subprocess.PIPE

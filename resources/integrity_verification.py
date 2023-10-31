@@ -101,7 +101,7 @@ class ChunklistVerification:
             return
 
         if not Path(self.file_path).exists():
-            self.error_msg = f"File {self.file_path} does not exist"
+            self.error_msg = f"File {self.file_path} doesn't exist"
             self.status = ChunklistStatus.FAILURE
             logging.info(self.error_msg)
             return

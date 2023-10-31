@@ -1,6 +1,6 @@
 ![](../images/macOS-14-Sonoma.png)
 
-*Well here we are again, it's always such a pleasure~*
+*Well here we're again, it's always such a pleasure~*
 
 Apple has yet again dropped a bunch of models, continuing their journey on discontinuing Intel Macs.
 With the release of OpenCore Legacy Patcher 1.0.0, early support for macOS Sonoma has been implemented. This page informs about regarding issues.

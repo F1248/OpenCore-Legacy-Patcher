@@ -26,9 +26,9 @@ Once you've toggled it off, build your OpenCore EFI once again and install to yo
 
 ## Enabling SIP (System Integrity Protection)
 
-For many users, SIP will be lowered by default on build. For Intel HD 4000 users, you may have noticed that SIP is partially disabled. This is to ensure full compatibility with macOS Monterey and allow seamless booting between it and older OSes. However for users who do not plan to boot Monterey, you can re-enable under Patcher Settings.
+For many users, SIP will be lowered by default on build. For Intel HD 4000 users, you may have noticed that SIP is partially disabled. This is to ensure full compatibility with macOS Monterey and allow seamless booting between it and older OSes. However for users who don't plan to boot Monterey, you can re-enable under Patcher Settings.
 
-Note: Machines running macOS Ventura or systems with non-Metal GPUs cannot enable SIP outright, due to having a patched root volume. Enabling it will brick the installation.
+Note: Machines running macOS Ventura or systems with non-Metal GPUs can't enable SIP outright, due to having a patched root volume. Enabling it will brick the installation.
 
 Going forward with 0.6.6, SIP settings can be accessed from the Security tab shown in the images.
 
@@ -38,7 +38,7 @@ Going forward with 0.6.6, SIP settings can be accessed from the Security tab sho
 
 :::warning
 
-If you're unsure whether you should enable SIP, leave it as-is. Systems where you have already ran the Post Install Root Patching cannot enable SIP without potentially breaking the current install.
+If you're unsure whether you should enable SIP, leave it as-is. Systems where you've already ran the Post Install Root Patching can't enable SIP without potentially breaking the current install.
 
 :::
 
@@ -46,7 +46,7 @@ If you're unsure whether you should enable SIP, leave it as-is. Systems where yo
 
 :::warning
 
-If you need to use Migration Assistant to bring over data to your new macOS install, it is **highly recommended** to avoid restoring from inside Setup Assistant and waiting to install root patches until after the transfer is complete. If root patches were automatically installed, you can use the options available in the OpenCore Legacy Patcher app to remove them.
+If you need to use Migration Assistant to bring over data to your new macOS install, it's **highly recommended** to avoid restoring from inside Setup Assistant and waiting to install root patches until after the transfer is complete. If root patches were automatically installed, you can use the options available in the OpenCore Legacy Patcher app to remove them.
 
 Using Migration Assistant while patches are installed can lead to an unbootable system, requiring a reinstall of macOS.
 
@@ -54,7 +54,7 @@ Using Migration Assistant while patches are installed can lead to an unbootable 
 
 Post Install Volume Patches, sometimes also called root patches, are patches that have to be installed to disk for some older Macs to gain back functionality.
 
-OpenCore Legacy Patcher will automatically root patch your system during a first time install **if the USB install media was created within OpenCore Legacy Patcher.** Users will also be prompted to install these patches after macOS updates or whenever patches are not detected on the system. We recommend rebuilding OpenCore with the latest version to take advantage of these new features.
+OpenCore Legacy Patcher will automatically root patch your system during a first time install **if the USB install media was created within OpenCore Legacy Patcher.** Users will also be prompted to install these patches after macOS updates or whenever patches aren't detected on the system. We recommend rebuilding OpenCore with the latest version to take advantage of these new features.
 
 Users can also see whether applicable patches have been installed, date and version the system was root patched with in the Post-Install Menu.
 
@@ -66,9 +66,9 @@ Users can also see whether applicable patches have been installed, date and vers
 
 ### Running Post Install patches manually
 
-If you need to run the patcher manually, you can do so with the app. There is no harm in trying to run the Patcher, as without compatible hardware, nothing will be done. You can see below on whether your hardware needs root volume patching or not.
+If you need to run the patcher manually, you can do so with the app. There's no harm in trying to run the Patcher, as without compatible hardware, nothing will be done. You can see below on whether your hardware needs root volume patching or not.
 
-There is also an option to remove root patches, which may be required in some situations, such as switching GPUs in Mac Pros or using Migration Assistant.
+There's also an option to remove root patches, which may be required in some situations, such as switching GPUs in Mac Pros or using Migration Assistant.
 
 | Listing Patches | Patching Finished |
 | :--- | :--- |

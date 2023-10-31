@@ -29,7 +29,7 @@ class InitializeLoggingSupport:
     >>> InitializeLoggingSupport()
 
     FOR DEVELOPERS:
-    - Do not invoke logging until after '_attempt_initialize_logging_configuration()' has been invoked
+    - Don't invoke logging until after '_attempt_initialize_logging_configuration()' has been invoked
 
     """
 
@@ -170,7 +170,7 @@ class InitializeLoggingSupport:
         """
         Attempt to initialize logging framework configuration
 
-        If we fail to initialize the logging framework, we will disable logging to file
+        If we fail to initialize the logging framework, we'll disable logging to file
         """
 
         try:

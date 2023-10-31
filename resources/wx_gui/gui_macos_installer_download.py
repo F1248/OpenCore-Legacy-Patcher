@@ -288,7 +288,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
             needed_space = list(installers.values())[selected_item]['Size'] * 2
             if host_space < needed_space:
                 logging.error(f"Insufficient space to download and extract: {utilities.human_fmt(host_space)} available vs {utilities.human_fmt(needed_space)} required")
-                dlg = wx.MessageDialog(self.frame_modal, f"You do not have enough free space to download and extract this installer. Please free up some space and try again\n\n{utilities.human_fmt(host_space)} available vs {utilities.human_fmt(needed_space)} required", "Insufficient Space", wx.OK | wx.ICON_WARNING)
+                dlg = wx.MessageDialog(self.frame_modal, f"You don't have enough free space to download and extract this installer. Please free up some space and try again\n\n{utilities.human_fmt(host_space)} available vs {utilities.human_fmt(needed_space)} required", "Insufficient Space", wx.OK | wx.ICON_WARNING)
                 dlg.ShowModal()
                 return
 

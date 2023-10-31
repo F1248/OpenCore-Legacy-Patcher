@@ -52,7 +52,7 @@ class BuildFirmware:
 
         if smbios_data.smbios_dictionary[self.model]["CPU Generation"] <= cpu_data.CPUGen.ivy_bridge.value:
             # In macOS Ventura, Apple dropped AppleIntelCPUPowerManagement* kexts as they're unused on Haswell+
-            # However re-injecting the AICPUPM kexts is not enough, as Ventura changed how 'intel_cpupm_matching' is set:
+            # However re-injecting the AICPUPM kexts isn't enough, as Ventura changed how 'intel_cpupm_matching' is set:
             #    macOS 12.5: https://github.com/apple-oss-distributions/xnu/blob/xnu-8020.140.41/osfmk/i386/pal_routines.h#L153-L163
             #    macOS 13.0: https://github.com/apple-oss-distributions/xnu/blob/xnu-8792.41.9/osfmk/i386/pal_routines.h#L153-L164
             #
@@ -62,7 +62,7 @@ class BuildFirmware:
             #  - 4: Generic Virtual Machine Power Management
             #
             # Apple determines which to use by verifying whether 'plugin-type' exists in ACPI (with a value of 1 for Haswell, 2 for VMs)
-            # By default however, the plugin-type is not set, and thus the default value of '0' is used
+            # By default however, the plugin-type isn't set, and thus the default value of '0' is used
             #    https://github.com/apple-oss-distributions/xnu/blob/e7776783b89a353188416a9a346c6cdb4928faad/osfmk/i386/pal_native.h#L62
             #
             # With Ventura, Apple no longer sets '0' as the default value, and instead sets it to '3'
@@ -102,7 +102,7 @@ class BuildFirmware:
             return
 
         # Resolves Big Sur support for consumer Nehalem
-        # CPBG device in ACPI is a Co-Processor Bridge Device, which is not actually physically present
+        # CPBG device in ACPI is a Co-Processor Bridge Device, which isn't actually physically present
         # IOPCIFamily will error when enumerating this device, thus we'll power it off via _STA (has no effect in older OSes)
         if smbios_data.smbios_dictionary[self.model]["CPU Generation"] == cpu_data.CPUGen.nehalem.value and not (self.model.startswith("MacPro") or self.model.startswith("Xserve")):
             logging.info("- Adding SSDT-CPBG.aml")
@@ -296,7 +296,7 @@ class BuildFirmware:
         Apple has 2 modes for display handling on 5K iMacs and iMac Pro
         If at any point in the boot chain an "unsupported" entry is loaded, the firmware will tell the
         Display Controller to enter a 4K compatible mode that only uses a single DisplayPort 1.2 stream internally.
-        This is to prevent situations where the system would boot into an enviroment that cannot handle the custom
+        This is to prevent situations where the system would boot into an enviroment that can't handle the custom
         dual DisplayPort 1.2 streams the 5k Display uses
 
         To work around this issue, we trick the firmware into loading OpenCore through Apple's Hardware Diagnostic Tests

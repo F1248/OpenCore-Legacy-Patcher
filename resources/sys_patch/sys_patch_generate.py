@@ -124,7 +124,7 @@ class GenerateRootPatchSets:
             required_patches.update({"AMD TeraScale 2": all_hardware_patchset["Graphics"]["AMD TeraScale 2"]})
             if self.constants.allow_ts2_accel is False or self.constants.detected_os not in self.constants.legacy_accel_support:
                 # TeraScale 2 MacBooks with faulty GPUs are highly prone to crashing with AMDRadeonX3000 attached
-                # Additionally, AMDRadeonX3000 requires IOAccelerator downgrade which is not installed without 'Non-Metal IOAccelerator Common'
+                # Additionally, AMDRadeonX3000 requires IOAccelerator downgrade which isn't installed without 'Non-Metal IOAccelerator Common'
                 del(required_patches["AMD TeraScale 2"]["Install"]["/System/Library/Extensions"]["AMDRadeonX3000.kext"])
 
         if self.hardware_details["Graphics: AMD Legacy GCN"] is True or self.hardware_details["Graphics: AMD Legacy Polaris"] is True:

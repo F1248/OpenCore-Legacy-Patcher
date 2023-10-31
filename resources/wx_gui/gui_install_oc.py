@@ -294,7 +294,7 @@ class InstallOCFrame(wx.Frame):
                 return
 
             elif not self.constants.custom_model:
-                gui_support.RestartHost(self).restart(message="OpenCore has finished installing to disk.\n\nYou will need to reboot and hold the Option key and select OpenCore/Boot EFI's option.\n\nWould you like to reboot?")
+                gui_support.RestartHost(self).restart(message="OpenCore has finished installing to disk.\n\nYou'll need to reboot and hold the Option key and select OpenCore/Boot EFI's option.\n\nWould you like to reboot?")
             else:
                 popup_message = wx.MessageDialog(
                     self,

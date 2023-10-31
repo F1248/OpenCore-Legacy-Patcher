@@ -226,7 +226,7 @@ class BuildSMBIOS:
         self.config["PlatformInfo"]["PlatformNVRAM"]["BID"] = self.spoofed_board
         self.config["PlatformInfo"]["SMBIOS"]["BoardProduct"] = self.spoofed_board
 
-        # Model (ensures tables are not mismatched, even if we're not spoofing)
+        # Model (ensures tables aren't mismatched, even if we're not spoofing)
         self.config["PlatformInfo"]["DataHub"]["SystemProductName"] = self.model
         self.config["PlatformInfo"]["SMBIOS"]["SystemProductName"] = self.model
         self.config["PlatformInfo"]["SMBIOS"]["BoardVersion"] = self.model

@@ -107,11 +107,11 @@ class KernelDebugKitObject:
                 timeout=5
             )
         except (requests.exceptions.Timeout, requests.exceptions.TooManyRedirects, requests.exceptions.ConnectionError):
-            logging.info("Could not contact KDK API")
+            logging.info("Couldn't contact KDK API")
             return None
 
         if results.status_code != 200:
-            logging.info("Could not fetch KDK list")
+            logging.info("Couldn't fetch KDK list")
             return None
 
         KDK_ASSET_LIST = sorted(results.json(), key=lambda x: (packaging.version.parse(x["version"]), datetime.datetime.fromisoformat(x["date"])), reverse=True)
@@ -137,7 +137,7 @@ class KernelDebugKitObject:
         parsed_version = cast(packaging.version.Version, packaging.version.parse(host_version))
 
         if os_data.os_conversion.os_to_kernel(str(parsed_version.major)) < os_data.os_data.ventura:
-            self.error_msg = "KDKs are not required for macOS Monterey or older"
+            self.error_msg = "KDKs aren't required for macOS Monterey or older"
             logging.warning(f"{self.error_msg}")
             return
 
@@ -175,7 +175,7 @@ class KernelDebugKitObject:
 
             logging.warning(f"Couldn't find KDK matching {host_version} or {older_version}, please install one manually")
 
-            self.error_msg = f"Could not contact KdkSupportPkg API, and no KDK matching {host_version} ({host_build}) or {older_version} was installed.\nPlease ensure you have a network connection or manually install a KDK."
+            self.error_msg = f"Couldn't contact KdkSupportPkg API, and no KDK matching {host_version} ({host_build}) or {older_version} was installed.\nPlease ensure you've a network connection or manually install a KDK."
 
             return
 
@@ -261,7 +261,7 @@ class KernelDebugKitObject:
             return None
 
         if self.kdk_url == "":
-            self.error_msg = "Could not retrieve KDK catalog, no KDK to download"
+            self.error_msg = "Couldn't retrieve KDK catalog, no KDK to download"
             logging.error(self.error_msg)
             return None
 
@@ -378,7 +378,7 @@ class KernelDebugKitObject:
     def _local_kdk_installed(self, match: str = None, check_version: bool = False) -> str or None:
         """
         Checks if KDK matching build is installed
-        If so, validates it has not been corrupted
+        If so, validates it hasn't been corrupted
 
         Parameters:
             match (str): string to match against (ex. build or version)
@@ -453,11 +453,11 @@ class KernelDebugKitObject:
             return
 
         if os.getuid() != 0:
-            logging.warning("Cannot remove KDK, not running as root")
+            logging.warning("Can't remove KDK, not running as root")
             return
 
         if not Path(kdk_path).exists():
-            logging.warning(f"KDK does not exist: {kdk_path}")
+            logging.warning(f"KDK doesn't exist: {kdk_path}")
             return
 
         rm_args = ["rm", "-rf" if Path(kdk_path).is_dir() else "-f", kdk_path]
@@ -473,7 +473,7 @@ class KernelDebugKitObject:
 
     def _remove_unused_kdks(self, exclude_builds: list = None) -> None:
         """
-        Removes KDKs that are not in use
+        Removes KDKs that aren't in use
 
         Parameters:
             exclude_builds (list, optional): Builds to exclude from removal.
@@ -526,7 +526,7 @@ class KernelDebugKitObject:
             kdk_dmg_path = self.constants.kdk_download_path
 
         if not Path(kdk_dmg_path).exists():
-            logging.error(f"KDK DMG does not exist: {kdk_dmg_path}")
+            logging.error(f"KDK DMG doesn't exist: {kdk_dmg_path}")
             return False
 
         # TODO: should we use the checksum from the API?
@@ -568,7 +568,7 @@ class KernelDebugKitUtilities:
         """
 
         if os.getuid() != 0:
-            logging.warning("Cannot install KDK, not running as root")
+            logging.warning("Can't install KDK, not running as root")
             return False
 
         logging.info(f"Installing KDK package: {kdk_path.name}")
@@ -599,7 +599,7 @@ class KernelDebugKitUtilities:
         """
 
         if os.getuid() != 0:
-            logging.warning("Cannot install KDK, not running as root")
+            logging.warning("Can't install KDK, not running as root")
             return False
 
         logging.info(f"Extracting downloaded KDK disk image")
@@ -613,7 +613,7 @@ class KernelDebugKitUtilities:
             kdk_pkg_path = Path(f"{mount_point}/KernelDebugKit.pkg")
 
             if not kdk_pkg_path.exists():
-                logging.warning("Failed to find KDK package in DMG, likely corrupted!!!")
+                logging.warning("Failed to find KDK package in DMG, likely corrupted!")
                 self._unmount_disk_image(mount_point)
                 return False
 
@@ -647,20 +647,20 @@ class KernelDebugKitUtilities:
         """
 
         if not kdk_path.exists():
-            logging.warning("KDK does not exist, cannot create backup")
+            logging.warning("KDK doesn't exist, can't create backup")
             return
         if not kdk_info_plist.exists():
-            logging.warning("KDK Info.plist does not exist, cannot create backup")
+            logging.warning("KDK Info.plist doesn't exist, can't create backup")
             return
 
         kdk_info_dict = plistlib.load(kdk_info_plist.open("rb"))
 
         if 'version' not in kdk_info_dict or 'build' not in kdk_info_dict:
-            logging.warning("Malformed KDK Info.plist provided, cannot create backup")
+            logging.warning("Malformed KDK Info.plist provided, can't create backup")
             return
 
         if os.getuid() != 0:
-            logging.warning("Cannot create KDK backup, not running as root")
+            logging.warning("Can't create KDK backup, not running as root")
             return
 
         kdk_dst_name = f"KDK_{kdk_info_dict['version']}_{kdk_info_dict['build']}.pkg"

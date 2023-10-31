@@ -30,7 +30,7 @@ To generate custom icons for the OpenCore Boot Picker, you'll need the following
 
 Note, for each image we recommend having one of double the size. This ensures that icons are scaled correctly since .icns support dedicated images depending on HiDPI or not.
 
-Once you have a custom image you want to use(for example, as a background), download the [latest release of OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) and enter the `Utilities/icnspack/` folder:
+Once you've a custom image you want to use(for example, as a background), download the [latest release of OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) and enter the `Utilities/icnspack/` folder:
 
 ![](../images/icnspack-folder.png)
 
@@ -57,7 +57,7 @@ To generate legacy icons, you'll need the following:
     * [Icon Composer 10.11](https://github.com/dortania/OpenCore-Legacy-Patcher/blob/main/docs/Icon-Composer-10.11.zip)
 * PNG Image you wish to convert
 
-Head to [developer.apple's More Downloads page](https://developer.apple.com/download/more/) and search for `Graphics Tools` that is supported by your OS(note for 10.6 and older, the app is hidden inside `Developer Tools`):
+Head to [developer.apple's More Downloads page](https://developer.apple.com/download/more/) and search for `Graphics Tools` that's supported by your OS(note for 10.6 and older, the app is hidden inside `Developer Tools`):
 
 ![](../images/graphics-download.png)
 
@@ -75,7 +75,7 @@ Now save and export the new icns file.
 
 To install, please ensure that Vault was disabled when you built OpenCore. If you're unsure, simply rebuild OpenCore with the Patcher setting "Vault" set to false.
 
-* <span style="color:red"> Warning</span>: Editing your OpenCore EFI incorrectly can result in a bricked install. Please ensure you have a natively supported version of macOS installed to boot into in case of issues.
+* <span style="color:red"> Warning</span>: Editing your OpenCore EFI incorrectly can result in a bricked install. Please ensure you've a natively supported version of macOS installed to boot into in case of issues.
 
 Now that you've verified that you can edit OpenCore safely, you'll need to mount the drive that OpenCore is stored on. To do this, download [MountEFI](https://github.com/corpnewt/MountEFI) and run it:
 

@@ -182,7 +182,7 @@ class BuildGraphicsAudio:
             }
             if self.constants.custom_model and self.model == "iMac11,2":
                 # iMac11,2 can have either PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0) or PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
-                # Set both properties when we cannot run hardware detection
+                # Set both properties when we can't run hardware detection
                 self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)"] = {
                     "applbkl": binascii.unhexlify("01000000"),
                     "@0,backlight-control": binascii.unhexlify("01000000"),
@@ -240,7 +240,7 @@ class BuildGraphicsAudio:
 
         if self.constants.custom_model and self.model == "iMac11,2":
             # iMac11,2 can have either PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0) or PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)
-            # Set both properties when we cannot run hardware detection
+            # Set both properties when we can't run hardware detection
             self.config["DeviceProperties"]["Add"]["PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)"] = {"shikigva": 128, "unfairgva": 1, "agdpmod": "pikera", "rebuild-device-tree": 1, "enable-gva-support": 1}
         if self.model in ["iMac12,1", "iMac12,2"]:
             logging.info("- Disabling unsupported iGPU")
@@ -490,7 +490,7 @@ class BuildGraphicsAudio:
         Miscellaneous IOAccelerator Handler
 
         When MTL bundles are missing from disk, WindowServer will repeatedly crash
-        This primarily occurs when installing an RSR update, where root is cleaned but AuxKC is not
+        This primarily occurs when installing an RSR update, where root is cleaned but AuxKC isn't
         """
 
         gpu_dict = []

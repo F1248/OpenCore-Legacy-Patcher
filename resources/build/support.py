@@ -54,7 +54,7 @@ class BuildSupport:
 
         kext: dict = self.get_item_by_kv(self.config["Kernel"]["Add"], "BundlePath", bundle_path)
         if not kext:
-            logging.info(f"- Could not find kext {bundle_path}!")
+            logging.info(f"- Couldn't find kext {bundle_path}!")
             raise IndexError
         return kext
 
@@ -71,7 +71,7 @@ class BuildSupport:
 
         efi_binary: dict = self.get_item_by_kv(self.config[entry_type][efi_type], "Path", bundle_name)
         if not efi_binary:
-            logging.info(f"- Could not find {efi_type}: {bundle_name}!")
+            logging.info(f"- Couldn't find {efi_type}: {bundle_name}!")
             raise IndexError
         return efi_binary
 
@@ -123,7 +123,7 @@ class BuildSupport:
 
         logging.info("- Validating generated config")
         if not Path(self.constants.opencore_release_folder / Path("EFI/OC/config.plist")):
-            logging.info("- OpenCore config file missing!!!")
+            logging.info("- OpenCore config file missing!")
             raise Exception("OpenCore config file missing")
 
         config_plist = plistlib.load(Path(self.constants.opencore_release_folder / Path("EFI/OC/config.plist")).open("rb"))
@@ -158,7 +158,7 @@ class BuildSupport:
                 raise Exception(f"Missing driver: {driver['Path']}")
 
         # Validating local files
-        # Report if they have no associated config.plist entry (i.e. they're not being used)
+        # Report if they've no associated config.plist entry (i.e. they're not being used)
         for tool_files in Path(self.constants.opencore_release_folder / Path("EFI/OC/Tools")).glob("*"):
             if tool_files.name not in [x["Path"] for x in config_plist["Misc"]["Tools"]]:
                 logging.info(f"- Missing tool from config: {tool_files.name}")

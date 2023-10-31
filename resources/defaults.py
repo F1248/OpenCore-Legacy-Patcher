@@ -211,7 +211,7 @@ class GenerateDefaults:
             if self.constants.computer.usb_controllers:
                 if self.model in smbios_data.smbios_dictionary:
                     if smbios_data.smbios_dictionary[self.model]["CPU Generation"] < cpu_data.CPUGen.ivy_bridge.value:
-                        # Pre-Ivy do not natively support XHCI boot support
+                        # Pre-Ivy don't natively support XHCI boot support
                         # If we detect XHCI on older model, enable
                         for controller in self.constants.computer.usb_controllers:
                             if isinstance(controller, device_probe.XHCIController):
@@ -331,12 +331,12 @@ class GenerateDefaults:
         - The host is the target
         - Root volume doesn't have adhoc signed binaries
 
-        If all of these conditions are met, it is safe to disable AMFI and CS_LV. Otherwise, for safety, leave it be.
+        If all of these conditions are met, it's safe to disable AMFI and CS_LV. Otherwise, for safety, leave it be.
         """
 
         if not self.host_is_target:
             # Unknown whether the host is using old binaries
-            # Rebuild it once you are on the host
+            # Rebuild it once you're on the host
             return
 
         # Check for adhoc signed binaries
@@ -344,7 +344,7 @@ class GenerateDefaults:
             # Root patch with new binaries, then reboot
             return
 
-        # Note: simply checking the authority is not enough, as the authority can be spoofed
+        # Note: simply checking the authority isn't enough, as the authority can be spoofed
         # (but do we really care? this is just a simple check)
         # Note: the cert will change
 

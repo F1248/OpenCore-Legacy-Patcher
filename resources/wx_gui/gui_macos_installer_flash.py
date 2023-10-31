@@ -213,7 +213,7 @@ class macOSInstallerFlashFrame(wx.Frame):
 
 
     def on_select_disk(self, disk: dict, installer: dict) -> None:
-        answer = wx.MessageBox(f"Are you sure you want to erase '{disk['name']}'?\nAll data will be lost, this cannot be undone.", "Confirmation", wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION)
+        answer = wx.MessageBox(f"Are you sure you want to erase '{disk['name']}'?\nAll data will be lost, this can't be undone.", "Confirmation", wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION)
         if answer != wx.YES:
             return
 
@@ -237,7 +237,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         warning_label.Centre(wx.HORIZONTAL)
 
         # Label: We will notify you when the installer is ready.
-        warning_label = wx.StaticText(self, label="We will notify you when the installer is ready.", pos=(-1, warning_label.GetPosition()[1] + warning_label.GetSize()[1] + 5))
+        warning_label = wx.StaticText(self, label="We won'tify you when the installer is ready.", pos=(-1, warning_label.GetPosition()[1] + warning_label.GetSize()[1] + 5))
         warning_label.SetFont(gui_support.font_factory(11, wx.FONTWEIGHT_NORMAL))
         warning_label.Centre(wx.HORIZONTAL)
 
@@ -259,8 +259,8 @@ class macOSInstallerFlashFrame(wx.Frame):
 
         # Prepare resources
         if self._prepare_resources(installer['Path'], disk['identifier']) is False:
-            logging.error("Failed to prepare resources, cannot continue.")
-            wx.MessageBox("Failed to prepare resources, cannot continue.", "Error", wx.OK | wx.ICON_ERROR)
+            logging.error("Failed to prepare resources, can't continue.")
+            wx.MessageBox("Failed to prepare resources, can't continue.", "Error", wx.OK | wx.ICON_ERROR)
             self.on_return_to_main_menu()
             return
 
@@ -301,7 +301,7 @@ class macOSInstallerFlashFrame(wx.Frame):
             wx.Yield()
 
         if self.result is False:
-            logging.error("Failed to flash installer, cannot continue.")
+            logging.error("Failed to flash installer, can't continue.")
             self.on_return_to_main_menu()
             return
 
@@ -316,14 +316,14 @@ class macOSInstallerFlashFrame(wx.Frame):
 
         if error_message != "":
             progress_bar.SetValue(0)
-            wx.MessageBox(f"Failed to validate installer, cannot continue.\n This can generally happen due to a faulty USB drive, as flashing is an intensive process that can trigger hardware faults not normally seen. \n\n{error_message}", "Corrupted Installer!", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(f"Failed to validate installer, can't continue.\n This can generally happen due to a faulty USB drive, as flashing is an intensive process that can trigger hardware faults not normally seen. \n\n{error_message}", "Corrupted Installer!", wx.OK | wx.ICON_ERROR)
             self.on_return_to_main_menu()
             return
 
         progress_bar.SetValue(estimated_size)
 
         if gui_support.CheckProperties(self.constants).host_can_build() is False:
-            wx.MessageBox("Installer created successfully! If you want to install OpenCore to this USB, you will need to change the Target Model in settings", "Successfully created the macOS installer!", wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox("Installer created successfully! If you want to install OpenCore to this USB, you'll need to change the Target Model in settings", "Successfully created the macOS installer!", wx.OK | wx.ICON_INFORMATION)
             self.on_return_to_main_menu()
             return
 
@@ -491,7 +491,7 @@ class macOSInstallerFlashFrame(wx.Frame):
             logging.info(f"KDK missing: {kdk_dmg_path}")
             return
 
-        # Now that we have a KDK, extract it to get the pkg
+        # Now that we've a KDK, extract it to get the pkg
         with tempfile.TemporaryDirectory() as mount_point:
             logging.info("Mounting KDK")
             result = subprocess.run(["hdiutil", "attach", kdk_dmg_path, "-mountpoint", mount_point, "-nobrowse"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

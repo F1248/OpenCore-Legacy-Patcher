@@ -81,7 +81,7 @@ Below is a rundown of the main logic that OpenCore Legacy Patcher uses to gain n
   * Logic: Forces APFS.kext to always return true on FileVault support
   * Models: Any model needing root patches
 * Disable Library Validation Enforcement Patch
-  * Reason: non-Metal Root Volume Patches do not pass library validation tests
+  * Reason: non-Metal Root Volume Patches don't pass library validation tests
   * Logic: Forces Library Validation function to always return not required
   * Models: Non-Metal GPUs
 * SurPlus Patch

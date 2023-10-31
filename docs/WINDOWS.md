@@ -1,7 +1,7 @@
 # Installing Windows in UEFI Mode
 
 Modern versions of Windows officially support two types of firmware: UEFI and BIOS. Users may want to boot Windows through the OpenCore, but only UEFI Installations of Windows will show up in the OpenCore Boot Picker.
-Many older Macs do not officially support UEFI Windows installations, leading to installation failures and strange behaviour, but OpenCore Legacy Patcher can be used to prevent almost all of these issues.
+Many older Macs don't officially support UEFI Windows installations, leading to installation failures and strange behaviour, but OpenCore Legacy Patcher can be used to prevent almost all of these issues.
 
 ## Minimum Requirements
 
@@ -20,7 +20,7 @@ This guide will focus on the installation of Windows 10 and Windows 11 without u
 
 *`MacPro4,1`, `MacPro5,1`, and `Xserve3,1` systems experience issues with the Windows installer, follow the DISM installation section for instructions.
 
-If your machine is not listed, UEFI Windows will likely still install, but you may face stability/driver issues.
+If your machine isn't listed, UEFI Windows will likely still install, but you may face stability/driver issues.
 
 ## Disk Partitioning and Formatting
 
@@ -43,16 +43,16 @@ Next, select the drive you wish to install Windows in Disk Utility on and partit
 
 :::warning
 
-Incorrectly erasing your drive can lead to data loss! Please verify that you are erasing the correct drive/partition.
+Incorrectly erasing your drive can lead to data loss! Please verify that you're erasing the correct drive/partition.
 
 :::
 
 If you plan to use the same hard drive for macOS and Windows, we recommend creating a dedicated partition just for OpenCore. This lets Windows have the ESP to itself and OpenCore can stay within it's own bubble.
 
-Recommended size is 200MB and the partition format **must** be FAT32 for OpenCore to operate correctly. You will next want to install OpenCore onto the new partition, either moving from the ESP with [MountEFI](https://github.com/corpnewt/MountEFI) or rerunning the OpenCore-Legacy-Patcher.app
+Recommended size is 200MB and the partition format **must** be FAT32 for OpenCore to operate correctly. You'll next want to install OpenCore onto the new partition, either moving from the ESP with [MountEFI](https://github.com/corpnewt/MountEFI) or rerunning the OpenCore-Legacy-Patcher.app
 
-* Note 1: For machines with dedicated drives for Windows, having different partitions for OpenCore is not required.
-* Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Boot Picker are removed. See [Removing the Windows option from the stock Boot Picker](#installation-removing-the-windows-option-from-the-stock-boot-picker) for further information.
+* Note 1: For machines with dedicated drives for Windows, having different partitions for OpenCore isn't required.
+* Note 2: Having different partitions for OpenCore isn't required if the Windows boot files detected by the stock Boot Picker are removed. See [Removing the Windows option from the stock Boot Picker](#installation-removing-the-windows-option-from-the-stock-boot-picker) for further information.
 * Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac Boot Picker.
 
 ![](../images/windows-partition-2.png)
@@ -67,7 +67,7 @@ The latest Windows installation images can be downloaded from Microsoft using th
 
 :::warning
 
-If you are installing Windows 11, then you need to download both Windows 10 and 11 ISO files.
+If you're installing Windows 11, then you need to download both Windows 10 and 11 ISO files.
 
 :::
 
@@ -75,7 +75,7 @@ Once the file is downloaded, mount the .iso image:
 
 ![](../images/windows-iso.png)
 
-Then open terminal and use the `rsync` command with the disk image set as the source and your USB drive set as the target. (Replace "CCCOMA_X64" with the mounted image's partition name, and replace "InstallWin10" with your USB Drive's name). If you are installing Windows 11 you still need to run this step on the Windows 10 ISO file.
+Then open terminal and use the `rsync` command with the disk image set as the source and your USB drive set as the target. (Replace "CCCOMA_X64" with the mounted image's partition name, and replace "InstallWin10" with your USB Drive's name). If you're installing Windows 11 you still need to run this step on the Windows 10 ISO file.
 
 ```
 rsync -r -P /Volumes/CCCOMA_X64/ /Volumes/InstallWin10
@@ -87,7 +87,7 @@ The `rsync` command will take some time, so get some coffee and sit back. Once f
 
 ![](../images/windows-rsync-done.png)
 
-* Ensure that these folders and files are in the root of the USB drive, otherwise the USB will not boot.
+* Ensure that these folders and files are in the root of the USB drive, otherwise the USB won't boot.
 
 ## Windows 11 USB modification
 
@@ -104,7 +104,7 @@ Once you reboot your machine, you should see a new boot option in the OpenCore B
 
 :::warning
 
-If you aren't booted into the OpenCore Boot Picker, you may see **two** boot options labelled `Windows` and `EFI Boot`. Do not choose either of the options and select the OpenCore Boot Picker to continue.
+If you aren't booted into the OpenCore Boot Picker, you may see **two** boot options labelled `Windows` and `EFI Boot`. Don't choose either of the options and select the OpenCore Boot Picker to continue.
 
 :::
 
@@ -112,11 +112,11 @@ If you aren't booted into the OpenCore Boot Picker, you may see **two** boot opt
 
 ### Installation: Microsoft Method
 
-Once booted into the Windows installer, proceed as you normally would on any Windows computer. If you see an error message containing "Windows could not prepare the computer to boot into the next phase of installation", please follow the next portion of this guide (DISM Installation).
+Once booted into the Windows installer, proceed as you normally would on any Windows computer. If you see an error message containing "Windows couldn't prepare the computer to boot into the next phase of installation", please follow the next portion of this guide (DISM Installation).
 
 ::: details Installing Windows 11
 
-If you are installing Windows 11, you will need to [modify the Windows Setup](https://www.bleepingcomputer.com/news/microsoft/how-to-bypass-the-windows-11-tpm-20-requirement/) to allow installation on unsupported machines.
+If you're installing Windows 11, you'll need to [modify the Windows Setup](https://www.bleepingcomputer.com/news/microsoft/how-to-bypass-the-windows-11-tpm-20-requirement/) to allow installation on unsupported machines.
 
 :::
 
@@ -124,12 +124,12 @@ If you are installing Windows 11, you will need to [modify the Windows Setup](ht
 
 Once booted into the Windows installer, proceed as you normally would until you reach the "Where do you want to install Windows" disk formatting section.
 
-When you are prompted to select a drive, select your desired partition and delete it using "Delete". If you want to install Windows to an empty drive, erase every partition currently on the desired drive.
+When you're prompted to select a drive, select your desired partition and delete it using "Delete". If you want to install Windows to an empty drive, erase every partition currently on the desired drive.
 After your drive/partition is erased, press "New" to create the Windows system partitions.
 
 ![](../images/DISM-1.png)
 
-You will be prompted to confirm the creation of the system partitions, press "OK".
+You'll be prompted to confirm the creation of the system partitions, press "OK".
 
 ![](../images/DISM-2.png)
 
@@ -157,7 +157,7 @@ Windows is now installed. It should be recognized as "EFI Boot" or "Windows" wit
 
 :::warning
 
-After the boot files are created, **DO NOT** reboot if you are using a MacPro4,1, MacPro5,1, or Xserve3,1 system! A bug in the Windows bootloader exists that will completely brick the system if it is loaded through the stock Boot Picker. See the "Installation: Removing the Windows option from the stock Boot Picker" section for a workaround.
+After the boot files are created, **don't** reboot if you're using a `MacPro4,1`, `MacPro5,1`, or `Xserve3,1` system! A bug in the Windows bootloader exists that will completely brick the system if it's loaded through the stock Boot Picker. See the "Installation: Removing the Windows option from the stock Boot Picker" section for a workaround.
 
 :::
 
@@ -175,7 +175,7 @@ You can verify that the `Boot` folder is removed by running the `dir` command:
 
 ![](../images/DISM-9.png)
 
-If, for whatever reason, you are not able to remove the boot files from the Windows setup, shut down your system, boot into macOS, mount your EFI partition with [MountEFI](https://github.com/corpnewt/MountEFI), and remove the `Boot` folder (it should have a recent file modification date, and contain `Bootx64.efi`).
+If, for whatever reason, you're not able to remove the boot files from the Windows setup, shut down your system, boot into macOS, mount your EFI partition with [MountEFI](https://github.com/corpnewt/MountEFI), and remove the `Boot` folder (it should have a recent file modification date, and contain `Bootx64.efi`).
 
 
 ## Post-Installation
@@ -218,7 +218,7 @@ Once the Boot Camp software is downloaded, you can install Boot Camp 6 by execut
 
 ## Troubleshooting
 
-### "This version of Boot Camp is not intended for this computer model."
+### "This version of Boot Camp isn't intended for this computer model."
 
 If you built OpenCore with Moderate or higher SMBIOS spoofing, you'll get an error when trying to install Boot Camp drivers. You can solve this by either rebuilding OpenCore with a lower spoof level, or running the installer from `Drivers/Apple/BootCamp.msi`.
 
@@ -236,14 +236,14 @@ set __COMPAT_LAYER=WIN7RTM && start \path\to\BootCamp\Drivers\Apple\Bootcamp.msi
 
 Make sure to substitute `\path\to` with the location of the Boot Camp folder.
 
-You can also open `Properties` on the file to change the compatibility to `Previous version of Windows` in case you have Boot Camp 4.0 drivers (the above command does this already.)
+You can also open `Properties` on the file to change the compatibility to `Previous version of Windows` in case you've Boot Camp 4.0 drivers (the above command does this already.)
 
 :::
 
 ### iMac12,x Bluescreen after driver installation
 
-Intel's iGPU drivers for the HD 3000 series do not support UEFI booting in Windows. The recommended solution is to simply disable the iGPU: [iMac 12,1 Windows 10 Boot Loop – Fix Intel Graphics issue](https://zzq.org/?p=39)
+Intel's iGPU drivers for the HD 3000 series don't support UEFI booting in Windows. The recommended solution is to simply disable the iGPU: [iMac 12,1 Windows 10 Boot Loop – Fix Intel Graphics issue](https://zzq.org/?p=39)
 
 ### NVIDIA Tesla Black Screen after driver installation
 
-The NVIDIA Tesla GPUs found in 2008-2010 Macs do not support UEFI booting in Windows. You cannot use UEFI Windows without low-level patching on these machines.
+The NVIDIA Tesla GPUs found in 2008-2010 Macs don't support UEFI booting in Windows. You can't use UEFI Windows without low-level patching on these machines.

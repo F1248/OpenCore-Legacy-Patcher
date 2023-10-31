@@ -15,4 +15,4 @@ Additionally, hardware info dumps are greatly beneficial for us to determine wha
   * `File -> SaveAs` and open an issue on Github
   * Note: We want IOReg dumps of hardware not running on OpenCore, instead running a clean, officially supported OS by the machine
 
-If you have any legacy hardware you're willing to donate or want to buy us hardware, please reach out on our Discord server.
+If you've any legacy hardware you're willing to donate or want to buy us hardware, please reach out on our Discord server.

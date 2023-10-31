@@ -145,8 +145,8 @@ class SysPatchDisplayFrame(wx.Frame):
                     patch_label.Centre(wx.HORIZONTAL)
 
             if patches["Validation: Patching Possible"] is False:
-                # Cannot patch due to the following reasons:
-                patch_label = wx.StaticText(frame, label="Cannot patch due to the following reasons:", pos=(-1, patch_label.GetPosition()[1] + 25))
+                # Can't patch due to the following reasons:
+                patch_label = wx.StaticText(frame, label="Can't patch due to the following reasons:", pos=(-1, patch_label.GetPosition()[1] + 25))
                 patch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_BOLD))
                 patch_label.Centre(wx.HORIZONTAL)
 

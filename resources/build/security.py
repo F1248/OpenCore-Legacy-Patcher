@@ -47,7 +47,7 @@ class BuildSecurity:
 
             # apfs.kext has an undocumented boot-arg that allows FileVault usage on broken APFS seals (-arv_allow_fv)
             # This is however hidden behind kern.development, thus we patch _apfs_filevault_allowed to always return true
-            # Note this function was added in 11.3 (20E232, 20.4), older builds do not support this (ie. 11.2.3)
+            # Note this function was added in 11.3 (20E232, 20.4), older builds don't support this (ie. 11.2.3)
             logging.info("- Allowing FileVault on Root Patched systems")
             support.BuildSupport(self.model, self.constants, self.config).get_item_by_kv(self.config["Kernel"]["Patch"], "Comment", "Force FileVault on Broken Seal")["Enabled"] = True
             # Lets us check in sys_patch.py if config supports FileVault
