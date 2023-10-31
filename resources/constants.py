@@ -139,7 +139,7 @@ class Constants:
         self.gui_mode:                  bool = False  # Determine whether running in a GUI or TUI
         self.cli_mode:                  bool = True  #  Determine if running in CLI mode
         self.validate:                  bool = False  # Enable validation testing for CI
-        self.recovery_status:           bool = False  # Detect if booted into RecoveryOS
+        self.recovery_status:           bool = False  # Detect if booted into recoveryOS
         self.wxpython_variant:          bool = False  # Determine if using wxPython variant
         self.root_patcher_succeeded:    bool = False  # Determine if root patcher succeeded
         self.start_build_install:       bool = False  # Determine if build install should be started

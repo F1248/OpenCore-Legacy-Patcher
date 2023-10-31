@@ -470,24 +470,24 @@ class DetectRootPatch:
                 sip = sip_data.system_integrity_protection.root_patch_sip_big_sur_3rd_part_kexts
                 sip_hex = "0xA03"
                 sip_value = (
-                    f"For Hackintoshes, please set csr-active-config to '030A0000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in RecoveryOS"
+                    f"For Hackintoshes, please set csr-active-config to '030A0000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in recoveryOS"
                 )
             elif self.constants.detected_os >= os_data.os_data.ventura:
                 sip = sip_data.system_integrity_protection.root_patch_sip_ventura
                 sip_hex = "0x803"
                 sip_value = (
-                    f"For Hackintoshes, please set csr-active-config to '03080000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in RecoveryOS"
+                    f"For Hackintoshes, please set csr-active-config to '03080000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in recoveryOS"
                 )
             else:
                 sip = sip_data.system_integrity_protection.root_patch_sip_big_sur
                 sip_hex = "0x802"
                 sip_value = (
-                    f"For Hackintoshes, please set csr-active-config to '02080000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in RecoveryOS"
+                    f"For Hackintoshes, please set csr-active-config to '02080000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' and \n'csrutil authenticated-root disable' in recoveryOS"
                 )
         else:
             sip = sip_data.system_integrity_protection.root_patch_sip_mojave
             sip_hex = "0x603"
-            sip_value = f"For Hackintoshes, please set csr-active-config to '03060000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' in RecoveryOS"
+            sip_value = f"For Hackintoshes, please set csr-active-config to '03060000' ({sip_hex})\nFor non-OpenCore Macs, please run 'csrutil disable' in recoveryOS"
         return (sip, sip_value, sip_hex)
 
 

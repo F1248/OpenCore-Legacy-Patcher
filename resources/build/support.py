@@ -202,7 +202,7 @@ class BuildSupport:
             item.unlink()
 
         if not self.constants.recovery_status:
-            # Crashes in RecoveryOS for unknown reason
+            # Crashes in recoveryOS for unknown reason
             for i in self.constants.build_path.rglob("__MACOSX"):
                 shutil.rmtree(i)
 

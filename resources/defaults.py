@@ -67,7 +67,7 @@ class GenerateDefaults:
             else:
                 self.constants.allow_nvme_fixing = True
 
-        # Check if running in RecoveryOS
+        # Check if running in recoveryOS
         self.constants.recovery_status = utilities.check_recovery()
 
         if global_settings.GlobalEnviromentSettings().read_property("Force_Web_Drivers") is True:

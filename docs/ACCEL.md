@@ -121,7 +121,7 @@ In the event Apple removes 11.2.3 from their catalogue, we've provided a mirror 
 
 Currently, with OpenCore Legacy Patcher, GPU switching between the iGPU and dGPU is broken. The simplest way to set a specific GPU is to disable the dGPU when you wish to remain on the more power efficient iGPU.
 
-The best way to achieve this is to boot to Recovery (or Single User Mode if the dGPU refuses to function at all) and run the following command:
+The best way to achieve this is to boot to recoveryOS (or Single User Mode if the dGPU refuses to function at all) and run the following command:
 
 ```sh
 nvram FA4CE28D-B62F-4C99-9CC3-6815686E30F9:gpu-power-prefs=%01%00%00%00

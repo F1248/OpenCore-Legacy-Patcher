@@ -18,9 +18,9 @@ Firstly, open the Terminal and run the following command:
 ```sh
 sudo nvram "recovery-boot-mode=unused" && sudo reboot recovery
 ```
-This will make your machine reboot into the Recovery Environment. Alternatively, holding `Command` + `R` when your machine is starting up will also let you enter the Recovery.
+This will make your machine reboot into the recoveryOS Environment. Alternatively, holding `Command` + `R` when your machine is starting up will also let you enter recoveryOS.
 
-Secondly, open the Recovery Environment's Terminal (Menu bar > Utilities > Terminal).
+Secondly, open the Terminal in recoveryOS (Menu bar > Utilities > Terminal).
 
 Now you'll want to get a list of drive identifiers. To do so, run the following command:
 ```sh

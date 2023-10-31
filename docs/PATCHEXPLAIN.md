@@ -74,7 +74,7 @@ Below is a rundown of the main logic that OpenCore Legacy Patcher uses to gain n
   * Models: All models require when spoofing SMBIOS
 * IOHIDFamily Patch
   * Reason: Required for HID peripheral support in macOS on older hardware
-  * Logic: Tricks IOHIDFamily into thinking it's always booting recovery
+  * Logic: Tricks IOHIDFamily into thinking it's always booting recoveryOS
   * Models: Penryn CPUs (Core2 series)
 * Force FileVault on Broken Seal Patch
   * Reason: Allow FileVault on root patched Macs

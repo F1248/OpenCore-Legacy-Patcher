@@ -128,7 +128,7 @@ class BuildMiscellaneous:
 
         # Alternative approach to the kern.hv_vmm_present patch
         # Dynamically sets the property to 1 if software update/installer is detected
-        # Always enabled in installers/recovery environments
+        # Always enabled in recoveryOS environments
         if self.constants.allow_oc_everywhere is False and (self.constants.serial_settings == "None" or self.constants.secure_status is False):
             re_patch_args.append("sbvmm")
 

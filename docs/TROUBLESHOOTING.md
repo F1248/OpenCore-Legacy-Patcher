@@ -5,10 +5,10 @@ Here are some common errors that users may experience while using this patcher:
 * [OpenCore Legacy Patcher not launching](#opencore-legacy-patcher-not-launching)
 * [Stuck on `This version of Mac OS X is not supported on this platform` or (🚫) Prohibited Symbol](#stuck-on-this-version-of-mac-os-x-is-not-supported-on-this-platform-or-(🚫)-prohibited-symbol)
 * [Cannot boot macOS without the USB](#cannot-boot-macos-without-the-usb)
-* [Infinite Recovery OS Booting](#infinite-recovery-os-reboot)
+* [Infinite recoveryOS Booting](#infinite-recoveryos-booting)
 * [Stuck on boot after root patching](#stuck-on-boot-after-root-patching)
 * [Reboot when entering Hibernation (`Sleep Wake Failure`)](#reboot-when-entering-hibernation-sleep-wake-failure)
-* [How to Boot Recovery through OpenCore Legacy Patcher](#how-to-boot-recovery-through-opencore-legacy-patcher)
+* [How to Boot recoveryOS through OpenCore Legacy Patcher](#how-to-boot-recoveryos-through-opencore-legacy-patcher)
 * [Stuck on "Your Mac needs a firmware update"](#stuck-on-your-mac-needs-a-firmware-update)
 * [No Brightness Control](#no-brightness-control)
 * [No Graphics Acceleration](#no-graphics-acceleration)
@@ -45,15 +45,15 @@ After installing macOS, OpenCore Legacy Patcher should automatically prompt you 
 
 Reminder that once this is done, you'll need to select OpenCore in the Boot Picker again for your hardware to remember this entry and auto boot from then on.
 
-## Infinite Recovery OS Booting
+## Infinite recoveryOS Booting
 
 With OpenCore Legacy Patcher, we rely on Apple Secure Boot to ensure OS updates work correctly and reliably with Big Sur. However this installs NVRAM variables that will confuse your Mac if not running with OpenCore. To resolve this, simply uninstall OpenCore and [reset NVRAM](https://support.apple.com/en-mide/HT201255).
 
-* Note: Machines with modified root volumes will also result in an infinite recovery loop until integrity is restored.
+* Note: Machines with modified root volumes will also result in an infinite recoveryOS loop until integrity is restored.
 
 ## Stuck on boot after root patching
 
-Boot into recovery by pressing space when your disk is selected on the OCLP Boot Picker (if you have it hidden, hold ESC while starting up)
+Boot into recoveryOS by pressing space when your disk is selected on the OCLP Boot Picker (if you have it hidden, hold ESC while starting up)
 
 * **Note:** If your disk name is something other than "Macintosh HD", make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
 
@@ -82,9 +82,9 @@ Then restart and now your system should be restored to the unpatched snapshot an
 sudo pmset -a hibernatemode 0
 ```
 
-## How to Boot Recovery through OpenCore Legacy Patcher
+## How to Boot recoveryOS through OpenCore Legacy Patcher
 
-By default, the patcher will try to hide extra boot options such as recovery from the user. To make them appear, simply press the `Spacebar` key while inside OpenCore's Picker to list all boot options.
+By default, the patcher will try to hide extra boot options such as recoveryOS from the user. To make them appear, simply press the `Spacebar` key while inside OpenCore's Picker to list all boot options.
 
 ## Stuck on "Your Mac needs a firmware update"
 
