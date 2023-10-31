@@ -584,7 +584,7 @@
 ## 0.4.8
 - Ensure Apple Silicon-specific installers are not listed
   - ie. M2 specific build (21F2092)
-- Avoid adding OpenCore icon in boot picker if Windows bootloader on same partition
+- Avoid adding OpenCore icon in Boot Picker if Windows bootloader on same partition
 - Add error-handling to corrupt/non-standard NVRAM variables
 - Add warning prompt when using 'Allow native models'
   - Attempt to avoid misuse of option
