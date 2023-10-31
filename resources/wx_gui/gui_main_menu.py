@@ -62,7 +62,7 @@ class MainFrame(wx.Frame):
                     "to boot unsupported OSes.",
                     "Use on installers or internal drives."
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Build.icns"),
+                "icon": str(self.constants.icns_resource_path / "OpenCore-Legacy-Patcher-Build.icns"),
             },
             "Create macOS Installer": {
                 "function": self.on_create_macos_installer,
@@ -70,7 +70,7 @@ class MainFrame(wx.Frame):
                     "Download and flash a macOS",
                     "Installer for your system.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Installer.icns"),
+                "icon": str(self.constants.icns_resource_path / "OpenCore-Legacy-Patcher-Installer.icns"),
             },
             "⚙️ Settings": {
                 "function": self.on_settings,
@@ -84,7 +84,7 @@ class MainFrame(wx.Frame):
                     "patches for your system after",
                     "installing a new version of macOS.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Patch.icns"),
+                "icon": str(self.constants.icns_resource_path / "OpenCore-Legacy-Patcher-Patch.icns"),
             },
 
             "Support": {
@@ -93,7 +93,7 @@ class MainFrame(wx.Frame):
                     "Resources for OpenCore Legacy",
                     "Patcher.",
                 ],
-                "icon": str(self.constants.icns_resource_path / "OC-Support.icns"),
+                "icon": str(self.constants.icns_resource_path / "OpenCore-Legacy-Patcher-Support.icns"),
             },
         }
         button_x = 30

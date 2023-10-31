@@ -711,7 +711,7 @@ class Constants:
     # Icons
     @property
     def app_icon_path(self):
-        return self.payload_path / Path("OC-Patcher.icns")
+        return self.payload_path / Path("OpenCore-Legacy-Patcher.icns")
 
     @property
     def icon_path_external(self):
@@ -731,23 +731,23 @@ class Constants:
 
     @property
     def icon_path_macos_generic(self):
-        return self.payload_path / Path("Icon/AppIcons/Generic.icns")
+        return self.payload_path / Path("Icon/AppIcons/macOS.icns")
 
     @property
     def icon_path_macos_big_sur(self):
-        return self.payload_path / Path("Icon/AppIcons/BigSur.icns")
+        return self.payload_path / Path("Icon/AppIcons/macOS-11-Big-Sur.icns")
 
     @property
     def icon_path_macos_monterey(self):
-        return self.payload_path / Path("Icon/AppIcons/Monterey.icns")
+        return self.payload_path / Path("Icon/AppIcons/macOS-12-Monterey.icns")
 
     @property
     def icon_path_macos_ventura(self):
-        return self.payload_path / Path("Icon/AppIcons/Ventura.icns")
+        return self.payload_path / Path("Icon/AppIcons/macOS-13-Ventura.icns")
 
     @property
     def icon_path_macos_sonoma(self):
-        return self.payload_path / Path("Icon/AppIcons/Sonoma.icns")
+        return self.payload_path / Path("Icon/AppIcons/macOS-14-Sonoma.icns")
 
     @property
     def gui_path(self):

@@ -54,7 +54,7 @@ coll = COLLECT(exe,
                name='OpenCore-Legacy-Patcher')
 app = BUNDLE(coll,
              name='OpenCore-Legacy-Patcher.app',
-             icon="payloads/OC-Patcher.icns",
+             icon="payloads/OpenCore-Legacy-Patcher.icns",
              bundle_identifier="com.dortania.opencore-legacy-patcher",
              info_plist={
                 "CFBundleName": "OpenCore Legacy Patcher",

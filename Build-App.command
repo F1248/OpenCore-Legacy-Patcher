@@ -160,7 +160,7 @@ class CreateBinary:
             "com.dortania.opencore-legacy-patcher.macos-update.plist",
             "entitlements.plist",
             "launcher.sh",
-            "OC-Patcher.icns",
+            "OpenCore-Legacy-Patcher.icns",
         ]
 
 
