@@ -60,7 +60,7 @@ Users can also see whether applicable patches have been installed, date and vers
 
 | Automatic install prompt | Status |
 | :--- | :--- |
-| ![](../images/OCLP-GUI-root-patch-update.png) | ![](../images/OCLP-GUI-Root-Patch-Status.png)  |
+| ![](../images/OCLP-GUI-root-patch-update.png) | ![](../images/OCLP-GUI-Root-Patch-Status.png) |
 
 
 
@@ -103,7 +103,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details GPUs requiring patching in macOS Monterey  and newer
+:::details GPUs requiring patching in macOS Monterey and newer
 
 * NVIDIA:
   * Tesla (8000 - 300 series)
@@ -117,7 +117,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details Wireless Cards requiring patching in macOS Monterey  and newer
+:::details Wireless Cards requiring patching in macOS Monterey and newer
 
 * Broadcom:
   * BCM94328
@@ -126,7 +126,7 @@ Below entries represent GPUs no longer natively supported, ie. requiring root vo
 
 :::
 
-:::details GPUs requiring patching in macOS Ventura  and newer
+:::details GPUs requiring patching in macOS Ventura and newer
 
 * NVIDIA:
   * Kepler (600 - 800 series)

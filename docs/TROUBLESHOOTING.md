@@ -179,14 +179,14 @@ More information can be found here:
 
 Applicable models include:
 
-| Family      | Year                 | Model                         | Notes                                            |
-| :---------- | :--------------------| :---------------------------- | :----------------------------------------------- |
-| MacBook     | Mid 2010 and older   | MacBook5,1 - MacBook7,1       |                                                  |
-| MacBook Air | Late 2010 and older  | MacBookAir2,1 - MacBookAir3,x |                                                  |
-| MacBook Pro | Mid 2010 and older   | MacBookPro4,1 - MacBookPro7,x | Excludes Mid 2010 15" and 17" (MacBookPro6,x)    |
-| iMac        | Late 2009 and older  | iMac7,1 - iMac10,x            | Excludes Core i5/7 27" late 2009 iMac (iMac11,1) |
-| Mac mini    | Mid 2011 and older   | Macmini3,1 - Macmini5,x       |                                                  |
-| Mac Pro     | Mid 2010 and older   | MacPro3,1 - MacPro5,1         |                                                  |
+| Family      | Year                | Model                         | Notes                                            |
+| :---------- | :-------------------| :---------------------------- | :----------------------------------------------- |
+| MacBook     | Mid 2010 and older  | MacBook5,1 - MacBook7,1       |                                                  |
+| MacBook Air | Late 2010 and older | MacBookAir2,1 - MacBookAir3,x |                                                  |
+| MacBook Pro | Mid 2010 and older  | MacBookPro4,1 - MacBookPro7,x | Excludes Mid 2010 15" and 17" (MacBookPro6,x)    |
+| iMac        | Late 2009 and older | iMac7,1 - iMac10,x            | Excludes Core i5/7 27" late 2009 iMac (iMac11,1) |
+| Mac mini    | Mid 2011 and older  | Macmini3,1 - Macmini5,x       |                                                  |
+| Mac Pro     | Mid 2010 and older  | MacPro3,1 - MacPro5,1         |                                                  |
 
 
 ![](../images/usb11-chart.png)
