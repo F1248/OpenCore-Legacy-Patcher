@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/OC-Patcher.png" alt="OpenCore Legacy Patcher Logo" width="256" />
+  <img src="images/OpenCore-Legacy-Patcher.png" alt="OpenCore Legacy Patcher Logo" width="256" />
   <h1>OpenCore Legacy Patcher</h1>
 </div>
 

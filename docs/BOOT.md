@@ -56,7 +56,7 @@ Now that you've loaded OpenCore, "select Install macOS":
 
 * This will be the OpenCore Picker
 
-![](../images/oc-boot.png)
+![](../images/OpenCore-Boot-Picker.png)
 
 You will soon reach the installer screen! If you enabled verbose mode when building OCLP, a lot of text will run across the screen. From there, it's just like any normal macOS install. For an example of how the boot process looks, see the following video:
 
