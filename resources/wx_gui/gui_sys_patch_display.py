@@ -104,7 +104,7 @@ class SysPatchDisplayFrame(wx.Frame):
             logging.info("No applicable patches available")
             patches = []
 
-        # Check if OCLP has already applied the same patches
+        # Check if OpenCore-Legacy-Patcher has already applied the same patches
         no_new_patches = not self._check_if_new_patches_needed(patches) if patches else False
 
         if not patches:

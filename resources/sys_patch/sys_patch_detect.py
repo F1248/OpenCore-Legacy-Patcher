@@ -282,7 +282,7 @@ class DetectRootPatch:
         if self.has_network is True:
             return
 
-        # Verify whether OCLP already installed network patches to the root volume
+        # Verify whether OpenCore-Legacy-Patcher already installed network patches to the root volume
         # If so, require networking to be enabled (user just needs to connect to wifi)
         oclp_patch_path = "/System/Library/CoreServices/OpenCore-Legacy-Patcher.plist"
         if Path(oclp_patch_path).exists():
