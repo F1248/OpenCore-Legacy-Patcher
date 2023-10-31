@@ -9,12 +9,12 @@ This guide will focus on the installation of Windows 10 and Windows 11 without u
 
 * Due to hardware and firmware limitations, UEFI Windows installations are only recommended on the following machines:
 
-  * 2015 MacBook or newer (`MacBook8,x`+)
-  * 2011 MacBook Air or newer (`MacBookAir4,x`+)
-  * 2011 MacBook Pro or newer (`MacBookPro8,x`+)
-  * 2011 Mac mini or newer (`Macmini5,x`+)
-  * 2009* Mac Pro or newer (`MacPro4,1`+), upgraded GPU is preferred
-  * 2010 iMac or newer (`iMac11,x`+), upgraded GPU is preferred
+  * 2015 MacBook (`MacBook8,x`) or newer 
+  * 2011 MacBook Air (`MacBookAir4,x`) or newer
+  * 2011 MacBook Pro (`MacBookPro8,x`) or newer
+  * 2011 Mac mini (`Macmini5,x`) or newer
+  * 2009* Mac Pro (`MacPro4,1`) or newer, upgraded GPU is preferred
+  * 2010 iMac (`iMac11,x`) or newer, upgraded GPU is preferred
   * 2009* Xserve (`Xserve3,1`), upgraded GPU is preferred
 
 
@@ -52,7 +52,7 @@ If you plan to use the same hard drive for macOS and Windows, we recommend creat
 Recommended size is 200MB and the partition format **must** be FAT32 for OpenCore to operate correctly. You will next want to install OpenCore onto the new partition, either moving from the ESP with [MountEFI](https://github.com/corpnewt/MountEFI) or rerunning the OpenCore-Legacy-Patcher.app
 
 * Note 1: For machines with dedicated drives for Windows, having different partitions for OpenCore is not required.
-* Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Boot Picker are removed. See "Removing the Windows option from the stock Boot Picker" for further information.
+* Note 2: Having different partitions for OpenCore is not required if the Windows boot files detected by the stock Boot Picker are removed. See [Removing the Windows option from the stock Boot Picker](#installation-removing-the-windows-option-from-the-stock-boot-picker) for further information.
 * Note 3: We recommend uninstalling OpenCore from the ESP/EFI Partition when you create this new OpenCore partition to avoid confusion when selecting OpenCore builds in the Mac Boot Picker.
 
 ![](../images/windows-partition-2.png)

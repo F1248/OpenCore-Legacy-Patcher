@@ -11,7 +11,7 @@ meta:
 
 features:
 - title: Built with security in mind
-  details: Supporting System Integrity Protection(SIP), FileVault 2, .im4m Secure Boot and Vaulting. For many machines, you're just as secure as a supported Mac.
+  details: Supporting System Integrity Protection (SIP), FileVault 2, .im4m Secure Boot and Vaulting. For many machines, you're just as secure as a supported Mac.
 - title: Native OTA updates
   details: Install updates the moment they come out, with native System Preferences support, just like a supported Mac.
 - title: Zero firmware patching

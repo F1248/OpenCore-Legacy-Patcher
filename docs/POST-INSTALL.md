@@ -24,7 +24,7 @@ To do this, run the OpenCore Legacy Patcher and head to Patcher Settings, then u
 
 Once you've toggled it off, build your OpenCore EFI once again and install to your desired drive. Now to show the OpenCore selector, you can simply hold down the "ESC" key while clicking on EFI boot, and then you can release the "ESC" key when you see the cursor arrow at the top left.
 
-## Enabling SIP
+## Enabling SIP (System Integrity Protection)
 
 For many users, SIP will be lowered by default on build. For Intel HD 4000 users, you may have noticed that SIP is partially disabled. This is to ensure full compatibility with macOS Monterey and allow seamless booting between it and older OSes. However for users who do not plan to boot Monterey, you can re-enable under Patcher Settings.
 

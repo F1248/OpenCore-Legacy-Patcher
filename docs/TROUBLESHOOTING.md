@@ -31,7 +31,7 @@ If the application won't launch (e.g. icon will bounce in the Dock), try launchi
 
 ## Stuck on `This version of Mac OS X is not supported on this platform` or (🚫) Prohibited Symbol
 
-This means macOS has detected an SMBIOS it does not support. To resolve this, ensure you're booting OpenCore **before** the macOS installer in the Boot Picker. Reminder that the option will be called `EFI Boot`.
+This means macOS has detected an SMBIOS it does not support. To resolve this, ensure you select `EFI Boot` **first**.
 
 Once you've booted OpenCore at least once, your hardware should now auto-boot it until either an NVRAM reset occurs, or you remove the drive with OpenCore installed.
 
@@ -41,13 +41,13 @@ However, if the 🚫 Symbol only appears after the boot process has already star
 
 By default, the OpenCore Legacy Patcher won't install OpenCore onto the internal drive itself during installs.
 
-After installing macOS, OpenCore Legacy Patcher should automatically prompt you to install OpenCore onto the internal drive. However, if it doesn't show the prompt, you'll need to either [manually transfer](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) OpenCore to the internal drive's EFI or Build and Install again and select your internal drive.
+After installing macOS, OpenCore Legacy Patcher should automatically prompt you to install OpenCore onto the internal drive. However, if it doesn't show the prompt, you'll need to Build and Install OpenCore again and select your internal drive.
 
-Reminder that once this is done, you'll need to select OpenCore in the Boot Picker again for your hardware to remember this entry and auto boot from then on.
+Reminder that once this is done, you'll need to select `EFI Boot` in the Mac Boot Picker again for your hardware to remember this entry and auto boot from then on.
 
 ## Infinite recoveryOS Booting
 
-With OpenCore Legacy Patcher, we rely on Apple Secure Boot to ensure OS updates work correctly and reliably with Big Sur. However this installs NVRAM variables that will confuse your Mac if not running with OpenCore. To resolve this, simply uninstall OpenCore and [reset NVRAM](https://support.apple.com/en-mide/HT201255).
+OpenCore Legacy Patcher rely on Apple Secure Boot to ensure OS updates work correctly and reliably. However this installs NVRAM variables that will confuse your Mac if not running with OpenCore. To resolve this, simply uninstall OpenCore and [reset NVRAM](https://support.apple.com/en-mide/HT201255).
 
 * Note: Machines with modified root volumes will also result in an infinite recoveryOS loop until integrity is restored.
 
@@ -161,7 +161,7 @@ Because this step can take a few hours or more depending on drive speeds, be pat
 
 ## No acceleration after a Metal GPU swap on Mac Pro
 
-If you finished installing Monterey with the original card installed (to see Boot Picker for example) and swapped your GPU to a Metal supported one, you may notice that you're missing acceleration. To fix this, open OCLP and revert root patches to get your Metal-supported GPU work again.
+If you finished installing macOS with the original card installed (to see s for example) and swapped your GPU to a Metal supported one, you may notice that you're missing acceleration. To fix this, open OpenCore Legacy Patcher and revert root patches to get your Metal-supported GPU work again.
 
 Alternatively, you can remove "AutoPkg-Assets.pkg" from /Library/Packages on the USB drive before proceeding with the installation. To see the folder, enable hidden files with `Command` + `Shift` + `.`
 

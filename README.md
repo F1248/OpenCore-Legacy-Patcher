@@ -28,7 +28,7 @@ Noteworthy features of OpenCore Legacy Patcher:
 
 ----------
 
-Note: Only clean-installs and upgrades are supported. macOS Big Sur installs already patched with other patchers, such as [Patched Sur](https://github.com/BenSova/Patched-Sur) or [bigmac](https://github.com/StarPlayrX/bigmac), cannot be used due to broken file integrity with APFS snapshots and SIP.
+Note: Only clean-installs and upgrades are supported. Installs already patched with other patchers, such as [Patched Sur](https://github.com/BenSova/Patched-Sur) or [bigmac](https://github.com/StarPlayrX/bigmac), cannot be used due to broken file integrity with APFS snapshots and SIP.
 
 * You can, however, reinstall macOS with this patcher and retain your original data
 
