@@ -663,8 +663,8 @@ class SettingsFrame(wx.Frame):
                     "description": [
                         "Enable AMD TeraScale 2 GPU Acceleration",
                         "on MacBookPro8,2 and MacBookPro8,3.",
-                        "By default this is disabled due to",
-                        "common GPU failures on these models.",
+                        "Disabled by default due to common",
+                        "GPU failures on these models.",
                     ],
                     "condition": not bool(self.constants.computer.real_model not in ["MacBookPro8,2", "MacBookPro8,3"])
                 },
