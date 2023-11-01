@@ -1225,6 +1225,14 @@ Hardware Information:
 
     def install_latest_build(self, event: wx.Event) -> None:
 
+        test_url = "https://api.github.com"
+        test_requests = network_handler.NetworkUtilities().get(test_url)
+        if test_requests.status_code != 200:
+            test_result = test_requests.json()
+            logging.warning(test_result)
+            wx.MessageBox(test_result["message"], "Failed to connect to the GitHub API with the following error:", wx.OK | wx.ICON_ERROR)
+            return
+
         actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
         actions_result = network_handler.NetworkUtilities().get(actions_url).json()
 
