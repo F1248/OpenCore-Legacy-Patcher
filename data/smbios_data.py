@@ -2350,7 +2350,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Haswell,
             device_probe.AMD.Archs.Legacy_GCN_7000,
@@ -2369,7 +2369,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Haswell,
             device_probe.AMD.Archs.Legacy_GCN_7000,
@@ -2425,7 +2425,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Skylake,
             device_probe.AMD.Archs.Legacy_GCN_8000,
@@ -2445,7 +2445,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Skylake,
             device_probe.AMD.Archs.Legacy_GCN_8000,
@@ -2465,7 +2465,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Skylake,
             device_probe.AMD.Archs.Legacy_GCN_8000,
@@ -2504,6 +2504,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20703,
         "Ethernet Chipset": "Broadcom",
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Kaby_Lake,
             device_probe.AMD.Archs.Polaris,
@@ -2523,7 +2524,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
         "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20703,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Kaby_Lake,
             device_probe.AMD.Archs.Polaris,
@@ -2543,7 +2544,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Coffee_Lake,
             device_probe.AMD.Archs.Polaris,
@@ -2564,7 +2565,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Coffee_Lake,
             device_probe.AMD.Archs.Polaris,
@@ -2585,6 +2586,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Broadcom",
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Coffee_Lake,
             device_probe.AMD.Archs.Polaris,
@@ -2605,7 +2607,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Comet_Lake,
             device_probe.AMD.Archs.Navi,
@@ -2624,7 +2626,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Broadcom",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.Intel.Archs.Comet_Lake,
             device_probe.AMD.Archs.Navi,
@@ -2671,7 +2673,7 @@ smbios_dictionary = {
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
         "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
         "Ethernet Chipset": "Aquantia",
-        "5K Display": True,
+        "Dual DisplayPort Display": True,
         "Stock GPUs": [
             device_probe.AMD.Archs.Vega,
         ],
