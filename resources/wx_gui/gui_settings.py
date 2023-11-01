@@ -655,15 +655,14 @@ class SettingsFrame(wx.Frame):
                 "Root Volume Patching": {
                     "type": "title",
                 },
-                "TeraScale 2 Acceleration": {
+                "AMD TeraScale 2 GPU Acceleration": {
                     "type": "checkbox",
                     "value": global_settings.GlobalEnviromentSettings().read_property("MacBookPro_TeraScale_2_Accel") or self.constants.allow_ts2_accel,
                     "variable": "MacBookPro_TeraScale_2_Accel",
                     "constants_variable": "allow_ts2_accel",
                     "description": [
-                        "Enable AMD TeraScale 2 GPU",
-                        "Acceleration on MacBookPro8,2 and",
-                        "MacBookPro8,3.",
+                        "Enable AMD TeraScale 2 GPU Acceleration",
+                        "on MacBookPro8,2 and MacBookPro8,3.",
                         "By default this is disabled due to",
                         "common GPU failures on these models.",
                     ],
