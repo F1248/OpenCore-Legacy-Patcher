@@ -28,8 +28,8 @@ class Constants:
         self.url_patcher_support_pkg:         str = "https://github.com/dortania/PatcherSupportPkg/releases/download/"
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
-        self.pkg_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
-        self.app_nightly_url:                 str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
+        self.pkg_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
+        self.app_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg

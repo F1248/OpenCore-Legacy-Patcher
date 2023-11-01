@@ -1268,7 +1268,7 @@ Hardware Information:
             selection_index = dialog.GetSelection()
             branch = branches[selection_index][0]
 
-        url = self.constants.app_nightly_url.replace("branch_placeholder", branch)
+        url = self.constants.app_url.replace("branch_placeholder", branch)
 
         gui_update.UpdateFrame(
             parent = self.parent,

@@ -76,7 +76,7 @@ class OpenCoreLegacyPatcher:
         branch = self.constants.commit_info[0]
         if " " in branch:
             branch = self.constants.fallback_branch
-        self.constants.pkg_nightly_url = self.constants.pkg_nightly_url.replace("branch_placeholder", branch)
+        self.constants.pkg_url = self.constants.pkg_url.replace("branch_placeholder", branch)
 
         # Generate defaults
         defaults.GenerateDefaults(self.computer.real_model, True, self.constants)

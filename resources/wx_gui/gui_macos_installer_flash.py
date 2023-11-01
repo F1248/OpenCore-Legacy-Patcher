@@ -395,7 +395,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         """
         Function's main goal is to grab the correct AutoPkg-Assets.pkg and unzip it
         """
-        link = self.constants.pkg_nightly_url
+        link = self.constants.pkg_url
 
         path = self.constants.installer_pkg_zip_path
 
