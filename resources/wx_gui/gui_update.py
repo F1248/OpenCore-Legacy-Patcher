@@ -17,7 +17,7 @@ class UpdateFrame(wx.Frame):
     """
     Create a frame for updating the patcher
     """
-    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: wx.Point, url: str = "", version_label: str = "") -> None:
+    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: wx.Point, url: str = "", branch_description: str = "") -> None:
         logging.info("Initializing Update Frame")
         if parent:
             self.parent: wx.Frame = parent
@@ -41,11 +41,8 @@ class UpdateFrame(wx.Frame):
             self.screen_location = self.GetScreenPosition()
 
 
-        self.version_label = version_label
-        self.url = url
-
         logging.info(f"Update URL: {url}")
-        logging.info(f"Update Version: {version_label}")
+        logging.info(f"Branch description: {branch_description}")
 
         self.frame: wx.Frame = wx.Frame(
             parent=parent if parent else self,
@@ -89,7 +86,7 @@ class UpdateFrame(wx.Frame):
             title=self.title,
             global_constants=self.constants,
             download_obj=download_obj,
-            item_name=f"OpenCore Legacy Patcher {version_label}",
+            item_name="OpenCore Legacy Patcher",
             download_icon=str(self.constants.app_icon_path)
         )
 
@@ -128,18 +125,13 @@ class UpdateFrame(wx.Frame):
         progress_bar.Hide()
         progress_bar_animation.stop_pulse()
 
-        # Label: 0.6.6 has been installed to:
-        installed_label = wx.StaticText(self.frame, label=f"{version_label} has been installed:", pos=(-1, progress_bar.GetPosition().y - 15))
+        # Label: Latest build has been installed to /Library/Application Support/Dortania!
+        installed_label = wx.StaticText(self.frame, label="Latest build has been installed to /Library/Application Support/Dortania!", pos=(-1, progress_bar.GetPosition().y - 15))
         installed_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_BOLD))
         installed_label.Centre(wx.HORIZONTAL)
 
-        # Label: '/Library/Application Support/Dortania'
-        installed_path_label = wx.StaticText(self.frame, label='/Library/Application Support/Dortania', pos=(-1, installed_label.GetPosition().y + 20))
-        installed_path_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
-        installed_path_label.Centre(wx.HORIZONTAL)
-
         # Label: Launching update shortly…
-        launch_label = wx.StaticText(self.frame, label="Launching update shortly…", pos=(-1, installed_path_label.GetPosition().y + 30))
+        launch_label = wx.StaticText(self.frame, label="Launching update shortly…", pos=(-1, installed_label.GetPosition().y + 30))
         launch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))
         launch_label.Centre(wx.HORIZONTAL)
 

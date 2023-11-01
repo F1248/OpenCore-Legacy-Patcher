@@ -1269,6 +1269,7 @@ Hardware Information:
             branch = branches[selection_index][0]
 
         url = self.constants.app_url.replace("branch_placeholder", branch)
+        branch_description = branches[selection_index][1]
 
         gui_update.UpdateFrame(
             parent = self.parent,
@@ -1276,7 +1277,7 @@ Hardware Information:
             global_constants = self.constants,
             screen_location = self.parent.GetPosition(),
             url = url,
-            version_label = "(Nightly)"
+            branch_description = branch_description
         )
 
 
