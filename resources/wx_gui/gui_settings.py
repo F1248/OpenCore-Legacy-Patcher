@@ -790,9 +790,9 @@ class SettingsFrame(wx.Frame):
                 "Validation": {
                     "type": "title",
                 },
-                "Install latest nightly build 🧪": {
+                "Install latest build": {
                     "type": "button",
-                    "function": self.on_nightly,
+                    "function": self.install_latest_build,
                     "description": [
                     ],
                 },
@@ -1223,7 +1223,7 @@ Hardware Information:
         self.frame_modal.Destroy()
 
 
-    def on_nightly(self, event: wx.Event) -> None:
+    def install_latest_build(self, event: wx.Event) -> None:
         actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
         actions_result = network_handler.NetworkUtilities().get(actions_url).json()
         branches_result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
