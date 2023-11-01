@@ -403,7 +403,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         autopkg_download.download(spawn_thread=False)
 
         if autopkg_download.download_complete is False:
-            logging.warning("Failed to download Install.pkg")
+            logging.warning("Failed to download AutoPkg-Assets.pkg.zip!")
             logging.warning(autopkg_download.error_msg)
             return
 
