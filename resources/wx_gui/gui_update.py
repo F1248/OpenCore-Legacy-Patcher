@@ -96,7 +96,7 @@ class UpdateFrame(wx.Frame):
             wx.MessageBox("Failed to download update. If you continue to have this issue, please manually download OpenCore Legacy Patcher off Github", "Critical Error!", wx.OK | wx.ICON_ERROR)
             sys.exit(1)
 
-        # Title: Extracting update
+        # Title: Extracting update…
         title_label.SetLabel("Extracting update…")
         title_label.Centre(wx.HORIZONTAL)
         wx.Yield()
@@ -107,7 +107,7 @@ class UpdateFrame(wx.Frame):
         while thread.is_alive():
             wx.Yield()
 
-        # Title: Installing update
+        # Title: Installing update…
         title_label.SetLabel("Installing update…")
         title_label.Centre(wx.HORIZONTAL)
 
@@ -117,7 +117,7 @@ class UpdateFrame(wx.Frame):
         while thread.is_alive():
             wx.Yield()
 
-        # Title: Update complete
+        # Title: Update complete!
         title_label.SetLabel("Update complete!")
         title_label.Centre(wx.HORIZONTAL)
 

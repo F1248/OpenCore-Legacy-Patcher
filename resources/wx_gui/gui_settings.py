@@ -1224,15 +1224,20 @@ Hardware Information:
 
 
     def install_latest_build(self, event: wx.Event) -> None:
+
         actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
         actions_result = network_handler.NetworkUtilities().get(actions_url).json()
-        branches_result = network_handler.NetworkUtilities().get(f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches").json()
+
+        branches_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches"
+        branches_result = network_handler.NetworkUtilities().get(branches_url).json()
+
         branches = []
         for branch in branches_result:
             branch_name = branch["name"]
             commit_url = branch["commit"]["url"]
             commit_result = network_handler.NetworkUtilities().get(commit_url).json()
-            last_commit = commit_result["commit"]["message"].replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
+            last_commit = commit_result["commit"]["message"]
+            last_commit = last_commit.replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
             installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
             for run in actions_result["workflow_runs"]:
                 if run["head_branch"] == branch_name:
@@ -1264,10 +1269,9 @@ Hardware Information:
         with wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions) as dialog:
             if dialog.ShowModal() == wx.ID_CANCEL:
                 return
-
             selection_index = dialog.GetSelection()
-            branch = branches[selection_index][0]
 
+        branch = branches[selection_index][0]
         url = self.constants.app_url.replace("branch_placeholder", branch)
         branch_description = branches[selection_index][1]
 
