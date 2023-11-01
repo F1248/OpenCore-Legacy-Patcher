@@ -110,8 +110,6 @@ class AutomaticSysPatch:
         """
         Determine if the booted version of OpenCore Legacy Patcher matches the installed version
 
-        ie. Installed app is 0.2.0, but EFI version is 0.1.0
-
         Returns:
             bool: True if versions match, False if not
         """

@@ -44,7 +44,7 @@ Metal is Apple's in-house graphics API that acts as a replacement for OpenGL/Ope
 
 ## Broken Background Blurs
 
-By default with the non-Metal acceleration patches, many background blur menus may act distorted when moving a cursor over it. With 0.4.1 and newer, users can enable a new Beta Blur feature to try and resolve the issue:
+By default with the non-Metal acceleration patches, many background blur menus may act distorted when moving a cursor over it. Users can enable a new Beta Blur feature to try and resolve the issue:
 
 ![](../images/OCLP-GUI-Settings-Beta-Blur.png)
 

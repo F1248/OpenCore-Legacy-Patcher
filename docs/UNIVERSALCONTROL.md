@@ -26,7 +26,6 @@ Technical requirements:
 * Bluetooth 4.0
 * macOS Monterey 12.4 or newer
 * iPadOS 15.4 or newer (if applicable)
-* OpenCore Legacy Patcher 0.4.3 or newer
 
 Check the [table of models](#table-of-models) below to see whether you need to upgrade hardware and exactly what hardware is required to be changed based on the offending Macs listed. For help on how to upgrade the Wi-Fi card in older 2008-2011 models, refer to the `#hardware` channel in the [Discord server](https://discord.gg/rqdPgH8xSN) if required.
 

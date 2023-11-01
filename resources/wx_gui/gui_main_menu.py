@@ -218,7 +218,7 @@ class MainFrame(wx.Frame):
         """
         Work-around users manually copying the app to /Applications
         We'll delete the app, and create a proper symlink
-        Note: This *shouldn't* be needed with installs after 0.6.7, but it's a good catch-all
+        Note: This *shouldn't* be needed with installs, but it's a good catch-all
         """
 
         if "--update_installed" not in sys.argv:

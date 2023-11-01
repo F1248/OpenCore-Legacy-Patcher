@@ -30,7 +30,7 @@ For many users, SIP will be lowered by default on build. For Intel HD 4000 users
 
 Note: Machines running macOS Ventura or systems with non-Metal GPUs can't enable SIP outright, due to having a patched root volume. Enabling it will brick the installation.
 
-Going forward with 0.6.6, SIP settings can be accessed from the Security tab shown in the images.
+SIP settings can be accessed from the Security tab shown in the images.
 
 | SIP Enabled | SIP Lowered (Root Patching) | SIP Disabled |
 | :--- | :--- | :--- |
