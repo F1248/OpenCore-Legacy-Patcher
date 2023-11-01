@@ -168,9 +168,7 @@ class UpdateFrame(wx.Frame):
         # Some hell spawn at Github decided to double zip our Github Actions artifacts
         # So we need to unzip it twice
         for i in range(2):
-            result = subprocess.run(
-                ["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Legacy-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True
-            )
+            result = subprocess.run(["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Legacy-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True)
             if result.returncode != 0:
                 logging.error(f"Failed to extract update. Error: {result.stderr.decode('utf-8')}")
                 wx.CallAfter(self.progress_bar_animation.stop_pulse)
