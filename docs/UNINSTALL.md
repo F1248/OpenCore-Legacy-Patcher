@@ -15,7 +15,7 @@
 
 Note that after you remove OpenCore, your Mac will no longer boot and show the "prohibited" symbol. Be ready to install an natively-supported version of macOS before you uninstall OpenCore.
 
-* This doesn't apply to native Macs just using OpenCore to achieve features like AirPlay to Mac and Sidecar, but it's still recommended to reinstall macOS after removing OpenCore, if using SMBIOS spoofing to enable Univeral Control.
+* This doesn't apply to native Macs just using OpenCore to achieve features like AirPlay to Mac and Sidecar, but it's still recommended to reinstall macOS after removing OpenCore, if using SMBIOS spoofing to enable Universal Control.
 :::
 
 ## Uninstalling the application

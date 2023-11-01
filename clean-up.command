@@ -8,6 +8,6 @@ rm -fr "$location/dist"
 rm -f  "$location/payloads/OpenCore-Legacy-Patcher.app.zip"
 rm -f  "$location/payloads/update.sh"
 rm -f  "$location/payloads.dmg"
-rm -fr "$location/Universal-Binaries.dmg"
+rm -f  "$location/Universal-Binaries.dmg"
 
 echo 'Successfully cleaned up!'
