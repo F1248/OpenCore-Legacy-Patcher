@@ -47,7 +47,7 @@ class UpdateFrame(wx.Frame):
         self.frame: wx.Frame = wx.Frame(
             parent=parent if parent else self,
             title=self.title,
-            size=(350, 130),
+            size=(512, 128),
             pos=self.screen_location,
             style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER ^ wx.MAXIMIZE_BOX
         )
