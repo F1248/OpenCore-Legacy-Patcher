@@ -5,7 +5,7 @@ import atexit
 import logging
 
 from resources import constants
-from resources.wx_gui import gui_main_menu, gui_build, gui_install_oc, gui_sys_patch_start, gui_update
+from resources.wx_gui import gui_cache_os_update, gui_main_menu, gui_build, gui_install_oc, gui_sys_patch_start, gui_update
 from resources.sys_patch import sys_patch_detect
 
 
@@ -18,6 +18,7 @@ class SupportedEntryPoints:
     INSTALL_OC = gui_install_oc.InstallOCFrame
     SYS_PATCH  = gui_sys_patch_start.SysPatchStartFrame
     UPDATE_APP = gui_update.UpdateFrame
+    OS_CACHE   = gui_cache_os_update.OSUpdateFrame
 
 
 class EntryPoint:
