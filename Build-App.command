@@ -86,7 +86,7 @@ class CreateBinary:
         print("Starting preflight processes")
         self._setup_pathing()
         self._delete_extra_binaries()
-        self._download_resources()
+        self._download_universal_binaries()
         self._generate_payloads_dmg()
 
 
@@ -178,52 +178,40 @@ class CreateBinary:
                 subprocess.run(["rm", "-f", file])
 
 
-    def _download_resources(self):
+    def _download_universal_binaries(self):
         """
-        Download required dependencies
+        Download Universal-Binaries.dmg
         """
 
-        patcher_support_pkg_version = constants.Constants().patcher_support_pkg_version
-        required_resources = [
-            "Universal-Binaries.dmg"
-        ]
+        print("Downloading Universal-Binaries.dmg…")
+        if Path("./Universal-Binaries.dmg").exists():
+            if self.args.reset_binaries:
+                print(f"  - Removing old Universal-Binaries.dmg")
+                rm_output = subprocess.run(["rm", "-rf", "./Universal-Binaries.dmg"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                if rm_output.returncode != 0:
+                    print("Remove failed")
+                    print(rm_output.stderr.decode('utf-8'))
+                    raise Exception("Remove failed")
+            else:
+                print("Universal-Binaries.dmg already exists, skipping download")
+                return
+        print(f"- Downloading Universal-Binaries.dmg…")
 
-        print("Downloading required resources…")
-        for resource in required_resources:
-            if Path(f"./{resource}").exists():
-                if self.args.reset_binaries:
-                    print(f"  - Removing old {resource}")
-                    # Just to be safe
-                    assert resource, "Resource can't be empty"
-                    assert resource not in ("/", "."), "Resource can't be root"
-                    rm_output = subprocess.run(
-                        ["rm", "-rf", f"./{resource}"],
-                        stdout=subprocess.PIPE, stderr=subprocess.PIPE
-                    )
-                    if rm_output.returncode != 0:
-                        print("Remove failed")
-                        print(rm_output.stderr.decode('utf-8'))
-                        raise Exception("Remove failed")
-                else:
-                    print(f"- {resource} already exists, skipping download")
-                    continue
-            print(f"- Downloading {resource}…")
-
-            download_result = subprocess.run(
-                [
-                    "curl", "-LO",
-                    f"https://github.com/dortania/PatcherSupportPkg/releases/download/{patcher_support_pkg_version}/{resource}"
-                ],
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE
-            )
-
-            if download_result.returncode != 0:
-                print("- Download failed")
-                print(download_result.stderr.decode('utf-8'))
-                raise Exception("Download failed")
-            if not Path(f"./{resource}").exists():
-                print(f"- {resource} not found")
-                raise Exception(f"{resource} not found")
+        download_result = subprocess.run(["curl", "-LO", constants.Constants().support_url], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if download_result.returncode != 0:
+            print(f"Failed to download Universal%20Binaries.zip. Error: {download_result.stderr.decode('utf-8')}")
+            raise Exception("Download failed")
+        if not Path("./Universal%20Binaries.zip").exists():
+            print("- Universal%20Binaries.zip not found")
+            raise Exception("Universal%20Binaries.zip not found")
+        
+        unzip_result = subprocess.run(["ditto", "-xk", "Universal%20Binaries.zip"], capture_output=True)
+        if unzip_result.returncode != 0:
+            print(f"Failed to extract Universal-Binaries.zip. Error: {unzip_result.stderr.decode('utf-8')}")
+            raise Exception("Unzip failed")
+        if not Path("./Universal-Binaries.dmg").exists():
+            print("- Universal-Binaries.dmg not found")
+            raise Exception("Universal-Binaries.dmg not found")
 
 
     def _generate_payloads_dmg(self):

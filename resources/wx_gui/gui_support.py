@@ -88,9 +88,7 @@ class GaugePulseCallback:
         self.max_value: int = gauge.GetRange()
 
         self.non_metal_alternative: bool = CheckProperties(global_constants).host_is_non_metal()
-        if self.non_metal_alternative is True:
-            if CheckProperties(global_constants).host_psp_version() >= packaging.version.Version("1.1.2"):
-                self.non_metal_alternative = False
+        self.non_metal_alternative = False   
 
 
     def start_pulse(self) -> None:
@@ -175,23 +173,6 @@ class CheckProperties:
                 return True
         return False
 
-
-    def host_psp_version(self) -> packaging.version.Version:
-        """
-        Grab PatcherSupportPkg version from OpenCore-Legacy-Patcher.plist
-        """
-        oclp_plist_path = "/System/Library/CoreServices/OpenCore-Legacy-Patcher.plist"
-        if not Path(oclp_plist_path).exists():
-            return packaging.version.Version("0.0.0")
-
-        oclp_plist = plistlib.load(open(oclp_plist_path, "rb"))
-        if "PatcherSupportPkg" not in oclp_plist:
-            return packaging.version.Version("0.0.0")
-
-        if oclp_plist["PatcherSupportPkg"].startswith("v"):
-            oclp_plist["PatcherSupportPkg"] = oclp_plist["PatcherSupportPkg"][1:]
-
-        return packaging.version.parse(oclp_plist["PatcherSupportPkg"])
 
     def host_has_3802_gpu(self) -> bool:
         """

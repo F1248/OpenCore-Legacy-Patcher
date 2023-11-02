@@ -20,16 +20,15 @@ class Constants:
 
         # Patcher
         self.patcher_version:                 str = "1.2.0" # OpenCore Legacy Patcher
-        self.patcher_support_pkg_version:     str = "1.4.4" # PatcherSupportPkg
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
         self.patcher_name:                    str = "OpenCore Legacy Patcher"
 
         # URLs
-        self.url_patcher_support_pkg:         str = "https://github.com/dortania/PatcherSupportPkg/releases/download/"
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
         self.pkg_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
         self.app_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
+        self.support_url:                     str = "https://nightly.link/dortania/PatcherSupportPkg/workflows/build/master/Universal%20Binaries.zip"
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg
@@ -224,7 +223,6 @@ class Constants:
         self.disable_tb:             bool = False  # Disable Thunderbolt Controller
         self.dGPU_switch:            bool = False  # Set Display GPU Switching for Windows
         self.force_surplus:          bool = False  # Force SurPlus patch in newer OSes
-        self.force_latest_psp:       bool = False  # Force latest PatcherSupportPkg
         self.disable_fw_throttle:    bool = False  # Disable MSR Power Control and XCPM
         self.software_demux:         bool = False  # Enable Software Demux patch set
         self.force_vmm:              bool = False  # Force VMM patch

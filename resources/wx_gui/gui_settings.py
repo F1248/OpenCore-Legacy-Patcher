@@ -979,7 +979,6 @@ class SettingsFrame(wx.Frame):
                 break
 
         lines = f"""Application Information:
-    PatcherSupportPkg Version: {self.constants.patcher_support_pkg_version}
     Application Path: {self.constants.launcher_binary}
     Application Mount: {self.constants.payload_path}
 
