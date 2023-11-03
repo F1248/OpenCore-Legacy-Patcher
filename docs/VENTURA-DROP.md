@@ -46,11 +46,11 @@ Currently at this time, OpenCore Legacy Patcher only supports patching the AMD P
 
 Following GPUs are applicable:
 
-| GPU Architecture | Model Families | Supported |
-| :--- | :--- | :--- |
-| AMD Polaris | RX 4xx/5xx (10/20 series) | <span style="color:#30BCD5"> Supported with patching </span> |
-| AMD Vega    | Vega 56/64/VII (10/20 series) | ^^ |
-| AMD Navi    | RX 5xxx/6xxx (10/20 series) | <span style="color:red"> Unsupported </span> |
+| GPU Architecture | Model Families                | Support                                                   |
+|------------------|-------------------------------|-----------------------------------------------------------|
+| AMD Polaris      | RX 4xx/5xx (10/20 series)     | <span style="color:#green">Supported with patching</span> |
+| AMD Vega         | Vega 56/64/VII (10/20 series) | ^^                                                        |
+| AMD Navi         | RX 5xxx/6xxx (10/20 series)   | <span style="color:red">Unsupported</span>                |
 
 
 ### USB 1.1 (OHCI/UHCI) Support

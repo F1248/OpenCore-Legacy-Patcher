@@ -53,7 +53,7 @@ OpenCore Legacy Patcher rely on Apple Secure Boot to ensure OS updates work corr
 
 ## Stuck on boot after root patching
 
-Boot into recoveryOS by pressing space when your disk is selected on the OpenCore Boot Picker (if you've it hidden, hold ESC while starting up)
+Boot into recoveryOS by pressing `Space` in the OpenCore Boot Picker (if you've it hidden, hold `esc` while starting up).
 
 * **Note:** If your disk name is something other than "Macintosh HD", make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
 
@@ -84,7 +84,7 @@ sudo pmset -a hibernatemode 0
 
 ## How to Boot recoveryOS through OpenCore Legacy Patcher
 
-By default, the patcher will try to hide extra boot options such as recoveryOS from the user. To make them appear, simply press the `Spacebar` key while inside OpenCore's Picker to list all boot options.
+By default, the patcher will try to hide extra boot options such as recoveryOS from the user. To make them appear, simply press `Space` in the OpenCore Boot Picker to list all boot options.
 
 ## Stuck on "Your Mac needs a firmware update"
 
@@ -138,8 +138,8 @@ With OpenCore Legacy Patcher, the patcher will always overwrite the current SIP 
 
 Head into the GUI, go to Patcher Settings, and toggle the bits you need disabled from SIP:
 
-| SIP Enabled | SIP Lowered (Root Patching) | SIP Disabled |
-| :--- | :--- | :--- |
+| SIP Enabled                                      | SIP Lowered (Root Patching)                         | SIP Disabled                                      |
+|--------------------------------------------------|-----------------------------------------------------|---------------------------------------------------|
 | ![](../images/OCLP-GUI-Settings-SIP-Enabled.png) | ![](../images/OCLP-GUI-Settings-SIP-Root-Patch.png) | ![](../images/OCLP-GUI-Settings-SIP-Disabled.png) |
 
 ## Intermediate issues with USB 1.1 and Bluetooth on MacPro3,1 - MacPro5,1
@@ -179,14 +179,14 @@ More information can be found here:
 
 Applicable models include:
 
-| Family      | Year                | Model                         | Notes                                            |
-| :---------- | :-------------------| :---------------------------- | :----------------------------------------------- |
-| MacBook     | Mid 2010 and older  | MacBook5,1 - MacBook7,1       |                                                  |
-| MacBook Air | Late 2010 and older | MacBookAir2,1 - MacBookAir3,x |                                                  |
-| MacBook Pro | Mid 2010 and older  | MacBookPro4,1 - MacBookPro7,x | Excludes Mid 2010 15" and 17" (MacBookPro6,x)    |
-| iMac        | Late 2009 and older | iMac7,1 - iMac10,x            | Excludes Core i5/7 27" late 2009 iMac (iMac11,1) |
-| Mac mini    | Mid 2011 and older  | Macmini3,1 - Macmini5,x       |                                                  |
-| Mac Pro     | Mid 2010 and older  | MacPro3,1 - MacPro5,1         |                                                  |
+| Family      | Year                | Model                   | Notes                                                            |
+|-------------|---------------------|-------------------------|------------------------------------------------------------------|
+| MacBook     | Mid 2010 and older  | MacBook7,x and older    |                                                                  |
+| MacBook Air | Late 2010 and older | MacBookAir3,x and older |                                                                  |
+| MacBook Pro | Mid 2010 and older  | MacBookPro7,x and older | Excludes MacBook Pro (15- and 17-inch, Mid 2010) (MacBookPro6,x) |
+| iMac        | Late 2009 and older | iMac10,x and older      | Excludes iMac (27-inch, Late 2009) with Core i5 / i7 (iMac11,1)  |
+| Mac mini    | Mid 2011 and older  | Macmini5,x and older    |                                                                  |
+| Mac Pro     | Mid 2010 and older  | MacPro5,x and older     |                                                                  |
 
 
 ![](../images/usb11-chart.png)

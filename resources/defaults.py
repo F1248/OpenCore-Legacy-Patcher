@@ -58,7 +58,7 @@ class GenerateDefaults:
 
         if self.model in smbios_data.smbios_dictionary:
             if smbios_data.smbios_dictionary[self.model]["CPU Generation"] >= cpu_data.CPUGen.skylake.value:
-                # On 2016-2017 MacBook Pros, 15" devices used a stock Samsung SSD with IONVMeController
+                # On 2016-2017 MacBook Pros, 15 inch devices used a stock Samsung SSD with IONVMeController
                 # Technically this should be patched based on NVMeFix.kext logic,
                 # however Apple deemed the SSD unsupported for enhanced performance
                 # In addition, some upgraded NVMe drives still have issues with enhanced power management

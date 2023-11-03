@@ -2,7 +2,7 @@
 
 Now we finally get to boot OpenCore!
 
-Reboot the machine while holding `Option` to select the EFI Boot entry with the OpenCore icon (holding the `Control` key will make this the default boot entry):
+Reboot the machine while holding `Option` to select the `EFI Boot` entry with the OpenCore Legacy Patcher icon (holding the `Control` key will make this the default boot entry):
 
 * This will be the Mac Boot Picker
 
@@ -54,7 +54,7 @@ Now you can reboot your machine. OpenCore Legacy Patcher is now the default boot
 
 Now that you've loaded OpenCore, "select Install macOS":
 
-* This will be the OpenCore Picker
+* This will be the OpenCore Boot Picker
 
 ![](../images/OpenCore-Boot-Picker.png)
 

@@ -244,13 +244,13 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Reason: Ensures telemetry.plugin doesn't run, required for SSE4,1 CPUs
   * Models: Penryn CPUs
 
-### Wifi
+### Wi-Fi
 
 * IO80211ElCap
-  * Reason: Re-inject WiFi drivers from El Capitan
+  * Reason: Re-inject Wi-Fi drivers from El Capitan
   * Models: BCM94328, BCM94322 and Atheros chipsets
 * corecaptureElCap.kext
-  * Reason: Re-inject WiFi drivers from El Capitan
+  * Reason: Re-inject Wi-Fi drivers from El Capitan
   * Models: BCM94328, BCM94322 and Atheros chipsets
 
 ### Misc
@@ -425,7 +425,7 @@ Unfortunately certain on-disk patches are required to achieve full functionality
 
 ::: details Legacy Wireless Patches (12.0+)
 
-Applicable for BCM94328, BCM94322 and Atheros Wifi cards
+Applicable for BCM94328, BCM94322 and Atheros Wi-Fi cards
 
 ### CoreServices
 

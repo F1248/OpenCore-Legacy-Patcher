@@ -102,9 +102,9 @@ This project is offered on an AS-IS basis, we don't guarantee support for any is
   * [SpiGAndromeda](https://github.com/SpiGAndromeda) - AMD Vega 64
   * [turbomacs](https://github.com/turbomacs) - 2014 5k iMac
   * [vinaypundith](https://forums.macrumors.com/members/vinaypundith.1212357/) - MacBook7,1
-   * [ThatStella7922](https://github.com/ThatStella7922) - 2017 13" MacBook Pro (A1708)
+   * [ThatStella7922](https://github.com/ThatStella7922) - 2017 13 inch MacBook Pro (A1708)
   * zephar - 2008 Mac Pro
-  * jazo97 - 2011 15" MacBook Pro
+  * jazo97 - 2011 15 inch MacBook Pro
   * And others (reach out if we forgot you!)
 * MacRumors and Unsupported Mac Communities
   * Endless testing and reporting issues

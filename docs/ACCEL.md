@@ -6,12 +6,12 @@
 * [Unable to grant special permissions to apps (ie. Camera Access to Zoom)](#unable-to-grant-permissions-to-apps)
 * [Keyboard Backlight broken](#keyboard-backlight-broken)
 * [Photos and Maps Apps Heavily Distorted](#photos-and-maps-apps-heavily-distorted)
-* [Can't press "Done" when editing a Sidebar Widget](#can't-press-done-when-editing-a-sidebar-widget)
+* [Can't press `Done` when editing a Sidebar Widget](#can't-press-done-when-editing-a-sidebar-widget)
 * [Wake from sleep heavily distorted on AMD/ATI from macOS 11.3 to macOS Monterey](#wake-from-sleep-heavily-distorted-on-amdati-from-macos-113-to-macos-monterey)
-* [Unable to switch GPUs on 2011 15" and 17" MacBook Pros](#unable-to-switch-gpus-on-2011-15-and-17-macbook-pros)
+* [Unable to switch GPUs on 2011 15 inch and 17 inch MacBook Pros](#unable-to-switch-gpus-on-2011-15-inch-and-17-inch-macbook-pros)
 * [Erratic Colours on ATI TeraScale 2 GPUs (HD5000/HD6000)](#erratic-colours-on-ati-terascale-2-gpus-hd5000-hd6000)
 * [Unable to allow Safari Extensions](#unable-to-allow-safari-Extensions)
-* [Can't Login on 2011 15" and 17" MacBook Pros](#can't-login-on-2011-15-and-17-macbook-pros)
+* [Can't Login on 2011 15 inch and 17 inch MacBook Pros](#can't-login-on-2011-15-inch-and-17-inch-macbook-pros)
 * [Black Boxes on HD3000 iGPUs](#black-boxes-on-hd3000-igpus)
 * [Can't Pair Bluetooth Devices](#can't-pair-bluetooth-devices)
 
@@ -25,20 +25,20 @@ For those unfamiliar with what is considered a non-Metal GPU, see the chart belo
 
 Metal is Apple's in-house graphics API that acts as a replacement for OpenGL/OpenCL, introduced in 2015. With the release of macOS Mojave, every system without a Metal-capable GPU was dropped.
 
-| Graphics Vendor | Architecture | Series | Supports Metal |
-| :--- | :--- | :--- | :--- |
-| ATI | TeraScale 1 | HD 2XXX - HD 4XXX | <span style="color:red">No</span> |
-| ^^ | TeraScale 2 | HD 5XXX - HD 6XXX | ^^ |
-| AMD | GCN (and newer) | HD 7XXX+ | <span style="color:green">Yes</span> |
-| NVIDIA | Tesla | 8XXX - 3XX | <span style="color:red">No</span> |
-| ^^ | Fermi | 4XX - 5XX | ^^ |
-| ^^ | Kepler | 6XX - 7XX | <span style="color:green">Yes</span> |
-| ^^ | Maxwell | 8XX - 9XX | <span style="color:red">No (on 10.14 and newer)</span> |
-| ^^ | Pascal | 10XX | ^^ |
-| Intel | GMA | GMA 900 - GMA X3000 | <span style="color:red">No</span> |
-| ^^ | Iron Lake | HD series | ^^ |
-| ^^ | Sandy Bridge | HD 3000 | ^^ |
-| ^^ | Ivy Bridge (and newer) | HD 4000 | <span style="color:green">Yes</span> |
+| Graphics Vendor | Architecture         | Series          | Supports Metal                                      |
+|-----------------|----------------------|-----------------|-----------------------------------------------------|
+| ATI             | TeraScale 1          | HD 2XXX - 4XXX  | <span style="color:red">No</span>                   |
+| ^^              | TeraScale 2          | HD 5XXX - 6XXX  | ^^                                                  |
+| AMD             | GCN and newer        | HD 7XXX+        | <span style="color:green">Yes</span>                |
+| NVIDIA          | Tesla                | 8XXX - 3XX      | <span style="color:red">No</span>                   |
+| ^^              | Fermi                | 4XX - 5XX       | ^^                                                  |
+| ^^              | Kepler               | 6XX - 7XX       | <span style="color:green">Yes</span>                |
+| ^^              | Maxwell              | 8XX - 9XX       | <span style="color:red">Only 10.14 and older</span> |
+| ^^              | Pascal               | 10XX            | ^^                                                  |
+| Intel           | GMA                  | GMA 900 - X3000 | <span style="color:red">No</span>                   |
+| ^^              | Iron Lake            | HD series       | ^^                                                  |
+| ^^              | Sandy Bridge         | HD 3000         | ^^                                                  |
+| ^^              | Ivy Bridge and newer | HD 4000         | <span style="color:green">Yes</span>                |
 
 :::
 
@@ -101,9 +101,9 @@ Due to forcing `hidd` into spinning up with the fallback mode enabled, this can 
 
 Due to the Metal Backend, the enhanced color output of these apps seems to heavily break overall UI usage. To work around this, [users reported](https://forums.macrumors.com/threads/macos-11-big-sur-on-unsupported-macs-thread.2242172/post-29870324) forcing the color output of their monitor from Billions to Millions of colors helped greatly. Apps easily allowing this customization are [SwitchResX](https://www.madrau.com), [ResXreme](https://macdownload.informer.com/resxtreme/) and [EasyRes](http://easyresapp.com).
 
-## Can't press "Done" when editing a Sidebar Widget
+## Can't press `Done` when editing a Sidebar Widget
 
-Workaround: Press some combination of Tab, or Tab and then Shift-Tab, or just Shift-Tab until the "Done" button is highlighted. Then press spacebar to activate the button, the same as in any other dialog with a highlighted button halo.
+Workaround: Press some combination of `Tab`, or `Tab` and then `Shift`-`Tab`, or just `Shift`-`Tab` until the `Done` button is highlighted. Then press `Space` to activate the button, the same as in any other dialog with a highlighted button halo.
 
 ## Wake from sleep heavily distorted on AMD/ATI from macOS 11.3 to macOS Monterey
 
@@ -117,7 +117,7 @@ In the event Apple removes 11.2.3 from their catalogue, we've provided a mirror 
 
 * [Install macOS 11.2.3 20D91](https://archive.org/details/install-mac-os-11.2.3-20-d-91)
 
-## Unable to switch GPUs on 2011 15" and 17" MacBook Pros
+## Unable to switch GPUs on 2011 15 inch and 17 inch MacBook Pros
 
 Currently, with OpenCore Legacy Patcher, GPU switching between the iGPU and dGPU is broken. The simplest way to set a specific GPU is to disable the dGPU when you wish to remain on the more power efficient iGPU.
 
@@ -141,14 +141,14 @@ The following tool can be used to work-around this issue:
 
 * [Non-Metal Safari Extensions](https://github.com/moosethegoose2213/Non-Metal-Safari-Extensions/)
 
-## Can't Login on 2011 15" and 17" MacBook Pros
+## Can't Login on 2011 15 inch and 17 inch MacBook Pros
 
 By default, OpenCore Legacy Patcher will assume MacBookPro8,2/3 have a faulty dGPU and disable acceleration. This is the safest option for most users as enabling dGPU acceleration on faulty Macs will result in failed booting.
 
 However, if your machine doesn't have the dGPU disabled via NVRAM, you'll experience a login loop. To work around this is quite simple:
 
 1. Boot macOS in Single User Mode
-    * Press Cmd+S in OpenCore's menu when you turn the Mac on
+    * Press `Cmd` + `S` in OpenCore's menu when you turn the Mac on
 2. When the command line prompt appears, enter the dGPU disabler argument (at the bottom)
 3. Reboot and patched macOS should work normally
 4. If you still want to use the dGPU, run OpenCore Legacy Patcher and enable TS2 Acceleration from settings. Go to `Patcher Settings -> Developer Settings -> Set TeraScale 2 Accel`, then root patch again.
@@ -169,16 +169,16 @@ A somewhat strange issue on Intel HD3000-based Macs, on 3rd party displays somet
 * If you're inside Setup Assistant, press `Cmd` + `Option` + `Control` + `T` to launch Terminal. From there, run `open /System/Applications/System\ Preferences.app`
 * Issue has spread to more Macs with macOS Ventura, including MacBook Airs and MacBook Pros
 
-| Default Color Profile | Display/Display P3 Profile |
-| :---                  | :---                       |
+| Default Color Profile                    | Display (P3) Profile                     |
+|------------------------------------------|------------------------------------------|
 | ![](../images/HD3000-Default-Colors.png) | ![](../images/HD3000-Display-Colors.png) |
 
 ## Can't Pair Bluetooth Devices
 
-In macOS Ventura, hover states may not function correctly which results in the "Connect" button not appearing in System Settings. To resolve:
+In macOS Ventura, hover states may not function correctly which results in the `Connect` button not appearing in System Settings. To resolve:
 
 1. Enable Keyboard Navigation in System Settings -> Keyboard
-2. Tab + space over Bluetooth devices in System Settings -> Bluetooth
+2. `Tab` + `Space` over Bluetooth devices in System Settings -> Bluetooth
 3. Pair button should appear
 
 For more information, see [ASentientBot's post](https://forums.macrumors.com/threads/macos-13-ventura-on-unsupported-macs-thread.2346881/page-116?post=31858759#post-31858759).

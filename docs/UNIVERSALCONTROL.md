@@ -35,7 +35,7 @@ Other requirements:
 
 * All devices are signed into the same iCloud account.
 * Two Factor Authentication is enabled with your Apple ID.
-* Bluetooth and WiFi are enabled. Neither needs to be connected, leaving them enabled is sufficient.
+* Bluetooth and Wi-Fi are enabled. Neither needs to be connected, leaving them enabled is sufficient.
 * Handoff turned on from iCloud settings.
 * The devices in question are in close proximity.
 

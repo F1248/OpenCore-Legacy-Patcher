@@ -586,7 +586,7 @@ def check_cli_args():
     parser.add_argument("--verbose", help="Enable verbose boot", action="store_true", required=False)
     parser.add_argument("--debug_oc", help="Enable OpenCore DEBUG", action="store_true", required=False)
     parser.add_argument("--debug_kext", help="Enable kext DEBUG", action="store_true", required=False)
-    parser.add_argument("--hide_picker", help="Hide OpenCore picker", action="store_true", required=False)
+    parser.add_argument("--hide_picker", help="Hide OpenCore Boot Picker", action="store_true", required=False)
     parser.add_argument("--disable_sip", help="Disable SIP", action="store_true", required=False)
     parser.add_argument("--disable_smb", help="Disable SecureBootModel", action="store_true", required=False)
     parser.add_argument("--vault", help="Enable OpenCore Vaulting", action="store_true", required=False)

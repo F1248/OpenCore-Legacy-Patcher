@@ -13,7 +13,7 @@ def set_smbios_model_spoof(model):
             if smbios_data.smbios_dictionary[model]["Screen Size"] == 13:
                 return "MacBookPro14,1"
             elif smbios_data.smbios_dictionary[model]["Screen Size"] >= 15:
-                # 15" and 17"
+                # 15 and 17 inch
                 return "MacBookPro14,3"
             else:
                 # Unknown Model

@@ -137,7 +137,7 @@ Once the partitions are created, select the main (largest) partition and press "
 
 ![](../images/DISM-3.png)
 
-After the installer formats the partition, open up the Command Prompt by pressing SHIFT + F10. Then run the `diskpart` command, and `list vol`. This will produce a list of volumes in your system, make sure to keep track of the drive letters of the main Windows partition (largest, NTFS), the EFI partition (100MB, FAT32), and the Windows installer (Usually Drive D). Run `exit` to close diskpart
+After the installer formats the partition, open up the Command Prompt by pressing `Shift` + F10. Then run the `diskpart` command, and `list vol`. This will produce a list of volumes in your system, make sure to keep track of the drive letters of the main Windows partition (largest, NTFS), the EFI partition (100MB, FAT32), and the Windows installer (Usually Drive D). Run `exit` to close diskpart
 
 ![](../images/DISM-4.png)
 
@@ -153,7 +153,7 @@ Once `dism` finishes its thing, run `bcdboot E:\Windows`, substituting "E" for t
 
 ![](../images/DISM-7.png)
 
-Windows is now installed. It should be recognized as "EFI Boot" or "Windows" with a Boot Camp icon in the OpenCore Boot Picker.
+Windows is now installed. It should be recognized as `EFI Boot` or `Windows` with a Boot Camp icon in the OpenCore Boot Picker.
 
 :::warning
 
@@ -222,8 +222,8 @@ Once the Boot Camp software is downloaded, you can install Boot Camp 6 by execut
 
 If you built OpenCore with Moderate or higher SMBIOS spoofing, you'll get an error when trying to install Boot Camp drivers. You can solve this by either rebuilding OpenCore with a lower spoof level, or running the installer from `Drivers/Apple/BootCamp.msi`.
 
-| Setup.exe | BootCamp.msi |
-| :--- | :--- |
+| Setup.exe                                 | BootCamp.msi                            |
+|-------------------------------------------|-----------------------------------------|
 | ![](../images/windows-bootcamp-error.png) | ![](../images/windows-bootcamp-msi.png) |
 
 ::: details BootCamp.msi quirks
@@ -242,7 +242,7 @@ You can also open `Properties` on the file to change the compatibility to `Previ
 
 ### iMac12,x Bluescreen after driver installation
 
-Intel's iGPU drivers for the HD 3000 series don't support UEFI booting in Windows. The recommended solution is to simply disable the iGPU: [iMac 12,1 Windows 10 Boot Loop – Fix Intel Graphics issue](https://zzq.org/?p=39)
+Intel's iGPU drivers for the HD 3000 series don't support UEFI booting in Windows. The recommended solution is to simply disable the iGPU: [iMac 12,1 Windows 10 Boot Loop - Fix Intel Graphics issue](https://zzq.org/?p=39)
 
 ### NVIDIA Tesla Black Screen after driver installation
 

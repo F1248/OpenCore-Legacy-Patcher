@@ -274,8 +274,8 @@ class SettingsFrame(wx.Frame):
                     "value": self.constants.showpicker,
                     "variable": "showpicker",
                     "description": [
-                        "When disabled, users can hold ESC to",
-                        "show picker in the firmware.",
+                        "When disabled, you can hold esc",
+                        "to show the OpenCore Boot Picker.",
                     ],
                 },
                 "OpenCore Boot Picker Timeout": {

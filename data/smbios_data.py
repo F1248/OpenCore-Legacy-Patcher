@@ -3083,7 +3083,7 @@ smbios_dictionary = {
         "Stock Storage": [],
     },
     "APPL_UNKNOWN_MODEL_3": {
-        # Laptop model, 15"/17" with dGPU and GMUX
+        # Laptop model, 15 and 17 inch with dGPU and GMUX
         # Only mentioned in AppleGraphicsPowerManagement, AppleMuxControl2, AGDCBacklightControl, ApplePlatformEnabler and X86PlatformPlugin
         "Board ID": "Mac-564FBA6031E5946A",
         "FirmwareFeatures": None,
