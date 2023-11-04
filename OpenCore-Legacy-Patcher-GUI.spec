@@ -8,10 +8,7 @@ block_cipher = None
 datas = [
    ('payloads.dmg', '.'),
    ('Universal-Binaries.dmg', '.'),
-
 ]
-if pathlib.Path("DortaniaInternalResources.dmg").exists():
-   datas.append(('DortaniaInternalResources.dmg', '.'))
 
 
 a = Analysis(['OpenCore-Legacy-Patcher-GUI.command'],

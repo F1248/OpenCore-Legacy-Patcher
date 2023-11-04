@@ -266,10 +266,6 @@ class Constants:
     def payload_local_binaries_root_path_dmg(self):
         return self.original_path / Path("Universal-Binaries.dmg")
 
-    @property
-    def overlay_psp_path_dmg(self):
-        return self.original_path / Path("DortaniaInternalResources.dmg")
-
     # OpenCore
     @property
     def opencore_zip_source(self):
