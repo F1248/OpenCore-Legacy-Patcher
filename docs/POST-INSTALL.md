@@ -32,9 +32,9 @@ Note: Machines running macOS Ventura or systems with non-Metal GPUs can't enable
 
 SIP settings can be accessed from the Security tab shown in the images.
 
-| SIP Enabled                                      | SIP Lowered (Root Patching)                         | SIP Disabled                                      |
-|--------------------------------------------------|-----------------------------------------------------|---------------------------------------------------|
-| ![](../images/OCLP-GUI-Settings-SIP-Enabled.png) | ![](../images/OCLP-GUI-Settings-SIP-Root-Patch.png) | ![](../images/OCLP-GUI-Settings-SIP-Disabled.png) |
+SIP Enabled                                      | SIP Lowered (Root Patching)                         | SIP Disabled
+-------------------------------------------------|-----------------------------------------------------|--------------------------------------------------
+![](../images/OCLP-GUI-Settings-SIP-Enabled.png) | ![](../images/OCLP-GUI-Settings-SIP-Root-Patch.png) | ![](../images/OCLP-GUI-Settings-SIP-Disabled.png)
 
 :::warning
 
@@ -58,9 +58,9 @@ OpenCore Legacy Patcher will automatically root patch your system during a first
 
 Users can also see whether applicable patches have been installed, date and version the system was root patched with in the Post-Install Menu.
 
-| Automatic install prompt                      | Status                                        |
-|-----------------------------------------------|-----------------------------------------------|
-| ![](../images/OCLP-GUI-root-patch-update.png) | ![](../images/OCLP-GUI-Root-Patch-Status.png) |
+Automatic install prompt                      | Status
+----------------------------------------------|----------------------------------------------
+![](../images/OCLP-GUI-root-patch-update.png) | ![](../images/OCLP-GUI-Root-Patch-Status.png)
 
 
 
@@ -70,9 +70,9 @@ If you need to run the patcher manually, you can do so with the app. There's no 
 
 There's also an option to remove root patches, which may be required in some situations, such as switching GPUs in Mac Pros or using Migration Assistant.
 
-| Listing Patches                        | Patching Finished                               |
-|----------------------------------------|-------------------------------------------------|
-| ![](../images/OCLP-GUI-Root-Patch.png) | ![](../images/OCLP-GUI-Root-Patch-Finished.png) |
+Listing Patches                        | Patching Finished
+---------------------------------------|------------------------------------------------
+![](../images/OCLP-GUI-Root-Patch.png) | ![](../images/OCLP-GUI-Root-Patch-Finished.png)
 
 :::warning
 

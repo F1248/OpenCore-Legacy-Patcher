@@ -138,9 +138,9 @@ With OpenCore Legacy Patcher, the patcher will always overwrite the current SIP 
 
 Head into the GUI, go to Patcher Settings, and toggle the bits you need disabled from SIP:
 
-| SIP Enabled                                      | SIP Lowered (Root Patching)                         | SIP Disabled                                      |
-|--------------------------------------------------|-----------------------------------------------------|---------------------------------------------------|
-| ![](../images/OCLP-GUI-Settings-SIP-Enabled.png) | ![](../images/OCLP-GUI-Settings-SIP-Root-Patch.png) | ![](../images/OCLP-GUI-Settings-SIP-Disabled.png) |
+SIP Enabled                                      | SIP Lowered (Root Patching)                         | SIP Disabled
+-------------------------------------------------|-----------------------------------------------------|--------------------------------------------------
+![](../images/OCLP-GUI-Settings-SIP-Enabled.png) | ![](../images/OCLP-GUI-Settings-SIP-Root-Patch.png) | ![](../images/OCLP-GUI-Settings-SIP-Disabled.png)
 
 ## Intermediate issues with USB 1.1 and Bluetooth on MacPro3,1 - MacPro5,1
 
@@ -179,14 +179,14 @@ More information can be found here:
 
 Applicable models include:
 
-| Family      | Year                | Model                   | Notes                                                            |
-|-------------|---------------------|-------------------------|------------------------------------------------------------------|
-| MacBook     | Mid 2010 and older  | MacBook7,x and older    |                                                                  |
-| MacBook Air | Late 2010 and older | MacBookAir3,x and older |                                                                  |
-| MacBook Pro | Mid 2010 and older  | MacBookPro7,x and older | Excludes MacBook Pro (15- and 17-inch, Mid 2010) (MacBookPro6,x) |
-| iMac        | Late 2009 and older | iMac10,x and older      | Excludes iMac (27-inch, Late 2009) with Core i5 / i7 (iMac11,1)  |
-| Mac mini    | Mid 2011 and older  | Macmini5,x and older    |                                                                  |
-| Mac Pro     | Mid 2010 and older  | MacPro5,x and older     |                                                                  |
+Family      | Year                | Model                   | Notes
+------------|---------------------|-------------------------|-----------------------------------------------------------------
+MacBook     | Mid 2010 and older  | MacBook7,x and older    |
+MacBook Air | Late 2010 and older | MacBookAir3,x and older |
+MacBook Pro | Mid 2010 and older  | MacBookPro7,x and older | Excludes MacBook Pro (15- and 17-inch, Mid 2010) (MacBookPro6,x)
+iMac        | Late 2009 and older | iMac10,x and older      | Excludes iMac (27-inch, Late 2009) with Core i5 / i7 (iMac11,1)
+Mac mini    | Mid 2011 and older  | Macmini5,x and older    |
+Mac Pro     | Mid 2010 and older  | MacPro5,x and older     |
 
 
 ![](../images/usb11-chart.png)

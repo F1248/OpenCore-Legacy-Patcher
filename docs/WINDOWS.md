@@ -222,9 +222,9 @@ Once the Boot Camp software is downloaded, you can install Boot Camp 6 by execut
 
 If you built OpenCore with Moderate or higher SMBIOS spoofing, you'll get an error when trying to install Boot Camp drivers. You can solve this by either rebuilding OpenCore with a lower spoof level, or running the installer from `Drivers/Apple/BootCamp.msi`.
 
-| Setup.exe                                 | BootCamp.msi                            |
-|-------------------------------------------|-----------------------------------------|
-| ![](../images/windows-bootcamp-error.png) | ![](../images/windows-bootcamp-msi.png) |
+Setup.exe                                 | BootCamp.msi
+------------------------------------------|----------------------------------------
+![](../images/windows-bootcamp-error.png) | ![](../images/windows-bootcamp-msi.png)
 
 ::: details BootCamp.msi quirks
 

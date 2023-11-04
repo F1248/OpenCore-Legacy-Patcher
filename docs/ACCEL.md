@@ -25,20 +25,20 @@ For those unfamiliar with what is considered a non-Metal GPU, see the chart belo
 
 Metal is Apple's in-house graphics API that acts as a replacement for OpenGL/OpenCL, introduced in 2015. With the release of macOS Mojave, every system without a Metal-capable GPU was dropped.
 
-| Graphics Vendor | Architecture         | Series          | Supports Metal                                      |
-|-----------------|----------------------|-----------------|-----------------------------------------------------|
-| ATI             | TeraScale 1          | HD 2XXX - 4XXX  | <span style="color:red">No</span>                   |
-| ^^              | TeraScale 2          | HD 5XXX - 6XXX  | ^^                                                  |
-| AMD             | GCN and newer        | HD 7XXX+        | <span style="color:green">Yes</span>                |
-| NVIDIA          | Tesla                | 8XXX - 3XX      | <span style="color:red">No</span>                   |
-| ^^              | Fermi                | 4XX - 5XX       | ^^                                                  |
-| ^^              | Kepler               | 6XX - 7XX       | <span style="color:green">Yes</span>                |
-| ^^              | Maxwell              | 8XX - 9XX       | <span style="color:red">Only 10.14 and older</span> |
-| ^^              | Pascal               | 10XX            | ^^                                                  |
-| Intel           | GMA                  | GMA 900 - X3000 | <span style="color:red">No</span>                   |
-| ^^              | Iron Lake            | HD series       | ^^                                                  |
-| ^^              | Sandy Bridge         | HD 3000         | ^^                                                  |
-| ^^              | Ivy Bridge and newer | HD 4000         | <span style="color:green">Yes</span>                |
+Graphics Vendor | Architecture         | Series          | Supports Metal
+----------------|----------------------|-----------------|----------------------------------------------------
+ATI             | TeraScale 1          | HD 2XXX - 4XXX  | <span style="color:red">No</span>
+^^              | TeraScale 2          | HD 5XXX - 6XXX  | ^^
+AMD             | GCN and newer        | HD 7XXX+        | <span style="color:green">Yes</span>
+NVIDIA          | Tesla                | 8XXX - 3XX      | <span style="color:red">No</span>
+^^              | Fermi                | 4XX - 5XX       | ^^
+^^              | Kepler               | 6XX - 7XX       | <span style="color:green">Yes</span>
+^^              | Maxwell              | 8XX - 9XX       | <span style="color:red">Only 10.14 and older</span>
+^^              | Pascal               | 10XX            | ^^
+Intel           | GMA                  | GMA 900 - X3000 | <span style="color:red">No</span>
+^^              | Iron Lake            | HD series       | ^^
+^^              | Sandy Bridge         | HD 3000         | ^^
+^^              | Ivy Bridge and newer | HD 4000         | <span style="color:green">Yes</span>
 
 :::
 
@@ -169,9 +169,9 @@ A somewhat strange issue on Intel HD3000-based Macs, on 3rd party displays somet
 * If you're inside Setup Assistant, press `Cmd` + `Option` + `Control` + `T` to launch Terminal. From there, run `open /System/Applications/System\ Preferences.app`
 * Issue has spread to more Macs with macOS Ventura, including MacBook Airs and MacBook Pros
 
-| Default Color Profile                    | Display (P3) Profile                     |
-|------------------------------------------|------------------------------------------|
-| ![](../images/HD3000-Default-Colors.png) | ![](../images/HD3000-Display-Colors.png) |
+Default Color Profile                    | Display (P3) Profile
+-----------------------------------------|-----------------------------------------
+![](../images/HD3000-Default-Colors.png) | ![](../images/HD3000-Display-Colors.png)
 
 ## Can't Pair Bluetooth Devices
 
