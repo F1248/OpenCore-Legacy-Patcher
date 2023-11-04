@@ -9,7 +9,7 @@ This guide will focus on the installation of Windows 10 and Windows 11 without u
 
 * Due to hardware and firmware limitations, UEFI Windows installations are only recommended on the following machines:
 
-  * 2015 MacBook (`MacBook8,x`) or newer 
+  * 2015 MacBook (`MacBook8,x`) or newer
   * 2011 MacBook Air (`MacBookAir4,x`) or newer
   * 2011 MacBook Pro (`MacBookPro8,x`) or newer
   * 2011 Mac mini (`Macmini5,x`) or newer

@@ -57,7 +57,7 @@ class RoutePayloadDiskImage:
 
     def _unmount_active_dmgs(self, unmount_all_active: bool = True) -> None:
         """
-        Unmounts disk images associated with OpenCore Legacy Patcher 
+        Unmounts disk images associated with OpenCore Legacy Patcher
 
         Finds all DMGs that are mounted, and forcefully unmount them
         If our disk image was previously mounted, we need to unmount it to use again

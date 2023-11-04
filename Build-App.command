@@ -202,7 +202,7 @@ class CreateBinary:
         if not Path("./Universal%20Binaries.zip").exists():
             print("- Universal%20Binaries.zip not found")
             raise Exception("Universal%20Binaries.zip not found")
-        
+
         unzip_result = subprocess.run(["ditto", "-xk", "Universal%20Binaries.zip", "./"], capture_output=True)
         if unzip_result.returncode != 0:
             print(f"Failed to extract Universal%20Binaries.zip. Error: {unzip_result.stderr.decode('utf-8')}")

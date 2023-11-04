@@ -88,7 +88,7 @@ class GaugePulseCallback:
         self.max_value: int = gauge.GetRange()
 
         self.non_metal_alternative: bool = CheckProperties(global_constants).host_is_non_metal()
-        self.non_metal_alternative = False   
+        self.non_metal_alternative = False
 
 
     def start_pulse(self) -> None:
