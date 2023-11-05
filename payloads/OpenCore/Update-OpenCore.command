@@ -163,6 +163,28 @@ class GenerateOpenCore:
         )
 
     def download_new_binaries(self, variant):
+
+        # Check network connection
+        print("Checking network connection…")
+        try:
+            test_url = "https://api.github.com"
+            test_request = requests.get(test_url)
+            if test_request.status_code != 200:
+                test_result = test_request.json()
+                if test_result["message"]:
+                    error = test_result["message"]
+                else:
+                    error = test_result
+        except:
+            error = "Connection to GitHub API failed!"
+        try:
+            print(f"Failed to retrieve information from GitHub API with the following error: {error}")
+            is_error = True
+        except:
+            is_error = False
+        if is_error:
+            exit()
+
         # Get latest release
         print(f"Getting latest {variant}…")
         latest_release = requests.get(REPO_URL).json()
