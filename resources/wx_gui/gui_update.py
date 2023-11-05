@@ -170,7 +170,7 @@ class UpdateFrame(wx.Frame):
         if Path(self.application_path).exists():
             subprocess.run(["rm", "-rf", str(self.application_path)])
 
-        # Some hell spawn at Github decided to double zip our Github Actions artifacts
+        # Some hell spawn at GitHub decided to double zip our GitHub Actions artifacts
         # So we need to unzip it twice
         for i in range(2):
             result = subprocess.run(["ditto", "-xk", str(self.constants.payload_path / "OpenCore-Legacy-Patcher.app.zip"), str(self.constants.payload_path)], capture_output=True)

@@ -37,11 +37,11 @@ class ParseCommitInfo:
 
         if self.plist_path:
             plist_info = plistlib.load(Path(self.plist_path).open("rb"))
-            if "Github" in plist_info:
+            if "GitHub" in plist_info:
                 return (
-                    plist_info["Github"]["Branch"],
-                    plist_info["Github"]["Commit Date"],
-                    plist_info["Github"]["Commit URL"],
+                    plist_info["GitHub"]["Branch"],
+                    plist_info["GitHub"]["Commit Date"],
+                    plist_info["GitHub"]["Commit URL"],
                 )
         return (
             "Running from source",

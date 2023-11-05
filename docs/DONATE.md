@@ -12,7 +12,7 @@ Main sections of help we'd appreciate:
 Additionally, hardware info dumps are greatly beneficial for us to determine what patches a machine might need:
 
 * [IORegistryExplorer](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-210.zip?raw=true)
-  * `File -> SaveAs` and open an issue on Github
+  * `File -> SaveAs` and open an issue on GitHub
   * Note: We want IOReg dumps of hardware not running on OpenCore, instead running a clean, officially supported OS by the machine
 
 If you've any legacy hardware you're willing to donate or want to buy us hardware, please reach out on our Discord server.

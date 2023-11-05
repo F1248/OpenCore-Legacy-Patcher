@@ -276,7 +276,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
                 logging.warning(f"Potential issues with {model} and {list(installers.values())[selected_item]['Version']} ({list(installers.values())[selected_item]['Build']}): {problems}")
                 problems = "\n".join(problems)
                 dlg = wx.MessageDialog(self.frame_modal, f"Your model ({model}) may not be fully supported by this installer. You may encounter the following issues:\n\n{problems}\n\nFor more information, see associated page. Otherwise, we recommend using macOS Monterey", "Potential Issues", wx.YES_NO | wx.CANCEL | wx.ICON_WARNING)
-                dlg.SetYesNoCancelLabels("View Github Issue", "Download Anyways", "Cancel")
+                dlg.SetYesNoCancelLabels("View GitHub Issue", "Download Anyways", "Cancel")
                 result = dlg.ShowModal()
                 if result == wx.ID_CANCEL:
                     return

@@ -270,7 +270,7 @@ class CreateBinary:
         print("- Adding commit data to Info.plist")
         plist_path = Path("./dist/OpenCore-Legacy-Patcher.app/Contents/Info.plist")
         plist = plistlib.load(Path(plist_path).open("rb"))
-        plist["Github"] = {
+        plist["GitHub"] = {
             "Branch": branch,
             "Commit URL": commit_url,
             "Commit Date": commit_date,
