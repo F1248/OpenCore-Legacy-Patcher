@@ -91,7 +91,7 @@ class DownloadFrame(wx.Frame):
         """
         Terminate download
         """
-        if wx.MessageBox("Are you sure you want to cancel the download?", "Cancel Download", wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT) == wx.YES:
-            logging.info("User cancelled download")
+        if wx.MessageBox("Are you sure you want to cancel the download and quit OpenCore Legacy Patcher?", "Cancel Download", wx.YES_NO | wx.NO_DEFAULT| wx.ICON_QUESTION) == wx.YES:
+            logging.info("Download cancelled by user")
             self.user_cancelled = True
             self.download_obj.stop()
