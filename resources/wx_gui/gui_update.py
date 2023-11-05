@@ -42,6 +42,7 @@ class UpdateFrame(wx.Frame):
             self.screen_location = self.GetScreenPosition()
 
 
+        self.url = url
         logging.info(f"Update URL: {url}")
 
         self.frame: wx.Frame = wx.Frame(
