@@ -1268,10 +1268,10 @@ Hardware Information:
             for branch in branches:
                 branch_descriptions.append(branch[1])
 
-            with wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions) as dialog:
-                if dialog.ShowModal() == wx.ID_CANCEL:
-                    return
-                selection_index = dialog.GetSelection()
+            branch_selection = wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions)
+            if branch_selection.ShowModal() == wx.ID_CANCEL:
+                return
+            selection_index = branch_selection.GetSelection()
 
             branch = branches[selection_index][0]
 
@@ -1287,13 +1287,17 @@ Hardware Information:
                 error = "Connection failed!"
             logging.warning(f"Failed to retrieve information from GitHub API with the following error: {error}")
 
-            error_message = wx.MessageDialog(self.parent, error, "Failed to retrieve branch information from GitHub API with the following error:", wx.YES_NO | wx.ICON_ERROR)
-            error_message.SetYesNoLabels("Enter branch manually", "OK")
-            error_message.ShowModal()
-            if error_message:
+            error_message = wx.MessageDialog(self.parent, error, "Failed to retrieve branch information from GitHub API with the following error:", wx.YES_NO | wx.CANCEL | wx.ICON_ERROR)
+            error_message.SetYesNoCancelLabels(f"Use current branch \"{self.constants.fallback_branch}\"", "Enter branch manually", "OK")
+            result = error_message.ShowModal()
+            if result == wx.ID_YES:
+                branch = self.constants.fallback_branch
+            elif result == wx.ID_NO:
                 branch_input = wx.TextEntryDialog(self.parent, "Branch:", "Enter branch", "")
-                branch_input.ShowModal()
-                branch = branch_input.GetValue().replace(" ", "-")
+                if branch_input.ShowModal() == wx.ID_OK:
+                    branch = branch_input.GetValue().replace(" ", "-")
+                else:
+                    return
             else:
                 return
 
