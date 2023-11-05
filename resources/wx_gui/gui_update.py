@@ -222,10 +222,6 @@ cat << EOF > "/Library/Application Support/Dortania/update.plist"
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
 <dict>
-    <key>CFBundleShortVersionString</key>
-    <string>{self.version_label}</string>
-    <key>CFBundleVersion</key>
-    <string>{self.version_label}</string>
     <key>InstallationDate</key>
     <date>{datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")}</date>
     <key>InstallationSource</key>
