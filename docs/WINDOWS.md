@@ -184,7 +184,7 @@ If, for whatever reason, you're not able to remove the boot files from the Windo
 
 To get started, download the Brigadier utility from the following link:
 
-* [Download Brigadier](https://github.com/timsutton/brigadier/releases/download/0.2.4/brigadier.exe)
+* [Download Brigadier](https://github.com/timsutton/brigadier/releases/latest/download/brigadier.exe)
 
 Once Brigadier is downloaded, move it to your desktop for easy access.
 
@@ -202,7 +202,7 @@ Once the Boot Camp software is downloaded, you can install it by executing `Setu
 
 To get started, download the Brigadier utility from the following link:
 
-* [Download Brigadier](https://github.com/timsutton/brigadier/releases/download/0.2.4/brigadier.exe)
+* [Download Brigadier](https://github.com/timsutton/brigadier/releases/latest/download/brigadier.exe)
 
 Once Brigadier is downloaded, move it to your desktop for easy access.
 
