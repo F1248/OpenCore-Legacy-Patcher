@@ -6,6 +6,7 @@ import logging
 import datetime
 import threading
 import subprocess
+import webbrowser
 
 from pathlib import Path
 
@@ -80,7 +81,7 @@ class UpdateFrame(wx.Frame):
         while thread.is_alive():
             wx.Yield()
 
-        gui_download.DownloadFrame(
+        frame = gui_download.DownloadFrame(
             self.frame,
             title=self.title,
             global_constants=self.constants,
@@ -92,7 +93,12 @@ class UpdateFrame(wx.Frame):
         if download_obj.download_complete is False:
             progress_bar_animation.stop_pulse()
             progress_bar.SetValue(0)
-            wx.MessageBox("Failed to download update. If you continue to have this issue, please manually download OpenCore Legacy Patcher off Github", "Critical Error!", wx.OK | wx.ICON_ERROR)
+            if not frame.user_cancelled:
+                message = wx.MessageDialog(self.frame, "Failed to download latest build. If you continue to experience this problem, please manually download OpenCore Legacy Patcher via your browser.", "Download failed!", wx.YES_NO | wx.ICON_ERROR | wx.NO_DEFAULT)
+                message.SetYesNoLabels("Open in Browser", "Quit OpenCore Legacy Patcher")
+                message.ShowModal()
+                if message:
+                    webbrowser.open(url)
             sys.exit(1)
 
         # Title: Extracting update…
