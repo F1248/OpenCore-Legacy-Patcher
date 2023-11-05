@@ -17,7 +17,7 @@ class UpdateFrame(wx.Frame):
     """
     Create a frame for updating the patcher
     """
-    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: wx.Point, url: str = "", branch_description: str = "") -> None:
+    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: wx.Point, url: str = "") -> None:
         logging.info("Initializing Update Frame")
         if parent:
             self.parent: wx.Frame = parent
@@ -42,7 +42,6 @@ class UpdateFrame(wx.Frame):
 
 
         logging.info(f"Update URL: {url}")
-        logging.info(f"Branch description: {branch_description}")
 
         self.frame: wx.Frame = wx.Frame(
             parent=parent if parent else self,
