@@ -176,7 +176,7 @@ class GenerateOpenCore:
                 else:
                     error = test_result
         except:
-            error = "Connection to GitHub API failed!"
+            error = "Connection failed!"
         try:
             print(f"Failed to retrieve information from GitHub API with the following error: {error}")
             is_error = True
