@@ -1224,60 +1224,79 @@ Hardware Information:
     def install_latest_build(self, event: wx.Event) -> None:
 
         test_url = "https://api.github.com"
-        test_requests = network_handler.NetworkUtilities().get(test_url)
-        if test_requests.status_code != 200:
-            test_result = test_requests.json()
-            logging.warning(test_result)
-            wx.MessageBox(test_result["message"], "Failed to connect to the GitHub API with the following error:", wx.OK | wx.ICON_ERROR)
-            return
+        test_request = network_handler.NetworkUtilities().get(test_url)
+        if test_request.status_code == 200:
 
-        actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
-        actions_result = network_handler.NetworkUtilities().get(actions_url).json()
+            actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
+            actions_result = network_handler.NetworkUtilities().get(actions_url).json()
 
-        branches_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches"
-        branches_result = network_handler.NetworkUtilities().get(branches_url).json()
+            branches_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches"
+            branches_result = network_handler.NetworkUtilities().get(branches_url).json()
 
-        branches = []
-        for branch in branches_result:
-            branch_name = branch["name"]
-            commit_url = branch["commit"]["url"]
-            commit_result = network_handler.NetworkUtilities().get(commit_url).json()
-            last_commit = commit_result["commit"]["message"]
-            last_commit = last_commit.replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
-            installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
-            for run in actions_result["workflow_runs"]:
-                if run["head_branch"] == branch_name:
-                    if run["status"] == "completed":
-                        if run["conclusion"] == "success":
-                            status = ""
+            branches = []
+            for branch in branches_result:
+                branch_name = branch["name"]
+                commit_url = branch["commit"]["url"]
+                commit_result = network_handler.NetworkUtilities().get(commit_url).json()
+                last_commit = commit_result["commit"]["message"]
+                last_commit = last_commit.replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
+                installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
+                for run in actions_result["workflow_runs"]:
+                    if run["head_branch"] == branch_name:
+                        if run["status"] == "completed":
+                            if run["conclusion"] == "success":
+                                status = ""
+                            else:
+                                status = f"Conclusion: {run['conclusion']}, "
                         else:
-                            status = f"Conclusion: {run['conclusion']}, "
-                    else:
-                        status = f"Status: {run['status']}, "
-                    status = status.replace("_", " ")
-                    break
-            description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit})"
-            while len(description) > 128:
-                last_commit = last_commit[: - 1]
-                description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit}…)"
-            branches.append([branch_name, description])
+                            status = f"Status: {run['status']}, "
+                        status = status.replace("_", " ")
+                        break
+                description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit})"
+                while len(description) > 128:
+                    last_commit = last_commit[: - 1]
+                    description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit}…)"
+                branches.append([branch_name, description])
 
-        for branch_name in ["master", "main", self.constants.commit_info[0]]:
-            if any(branch[0] == branch_name for branch in branches):
-                branch = next(branch for branch in branches if branch[0] == branch_name)
-                branches.remove(branch)
-                branches.insert(0, branch)
+            for branch_name in ["master", "main", self.constants.commit_info[0]]:
+                if any(branch[0] == branch_name for branch in branches):
+                    branch = next(branch for branch in branches if branch[0] == branch_name)
+                    branches.remove(branch)
+                    branches.insert(0, branch)
 
-        branch_descriptions = []
-        for branch in branches:
-            branch_descriptions.append(branch[1])
+            branch_descriptions = []
+            for branch in branches:
+                branch_descriptions.append(branch[1])
 
-        with wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions) as dialog:
-            if dialog.ShowModal() == wx.ID_CANCEL:
+            with wx.SingleChoiceDialog(self.parent, "Which branch do you want to download?", "Branch Selection", branch_descriptions) as dialog:
+                if dialog.ShowModal() == wx.ID_CANCEL:
+                    return
+                selection_index = dialog.GetSelection()
+
+            branch = branches[selection_index][0]
+
+        else:
+
+            try:
+                test_result = test_request.json()
+                if test_result["message"]:
+                    error = test_result["message"]
+                else:
+                    error = test_result
+            except:
+                error = "Connection failed!"
+            logging.warning(f"Failed to retrieve information from GitHub API with the following error: {error}")
+
+            error_message = wx.MessageDialog(self.parent, error, "Failed to retrieve branch information from GitHub API with the following error:", wx.YES_NO | wx.ICON_ERROR)
+            error_message.SetYesNoLabels("Enter branch name manually", "OK")
+            error_message.ShowModal()
+            if error_message:
+                branch_input = wx.TextEntryDialog(self.parent, "Branch name:", "Enter branch name", "")
+                branch_input.ShowModal()
+                branch = branch_input.GetValue().replace(" ", "-")
+            else:
                 return
-            selection_index = dialog.GetSelection()
 
-        branch = branches[selection_index][0]
         url = self.constants.app_url.replace("branch_placeholder", branch)
 
         gui_update.UpdateFrame(
