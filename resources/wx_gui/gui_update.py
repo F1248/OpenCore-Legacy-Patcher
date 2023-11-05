@@ -95,7 +95,7 @@ class UpdateFrame(wx.Frame):
             progress_bar_animation.stop_pulse()
             progress_bar.SetValue(0)
             if not frame.user_cancelled:
-                message = wx.MessageDialog(self.frame, "Failed to download latest build. If you continue to experience this problem, please manually download OpenCore Legacy Patcher via your browser.", "Download failed!", wx.YES_NO | wx.ICON_ERROR | wx.NO_DEFAULT)
+                message = wx.MessageDialog(self.frame, "Failed to download latest build. If you continue to experience this problem, download OpenCore Legacy Patcher manually via your browser.", "Download failed!", wx.YES_NO | wx.ICON_ERROR | wx.NO_DEFAULT)
                 message.SetYesNoLabels("Open in Browser", "Quit OpenCore Legacy Patcher")
                 message.ShowModal()
                 if message:

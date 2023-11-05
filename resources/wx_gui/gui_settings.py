@@ -1288,10 +1288,10 @@ Hardware Information:
             logging.warning(f"Failed to retrieve information from GitHub API with the following error: {error}")
 
             error_message = wx.MessageDialog(self.parent, error, "Failed to retrieve branch information from GitHub API with the following error:", wx.YES_NO | wx.ICON_ERROR)
-            error_message.SetYesNoLabels("Enter branch name manually", "OK")
+            error_message.SetYesNoLabels("Enter branch manually", "OK")
             error_message.ShowModal()
             if error_message:
-                branch_input = wx.TextEntryDialog(self.parent, "Branch name:", "Enter branch name", "")
+                branch_input = wx.TextEntryDialog(self.parent, "Branch:", "Enter branch", "")
                 branch_input.ShowModal()
                 branch = branch_input.GetValue().replace(" ", "-")
             else:
