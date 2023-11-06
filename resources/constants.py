@@ -32,7 +32,7 @@ class Constants:
 
         # OpenCore Versioning
         # https://github.com/acidanthera/OpenCorePkg
-        self.opencore_version: str = "0.9.5"
+        self.opencore_version: str = "0.9.6"
 
         # Kext Versioning
         ## Acidanthera
