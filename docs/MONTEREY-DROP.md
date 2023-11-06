@@ -37,4 +37,4 @@ All of these models now have support in OpenCore Legacy Patcher.
 
 ### MacBookPro11,3 booting issue without Kepler acceleration
 
-Due to the display being routed through the NVIDIA Kepler card and macOS being rendered on the Intel iGPU, users have been experiencing issues booting without post-install patches applied ([see here for more info](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522).) Currently the only workaround is to install the patches in safe mode, by holding down `Shift` + `Enter` when you select macOS in the OpenCore Boot Picker.
+Due to the display being routed through the NVIDIA Kepler card and macOS being rendered on the Intel iGPU, users have been experiencing issues booting without post-install patches applied ([see here for more info](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522).) Currently the only workaround is to install the patches in Safe Mode, by holding down `Shift` + `Enter` when you select macOS in the OpenCore Boot Picker.

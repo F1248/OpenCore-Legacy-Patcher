@@ -143,12 +143,12 @@ The following tool can be used to work-around this issue:
 
 ## Can't Login on 2011 15 inch and 17 inch MacBook Pros
 
-By default, OpenCore Legacy Patcher will assume MacBookPro8,2/3 have a faulty dGPU and disable acceleration. This is the safest option for most users as enabling dGPU acceleration on faulty Macs will result in failed booting.
+By default, OpenCore Legacy Patcher will assume MacBookPro8,2 / 3 have a faulty dGPU and disable acceleration. This is the safest option for most users as enabling dGPU acceleration on faulty Macs will result in failed booting.
 
 However, if your machine doesn't have the dGPU disabled via NVRAM, you'll experience a login loop. To work around this is quite simple:
 
 1. Boot macOS in Single User Mode
-    * Press `Cmd` + `S` in OpenCore's menu when you turn the Mac on
+    * Press `Cmd` + `S` in the OpenCore Boot Picker menu when you turn the Mac on
 2. When the command line prompt appears, enter the dGPU disabler argument (at the bottom)
 3. Reboot and patched macOS should work normally
 4. If you still want to use the dGPU, run OpenCore Legacy Patcher and enable TS2 Acceleration from settings. Go to `Patcher Settings -> Developer Settings -> Set TeraScale 2 Accel`, then root patch again.

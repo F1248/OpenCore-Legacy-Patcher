@@ -16,7 +16,7 @@ Noteworthy features of OpenCore Legacy Patcher:
 * Supports Penryn and newer Macs
 * Full support for WPA Wi-Fi and Personal Hotspot on BCM943224 and newer wireless chipsets
 * System Integrity Protection, FileVault 2, .im4m Secure Boot and Vaulting
-* RecoveryOS, Safe Mode and Single-user Mode booting on non-native OSes
+* RecoveryOS, Safe Mode and Single User Mode booting on non-native OSes
 * Unlocks features such as Sidecar and AirPlay to Mac even on native Macs
 * Enables enhanced SATA and NVMe power management on non-Apple storage devices
 * Zero firmware patching required (ie. APFS ROM patching)
@@ -44,7 +44,7 @@ This project is offered on an AS-IS basis, we don't guarantee support for any is
 
 * [OpenCore Legacy Patcher Paradise Discord Server](https://discord.gg/rqdPgH8xSN)
   * Keep in mind that the Discord server is maintained by the community, so we ask everyone to be respectful.
-  * Please review our docs on [how to debug with OpenCore](https://dortania.github.io/OpenCore-Legacy-Patcher/DEBUG.html) to gather important information to help others with troubleshooting.
+  * Please review our docs on [how to debug with OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/DEBUG.html) to gather important information to help others with troubleshooting.
 
 ## Credits
 
