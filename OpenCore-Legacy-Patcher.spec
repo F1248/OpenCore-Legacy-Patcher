@@ -11,7 +11,7 @@ datas = [
 ]
 
 
-a = Analysis(['OpenCore-Legacy-Patcher-GUI.command'],
+a = Analysis(['OpenCore-Legacy-Patcher.command'],
              pathex=[],
              binaries=[],
              datas=datas,
