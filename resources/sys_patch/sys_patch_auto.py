@@ -317,17 +317,14 @@ class AutomaticSysPatch:
 
         kexts = []
         for kext in Path("/Library/Extensions").glob("*.kext"):
-            if not Path(f"{kext}/Contents/Info.plist").exists():
-                continue
-            try:
-                kext_plist = plistlib.load(open(f"{kext}/Contents/Info.plist", "rb"))
-            except Exception as e:
-                logging.info(f"  - Failed to load plist for {kext.name}: {e}")
-                continue
-            if "GPUCompanionBundles" not in kext_plist:
-                continue
-            logging.info(f"  - Found kext with GPUCompanionBundles: {kext.name}")
-            kexts.append(kext.name)
+            if Path(f"{kext}/Contents/Info.plist").exists():
+                try:
+                    kext_plist = plistlib.load(open(f"{kext}/Contents/Info.plist", "rb"))
+                    if "GPUCompanionBundles" in kext_plist:    
+                        logging.info(f"  - Found kext with GPUCompanionBundles: {kext.name}")
+                        kexts.append(kext.name)
+                except Exception as e:
+                    logging.info(f"  - Failed to load plist for {kext.name}: {e}")
 
         # If we've no kexts, we don't need to run the RSRMonitor
         if not kexts:
@@ -345,9 +342,7 @@ class AutomaticSysPatch:
 
         # Next add monitoring for '/System/Volumes/Preboot/{UUID}/cryptex1/OS.dmg'
         logging.info(f"  - Adding monitor: {cryptex_path}")
-        rsr_monitor_plist["WatchPaths"] = [
-            cryptex_path,
-        ]
+        rsr_monitor_plist["WatchPaths"] = [cryptex_path]
 
         # Write the RSRMonitor plist
         plistlib.dump(rsr_monitor_plist, Path(self.constants.rsr_monitor_launch_daemon_path).open("wb"))
