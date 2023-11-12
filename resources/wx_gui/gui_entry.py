@@ -33,7 +33,7 @@ class EntryPoint:
 
     def _generate_base_data(self) -> None:
         self.app = wx.App()
-        self.app.SetAppName(self.constants.patcher_name)
+        self.app.SetAppName(self.constants.app_name)
 
 
     def start(self, entry: SupportedEntryPoints = gui_main_menu.MainFrame) -> None:
@@ -53,7 +53,7 @@ class EntryPoint:
 
         self.frame: wx.Frame = entry(
             None,
-            title=self.constants.patcher_name,
+            title=self.constants.app_name,
             global_constants=self.constants,
             screen_location=None,
             **({"patches": patches} if "--gui_patch" in sys.argv or "--gui_unpatch" in sys.argv else {})

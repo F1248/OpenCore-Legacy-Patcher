@@ -21,7 +21,7 @@ class Constants:
         # Patcher
         self.patcher_version:                 str = "1.3.0" # OpenCore Legacy Patcher
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
-        self.patcher_name:                    str = "OpenCore Legacy Patcher"
+        self.app_name:                        str = "OpenCore Legacy Patcher"
 
         # URLs
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
