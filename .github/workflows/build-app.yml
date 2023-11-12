@@ -15,8 +15,8 @@ jobs:
 
     env:
       branch: ${{ github.ref }}
-      commiturl: ${{ github.event.head_commit.url }}
-      commitdate: ${{ github.event.head_commit.timestamp }}
+      commit_url: ${{ github.event.head_commit.url }}
+      commit_date: ${{ github.event.head_commit.timestamp }}
 
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
           hdiutil detach /Volumes/Packages\ * -force
 
       - name: Build App
-        run: python3.11 Build-App.command --reset_binaries --branch "${{ env.branch }}" --commit_url "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
+        run: python3.11 Build-App.command --reset_binaries --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --commit_date "${{ env.commit_date }}"
 
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Legacy-Patcher.app OpenCore-Legacy-Patcher.app.zip
