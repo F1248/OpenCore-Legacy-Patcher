@@ -57,7 +57,7 @@ class CreateBinary:
 
         parser = argparse.ArgumentParser(description='Builds OpenCore Legacy Patcher binary')
         parser.add_argument('--branch', type=str, help='Git branch name')
-        parser.add_argument('--commit', type=str, help='Git commit URL')
+        parser.add_argument('--commit_url', type=str, help='Git commit URL')
         parser.add_argument('--commit_date', type=str, help='Git commit date')
         parser.add_argument('--reset_binaries', action='store_true', help='Force redownload and imaging of payloads')
         args = parser.parse_args()
@@ -258,14 +258,14 @@ class CreateBinary:
         Add commit data to Info.plist
         """
 
-        if not self.args.branch and not self.args.commit and not self.args.commit_date:
+        if not self.args.branch and not self.args.commit_url and not self.args.commit_date:
             print("- No commit data provided, adding source info")
             branch = "Built from source"
             commit_url = ""
             commit_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         else:
             branch = self.args.branch.replace("refs/heads/", "")
-            commit_url = self.args.commit
+            commit_url = self.args.commit_url
             commit_date = self.args.commit_date
         print("- Adding commit data to Info.plist")
         plist_path = Path("./dist/OpenCore-Legacy-Patcher.app/Contents/Info.plist")

@@ -37,7 +37,7 @@ jobs:
           hdiutil detach /Volumes/Packages\ * -force
 
       - name: Build App
-        run: python3.11 Build-App.command --reset_binaries --branch "${{ env.branch }}" --commit "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
+        run: python3.11 Build-App.command --reset_binaries --branch "${{ env.branch }}" --commit_url "${{ env.commiturl }}" --commit_date "${{ env.commitdate }}"
 
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Legacy-Patcher.app OpenCore-Legacy-Patcher.app.zip
