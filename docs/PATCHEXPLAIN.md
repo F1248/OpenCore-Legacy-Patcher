@@ -274,9 +274,9 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
 * AppleIntelCPUPowerManagement and AppleIntelCPUPowerManagementClient
   * Reason: Restores Ivy Bridge and older CPU Power Management
 * AppleUSBTopCase
-  * Reason: Restore USB Keyboard support on Mac OS Ventura
+  * Reason: Restore USB Keyboard support on macOS Ventura
 * AppleUSBMultitouch and AppleUSBTrackpad
-  * Reason: Restore USB Trackpad support on Mac OS Ventura
+  * Reason: Restore USB Trackpad support on macOS Ventura
 * ASPP-Override
   * Reason: Forces ACPI_SMC_PlatformPlugin to outmatch X86PlatformPlugin and disable firmware throttling
 * BacklightInjector
@@ -289,7 +289,7 @@ Below is an explanation of what Kexts OpenCore Legacy Patcher will inject into m
   * Reason: Makes all PCIe drives appear internal
   * Models: MacPro3,1 and newer & Xserve3,1 and newer
 * KDKlessWorkaround
-  * Reason: Helps with Mac os updates on KDKless patched systems
+  * Reason: Helps with macOS updates on KDKless patched systems
 * LegacyUSBVieoSupport
   * Reason: Fixes Legacy USB iSight support
 * MonteAHCIPort

@@ -4,7 +4,7 @@ With OpenCore Legacy Patcher, we use a lot of different terms to refer to hardwa
 
 # Terminology
 
-Term             | Description                                                                                                                                                                                                                                                                                        
+Term             | Description
 -----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **macOS**        | Apple's own UNIX based OS used for Mac machines and is "What makes a Mac a Mac".
 **Windows**      | Microsoft's proprietary OS that's used and supported on a wide range of devices
@@ -33,6 +33,6 @@ Term                  | Description
 **EFI**               | It can denote two things: <br/>- Mac's firmware, which is the same as UEFI, but pretty modified for Macs only, so not so "Universal" <br/>- The partition on your hard drive that stores software read by the UEFI to load OSes (like the Windows bootloader) or UEFI Applications (like OpenCore), it's FAT32 formatted and has an ID type of EF00 (in hex). It can be named ESP or SYSTEM, and it's usually from 100MB to 400MB in size but the size doesn't reflect upon anything.
 **HFS+**              | Also known as Mac OS Extended (Journaled), this was the default macOS drive format up until macOS 10.13. It was designed around spinning disks.
 **APFS**              | This is the default macOS drive format from macOS 10.13 and onwards for SSDs, and standard for all drives in Mojave. This format was designed primarily around SSDs.
-**32 and 64-Bit CPU** | The bit number of a CPU determines how much data a CPU can address. <br/>- 32-Bit CPUs were only supported up-to Mac OS X 10.6, Snow Leopard.
-**32-Bit Firmware**   | The bit number of a Firmware determines how much data the firmware can address. In some older Macs, it's common to have a 64-Bit CPU with a 32-Bit firmware<br/>- 32-Bit Firmwares were only supported up-to Mac OS X 10.7, Lion.
-**SSE Instructions**  | Also known as **S**IMD **S**ingle-Precision Floating-Point **I**nstructions,  these are defined as instruction sets supported by your CPU. In macOS, there are a certain number of instruction sets required for normal operation: <br/>- SSE3: Required for all Intel CPUs since Mac OS X 10.4, Tiger <br/>- SSSE3: Required for all Intel 64-Bit CPUs since Mac OS X 10.6, Snow Leopard  <br/>- SSE4.1: Required for all Intel CPUs since macOS 10.12, Sierra
+**32 and 64-Bit CPU** | The bit number of a CPU determines how much data a CPU can address. <br/>- 32-Bit CPUs were only supported up-to Mac OS X Snow Leopard 10.6.
+**32-Bit Firmware**   | The bit number of a Firmware determines how much data the firmware can address. In some older Macs, it's common to have a 64-Bit CPU with a 32-Bit firmware<br/>- 32-Bit Firmwares were only supported up-to Mac OS X Lion 10.7.
+**SSE Instructions**  | Also known as **S**IMD **S**ingle-Precision Floating-Point **I**nstructions, these are defined as instruction sets supported by your CPU. In macOS, there are a certain number of instruction sets required for normal operation: <br/>- SSE3: Required for all Intel CPUs since Mac OS X Tiger 10.4<br/>- SSSE3: Required for all Intel 64-Bit CPUs since Mac OS X Snow Leopard 10.6<br/>- SSE4.1: Required for all Intel CPUs since macOS Sierra 10.12

@@ -3,7 +3,7 @@
 Here are some common errors that users may experience while using this patcher:
 
 * [OpenCore Legacy Patcher not launching](#opencore-legacy-patcher-not-launching)
-* [Stuck on `This version of Mac OS X isn't supported on this platform` or (🚫) Prohibited Symbol](#stuck-on-this-version-of-mac-os-x-isn't-supported-on-this-platform-or-(🚫)-prohibited-symbol)
+* [Stuck on `This version of Mac OS X is not supported on this platform` or (🚫) Prohibited Symbol](#stuck-on-this-version-of-mac-os-x-is-not-supported-on-this-platform-or-(🚫)-prohibited-symbol)
 * [Can't boot macOS without the USB](#can't-boot-macos-without-the-usb)
 * [Infinite recoveryOS Booting](#infinite-recoveryos-booting)
 * [Stuck on boot after root patching](#stuck-on-boot-after-root-patching)
@@ -29,7 +29,7 @@ If the application won't launch (e.g. icon will bounce in the Dock), try launchi
 /Applications/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher
 ```
 
-## Stuck on `This version of Mac OS X isn't supported on this platform` or (🚫) Prohibited Symbol
+## Stuck on `This version of Mac OS X is not supported on this platform` or (🚫) Prohibited Symbol
 
 This means macOS has detected an SMBIOS it doesn't support. To resolve this, ensure you select `EFI Boot` **first**.
 
@@ -128,7 +128,7 @@ A semi-common popup some users face is the "Volume Hash Mismatch" error:
 
 What this error signifies is that the OS detects that the boot volume's hash doesn't match what the OS is expecting, this error is generally cosmetic and can be ignored. However if your system starts to crash spontaneously shortly after, you'll want to reinstall macOS fresh without importing any data at first.
 
-* Note that this bug affects native Macs as well and isn't due to issues with unsupported Macs: [OSX Daily: "Volume Hash Mismatch" Error in MacOS Monterey](https://osxdaily.com/2021/11/10/volume-hash-mismatch-error-in-macos-monterey/)
+* Note that this bug affects native Macs as well and isn't due to issues with unsupported Macs: [OSXDaily: "Volume Hash Mismatch" Error in MacOS Monterey](https://osxdaily.com/2021/11/10/volume-hash-mismatch-error-in-macos-monterey/)
 
 Additionally, it can help to disable FeatureUnlock in Settings -> Misc Settings as this tool can be strenuous on systems with weaker memory stability.
 

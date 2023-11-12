@@ -320,7 +320,7 @@ class AutomaticSysPatch:
             if Path(f"{kext}/Contents/Info.plist").exists():
                 try:
                     kext_plist = plistlib.load(open(f"{kext}/Contents/Info.plist", "rb"))
-                    if "GPUCompanionBundles" in kext_plist:    
+                    if "GPUCompanionBundles" in kext_plist:
                         logging.info(f"  - Found kext with GPUCompanionBundles: {kext.name}")
                         kexts.append(kext.name)
                 except Exception as e:

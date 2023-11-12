@@ -184,7 +184,7 @@ class CreateBinary:
         print("Downloading Universal-Binaries.dmg…")
         if Path("./Universal-Binaries.dmg").exists():
             if self.args.reset_binaries:
-                print(f"  - Removing old Universal-Binaries.dmg")
+                print("- Removing old Universal-Binaries.dmg")
                 rm_output = subprocess.run(["rm", "-rf", "./Universal-Binaries.dmg"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 if rm_output.returncode != 0:
                     print("Remove failed")

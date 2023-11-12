@@ -4,7 +4,7 @@ With the release of OpenCore Legacy Patcher 0.5.0, support for macOS Ventura has
 
 ## Newly dropped hardware
 
-MacOS Ventura's release dropped a large amount of Intel hardware, thus requiring the usage of OpenCore Legacy Patcher on the following models (in addition to previously removed models):
+With the release of macOS Ventura, a large amount of Intel hardware has been dropped, thus requiring the usage of OpenCore Legacy Patcher on the following models (in addition to previously removed models):
 
 * iMac16,1 (21.5-inch, Late 2015)
 * iMac16,2 (21.5-inch and 21.5-inch 4K, Late 2015)
