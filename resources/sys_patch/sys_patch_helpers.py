@@ -34,7 +34,6 @@ class SysPatchHelpers:
 
         Parameters:
             source_files_path (str): Path to the source files
-
         """
 
         source_files_path = str(source_files_path)
@@ -80,7 +79,6 @@ class SysPatchHelpers:
 
         Returns:
             bool: True if successful, False if not
-
         """
 
         source_path = f"{self.constants.payload_path}"
@@ -203,7 +201,6 @@ class SysPatchHelpers:
         This is a (hopefully) temporary work-around, however likely to stay.
         RSRRepair has the added bonus of fixing desynced KCs from 'bless', so useful in Big Sur+
             Source: https://github.com/flagersgit/RSRRepair
-
         """
 
         if self.constants.detected_os < os_data.os_data.big_sur:

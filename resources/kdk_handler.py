@@ -46,7 +46,6 @@ class KernelDebugKitObject:
 
         >>>         # Once downloaded, recommend verifying KDK's checksum
         >>>         valid = kdk_object.validate_kdk_checksum()
-
     """
 
     def __init__(self, global_constants: constants.Constants,
@@ -284,7 +283,6 @@ class KernelDebugKitObject:
     def _generate_kdk_info_plist(self, plist_path: str) -> None:
         """
         Generates a KDK Info.plist
-
         """
 
         plist_path = Path(plist_path)
@@ -557,7 +555,6 @@ class KernelDebugKitObject:
 class KernelDebugKitUtilities:
     """
     Utilities for KDK handling
-
     """
 
     def __init__(self) -> None:

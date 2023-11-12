@@ -25,7 +25,6 @@ class AmfiConfigurationDetection:
 
     >>> import amfi_detect
     >>> can_patch = amfi_detect.AmfiConfigurationDetection().check_config(amfi_detect.AmfiConfigDetectLevel.ALLOW_ALL)
-
     """
 
     def __init__(self) -> None:

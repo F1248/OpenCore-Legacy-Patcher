@@ -30,7 +30,6 @@ class InitializeLoggingSupport:
 
     FOR DEVELOPERS:
     - Don't invoke logging until after '_attempt_initialize_logging_configuration()' has been invoked
-
     """
 
     def __init__(self, global_constants: constants.Constants) -> None:
@@ -150,7 +149,6 @@ class InitializeLoggingSupport:
 
         Parameters:
             log_to_file (bool): Whether to log to file or not
-
         """
 
         logging.basicConfig(

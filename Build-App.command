@@ -24,7 +24,6 @@ class CreateBinary:
        - Build Binary via Pyinstaller
        - Patch 'LC_VERSION_MIN_MACOSX' to OS X 10.10
        - Add commit data to Info.plist
-
     """
 
     def __init__(self):
@@ -134,8 +133,6 @@ class CreateBinary:
                 ["cp", str(file), "./dist/OpenCore-Legacy-Patcher.app/Contents/Resources/"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
-
-
 
 
     def _delete_extra_binaries(self):
@@ -293,7 +290,6 @@ class CreateBinary:
           cmdsize 16
           version 10.13
               sdk 10.9
-
         """
 
         print("- Patching LC_VERSION_MIN_MACOSX")

@@ -16,7 +16,6 @@ class GenerateRootPatchSets:
     Usage:
         >>> from resources.sys_patch import sys_patch_generate
         >>> patchset = sys_patch_generate.GenerateRootPatches("iMac7,1", self.constants, self.hardware_details).patchset
-
     """
 
     def __init__(self, model: str, global_constants: constants.Constants, hardware_details: dict) -> None:

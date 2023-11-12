@@ -155,7 +155,6 @@ class DownloadObject:
         >>>     print("Download failed")
 
         >>> print("Download complete"")
-
     """
 
     def __init__(self, url: str, path: str) -> None:
@@ -201,7 +200,6 @@ class DownloadObject:
             display_progress (bool): Display progress in console
             spawn_thread (bool): Spawn a thread to download the file, otherwise download in the current thread
             verify_checksum (bool): Calculate checksum of downloaded file if True
-
         """
         self.status = DownloadStatus.DOWNLOADING
         logging.info(f"Starting download: {self.filename}")

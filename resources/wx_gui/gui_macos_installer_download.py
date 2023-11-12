@@ -155,7 +155,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
             self.frame_modal.SetSize((460, 370))
 
         if installers:
-            locale.setlocale(locale.LC_TIME, '')
+            locale.setlocale(locale.LC_TIME, "")
             logging.info(f"Available installers on SUCatalog ({'All entries' if show_full else 'Latest only'}):")
             for item in installers:
                 extra = " Beta" if installers[item]['Variant'] in ["DeveloperSeed", "PublicSeed"] else ""

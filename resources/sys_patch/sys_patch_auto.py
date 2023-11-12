@@ -37,7 +37,6 @@ class AutomaticSysPatch:
             - Verify this model needs patching (if not, assume user upgraded hardware and OpenCore Legacy Patcher was not removed)
 
         If all these tests pass, start Root Patcher
-
         """
 
         logging.info("- Starting Automatic Patching")

@@ -54,7 +54,9 @@ class Centre:
         Calculate centre position of screen and set window position
         """
 
-        """This is done as larger modals tend to crash into the dock because of where it is placed"""
+        """
+        This is done as larger modals tend to crash into the dock because of where it is placed
+        """
 
         screen_resolution = wx.DisplaySize()
         window_size = self.frame.GetSize()

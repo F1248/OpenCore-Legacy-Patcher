@@ -33,7 +33,6 @@ class BuildSupport:
             iterable (list): List of dicts
             key       (str): Key to search for
             value     (any): Value to search for
-
         """
 
         item = None
