@@ -51,7 +51,6 @@ class macOSInstallerDownloadFrame(wx.Frame):
         except IndexError:
             return 0
 
-
     def _generate_elements(self, frame: wx.Frame = None) -> None:
         """
         Format:
@@ -85,14 +84,13 @@ class macOSInstallerDownloadFrame(wx.Frame):
         # Set size of frame
         frame.SetSize((-1, return_button.GetPosition()[1] + return_button.GetSize()[1] + 40))
 
-
     def _generate_catalog_frame(self) -> None:
         """
         Generate frame to display available installers
         """
         super(macOSInstallerDownloadFrame, self).__init__(None, title=self.title, size=(300, 200), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
         gui_support.GenerateMenubar(self, self.constants).generate()
-        self.Centre()
+        gui_support.Centre(self, self.constants)
 
         # Title: Pulling installer catalog
         title_label = wx.StaticText(self, label="Finding Available Software", pos=(-1,5))
@@ -132,7 +130,6 @@ class macOSInstallerDownloadFrame(wx.Frame):
         """
         Display available installers in frame
         """
-
 
         bundles = [wx.BitmapBundle.FromBitmaps(icon) for icon in self.icons]
 
@@ -241,7 +238,6 @@ class macOSInstallerDownloadFrame(wx.Frame):
             clipboard.Close()
 
             wx.MessageDialog(self.frame_modal, "Download link copied to clipboard", "", wx.OK | wx.ICON_INFORMATION).ShowModal()
-
 
     def on_select_list(self, event):
         if self.list.GetSelectedItemCount() > 0:
