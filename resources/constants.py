@@ -19,7 +19,7 @@ class Constants:
         self.fallback_branch:                 str = "main" # Used when running / built from source
 
         # Patcher
-        self.patcher_version:                 str = "1.2.1" # OpenCore Legacy Patcher
+        self.patcher_version:                 str = "1.3.0" # OpenCore Legacy Patcher
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
         self.patcher_name:                    str = "OpenCore Legacy Patcher"
 
