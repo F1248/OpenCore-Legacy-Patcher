@@ -12,21 +12,21 @@ To generate custom icons for the OpenCore Boot Picker, you'll need the following
 
 * Images in PNG format
 * Each image, with the following res:
-  * Cursor — Mouse cursor (mandatory, up to 144x144).
-  * Selected — Selected item (mandatory, 144x144).
-  * Selector — Selecting item (mandatory, up to 144x40).
-  * Left — Scrolling left (mandatory, 40x40).
-  * Right — Scrolling right (mandatory, 40x40).
-  * HardDrive — Generic OS (mandatory, 128x128).
-  * Background — Centred background image. (Recommended max size 1920x1080)
-  * Apple — Apple OS (128x128).
-  * AppleRecv — Apple Recovery OS (128x128).
-  * AppleTM — Apple Time Machine (128x128).
-  * Windows — Windows (128x128).
-  * Other — Custom entry (see [Entries](https://dortania.github.io/docs/latest/Configuration.html), 128x128).
-  * ResetNVRAM — Reset NVRAM system action or tool (128x128).
-  * Shell — Entry with UEFI Shell name for e.g. OpenShell (128x128).
-  * Tool — Any other tool (128x128).
+  * Cursor - Mouse cursor (mandatory, up to 144x144).
+  * Selected - Selected item (mandatory, 144x144).
+  * Selector - Selecting item (mandatory, up to 144x40).
+  * Left - Scrolling left (mandatory, 40x40).
+  * Right - Scrolling right (mandatory, 40x40).
+  * HardDrive - Generic OS (mandatory, 128x128).
+  * Background - Centred background image. (Recommended max size 1920x1080)
+  * Apple - Apple OS (128x128).
+  * AppleRecv - Apple Recovery OS (128x128).
+  * AppleTM - Apple Time Machine (128x128).
+  * Windows - Windows (128x128).
+  * Other - Custom entry (see [Entries](https://dortania.github.io/docs/latest/Configuration.html), 128x128).
+  * ResetNVRAM - Reset NVRAM system action or tool (128x128).
+  * Shell - Entry with UEFI Shell name for e.g. OpenShell (128x128).
+  * Tool - Any other tool (128x128).
 
 Note, for each image we recommend having one of double the size. This ensures that icons are scaled correctly since .icns support dedicated images depending on HiDPI or not.
 
