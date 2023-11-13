@@ -54,11 +54,11 @@ class CreateBinary:
         Parse arguments passed to script
         """
 
-        parser = argparse.ArgumentParser(description='Builds OpenCore Legacy Patcher binary')
-        parser.add_argument('--branch', type=str, help='Git branch name')
-        parser.add_argument('--commit_url', type=str, help='Git commit URL')
-        parser.add_argument('--commit_date', type=str, help='Git commit date')
-        parser.add_argument('--reset_binaries', action='store_true', help='Force redownload and imaging of payloads')
+        parser = argparse.ArgumentParser(description="Builds OpenCore Legacy Patcher binary")
+        parser.add_argument("--branch", type=str, help="Git branch name")
+        parser.add_argument("--commit_url", type=str, help="Git commit URL")
+        parser.add_argument("--commit_date", type=str, help="Git commit date")
+        parser.add_argument("--reset_binaries", action="store_true", help="Force redownload and imaging of payloads")
         args = parser.parse_args()
         return args
 
