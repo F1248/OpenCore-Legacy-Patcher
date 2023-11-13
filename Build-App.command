@@ -21,7 +21,7 @@ class CreateBinary:
     This script's main purpose is to handle the following:
        - Download external dependencies (ex. PatcherSupportPkg)
        - Convert payloads directory into DMG
-       - Build Binary via Pyinstaller
+       - Build Binary via PyInstaller
        - Patch 'LC_VERSION_MIN_MACOSX' to OS X 10.10
        - Add commit data to Info.plist
     """
@@ -65,14 +65,14 @@ class CreateBinary:
 
     def _setup_pathing(self):
         """
-        Initialize pathing for pyinstaller
+        Initialize pathing for PyInstaller
         """
 
         pyinstaller_path = "/Library/Frameworks/Python.framework/Versions/3.11/bin/pyinstaller"
 
         if not Path(pyinstaller_path).exists():
-            print(f"- pyinstaller not found:\n\t{pyinstaller_path}")
-            raise Exception("pyinstaller not found")
+            print(f"- PyInstaller not found:\n\t{pyinstaller_path}")
+            raise Exception("PyInstaller not found")
 
         self.pyinstaller_path = pyinstaller_path
 
@@ -102,7 +102,7 @@ class CreateBinary:
 
     def _build_binary(self):
         """
-        Build binary via pyinstaller
+        Build binary via PyInstaller
         """
 
         if Path(f"./dist/OpenCore-Legacy-Patcher.app").exists():
@@ -279,7 +279,7 @@ class CreateBinary:
         """
         Patch LC_VERSION_MIN_MACOSX in Load Command to report 10.10
 
-        By default Pyinstaller will create binaries supporting 10.13+
+        By default PyInstaller will create binaries supporting 10.13+
         However this limitation is entirely arbitrary for our libraries
         and instead we're able to support 10.10 without issues.
 
