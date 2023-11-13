@@ -14,10 +14,10 @@ The below tables can be used to reference issues with a particular model, and se
 * [Xserve](#xserve)
 
 ::: details OpenCore Legacy Patcher application
-The patcher application requires **OS X Yosemite 10.10** or later to run.
-* **OS X El Capitan 10.11** or later is required to make installers for macOS Ventura and later.
+The application requires **OS X Yosemite 10.10** or newer to run.
+* **OS X El Capitan 10.11** or newer is required to create installers for macOS Ventura and newer.
 
-The patcher is designed to target **macOS Big Sur 11.x to macOS Sonoma 14.x**.
+OpenCore Legacy Patcher is designed for **macOS Big Sur 11 to macOS Sonoma 14**.
 * Other versions may work, albeit in a broken state. No support is provided for any version outside of the above.
 :::
 

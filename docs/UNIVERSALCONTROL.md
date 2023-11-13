@@ -211,7 +211,7 @@ Main Settings view | SMBIOS settings
 
 ::: details Table for spoofed models (click to expand)
 
-Spoofing to any model with native Sonoma support should work, but these are the earliest Macs natively supported by Sonoma and thus chosen for the sake of simplicity.
+Spoofing to any model with native Sonoma support should work, but these are the oldest Macs natively supported by Sonoma and thus chosen for the sake of simplicity.
 
 **Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
 
@@ -243,7 +243,7 @@ Main Settings view | SMBIOS settings
 
 ::: details Table for spoofed models (click to expand)
 
-Spoofing to any model with native Ventura support should work, but these are the earliest Macs natively supported by Ventura and thus chosen for the sake of simplicity.
+Spoofing to any model with native Ventura support should work, but these are the oldest Macs natively supported by Ventura and thus chosen for the sake of simplicity.
 
 **Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Ventura as long as the other requirements are met, since they aren't blacklisted.
 
@@ -275,7 +275,7 @@ Main Settings view                                | SMBIOS settings
 
 ::: details Table for spoofed models (click to expand)
 
-Any model after the list of officially blacklisted Macs should be supported, but these are the earliest Macs with Universal Control support, and thus chosen for the sake of simplicity.
+Any model after the list of officially blacklisted Macs should be supported, but these are the oldest Macs with Universal Control support, and thus chosen for the sake of simplicity.
 
 **Reminder:** Macs that aren't listed on this table work without spoofing, including systems that don't natively support Monterey, as long as the other requirements are met, since they aren't blacklisted.
 

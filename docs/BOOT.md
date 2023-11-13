@@ -69,7 +69,7 @@ If your Mac is looping back into the beginning of the setup after the first rebo
 
 ::: warning
 
-**MacBookPro11,3 Note**: When booting macOS Monterey or newer, you'll need to boot into Safe Mode if acceleration patches aren't installed yet. [Otherwise, you'll hit a black screen due to missing NVIDIA drivers.](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522) Safe Mode can be entered by holding `Shift` + `Enter` when selecting macOS in OpenCore Boot Picker.
+**MacBookPro11,3 Note**: When booting macOS Monterey 12 or newer, you'll need to boot into Safe Mode by holding `Shift` + `Enter` when selecting macOS in the OpenCore Boot Picker if acceleration patches aren't already installed. Otherwise, [missing NVIDIA drivers will result in a black screen](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/522).
 
 :::
 
