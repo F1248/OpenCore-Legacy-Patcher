@@ -857,7 +857,7 @@ class PatchSysVolume:
 
             output = subprocess.run(
                 [
-                    "hdiutil", "attach", "-noverify", f"{self.constants.payload_local_binaries_root_path_dmg}",
+                    "hdiutil", "attach", "-noverify", self.constants.payload_local_binaries_root_path_dmg,
                     "-mountpoint", Path(self.constants.payload_path / Path("Universal-Binaries")),
                     "-nobrowse",
                     "-shadow", Path(self.constants.payload_path / Path("Universal-Binaries_overlay")),

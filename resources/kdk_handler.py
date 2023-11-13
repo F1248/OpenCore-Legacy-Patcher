@@ -143,7 +143,7 @@ class KernelDebugKitObject:
 
         if os_data.os_conversion.os_to_kernel(str(parsed_version.major)) < os_data.os_data.ventura:
             self.error_msg = "KDKs aren't required for macOS Monterey or older"
-            logging.warning(f"{self.error_msg}")
+            logging.warning(self.error_msg)
             return
 
         self.kdk_installed_path = self._local_kdk_installed()
@@ -471,7 +471,7 @@ class KernelDebugKitObject:
         result = utilities.elevated(rm_args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         if result.returncode != 0:
             logging.warning(f"Failed to remove KDK: {kdk_path}")
-            logging.warning(f"{result.stdout.decode('utf-8')}")
+            logging.warning(result.stdout.decode('utf-8'))
             return
 
         logging.info(f"Successfully removed KDK: {kdk_path}")
@@ -541,7 +541,7 @@ class KernelDebugKitObject:
             logging.info("Error: Kernel Debug Kit checksum verification failed!")
             logging.info(f"Output: {result.stderr.decode('utf-8')}")
             msg = "Kernel Debug Kit checksum verification failed, please try again.\n\nIf this continues to fail, ensure you're downloading on a stable network connection (ie. Ethernet)"
-            logging.info(f"{msg}")
+            logging.info(msg)
 
             self.error_msg = msg
             return False

@@ -276,7 +276,7 @@ class RemoteInstallerCatalog:
             if did_find_variant:
                 url += f"-{variant}"
 
-        url += f"{CATALOG_URL_EXTENSION}"
+        url += CATALOG_URL_EXTENSION
 
         return url
 

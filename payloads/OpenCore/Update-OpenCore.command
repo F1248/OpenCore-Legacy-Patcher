@@ -115,13 +115,13 @@ class GenerateOpenCore:
         # Unzip both, rename to OpenCore-DEBUG and OpenCore-RELEASE
         print("Unzipping DEBUG zip…")
         subprocess.run (
-            ["unzip", f"{self.debug_zip}", "-d", f"{self.working_dir}/OpenCore-DEBUG-ROOT"],
+            ["unzip", self.debug_zip, "-d", f"{self.working_dir}/OpenCore-DEBUG-ROOT"],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
         print("Unzipping RELEASE zip…")
         subprocess.run (
-            ["unzip", f"{self.release_zip}", "-d", f"{self.working_dir}/OpenCore-RELEASE-ROOT"],
+            ["unzip", self.release_zip, "-d", f"{self.working_dir}/OpenCore-RELEASE-ROOT"],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
@@ -242,7 +242,7 @@ class GenerateOpenCore:
         print("   Relocating BOOT folder to SLC")
         for file in (self.working_dir / f"OpenCore-{variant}/EFI/BOOT").iterdir():
             subprocess.run (
-                ["mv", f"{file}", f"{self.working_dir}/OpenCore-{variant}/System/Library/CoreServices"],
+                ["mv", file, f"{self.working_dir}/OpenCore-{variant}/System/Library/CoreServices"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 

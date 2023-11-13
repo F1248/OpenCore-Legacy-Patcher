@@ -81,7 +81,7 @@ class SysPatchHelpers:
             bool: True if successful, False if not
         """
 
-        source_path = f"{self.constants.payload_path}"
+        source_path = self.constants.payload_path
         source_path_file = f"{source_path}/{file_name}"
 
         kdk_string = "Not applicable"
@@ -90,9 +90,9 @@ class SysPatchHelpers:
 
         data = {
             "OpenCore Legacy Patcher": f"v{self.constants.patcher_version}",
-            "Time Patched": f"{datetime.now().strftime('%B %d, %Y @ %H:%M:%S')}",
-            "Commit URL": f"{self.constants.commit_info[2]}",
-            "Kernel Debug Kit Used": f"{kdk_string}",
+            "Time Patched": datetime.now().strftime('%B %d, %Y @ %H:%M:%S'),
+            "Commit URL": self.constants.commit_info[2],
+            "Kernel Debug Kit Used": kdk_string,
             "OS Version": f"{self.constants.detected_os}.{self.constants.detected_os_minor} ({self.constants.detected_os_build})",
             "Custom Signature": bool(Path(self.constants.payload_local_binaries_root_path / ".signed").exists()),
         }

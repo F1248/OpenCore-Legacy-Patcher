@@ -87,7 +87,7 @@ class macOSInstallerFlashFrame(wx.Frame):
             for app in self.available_installers_local:
                 logging.info(f"- {self.available_installers_local[app]['Short Name']}: {self.available_installers_local[app]['Version']} ({self.available_installers_local[app]['Build']})")
 
-                app_str = f"{self.available_installers_local[app]['Short Name']}"
+                app_str = self.available_installers_local[app]['Short Name']
                 unsupported: bool = self.available_installers_local[app]['Minimum Host OS'] > self.constants.detected_os
 
                 if unsupported:

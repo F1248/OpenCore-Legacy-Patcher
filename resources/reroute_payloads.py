@@ -36,7 +36,7 @@ class RoutePayloadDiskImage:
             self._unmount_active_dmgs(unmount_all_active=False)
             output = subprocess.run(
                 [
-                    "hdiutil", "attach", "-noverify", f"{self.constants.payload_path_dmg}",
+                    "hdiutil", "attach", "-noverify", self.constants.payload_path_dmg,
                     "-mountpoint", Path(self.temp_dir.name / Path("payloads")),
                     "-nobrowse",
                     "-shadow", Path(self.temp_dir.name / Path("payloads_overlay")),
