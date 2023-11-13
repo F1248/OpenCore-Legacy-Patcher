@@ -251,7 +251,7 @@ class GenerateKexts:
 
             print(f"  Moving {file} to {file_path}…")
             # Zip file
-            subprocess.run(["zip", "-q", "-r", Path(file_path).name, file], cwd=f"{temp_dir}", check=True)
+            subprocess.run(["zip", "-q", "-r", Path(file_path).name, file], cwd=temp_dir, check=True)
 
             # Move file
             subprocess.run(["mv", f"{temp_dir}/{Path(file_path).name}", file_path], check=True)
