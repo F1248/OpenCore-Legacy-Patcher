@@ -14,9 +14,10 @@ jobs:
     runs-on: macos-13
 
     env:
+      repository: ${{ github.repository}}
       branch: ${{ github.ref }}
       commit_url: ${{ github.event.head_commit.url }}
-      commit_date: ${{ github.event.head_commit.timestamp }}
+      commit_date_time: ${{ github.event.head_commit.timestamp }}
 
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +38,7 @@ jobs:
           hdiutil detach /Volumes/Packages\ * -force
 
       - name: Build App
-        run: python3.11 Build-App.command --reset_binaries --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --commit_date "${{ env.commit_date }}"
+        run: python3.11 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
 
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent dist/OpenCore-Legacy-Patcher.app OpenCore-Legacy-Patcher.app.zip

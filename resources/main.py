@@ -8,7 +8,7 @@ import threading
 from pathlib import Path
 
 from resources.wx_gui import gui_entry
-from resources import constants, utilities, device_probe, os_probe, defaults, arguments, reroute_payloads, commit_info, logging_handler
+from resources import constants, utilities, device_probe, os_probe, defaults, arguments, reroute_payloads, parse_build_arguments, logging_handler
 
 
 class OpenCoreLegacyPatcher:
@@ -71,15 +71,26 @@ class OpenCoreLegacyPatcher:
         self.constants.unpack_thread = threading.Thread(target=reroute_payloads.RoutePayloadDiskImage, args=(self.constants,))
         self.constants.unpack_thread.start()
 
-        # Generate commit info
-        self.constants.commit_info = commit_info.ParseCommitInfo(self.constants.launcher_binary).generate_commit_info()
-        branch = self.constants.commit_info[0]
-        if " " in branch:
-            branch = self.constants.fallback_branch
-        self.constants.pkg_url = self.constants.pkg_url.replace("branch_placeholder", branch)
+        # Generate build arguments
+        plist_build_arguments = parse_build_arguments.ParseBuildArguments(self.constants.launcher_binary).generate_build_arguments()
+        if plist_build_arguments != None:
+            self.constants.build_arguments.update(plist_build_arguments)
+        url_components = {}
+        for component in ["Repository", "Branch"]:
+            if self.constants.build_arguments[component] == None:
+                url_components[component] = self.constants.build_arguments["Fallback"][component]
+            else:
+                url_components[component] = self.constants.build_arguments[component]
+        for url in ["api_url", "pkg_url", "app_url"]:
+            for replacement in [
+                ["repository_placeholder", url_components["Repository"]],
+                ["branch_placeholder", url_components["Branch"]]
+            ]:
+                self.constants.__dict__[url] = self.constants.__dict__[url].replace(*replacement)
 
         # Generate defaults
         defaults.GenerateDefaults(self.computer.real_model, True, self.constants)
+
 
         if utilities.check_cli_args() is None:
             self.constants.cli_mode = False

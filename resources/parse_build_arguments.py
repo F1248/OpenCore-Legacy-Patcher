@@ -1,9 +1,10 @@
-# Parse Commit Info from binary's info.plist
+# Parse Build Arguments Info from binary's info.plist
 
 from pathlib import Path
 import plistlib
+import time
 
-class ParseCommitInfo:
+class ParseBuildArguments:
 
     def __init__(self, binary_path: str) -> None:
         """
@@ -27,24 +28,13 @@ class ParseCommitInfo:
         return None
 
 
-    def generate_commit_info(self) -> tuple:
+    def generate_build_arguments(self) -> dict:
         """
-        Generate commit info from Info.plist
-
-        Returns:
-            tuple: (Branch, Commit Date, Commit URL)
+        Generate build arguments from Info.plist
         """
 
         if self.plist_path:
             plist_info = plistlib.load(Path(self.plist_path).open("rb"))
-            if "GitHub" in plist_info:
-                return (
-                    plist_info["GitHub"]["Branch"],
-                    plist_info["GitHub"]["Commit Date"],
-                    plist_info["GitHub"]["Commit URL"],
-                )
-        return (
-            "Running from source",
-            "Not applicable",
-            "",
-        )
+            return plist_info["Build arguments"]
+        else:
+            return None

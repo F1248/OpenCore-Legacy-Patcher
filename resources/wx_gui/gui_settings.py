@@ -983,10 +983,11 @@ class SettingsFrame(wx.Frame):
     Application Path: {self.constants.launcher_binary}
     Application Mount: {self.constants.payload_path}
 
-Commit Information:
-    Branch: {self.constants.commit_info[0]}
-    Date: {self.constants.commit_info[1]}
-    URL: {self.constants.commit_info[2] if self.constants.commit_info[2] != "" else "N/A"}
+Build Arguments:
+    Date and time: {self.constants.build_arguments["Date and time"]}
+    Repository: {self.constants.build_arguments["Repository"]}
+    Branch: {self.constants.build_arguments["Branch"]}
+    Commit URL: {self.constants.build_arguments["Commit URL"]}
 
 Booted Information:
     Booted OS: XNU {self.constants.detected_os} ({self.constants.detected_os_version})
@@ -1228,10 +1229,10 @@ Hardware Information:
         test_request = network_handler.NetworkUtilities().get(test_url)
         if test_request.status_code == 200:
 
-            actions_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/actions/runs"
+            actions_url = f"{self.constants.api_url}/actions/runs"
             actions_result = network_handler.NetworkUtilities().get(actions_url).json()
 
-            branches_url = f"https://api.github.com/repos/{self.constants.user}/{self.constants.repository}/branches"
+            branches_url = f"{self.constants.api_url}/branches"
             branches_result = network_handler.NetworkUtilities().get(branches_url).json()
 
             branches = []
@@ -1241,7 +1242,7 @@ Hardware Information:
                 commit_result = network_handler.NetworkUtilities().get(commit_url).json()
                 last_commit = commit_result["commit"]["message"]
                 last_commit = last_commit.replace(" …\n\n… ", " ").replace("\n\n", " ↪ ").replace("\n", " ↪ ")
-                installed_note = "Currently installed, " if branch_name == self.constants.commit_info[0] and commit_result["html_url"] == self.constants.commit_info[2] else ""
+                installed_note = "Currently installed, " if branch_name == self.constants.build_arguments["Branch"] and commit_result["html_url"] == self.constants.build_arguments["Commit URL"] else ""
                 for run in actions_result["workflow_runs"]:
                     if run["head_branch"] == branch_name:
                         if run["status"] == "completed":
@@ -1259,7 +1260,7 @@ Hardware Information:
                     description = f"{branch_name} ({status}{installed_note}Last commit: {last_commit}…)"
                 branches.append([branch_name, description])
 
-            for branch_name in ["master", "main", self.constants.commit_info[0]]:
+            for branch_name in ["master", "main", self.constants.build_arguments["Branch"]]:
                 if any(branch[0] == branch_name for branch in branches):
                     branch = next(branch for branch in branches if branch[0] == branch_name)
                     branches.remove(branch)
@@ -1289,10 +1290,10 @@ Hardware Information:
             logging.warning(f"Failed to retrieve information from GitHub API with the following error: {error}")
 
             error_message = wx.MessageDialog(self.parent, error, "Failed to retrieve branch information from GitHub API with the following error:", wx.YES_NO | wx.CANCEL | wx.ICON_ERROR)
-            error_message.SetYesNoCancelLabels(f"Use current branch \"{self.constants.fallback_branch}\"", "Enter branch manually", "OK")
+            error_message.SetYesNoCancelLabels(f"Use current branch {self.constants.build_arguments['Branch']}", "Enter branch manually", "OK")
             result = error_message.ShowModal()
             if result == wx.ID_YES:
-                branch = self.constants.fallback_branch
+                branch = self.constants.build_arguments["Branch"]
             elif result == wx.ID_NO:
                 branch_input = wx.TextEntryDialog(self.parent, "Branch:", "Enter branch", "")
                 if branch_input.ShowModal() == wx.ID_OK:
@@ -1302,7 +1303,7 @@ Hardware Information:
             else:
                 return
 
-        url = self.constants.app_url.replace("branch_placeholder", branch)
+        url = self.constants.app_url
 
         gui_update.UpdateFrame(
             parent = self.parent,

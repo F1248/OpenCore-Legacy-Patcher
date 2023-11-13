@@ -23,7 +23,7 @@ class CreateBinary:
        - Convert payloads directory into DMG
        - Build Binary via PyInstaller
        - Patch 'LC_VERSION_MIN_MACOSX' to OS X 10.10
-       - Add commit data to Info.plist
+       - Add build arguments to Info.plist
     """
 
     def __init__(self):
@@ -55,9 +55,10 @@ class CreateBinary:
         """
 
         parser = argparse.ArgumentParser(description="Builds OpenCore Legacy Patcher")
-        parser.add_argument("--branch", type=str, help="Git branch name")
+        parser.add_argument("--date_time", type=str, help="Commit or build date and time")
+        parser.add_argument("--repository", type=str, help="Git repository")
+        parser.add_argument("--branch", type=str, help="Git branch")
         parser.add_argument("--commit_url", type=str, help="Git commit URL")
-        parser.add_argument("--commit_date", type=str, help="Git commit date")
         parser.add_argument("--reset_binaries", action="store_true", help="Force redownload and imaging of payloads")
         args = parser.parse_args()
         return args
@@ -96,7 +97,7 @@ class CreateBinary:
 
         print("Starting postflight processes")
         self._patch_load_command()
-        self._add_commit_data()
+        self._add_build_arguments()
         self._post_flight_cleanup()
 
 
@@ -250,28 +251,35 @@ class CreateBinary:
         print("- DMG generation complete")
 
 
-    def _add_commit_data(self):
+    def _add_build_arguments(self):
         """
-        Add commit data to Info.plist
+        Add build arguments to Info.plist
         """
 
-        if not self.args.branch and not self.args.commit_url and not self.args.commit_date:
-            print("- No commit data provided, adding source info")
-            branch = "Built from source"
-            commit_url = ""
-            commit_date = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        else:
-            branch = self.args.branch.replace("refs/heads/", "")
-            commit_url = self.args.commit_url
-            commit_date = self.args.commit_date
-        print("- Adding commit data to Info.plist")
+        print("- Adding build arguments to Info.plist")
         plist_path = Path("./dist/OpenCore-Legacy-Patcher.app/Contents/Info.plist")
         plist = plistlib.load(Path(plist_path).open("rb"))
-        plist["GitHub"] = {
-            "Branch": branch,
-            "Commit URL": commit_url,
-            "Commit Date": commit_date,
-        }
+
+        plist["Build arguments"] = {}
+
+        if self.args.date_time:
+            date_time = self.args.date_time
+        else:
+            date_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        plist["Build arguments"]["Date and time"] = date_time
+
+        if self.args.repository:
+            repository = self.args.repository
+            plist["Build arguments"]["Repository"] = repository
+
+        if self.args.branch:
+            branch = self.args.branch.replace("refs/heads/", "")
+            plist["Build arguments"]["Branch"] = branch
+
+        if self.args.commit_url:
+            commit_url = self.args.commit_url
+            plist["Build arguments"]["Commit URL"] = commit_url
+
         plistlib.dump(plist, Path(plist_path).open("wb"), sort_keys=True)
 
 

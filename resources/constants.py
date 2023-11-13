@@ -5,6 +5,7 @@
 from pathlib import Path
 from typing import Optional
 from packaging import version
+import time
 
 from resources import device_probe
 from data import os_data
@@ -13,21 +14,29 @@ from data import os_data
 class Constants:
     def __init__(self) -> None:
 
-        # GitHub
-        self.user:                            str = "F1248"
-        self.repository:                      str = "OpenCore-Legacy-Patcher"
-        self.fallback_branch:                 str = "main" # Used when running / built from source
-
         # Patcher
         self.patcher_version:                 str = "1.3.0" # OpenCore Legacy Patcher
         self.copyright_date:                  str = "Copyright © 2020-2023 Dortania"
         self.app_name:                        str = "OpenCore Legacy Patcher"
 
+        # Build arguments
+        self.build_arguments:                dict = {
+            "Date and time": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+            "Repository": None,
+            "Branch": None,
+            "Commit URL": None,
+            "Fallback": { # used when built or running from source)
+                "Repository": "F1248/OpenCore-Legacy-Patcher",
+                "Branch": "main"
+            }
+        }
+
         # URLs
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
-        self.pkg_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
-        self.app_url:                         str = f"https://nightly.link/{self.user}/{self.repository}/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
+        self.api_url:                         str = "https://api.github.com/repos/repository_placeholder"
+        self.pkg_url:                         str = "https://nightly.link/repository_placeholder/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
+        self.app_url:                         str = "https://nightly.link/repository_placeholder/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
         self.support_url:                     str = "https://nightly.link/dortania/PatcherSupportPkg/workflows/build/master/Universal%20Binaries.zip"
 
         # OpenCore Versioning
@@ -152,8 +161,6 @@ class Constants:
         self.unpack_thread                   = None  #  Determine if unpack thread finished (threading.Thread)
         self.update_stage:               int = 0  #     Determine update stage (see gui_support.py)
         self.log_filepath:              Path = None  #  Path to log file
-
-        self.commit_info: tuple = (None, None, None)  # Commit info (Branch, Commit Date, Commit URL)
 
         ## Hardware
         self.computer: device_probe.Computer = None  # type: ignore
