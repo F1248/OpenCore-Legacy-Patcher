@@ -1,6 +1,5 @@
 import logging
 import os
-import plistlib
 import subprocess
 import sys
 import threading
@@ -8,7 +7,6 @@ import time
 from pathlib import Path
 
 import applescript
-import packaging.version
 import wx
 
 from data import model_array, os_data, smbios_data

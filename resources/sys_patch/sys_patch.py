@@ -35,7 +35,6 @@
 import logging
 import plistlib
 import subprocess
-import applescript
 
 from pathlib import Path
 from datetime import datetime

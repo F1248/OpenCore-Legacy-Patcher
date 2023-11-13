@@ -2,7 +2,6 @@
 
 from pathlib import Path
 import plistlib
-import time
 
 class ParseBuildArguments:
 
