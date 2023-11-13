@@ -45,7 +45,7 @@ class USBDevice:
         device_speed  = None
         vendor_name   = None
         serial_number = None
-        product_name = "N/A"
+        product_name  = "N/A"
 
         if "idVendor" in properties:
             vendor_id = properties["idVendor"]
