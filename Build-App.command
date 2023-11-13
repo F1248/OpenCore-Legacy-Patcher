@@ -54,7 +54,7 @@ class CreateBinary:
         Parse arguments passed to script
         """
 
-        parser = argparse.ArgumentParser(description="Builds OpenCore Legacy Patcher binary")
+        parser = argparse.ArgumentParser(description="Builds OpenCore Legacy Patcher")
         parser.add_argument("--branch", type=str, help="Git branch name")
         parser.add_argument("--commit_url", type=str, help="Git commit URL")
         parser.add_argument("--commit_date", type=str, help="Git commit date")
