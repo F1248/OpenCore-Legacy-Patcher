@@ -33,17 +33,8 @@ jobs:
       - name: Build App
         run: python3.11 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
 
-      - name: Zip App
-        run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
-
       - name: Build support package
         run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
-
-      - name: Upload App
-        uses: actions/upload-artifact@v3
-        with:
-          name: OpenCore Legacy Patcher.app
-          path: OpenCore-Legacy-Patcher.app.zip
 
       - name: Upload Package
         uses: actions/upload-artifact@v3

@@ -36,17 +36,8 @@ jobs:
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
 
-      - name: Build support package
-        run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
-
       - name: Upload App
         uses: actions/upload-artifact@v3
         with:
           name: OpenCore Legacy Patcher.app
           path: OpenCore-Legacy-Patcher.app.zip
-
-      - name: Upload Package
-        uses: actions/upload-artifact@v3
-        with:
-          name: AutoPkg-Assets.pkg
-          path: dist/AutoPkg-Assets.pkg
