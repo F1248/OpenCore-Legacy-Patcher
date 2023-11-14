@@ -91,8 +91,8 @@ class SysPatchHelpers:
         data = {
             "OpenCore Legacy Patcher": f"v{self.constants.patcher_version}",
             "Time Patched": datetime.now().strftime('%B %d, %Y @ %H:%M:%S'),
-            "Commit URL": self.constants.build_arguments['Commit URL'],
-            "Kernel Debug Kit Used": kdk_string,
+            "Commit URL": str(self.constants.build_arguments['Commit URL']),
+            "Kernel Debug Kit Used": str(kdk_string),
             "OS Version": f"{self.constants.detected_os}.{self.constants.detected_os_minor} ({self.constants.detected_os_build})",
             "Custom Signature": bool(Path(self.constants.payload_local_binaries_root_path / ".signed").exists()),
         }
