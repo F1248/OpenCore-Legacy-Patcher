@@ -36,7 +36,7 @@ class Constants:
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
         self.api_url:                         str = "https://api.github.com/repos/repository_placeholder"
         self.pkg_url:                         str = "https://nightly.link/repository_placeholder/workflows/build-app/branch_placeholder/AutoPkg-Assets.pkg.zip"
-        self.app_url:                         str = "https://nightly.link/repository_placeholder/workflows/build-app/branch_placeholder/OpenCore-Legacy-Patcher.app.zip"
+        self.app_url:                         str = "https://nightly.link/repository_placeholder/workflows/build-app/branch_placeholder/OpenCore%20Legacy%20Patcher.app.zip"
         self.support_url:                     str = "https://nightly.link/dortania/PatcherSupportPkg/workflows/build/master/Universal%20Binaries.zip"
 
         # OpenCore Versioning
