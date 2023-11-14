@@ -16,8 +16,8 @@ class Constants:
 
         # Patcher
         self.patcher_version:                 str = "1.3.0" # OpenCore Legacy Patcher
-        self.copyright:                       str = "Copyright © 2020-2023 Dortania"
         self.app_name:                        str = "OpenCore Legacy Patcher"
+        self.copyright:                       str = "Copyright © 2020-2023 Dortania"
 
         # Build arguments
         self.build_arguments:                dict = {
