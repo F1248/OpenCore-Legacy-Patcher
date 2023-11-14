@@ -77,7 +77,7 @@ class MainFrame(wx.Frame):
                 "description": [
                 ],
             },
-            "Post-Install Root Patch": {
+            "Post-Install Root Patches": {
                 "function": self.on_post_install_root_patch,
                 "description": [
                     "Installs hardware drivers and",
