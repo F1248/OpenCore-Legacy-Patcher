@@ -12,7 +12,7 @@ class InstallOCFrame(wx.Frame):
     """
     Create a frame for installing OpenCore to disk
     """
-    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: tuple = None):
+    def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: tuple = None, use_booted_disk: bool = False):
         logging.info("Initializing Install OpenCore Frame")
         super(InstallOCFrame, self).__init__(parent, title=title, size=(300, 120), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
         gui_support.GenerateMenuBar(self, global_constants).generate()
@@ -21,6 +21,7 @@ class InstallOCFrame(wx.Frame):
         self.title: str = title
         self.result: bool = False
 
+        self.use_booted_disk: bool = use_booted_disk
         self.available_disks: dict = None
         self.stock_output = logging.getLogger().handlers[0].stream
 
@@ -36,7 +37,10 @@ class InstallOCFrame(wx.Frame):
         gui_support.Centre(self, self.constants)
         self.Show()
 
-        self._display_disks()
+        if use_booted_disk:
+            self._install_oc_process(self.constants.booted_oc_disk)
+        else:
+            self._display_disks()
 
 
     def _generate_elements(self) -> None:
@@ -225,7 +229,8 @@ class InstallOCFrame(wx.Frame):
         """
         Install OpenCore to disk
         """
-        self.dialog.Close()
+        if not self.use_booted_disk:
+            self.dialog.Close()
 
         # Create dialog
         dialog = wx.Dialog(

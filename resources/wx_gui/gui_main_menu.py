@@ -209,7 +209,8 @@ class MainFrame(wx.Frame):
                 parent=None,
                 title=self.title,
                 global_constants=self.constants,
-                screen_location=pos
+                screen_location=pos,
+                use_booted_disk=True
             )
             self.Close()
 
