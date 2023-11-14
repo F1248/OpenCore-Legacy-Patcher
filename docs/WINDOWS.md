@@ -61,9 +61,9 @@ Recommended size is 200MB and the partition format **must** be FAT32 for OpenCor
 
 The latest Windows installation images can be downloaded from Microsoft using the following links:
 
-* [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/software-download/windows10ISO)
+* [Download Windows 10 Disk Image (ISO File)](https://www.microsoft.com/software-download/windows10ISO)
 
-* [Download Windows 11 Disc Image (ISO File)](https://www.microsoft.com/software-download/windows11)
+* [Download Windows 11 Disk Image (ISO File)](https://www.microsoft.com/software-download/windows11)
 
 :::warning
 
