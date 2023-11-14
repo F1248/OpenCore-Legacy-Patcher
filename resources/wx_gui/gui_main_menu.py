@@ -159,7 +159,7 @@ class MainFrame(wx.Frame):
 
 
         # Text: Copyright
-        copy_label = wx.StaticText(self, label=self.constants.copyright_date, pos=(-1, max_height - 15))
+        copy_label = wx.StaticText(self, label=self.constants.copyright, pos=(-1, max_height - 15))
         copy_label.SetFont(gui_support.font_factory(10, wx.FONTWEIGHT_NORMAL))
         copy_label.Centre(wx.HORIZONTAL)
 

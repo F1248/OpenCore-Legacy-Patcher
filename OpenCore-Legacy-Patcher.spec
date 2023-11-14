@@ -55,7 +55,7 @@ app = BUNDLE(coll,
              bundle_identifier="com.dortania.opencore-legacy-patcher",
              info_plist={
                 "CFBundleName": "OpenCore Legacy Patcher",
-                "NSHumanReadableCopyright": constants.Constants().copyright_date,
+                "NSHumanReadableCopyright": constants.Constants().copyright,
                 "LSMinimumSystemVersion": "10.10.0",
                 "NSRequiresAquaSystemAppearance": False,
                 "NSHighResolutionCapable": True,
