@@ -81,7 +81,7 @@ class SysPatchHelpers:
             bool: True if successful, False if not
         """
 
-        source_path = self.constants.payload_path
+        source_path = str(self.constants.payload_path)
         source_path_file = f"{source_path}/{file_name}"
 
         kdk_string = "Not applicable"
