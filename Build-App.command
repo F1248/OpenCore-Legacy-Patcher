@@ -118,7 +118,7 @@ class CreateBinary:
                 raise Exception("Remove failed")
 
         print("Building GUI binary…")
-        build_args = [self.pyinstaller_path, "./OpenCore-Legacy-Patcher.spec", "--noconfirm"]
+        build_args = [self.pyinstaller_path, "./PyInstaller.spec", "--noconfirm"]
 
         build_result = subprocess.run(build_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
