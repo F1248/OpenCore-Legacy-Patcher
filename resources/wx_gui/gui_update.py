@@ -32,7 +32,7 @@ class UpdateFrame(wx.Frame):
 
         self.title: str = title
         self.constants: constants.Constants = global_constants
-        self.application_path = self.constants.payload_path / "OpenCore-Legacy-Patcher.app"
+        self.application_path = self.constants.payload_path / "OpenCore Legacy Patcher.app"
         self.screen_location: wx.Point = screen_location
         if parent:
             self.parent.Centre()
@@ -196,7 +196,7 @@ class UpdateFrame(wx.Frame):
 
     def _install_update(self) -> None:
         """
-        Installs update to '/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app'
+        Installs update to '/Library/Application Support/Dortania/OpenCore Legacy Patcher.app'
         """
         logging.info(f"Installing update: {self.application_path}")
 
@@ -207,20 +207,20 @@ if [ ! -d "/Library/Application Support/Dortania" ]; then
     mkdir -p "/Library/Application Support/Dortania"
 fi
 
-# Check if 'OpenCore-Legacy-Patcher.app' exists
-if [ -d "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app" ]; then
-    rm -rf "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"
+# Check if 'OpenCore Legacy Patcher.app' exists
+if [ -d "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" ]; then
+    rm -rf "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
 fi
 
-if [ -d "/Applications/OpenCore-Legacy-Patcher.app" ]; then
-    rm -rf "/Applications/OpenCore-Legacy-Patcher.app"
+if [ -d "/Applications/OpenCore Legacy Patcher.app" ]; then
+    rm -rf "/Applications/OpenCore Legacy Patcher.app"
 fi
 
-# Move '/tmp/OpenCore-Legacy-Patcher.app' to '/Library/Application Support/Dortania'
-mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app"
+# Move '/tmp/OpenCore Legacy Patcher.app' to '/Library/Application Support/Dortania'
+mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
 
-# Check if '/Applications/OpenCore-Legacy-Patcher.app' exists
-ln -s "/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app" "/Applications/OpenCore-Legacy-Patcher.app"
+# Check if '/Applications/OpenCore Legacy Patcher.app' exists
+ln -s "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" "/Applications/OpenCore Legacy Patcher.app"
 
 # Create update.plist with info about update
 cat << EOF > "/Library/Application Support/Dortania/update.plist"
@@ -258,5 +258,5 @@ EOF
         """
         Launches newly installed update
         """
-        logging.info("Launching update: '/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app'")
-        subprocess.Popen(["/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher", "--update_installed"])
+        logging.info("Launching update: '/Library/Application Support/Dortania/OpenCore Legacy Patcher.app'")
+        subprocess.Popen(["/Library/Application Support/Dortania/OpenCore Legacy Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher", "--update_installed"])

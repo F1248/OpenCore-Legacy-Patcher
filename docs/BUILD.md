@@ -2,7 +2,7 @@
 
 Now that we've a macOS installer, let's now build our OpenCore configuration!
 
-Next, run the `OpenCore-Legacy-Patcher.app`:
+Next, run the `OpenCore Legacy Patcher.app`:
 
 ![](../images/OCLP-GUI-Main-Menu.png)
 

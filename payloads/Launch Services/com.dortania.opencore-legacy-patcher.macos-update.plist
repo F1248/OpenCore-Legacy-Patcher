@@ -8,7 +8,7 @@
 	<string>com.dortania.opencore-legacy-patcher.macos-update</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Library/Application Support/Dortania/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher</string>
+		<string>/Library/Application Support/Dortania/OpenCore Legacy Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher</string>
 		<string>--prepare_for_update</string>
 	</array>
 	<key>WatchPaths</key>

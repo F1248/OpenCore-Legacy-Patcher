@@ -106,10 +106,10 @@ class CreateBinary:
         Build binary via PyInstaller
         """
 
-        if Path(f"./dist/OpenCore-Legacy-Patcher.app").exists():
-            print("Found OpenCore-Legacy-Patcher.app, removing…")
+        if Path(f"./dist/OpenCore Legacy Patcher.app").exists():
+            print("Found OpenCore Legacy Patcher.app, removing…")
             rm_output = subprocess.run(
-                ["rm", "-rf", "./dist/OpenCore-Legacy-Patcher.app"],
+                ["rm", "-rf", "./dist/OpenCore Legacy Patcher.app"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             if rm_output.returncode != 0:
@@ -131,7 +131,7 @@ class CreateBinary:
         print("Embedding icns…")
         for file in Path("payloads/Icon/AppIcons").glob("*.icns"):
             subprocess.run(
-                ["cp", str(file), "./dist/OpenCore-Legacy-Patcher.app/Contents/Resources/"],
+                ["cp", str(file), "./dist/OpenCore Legacy Patcher.app/Contents/Resources/"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
@@ -257,7 +257,7 @@ class CreateBinary:
         """
 
         print("- Adding build arguments to Info.plist")
-        plist_path = Path("./dist/OpenCore-Legacy-Patcher.app/Contents/Info.plist")
+        plist_path = Path("./dist/OpenCore Legacy Patcher.app/Contents/Info.plist")
         plist = plistlib.load(Path(plist_path).open("rb"))
 
         plist["Build arguments"] = {}
@@ -292,7 +292,7 @@ class CreateBinary:
         and instead we're able to support 10.10 without issues.
 
         To verify set version:
-          otool -l ./dist/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher
+          otool -l ./dist/OpenCore Legacy Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher
 
               cmd LC_VERSION_MIN_MACOSX
           cmdsize 16
@@ -301,7 +301,7 @@ class CreateBinary:
         """
 
         print("- Patching LC_VERSION_MIN_MACOSX")
-        path = "./dist/OpenCore-Legacy-Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher"
+        path = "./dist/OpenCore Legacy Patcher.app/Contents/MacOS/OpenCore-Legacy-Patcher"
         find = b"\x00\x0D\x0A\x00" # 10.13 (0xA0D)
         replace = b"\x00\x0A\x0A\x00" # 10.10 (0xA0A)
         with open(path, 'rb') as f:
