@@ -51,7 +51,7 @@ class InitializeLoggingSupport:
         self._start_logging()
         self._implement_custom_traceback_handler()
         self._fix_file_permission()
-        self._clean_prior_version_logs()
+        self._clean_old_logs()
 
 
     def _initialize_logging_path(self) -> None:
@@ -76,36 +76,20 @@ class InitializeLoggingSupport:
         self.log_filepath = Path(f"{base_path}/{self.log_filename}").expanduser()
         self.constants.log_filepath = self.log_filepath
 
-    def _clean_prior_version_logs(self) -> None:
+    def _clean_old_logs(self) -> None:
         """
-        Clean logs from old Patcher versions
-
-        Keep 10 latest logs
+        Keep 16 latest logs
         """
-
-        paths = [
-            self.log_filepath.parent,        # ~/Library/Logs/Dortania
-            self.log_filepath.parent.parent, # ~/Library/Logs (old location)
-        ]
 
         logs = []
 
-        for path in paths:
-            for file in path.glob("OpenCore-Legacy-Patcher*"):
-                if not file.is_file():
-                    continue
-
-                if not file.name.endswith(".log"):
-                    continue
-
-                if file.name == self.log_filename:
-                    continue
-
-                logs.append(file)
+        for file in self.log_filepath.parent.glob("OpenCore-Legacy-Patcher*.log"):
+            if file.is_file() and file.name != self.log_filename:
+                    logs.append(file)
 
         logs.sort(key=lambda x: x.stat().st_mtime, reverse=True)
 
-        for log in logs[9:]:
+        for log in logs[15:]:
             try:
                 log.unlink()
             except Exception as e:
