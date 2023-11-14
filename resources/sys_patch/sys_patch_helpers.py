@@ -89,7 +89,6 @@ class SysPatchHelpers:
             kdk_string = kdk_used
 
         data = {
-            "OpenCore Legacy Patcher": f"v{self.constants.patcher_version}",
             "Time Patched": datetime.now().strftime('%B %d, %Y @ %H:%M:%S'),
             "Commit URL": str(self.constants.build_arguments['Commit URL']),
             "Kernel Debug Kit Used": str(kdk_string),

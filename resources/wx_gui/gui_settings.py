@@ -991,7 +991,6 @@ Build Arguments:
 
 Booted Information:
     Booted OS: XNU {self.constants.detected_os} ({self.constants.detected_os_version})
-    Booted Patcher Version: {self.constants.computer.oclp_version}
     Booted OpenCore Version: {self.constants.computer.opencore_version}
     Booted OpenCore Disk: {self.constants.booted_oc_disk}
 

@@ -628,7 +628,6 @@ class Computer:
     wifi: Optional[WirelessCard] = None
     cpu: Optional[CPU] = None
     usb_devices: list[USBDevice] = field(default_factory=list)
-    oclp_version: Optional[str] = None
     opencore_version: Optional[str] = None
     opencore_path: Optional[str] = None
     bluetooth_chipset: Optional[str] = None
@@ -640,7 +639,6 @@ class Computer:
     t1_chip: Optional[bool] = False
     secure_boot_model: Optional[str] = None
     secure_boot_policy: Optional[int] = None
-    oclp_sys_version: Optional[str] = None
     oclp_sys_date: Optional[str] = None
     oclp_sys_url: Optional[str] = None
     oclp_sys_signed: Optional[bool] = False
@@ -877,7 +875,6 @@ class Computer:
         self.build_model = utilities.get_nvram("OCLP-Model", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
 
         # OpenCore Legacy Patcher version
-        self.oclp_version = utilities.get_nvram("OCLP-Version", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
         self.opencore_version = utilities.get_nvram("opencore-version", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
         self.opencore_path = utilities.get_nvram("boot-path", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
 
@@ -1004,8 +1001,6 @@ class Computer:
             return
         sys_plist = plistlib.load(path.open("rb"))
         if sys_plist:
-            if "OpenCore Legacy Patcher" in sys_plist:
-                self.oclp_sys_version = sys_plist["OpenCore Legacy Patcher"]
             if "Time Patched" in sys_plist:
                 self.oclp_sys_date = sys_plist["Time Patched"]
             if "Commit URL" in sys_plist:

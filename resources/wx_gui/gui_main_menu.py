@@ -190,7 +190,7 @@ class MainFrame(wx.Frame):
             # Notify user that the update has been installed
             pop_up = wx.MessageDialog(
                 self,
-                f"OpenCore Legacy Patcher has been updated to the latest version: {self.constants.patcher_version}\n\nWould you like to update OpenCore and your root volume patches?",
+                f"OpenCore Legacy Patcher has been updated to the latest build!\n\nWould you like to update OpenCore and your root volume patches?",
                 "Update successful!",
                 style=wx.YES_NO | wx.YES_DEFAULT | wx.ICON_INFORMATION
             )

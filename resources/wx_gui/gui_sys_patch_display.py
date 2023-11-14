@@ -184,11 +184,11 @@ class SysPatchDisplayFrame(wx.Frame):
                     patch_label.Centre(wx.HORIZONTAL)
 
             else:
-                if self.constants.computer.oclp_sys_version and self.constants.computer.oclp_sys_date:
+                if self.constants.computer.oclp_sys_date:
                     date = self.constants.computer.oclp_sys_date.split(" @")
                     date = date[0] if len(date) == 2 else ""
 
-                    patch_text = f"{self.constants.computer.oclp_sys_version}, {date}"
+                    patch_text = date
 
                     patch_label = wx.StaticText(frame, label="Root Volume last patched:", pos=(-1, patch_label.GetPosition().y + 25))
                     patch_label.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_BOLD))

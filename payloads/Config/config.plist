@@ -4,8 +4,6 @@
 <dict>
 	<key>#Revision</key>
 	<dict>
-		<key>Build-Version</key>
-		<string></string>
 		<key>OpenCore-Version</key>
 		<string></string>
 		<key>Original-Model</key>
@@ -2546,8 +2544,6 @@
 			</dict>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<dict>
-				<key>OCLP-Version</key>
-				<string></string>
 				<key>OCLP-Settings</key>
 				<string></string>
 			</dict>
@@ -2569,7 +2565,6 @@
 			</array>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<array>
-				<string>OCLP-Version</string>
 				<string>OCLP-Model</string>
 				<string>OCLP-Settings</string>
 				<string>OCLP-Spoofed-SN</string>

@@ -105,7 +105,6 @@ class BuildOpenCore:
         Set revision information in config.plist
         """
 
-        self.config["#Revision"]["Build-Version"] = f"{self.constants.patcher_version} - {date.today()}"
         if not self.constants.custom_model:
             self.config["#Revision"]["Build-Type"] = "OpenCore Built on Target Machine"
             computer_copy = copy.copy(self.constants.computer)
@@ -115,7 +114,6 @@ class BuildOpenCore:
             self.config["#Revision"]["Build-Type"] = "OpenCore Built for External Machine"
         self.config["#Revision"]["OpenCore-Version"] = f"{self.constants.opencore_version} - {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}"
         self.config["#Revision"]["Original-Model"] = self.model
-        self.config["NVRAM"]["Add"]["4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102"]["OCLP-Version"] = self.constants.patcher_version
         self.config["NVRAM"]["Add"]["4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102"]["OCLP-Model"] = self.model
 
 

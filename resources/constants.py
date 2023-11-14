@@ -15,7 +15,6 @@ class Constants:
     def __init__(self) -> None:
 
         # Patcher
-        self.patcher_version:                 str = "1.3.0" # OpenCore Legacy Patcher
         self.app_name:                        str = "OpenCore Legacy Patcher"
         self.copyright:                       str = "Copyright © 2020-2023 Dortania"
 
@@ -249,18 +248,6 @@ class Constants:
             os_data.os_data.ventura,
             os_data.os_data.sonoma,
         ]
-
-    @property
-    def special_build(self):
-        """
-        Special builds are used for testing.
-        """
-
-        try:
-            version.parse(self.patcher_version)
-            return False
-        except version.InvalidVersion:
-            return True
 
     # Payload Location
 

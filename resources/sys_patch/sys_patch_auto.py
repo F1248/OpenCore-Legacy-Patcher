@@ -99,54 +99,11 @@ class AutomaticSysPatch:
         else:
             logging.info("- Detected Snapshot seal not intact, skipping")
 
-        if self._determine_if_versions_match():
-            self._determine_if_boot_matches()
+        self._determine_if_boot_matches()
 
     def _onWebviewNav(self, event):
         url = event.GetURL()
         webbrowser.open(url)
-
-    def _determine_if_versions_match(self):
-        """
-        Determine if the booted version of OpenCore Legacy Patcher matches the installed version
-
-        Returns:
-            bool: True if versions match, False if not
-        """
-
-        logging.info("- Checking booted vs installed OpenCore Legacy Patcher Build")
-        if self.constants.computer.oclp_version is None:
-            logging.info("- Booted version not found")
-            return True
-
-        if self.constants.computer.oclp_version == self.constants.patcher_version:
-            logging.info("- Versions match")
-            return True
-
-        if self.constants.special_build is True:
-            # Version doesn't match and we're on a special build
-            # Special builds don't have good ways to compare versions
-            logging.info("- Special build detected, assuming installed is older")
-            return False
-
-        args = [
-            "osascript",
-            "-e",
-            f"""display dialog "OpenCore Legacy Patcher has detected that you're booting {'a different' if self.constants.special_build else 'an outdated'} OpenCore build\n- Booted: {self.constants.computer.oclp_version}\n- Installed: {self.constants.patcher_version}\n\nWould you like to update the OpenCore bootloader?" """
-            f'with icon POSIX file "{self.constants.app_icon_path}"',
-        ]
-        output = subprocess.run(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT
-        )
-        if output.returncode == 0:
-            logging.info("- Launching GUI's Build/Install menu")
-            self.constants.start_build_install = True
-            gui_entry.EntryPoint(self.constants).start(entry=gui_entry.SupportedEntryPoints.BUILD_OC)
-
-        return False
-
 
     def _determine_if_boot_matches(self):
         """
