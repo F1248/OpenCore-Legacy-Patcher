@@ -1,0 +1,52 @@
+name: Build App
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build App
+    runs-on: macos-13
+
+    env:
+      repository: ${{ github.repository}}
+      branch: ${{ github.ref }}
+      commit_url: ${{ github.event.head_commit.url }}
+      commit_date_time: ${{ github.event.head_commit.timestamp }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11-dev'
+
+      - name: Install Dependencies
+        run: zsh Install-Dependencies.command
+
+      - name: Build App
+        run: python3.11 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
+
+      - name: Zip App
+        run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
+
+      - name: Build support package
+        run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
+
+      - name: Upload App
+        uses: actions/upload-artifact@v3
+        with:
+          name: OpenCore Legacy Patcher.app
+          path: OpenCore-Legacy-Patcher.app.zip
+
+      - name: Upload Package
+        uses: actions/upload-artifact@v3
+        with:
+          name: AutoPkg-Assets.pkg
+          path: dist/AutoPkg-Assets.pkg
