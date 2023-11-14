@@ -37,7 +37,7 @@ class InitializeLoggingSupport:
 
         log_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
 
-        self.log_filename: str  = f"OpenCore-Legacy-Patcher_{log_time}.log"
+        self.log_filename: str  = f"OpenCore-Legacy-Patcher-{log_time}.log"
         self.log_filepath: Path = None
 
         self.original_excepthook:        sys       = sys.excepthook
@@ -83,7 +83,7 @@ class InitializeLoggingSupport:
 
         logs = []
 
-        for file in self.log_filepath.parent.glob("OpenCore-Legacy-Patcher*.log"):
+        for file in self.log_filepath.parent.glob("OpenCore-Legacy-Patcher-*.log"):
             if file.is_file() and file.name != self.log_filename:
                     logs.append(file)
 
