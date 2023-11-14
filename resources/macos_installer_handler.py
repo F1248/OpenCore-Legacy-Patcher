@@ -256,7 +256,8 @@ class RemoteInstallerCatalog:
         url: str = CATALOG_URL_BASE
 
         os_version: str = os_data.os_conversion.kernel_to_os(os_kernel)
-        os_version = "10.16" if os_version == "11" else os_version
+        if os_version == "11":
+            os_version = "10.16"
         if os_version not in CATALOG_URL_VARIANTS:
             logging.error(f"OS version {os_version} isn't supported, defaulting to latest")
             os_version = CATALOG_URL_VARIANTS[0]
