@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-import sys, os, time, subprocess, pathlib
+import sys, os, time, subprocess
 sys.path.append(os.path.abspath(os.getcwd()))
 from resources import constants
 block_cipher = None
