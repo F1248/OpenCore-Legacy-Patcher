@@ -74,9 +74,10 @@ class GenerateMenuBar:
 
 
     def generate(self) -> wx.MenuBar:
-        menu_bar = wx.MenuBar()
-        fileMenu = wx.Menu()
 
+        menu_bar = wx.MenuBar()
+
+        fileMenu = wx.Menu()
         aboutItem = fileMenu.Append(wx.ID_ABOUT, "&About OpenCore Legacy Patcher")
         fileMenu.AppendSeparator()
         relaunchItem = fileMenu.Append(wx.ID_ANY, "&Relaunch as Root")
@@ -84,6 +85,7 @@ class GenerateMenuBar:
         revealLogItem = fileMenu.Append(wx.ID_ANY, "&Reveal Log File")
 
         menu_bar.Append(fileMenu, "&File")
+
         self.frame.SetMenuBar(menu_bar)
 
         self.frame.Bind(wx.EVT_MENU, lambda event: gui_about.AboutFrame(self.constants), aboutItem)
