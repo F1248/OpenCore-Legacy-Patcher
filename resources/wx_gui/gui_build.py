@@ -17,7 +17,7 @@ class BuildFrame(wx.Frame):
     def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: tuple = None) -> None:
         logging.info("Initializing Build Frame")
         super(BuildFrame, self).__init__(parent, title=title, size=(350, 200), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-        gui_support.GenerateMenubar(self, global_constants).generate()
+        gui_support.GenerateMenuBar(self, global_constants).generate()
 
         self.install_button: wx.Button = None
         self.text_box:     wx.TextCtrl = None

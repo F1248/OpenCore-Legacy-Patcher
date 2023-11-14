@@ -28,7 +28,7 @@ class UpdateFrame(wx.Frame):
             parent.Hide()
         else:
             super(UpdateFrame, self).__init__(parent, title=title, size=(350, 300), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-            gui_support.GenerateMenubar(self, global_constants).generate()
+            gui_support.GenerateMenuBar(self, global_constants).generate()
 
         self.title: str = title
         self.constants: constants.Constants = global_constants

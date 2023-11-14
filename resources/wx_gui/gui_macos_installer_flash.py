@@ -18,7 +18,7 @@ class macOSInstallerFlashFrame(wx.Frame):
     def __init__(self, parent: wx.Frame, title: str, global_constants: constants.Constants, screen_location: tuple = None):
         logging.info("Initializing macOS Installer Flash Frame")
         super(macOSInstallerFlashFrame, self).__init__(parent, title=title, size=(350, 200), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-        gui_support.GenerateMenubar(self, global_constants).generate()
+        gui_support.GenerateMenuBar(self, global_constants).generate()
 
         self.constants: constants.Constants = global_constants
         self.title: str = title

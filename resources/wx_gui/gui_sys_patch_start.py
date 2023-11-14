@@ -32,7 +32,7 @@ class SysPatchStartFrame(wx.Frame):
         self.patches: dict = patches
 
         super(SysPatchStartFrame, self).__init__(parent, title=title, size=(350, 200), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-        gui_support.GenerateMenubar(self, self.constants).generate()
+        gui_support.GenerateMenuBar(self, self.constants).generate()
         gui_support.Centre(self, self.constants)
 
         if self.patches == {}:

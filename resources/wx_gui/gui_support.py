@@ -66,7 +66,7 @@ class Centre:
         self.frame.SetPosition((x_pos, y_pos))
 
 
-class GenerateMenubar:
+class GenerateMenuBar:
 
     def __init__(self, frame: wx.Frame, global_constants: constants.Constants) -> None:
         self.frame: wx.Frame = frame
@@ -74,7 +74,7 @@ class GenerateMenubar:
 
 
     def generate(self) -> wx.MenuBar:
-        menubar = wx.MenuBar()
+        menu_bar = wx.MenuBar()
         fileMenu = wx.Menu()
 
         aboutItem = fileMenu.Append(wx.ID_ABOUT, "&About OpenCore Legacy Patcher")
@@ -83,8 +83,8 @@ class GenerateMenubar:
         fileMenu.AppendSeparator()
         revealLogItem = fileMenu.Append(wx.ID_ANY, "&Reveal Log File")
 
-        menubar.Append(fileMenu, "&File")
-        self.frame.SetMenuBar(menubar)
+        menu_bar.Append(fileMenu, "&File")
+        self.frame.SetMenuBar(menu_bar)
 
         self.frame.Bind(wx.EVT_MENU, lambda event: gui_about.AboutFrame(self.constants), aboutItem)
         self.frame.Bind(wx.EVT_MENU, lambda event: RelaunchApplicationAsRoot(self.frame, self.constants).relaunch(None), relaunchItem)

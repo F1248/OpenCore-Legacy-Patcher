@@ -89,7 +89,7 @@ class macOSInstallerDownloadFrame(wx.Frame):
         Generate frame to display available installers
         """
         super(macOSInstallerDownloadFrame, self).__init__(None, title=self.title, size=(300, 200), style=wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX))
-        gui_support.GenerateMenubar(self, self.constants).generate()
+        gui_support.GenerateMenuBar(self, self.constants).generate()
         gui_support.Centre(self, self.constants)
 
         # Title: Pulling installer catalog
