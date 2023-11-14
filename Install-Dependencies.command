@@ -12,5 +12,6 @@ curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
 hdiutil attach Packages.dmg
 sudo installer -pkg /Volumes/Packages\ */Install\ Packages.pkg -target /
 hdiutil detach /Volumes/Packages\ * -force
+rm Packages.dmg
 
 echo "Dependencies installation completed"
