@@ -1,4 +1,4 @@
-name: Build App
+name: Build Package
 
 on:
   push:
@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build App
+    name: Build Package
     runs-on: macos-13
 
     env:
