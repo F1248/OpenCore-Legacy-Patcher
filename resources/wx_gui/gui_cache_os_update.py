@@ -69,7 +69,7 @@ class OSUpdateFrame(wx.Frame):
 
         # Allow 10 seconds for the user to cancel the download
         # If nothing, continue
-        for i in range(0, 10):
+        for i in range(10):
             if self.did_cancel == 1:
                 self._exit()
             if self.did_cancel == -1:
