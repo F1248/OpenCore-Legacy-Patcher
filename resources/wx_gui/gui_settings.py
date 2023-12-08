@@ -269,13 +269,13 @@ class SettingsFrame(wx.Frame):
                     ],
                 },
 
-                "Show OpenCore Boot Picker": {
+                "Always show OpenCore Boot Picker": {
                     "type": "checkbox",
                     "value": self.constants.showpicker,
                     "variable": "showpicker",
                     "description": [
-                        "When disabled, you can hold esc",
-                        "to show the OpenCore Boot Picker.",
+                        "When disabled, hold esc to",
+                        "show OpenCore Boot Picker.",
                     ],
                 },
                 "OpenCore Boot Picker Timeout": {
