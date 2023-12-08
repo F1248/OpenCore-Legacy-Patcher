@@ -151,21 +151,22 @@ class tui_disk_installation:
             subprocess.run(["mv", mount_path / Path("System/Library/CoreServices/boot.efi"), mount_path / Path("EFI/BOOT/BOOTx64.efi")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             subprocess.run(["rm", "-rf", mount_path / Path("System")], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        if self._determine_sd_card(sd_type) is True:
+        if self._determine_sd_card(sd_type):
             logging.info("Adding SD Card icon")
-            subprocess.run(["cp", self.constants.icon_path_sd, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        elif ssd_type is True:
+            icon_path = self.constants.icon_path_sd
+        elif ssd_type:
             logging.info("Adding SSD icon")
-            subprocess.run(["cp", self.constants.icon_path_ssd, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            icon_path = self.constants.icon_path_ssd
         elif disk_type == "USB":
             logging.info("Adding External USB Drive icon")
-            subprocess.run(["cp", self.constants.icon_path_external, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            icon_path = self.constants.icon_path_external
         else:
             logging.info("Adding Internal Drive icon")
-            subprocess.run(["cp", self.constants.icon_path_internal, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            icon_path = self.constants.icon_path_internal
+        subprocess.run(["cp", icon_path, mount_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-        logging.info("Cleaning install location")
         if not self.constants.recovery_status:
+            logging.info("Cleaning install location")
             logging.info("Unmounting EFI partition")
             subprocess.run(["diskutil", "umount", mount_path], stdout=subprocess.PIPE).stdout.decode().strip().encode()
 
