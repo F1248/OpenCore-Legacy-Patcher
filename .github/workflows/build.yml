@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-app:
-    name: Build App
+  build:
+    name: Build App and Package
     runs-on: macos-13
     timeout-minutes: 10
 
@@ -42,31 +42,6 @@ jobs:
         with:
           name: OpenCore Legacy Patcher.app
           path: OpenCore-Legacy-Patcher.app.zip
-
-  build-package:
-    name: Build Package
-    runs-on: macos-13
-    timeout-minutes: 10
-
-    env:
-      repository: ${{ github.repository}}
-      branch: ${{ github.ref }}
-      commit_url: ${{ github.event.head_commit.url }}
-      commit_date_time: ${{ github.event.head_commit.timestamp }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11-dev'
-
-      - name: Install Dependencies
-        run: zsh Install-Dependencies.command --install_packages
-
-      - name: Build App
-        run: python3.11 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
 
       - name: Build support package
         run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
