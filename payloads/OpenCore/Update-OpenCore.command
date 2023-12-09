@@ -10,9 +10,8 @@
 
 import subprocess
 from pathlib import Path
-import requests
 
-REPO_URL = "https://api.github.com/repos/acidanthera/OpenCorePkg/releases/latest"
+NIGHTLY_URL = "https://nightly.link/acidanthera/OpenCorePkg/workflows/build/master/macOS%20XCODE5%20Artifacts.zip"
 
 BUILD_VARIANTS = [
     "DEBUG",
@@ -90,42 +89,17 @@ class GenerateOpenCore:
         self.working_dir = Path(__file__).parent.absolute()
         print(f"Working directory: {self.working_dir}")
 
-        self.debug_zip = None
-        self.release_zip = None
+        self.zip_files = {}
+        self.download_binaries()
 
-        # Find OpenCore DEBUG zip
-        for file in self.working_dir.iterdir():
-            if file.name.endswith("DEBUG.zip") and file.name != "OpenCore-DEBUG.zip":
-                print(f"   Found DEBUG zip: {file.name}")
-                self.debug_zip = file
-
-        # Find OpenCore RELEASE zip
-        for file in self.working_dir.iterdir():
-            if file.name.endswith("RELEASE.zip") and file.name != "OpenCore-RELEASE.zip":
-                print(f"   Found RELEASE zip: {file.name}")
-                self.release_zip = file
-
-        if self.debug_zip is None:
-            self.download_new_binaries("DEBUG")
-
-        if self.release_zip is None:
-            self.download_new_binaries("RELEASE")
-
-
-        # Unzip both, rename to OpenCore-DEBUG and OpenCore-RELEASE
-        print("Unzipping DEBUG zip…")
-        subprocess.run (
-            ["unzip", self.debug_zip, "-d", f"{self.working_dir}/OpenCore-DEBUG-ROOT"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
-
-        print("Unzipping RELEASE zip…")
-        subprocess.run (
-            ["unzip", self.release_zip, "-d", f"{self.working_dir}/OpenCore-RELEASE-ROOT"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
-
+        # Unzip and reanme
         for variant in BUILD_VARIANTS:
+            print(f"Unzipping {variant}…")
+            subprocess.run (
+                ["unzip", self.zip_files[variant], "-d", f"{self.working_dir}/OpenCore-{variant}-ROOT"],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+
             print(f"Moving {variant} folder…")
             subprocess.run (
                 ["mv", f"{self.working_dir}/OpenCore-{variant}-ROOT/X64", f"{self.working_dir}/OpenCore-{variant}"],
@@ -143,72 +117,46 @@ class GenerateOpenCore:
                         stdout=subprocess.PIPE, stderr=subprocess.PIPE
                     )
 
-            # Remove root folder
+            # Delete root folder
             subprocess.run (
                 ["rm", "-rf", f"{self.working_dir}/OpenCore-{variant}-ROOT"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
-        # Remove zip files
-        print("Removing zip files…")
-        # remove debug_zip
+            # Delete zip files
+            print(f"Deleting {variant} zip…")
+            subprocess.run (
+                ["rm", "-rf", self.zip_files[variant]],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+
+    def download_binaries(self):
+
+        print("Downloading latest nightly build…")
+        zip_path = f"{self.working_dir}/macOS XCODE5 Artifacts.zip"
         subprocess.run (
-            ["rm", "-rf", self.debug_zip],
+            ["curl", "-L", NIGHTLY_URL, "-o", zip_path],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
-        # remove release_zip
+        print("Unzipping and deleting macOS XCODE5 Artifacts.zip…")
         subprocess.run (
-            ["rm", "-rf", self.release_zip],
+            ["unzip", zip_path, "-d", self.working_dir],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
+        subprocess.run (
+            ["rm", zip_path],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
-    def download_new_binaries(self, variant):
-
-        # Check network connection
-        print("Checking network connection…")
-        try:
-            test_url = "https://api.github.com"
-            test_request = requests.get(test_url)
-            if test_request.status_code != 200:
-                test_result = test_request.json()
-                if test_result["message"]:
-                    error = test_result["message"]
-                else:
-                    error = test_result
-        except:
-            error = "Connection failed!"
-        try:
-            print(f"Failed to retrieve information from GitHub API with the following error: {error}")
-            is_error = True
-        except:
-            is_error = False
-        if is_error:
-            exit()
-
-        # Get latest release
-        print(f"Getting latest {variant}…")
-        latest_release = requests.get(REPO_URL).json()
-
-        # Get latest release download url
-        print(f"   Getting latest {variant} download url…")
-        for asset in latest_release["assets"]:
-            if asset["name"].endswith(f"{variant}.zip"):
-                download_url = asset["browser_download_url"]
-                print(f"   Download url: {download_url}")
-                break
-
-        if variant == "DEBUG":
-            self.debug_zip = f"{self.working_dir}/{asset['name']}"
-        elif variant == "RELEASE":
-            self.release_zip = f"{self.working_dir}/{asset['name']}"
-        else:
-            raise ValueError("Invalid variant!")
-
-        # Download latest release
-        print(f"   Downloading latest {variant}…")
-        download = requests.get(download_url)
-        with open(f"{self.working_dir}/{asset['name']}", "wb") as f:
-            f.write(download.content)
+        print("Verifying Zips…")
+        for variant in BUILD_VARIANTS:
+            for file in self.working_dir.iterdir():
+                if file.name.endswith(f"{variant}.zip") and file.name != f"OpenCore-{variant}.zip":
+                    print(f"   Found {variant} zip: {file.name}")
+                    self.zip_files[variant] = file
+                    break
+            else:
+                raise Exception(f"Variant {variant} missing")
 
     def clean_old_bundles(self):
         print("Cleaning old bundles…")
