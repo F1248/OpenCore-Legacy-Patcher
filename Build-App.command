@@ -38,7 +38,7 @@ class CreateBinary:
         self._preflight_processes()
         self._build_binary()
         self._postflight_processes()
-        print(f"Build script completed in {str(round(time.time() - start, 2))} seconds")
+        print(f"Build script completed in {round(time.time() - start)} seconds")
 
 
     def _set_cwd(self):
@@ -98,6 +98,7 @@ class CreateBinary:
         print("Starting postflight processes")
         self._patch_load_command()
         self._add_build_arguments()
+        self._remove_signature()
         self._post_flight_cleanup()
 
 
@@ -309,6 +310,20 @@ class CreateBinary:
             data = data.replace(find, replace, 1)
             with open(path, 'wb') as f:
                 f.write(data)
+
+
+    def _remove_signature(slef):
+        """
+        Remove App Signature to avoid the following error:
+
+        “OpenCore Legacy Patcher.app” is damaged and can’t be opened. You should move it to the Bin.
+        """
+
+        print("- Remove App Signature")
+        subprocess.run(
+            ["codesign", "--remove-signature", "./dist/OpenCore Legacy Patcher.app"],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
 
 
     def _post_flight_cleanup(self):
