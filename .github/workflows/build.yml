@@ -12,6 +12,7 @@ jobs:
   build-app:
     name: Build App
     runs-on: macos-13
+    timeout-minutes: 10
 
     env:
       repository: ${{ github.repository}}
@@ -45,6 +46,7 @@ jobs:
   build-package:
     name: Build Package
     runs-on: macos-13
+    timeout-minutes: 10
 
     env:
       repository: ${{ github.repository}}
