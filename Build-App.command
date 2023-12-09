@@ -84,7 +84,6 @@ class CreateBinary:
         print("Starting postflight processes")
         self._patch_load_command()
         self._add_build_arguments()
-        self._remove_signature()
         self._post_flight_cleanup()
 
 
@@ -310,20 +309,6 @@ class CreateBinary:
             plist["Build arguments"]["Commit URL"] = commit_url
 
         plistlib.dump(plist, Path(plist_path).open("wb"), sort_keys=True)
-
-
-    def _remove_signature(slef):
-        """
-        Remove App Signature to avoid the following error:
-
-        “OpenCore Legacy Patcher.app” is damaged and can’t be opened. You should move it to the Bin.
-        """
-
-        print("- Remove App Signature")
-        subprocess.run(
-            ["codesign", "--remove-signature", "./dist/OpenCore Legacy Patcher.app"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
 
 
     def _post_flight_cleanup(self):
