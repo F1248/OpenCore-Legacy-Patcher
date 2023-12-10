@@ -26,7 +26,7 @@ class Constants:
             "Commit URL": None,
             "Fallback": { # used when built or running from source)
                 "Repository": "F1248/OpenCore-Legacy-Patcher",
-                "Branch": "Python-unstable"
+                "Branch": "main"
             }
         }
 
