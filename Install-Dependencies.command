@@ -5,9 +5,10 @@ echo "Install Dependencies…"
 if [[ $1 == "--install_pip" ]]
 then
     echo "Install pip packages…"
-    pip3.11 install --upgrade --pre pip setuptools
-    pip3.11 install https://files.pythonhosted.org/packages/68/77/02839016f6fbbf808e8b38601df6e0e66c17bbab76dff4613f7511413597/charset_normalizer-3.3.2-cp311-cp311-macosx_10_9_universal2.whl # from https://pypi.org/project/charset-normalizer/#files
-    pip3.11 install --upgrade --pre requests pyobjc wxpython pyinstaller packaging py_sip_xnu py-applescript
+    pip3.12 install --upgrade --pre pip setuptools
+    pip3.12 install https://files.pythonhosted.org/packages/d1/b2/fcedc8255ec42afee97f9e6f0145c734bbe104aac28300214593eb326f1d/charset_normalizer-3.3.2-cp312-cp312-macosx_10_9_universal2.whl # from https://pypi.org/project/charset-normalizer/#files
+    pip3.12 install --upgrade --pre -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython
+    pip3.12 install --upgrade --pre requests pyobjc pyinstaller packaging py_sip_xnu py-applescript
 fi
 
 if [[ $1 == "--install_packages" ]]

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python3.12
 
 # Generate stand alone application for OpenCore Legacy Patcher
 # Copyright (C) 2022-2023 - Mykola Grymalyuk
@@ -127,7 +127,7 @@ class CreateBinary:
         Initialize pathing for PyInstaller
         """
 
-        pyinstaller_path = "/Library/Frameworks/Python.framework/Versions/3.11/bin/pyinstaller"
+        pyinstaller_path = "/Library/Frameworks/Python.framework/Versions/3.12/bin/pyinstaller"
 
         if not Path(pyinstaller_path).exists():
             print(f"- PyInstaller not found:\n\t{pyinstaller_path}")
