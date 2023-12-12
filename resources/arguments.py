@@ -197,10 +197,6 @@ If you plan to create the USB for another machine, please select the "Change Mod
         else:
             self.constants.secure_status = True  # Override Defaults detected
 
-        if self.args.vault:
-            logging.info("- Set Vault configuration")
-            self.constants.vault = True
-
         if self.args.firewire:
             logging.info("- Set FireWire Boot configuration")
             self.constants.firewire_boot = True

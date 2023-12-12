@@ -582,7 +582,6 @@ def check_cli_args():
     parser.add_argument("--hide_picker", help="Hide OpenCore Boot Picker", action="store_true", required=False)
     parser.add_argument("--disable_sip", help="Disable SIP", action="store_true", required=False)
     parser.add_argument("--disable_smb", help="Disable SecureBootModel", action="store_true", required=False)
-    parser.add_argument("--vault", help="Enable OpenCore Vaulting", action="store_true", required=False)
     parser.add_argument("--support_all", help="Allow OpenCore on natively supported Models", action="store_true", required=False)
     parser.add_argument("--firewire", help="Enable FireWire Booting", action="store_true", required=False)
     parser.add_argument("--nvme", help="Enable NVMe Booting", action="store_true", required=False)
