@@ -89,7 +89,7 @@ class GenerateMenuBar:
         self.frame.SetMenuBar(menu_bar)
 
         self.frame.Bind(wx.EVT_MENU, lambda event: gui_about.AboutFrame(self.constants), aboutItem)
-        self.frame.Bind(wx.EVT_MENU, lambda event: RelaunchApplicationAsRoot(self.frame, self.constants).relaunch(None), relaunchItem)
+        self.frame.Bind(wx.EVT_MENU, lambda event: RelaunchApplicationAsRoot(self.frame, self.constants).relaunch(), relaunchItem)
         self.frame.Bind(wx.EVT_MENU, lambda event: subprocess.run(["open", "-R", self.constants.log_filepath]), revealLogItem)
 
         if os.geteuid() == 0:
@@ -302,7 +302,7 @@ class RelaunchApplicationAsRoot:
         self.frame: wx.Frame = frame
 
 
-    def relaunch(self, event: wx.Event):
+    def relaunch(self, event: wx.Event = None):
 
         self.dialog = wx.MessageDialog(
             self.frame,

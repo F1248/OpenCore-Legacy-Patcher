@@ -1331,7 +1331,7 @@ Hardware Information:
 
     def on_mount_root_vol(self, event: wx.Event) -> None:
         if os.geteuid() != 0:
-            wx.MessageDialog(self.parent, "Please relaunch as Root to mount the Root Volume", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
+            gui_support.RelaunchApplicationAsRoot(self.parent, self.constants).relaunch()
         else:
             #Don't need to pass model as we're bypassing all logic
             if PatchSysVolume("",self.constants)._mount_root_vol():
@@ -1341,7 +1341,7 @@ Hardware Information:
 
     def on_bless_root_vol(self, event: wx.Event) -> None:
         if os.geteuid() != 0:
-            wx.MessageDialog(self.parent, "Please relaunch as Root to save changes", "Error", wx.OK | wx.ICON_ERROR).ShowModal()
+            gui_support.RelaunchApplicationAsRoot(self.parent, self.constants).relaunch()
         else:
             #Don't need to pass model as we're bypassing all logic
             if PatchSysVolume("",self.constants)._rebuild_root_volume():
