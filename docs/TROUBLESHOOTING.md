@@ -55,7 +55,7 @@ OpenCore Legacy Patcher rely on Apple Secure Boot to ensure OS updates work corr
 
 Boot into recoveryOS by pressing `Space` in the OpenCore Boot Picker (if you've it hidden, hold `esc` while starting up).
 
-* **Note:** If your disk name is something other than "Macintosh HD", make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
+* **Note:** If your disk name is something other than `Macintosh HD`, make sure to change the path accordingly. You can figure out your disk name by typing `ls /Volumes`.
 
 Go into terminal and first mount the disk by typing
 ```sh
