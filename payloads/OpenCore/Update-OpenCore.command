@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.12
+#!/usr/bin/env python3.13
 
 # Script to download and generate valid OpenCorePkg folder/file structure for use with OpenCore Legacy Patcher
 # To use:
