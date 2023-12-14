@@ -38,7 +38,7 @@ jobs:
         run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
 
       - name: Upload App
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpenCore Legacy Patcher.app
           path: OpenCore-Legacy-Patcher.app.zip
@@ -50,7 +50,7 @@ jobs:
         run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
       - name: Upload Package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AutoPkg-Assets.pkg
           path: dist/AutoPkg-Assets.pkg
