@@ -251,7 +251,7 @@ class AutomaticSysPatch:
             logging.info(f"- Renaming {path} to OpenCore Legacy Patcher.app")
             utilities.process_status(utilities.elevated(["mv", f"/Library/Application Support/Dortania/{path}", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        subprocess.run(["xattr", "-cr", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["xattr", "-rc", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         # Making app alias
         # Simply an easy way for users to notice the app
