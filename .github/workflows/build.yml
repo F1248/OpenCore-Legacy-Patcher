@@ -45,7 +45,7 @@ jobs:
 
       - name: Install WhiteBox Packages
         run: zsh Install-Dependencies.command --install_packages
-      
+
       - name: Build support package
         run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
