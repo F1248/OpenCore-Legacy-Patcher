@@ -202,6 +202,7 @@ class UpdateFrame(wx.Frame):
 
         # Create bash script to run as root
         script = f"""#!/bin/bash
+
 # Check if '/Library/Application Support/Dortania' exists
 if [ ! -d "/Library/Application Support/Dortania" ]; then
     mkdir -p "/Library/Application Support/Dortania"
@@ -219,6 +220,9 @@ fi
 
 # Move '/tmp/OpenCore Legacy Patcher.app' to '/Library/Application Support/Dortania'
 mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
+
+# Clear extended attributes from '/Library/Application Support/Dortania/OpenCore Legacy Patcher.app'
+xattr -rc "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
 
 # Create alias from '/Library/Application Support/Dortania/OpenCore Legacy Patcher.app' in '/Applications'
 ln -s "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" "/Applications/OpenCore Legacy Patcher.app"
