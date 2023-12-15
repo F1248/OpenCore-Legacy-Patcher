@@ -222,18 +222,6 @@ mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCor
 # Check if '/Applications/OpenCore Legacy Patcher.app' exists
 ln -s "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" "/Applications/OpenCore Legacy Patcher.app"
 
-# Create update.plist with info about update
-cat << EOF > "/Library/Application Support/Dortania/update.plist"
-<?xml version="1.0" encoding="UTF-8"?>
-<plist version="1.0">
-<dict>
-    <key>InstallationDate</key>
-    <date>{datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")}</date>
-    <key>InstallationSource</key>
-    <string>{self.url}</string>
-</dict>
-</plist>
-EOF
 """
         # Write script to file
         with open(self.constants.payload_path / "update.sh", "w") as f:
