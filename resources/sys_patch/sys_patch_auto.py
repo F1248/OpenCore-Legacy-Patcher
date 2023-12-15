@@ -230,7 +230,7 @@ class AutomaticSysPatch:
         # As we'd simply be duplicating ourselves
         logging.info("- Installing Auto Patcher Launch Agent")
 
-        if not Path("Library/Application Support/Dortania").exists():
+        if not Path("/Library/Application Support/Dortania").exists():
             logging.info("- Creating /Library/Application Support/Dortania/")
             utilities.process_status(utilities.elevated(["mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
