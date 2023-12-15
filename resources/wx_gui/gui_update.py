@@ -212,6 +212,7 @@ if [ -d "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" ]; t
     rm -rf "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
 fi
 
+# Check if '/Applications/OpenCore Legacy Patcher.app' exists
 if [ -d "/Applications/OpenCore Legacy Patcher.app" ]; then
     rm -rf "/Applications/OpenCore Legacy Patcher.app"
 fi
@@ -219,7 +220,7 @@ fi
 # Move '/tmp/OpenCore Legacy Patcher.app' to '/Library/Application Support/Dortania'
 mv "{str(self.application_path)}" "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"
 
-# Check if '/Applications/OpenCore Legacy Patcher.app' exists
+# Create alias from '/Library/Application Support/Dortania/OpenCore Legacy Patcher.app' in '/Applications'
 ln -s "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app" "/Applications/OpenCore Legacy Patcher.app"
 
 """
