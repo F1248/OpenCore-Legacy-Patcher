@@ -341,7 +341,7 @@ class SysPatchStartFrame(wx.Frame):
 
         logging.info("Checking if new patches are needed")
 
-        if self.constants.computer.oclp_sys_url != self.constants.build_arguments["Commit URL"]:
+        if self.constants.computer.oclp_sys_commit_url != self.constants.build_arguments["Commit URL"]:
             # If commits are different, assume patches are as well
             return True
 

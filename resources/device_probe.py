@@ -640,7 +640,7 @@ class Computer:
     secure_boot_model: Optional[str] = None
     secure_boot_policy: Optional[int] = None
     oclp_sys_date: Optional[str] = None
-    oclp_sys_url: Optional[str] = None
+    oclp_sys_commit_url: Optional[str] = None
     oclp_sys_signed: Optional[bool] = False
     firmware_vendor: Optional[str] = None
     rosetta_active: Optional[bool] = False
@@ -1004,7 +1004,7 @@ class Computer:
             if "Time Patched" in sys_plist:
                 self.oclp_sys_date = sys_plist["Time Patched"]
             if "Commit URL" in sys_plist:
-                self.oclp_sys_url = sys_plist["Commit URL"]
+                self.oclp_sys_commit_url = sys_plist["Commit URL"]
             if "Custom Signature" in sys_plist:
                 self.oclp_sys_signed = sys_plist["Custom Signature"]
 
