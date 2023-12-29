@@ -29,7 +29,7 @@ jobs:
           python-version: '3.12-dev'
 
       - name: Install pip packages
-        run: zsh Install-Dependencies.command --install_pip
+        run: zsh Install-Dependencies.command --pip
 
       - name: Build App
         run: python3.12 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
@@ -44,7 +44,7 @@ jobs:
           path: OpenCore-Legacy-Patcher.app.zip
 
       - name: Install WhiteBox Packages
-        run: zsh Install-Dependencies.command --install_packages
+        run: zsh Install-Dependencies.command --packages
 
       - name: Build support package
         run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
