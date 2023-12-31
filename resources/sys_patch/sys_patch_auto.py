@@ -69,7 +69,7 @@ class AutomaticSysPatch:
 
 
                 args = [
-                    "osascript",
+                    "/usr/bin/osascript",
                     "-e",
                     f"""display dialog "OpenCore Legacy Patcher has detected you're running without Root Patches, and would like to install them.\n\nmacOS wipes all root patches during OS installs and updates, so they need to be reinstalled.\n\nFollowing Patches have been detected for your system: \n{patch_string}\nWould you like to apply these patches?" """
                     f'with icon POSIX file "{self.constants.app_icon_path}"',
@@ -81,7 +81,7 @@ class AutomaticSysPatch:
                 )
                 if output.returncode == 0:
                     args = [
-                        "osascript",
+                        "/usr/bin/osascript",
                         "-e",
                         f'''do shell script "{args_string}"'''
                         f' with prompt "OpenCore Legacy Patcher would like to patch your root volume"'
@@ -153,7 +153,7 @@ class AutomaticSysPatch:
         # Check if OpenCore is on a USB drive
         logging.info("- Boot Drive doesn't match macOS drive, checking if OpenCore is on a USB drive")
 
-        disk_info = plistlib.loads(subprocess.run(["diskutil", "info", "-plist", root_disk], stdout=subprocess.PIPE).stdout)
+        disk_info = plistlib.loads(subprocess.run(["/usr/sbin/diskutil", "info", "-plist", root_disk], stdout=subprocess.PIPE).stdout)
         try:
             if disk_info["Ejectable"] is False:
                 logging.info("- Boot Disk isn't removable, skipping prompt")
@@ -162,7 +162,7 @@ class AutomaticSysPatch:
             logging.info("- Boot Disk is ejectable, prompting user to install to internal")
 
             args = [
-                "osascript",
+                "/usr/bin/osascript",
                 "-e",
                 """display dialog "OpenCore Legacy Patcher has detected that you're booting OpenCore from an USB or External drive.\n\nIf you'd like to boot your Mac normally without a USB drive plugged in, you can install OpenCore to the internal hard drive.\n\nWould you like to launch OpenCore Legacy Patcher and install to disk?" """
                 f'with icon POSIX file "{self.constants.app_icon_path}"',
@@ -211,12 +211,12 @@ class AutomaticSysPatch:
                     logging.info(f"  - {name} checksums match, skipping")
                     continue
                 logging.info(f"  - Existing service found, removing")
-                utilities.process_status(utilities.elevated(["rm", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+                utilities.process_status(utilities.elevated(["/bin/rm", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
             # Create parent directories
             if not Path(services[service]).parent.exists():
                 logging.info(f"  - Creating {Path(services[service]).parent} directory")
-                utilities.process_status(utilities.elevated(["mkdir", "-p", Path(services[service]).parent], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            utilities.process_status(utilities.elevated(["cp", service, services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+                utilities.process_status(utilities.elevated(["/bin/mkdir", "-p", Path(services[service]).parent], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/cp", service, services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
             # Set the permissions on the service
             utilities.process_status(utilities.elevated(["chmod", "644", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
@@ -232,33 +232,33 @@ class AutomaticSysPatch:
 
         if not Path("/Library/Application Support/Dortania").exists():
             logging.info("- Creating /Library/Application Support/Dortania/")
-            utilities.process_status(utilities.elevated(["mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/mkdir", "-p", "/Library/Application Support/Dortania"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         logging.info("- Copying OpenCore Legacy Patcher to /Library/Application Support/Dortania/")
         if Path("/Library/Application Support/Dortania/OpenCore Legacy Patcher.app").exists():
             logging.info("- Deleting existing OpenCore Legacy Patcher")
-            utilities.process_status(utilities.elevated(["rm", "-R", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/rm", "-R", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         # Strip everything after OpenCore Legacy Patcher.app
         path = str(self.constants.launcher_binary).split("/Contents/MacOS/OpenCore-Legacy-Patcher")[0]
         logging.info(f"- Copying {path} to /Library/Application Support/Dortania/")
-        utilities.process_status(utilities.elevated(["ditto", path, "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+        utilities.process_status(utilities.elevated(["/usr/bin/ditto", path, "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         if not Path("/Library/Application Support/Dortania/OpenCore Legacy Patcher.app").exists():
             # Sometimes the binary the user launches may have a suffix
             # We'll want to rename it to OpenCore Legacy Patcher.app
             path = path.split("/")[-1]
             logging.info(f"- Renaming {path} to OpenCore Legacy Patcher.app")
-            utilities.process_status(utilities.elevated(["mv", f"/Library/Application Support/Dortania/{path}", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/mv", f"/Library/Application Support/Dortania/{path}", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
-        subprocess.run(["xattr", "-rc", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(["/usr/bin/xattr", "-rc", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         # Making app alias
         # Simply an easy way for users to notice the app
         # If there's already an alias or exiting app, skip
         if not Path("/Applications/OpenCore Legacy Patcher.app").exists():
             logging.info("- Making app alias")
-            utilities.process_status(utilities.elevated(["ln", "-s", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app", "/Applications/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/ln", "-s", "/Library/Application Support/Dortania/OpenCore Legacy Patcher.app", "/Applications/OpenCore Legacy Patcher.app"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
 
     def _create_rsr_monitor_daemon(self) -> bool:
@@ -290,7 +290,7 @@ class AutomaticSysPatch:
         # Load the RSRMonitor plist
         rsr_monitor_plist = plistlib.load(open(self.constants.rsr_monitor_launch_daemon_path, "rb"))
 
-        arguments = ["rm", "-Rfv"]
+        arguments = ["/bin/rm", "-Rfv"]
         arguments += [f"/Library/Extensions/{kext}" for kext in kexts]
 
         # Add the arguments to the RSRMonitor plist

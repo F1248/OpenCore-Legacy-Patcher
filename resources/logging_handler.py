@@ -113,7 +113,7 @@ class InitializeLoggingSupport:
         ]
 
         for path in paths:
-            result = subprocess.run(["chmod", "777", path], capture_output=True)
+            result = subprocess.run(["/bin/chmod", "777", path], capture_output=True)
             if result.returncode != 0:
                 logging.error(f"Failed to fix log file permissions")
                 if result.stdout:
@@ -214,7 +214,7 @@ class InitializeLoggingSupport:
                 return
 
             if result[applescript.AEType(b'bhit')] == "Yes":
-                subprocess.run(["open", "--reveal", self.log_filepath])
+                subprocess.run(["/usr/bin/open", "--reveal", self.log_filepath])
             return
 
         def custom_thread_excepthook(args) -> None:
