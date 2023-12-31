@@ -95,7 +95,7 @@ class CreateBinary:
         if Path(f"./dist/OpenCore Legacy Patcher.app").exists():
             print("Found OpenCore Legacy Patcher.app, removing…")
             rm_output = subprocess.run(
-                ["rm", "-rf", "./dist/OpenCore Legacy Patcher.app"],
+                ["/bin/rm", "-rf", "./dist/OpenCore Legacy Patcher.app"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             if rm_output.returncode != 0:
@@ -117,7 +117,7 @@ class CreateBinary:
         print("Embedding icns…")
         for file in Path("payloads/Icon/AppIcons").glob("*.icns"):
             subprocess.run(
-                ["cp", str(file), "./dist/OpenCore Legacy Patcher.app/Contents/Resources/"],
+                ["/bin/cp", str(file), "./dist/OpenCore Legacy Patcher.app/Contents/Resources/"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
@@ -166,12 +166,12 @@ class CreateBinary:
                 if file.name in whitelist_folders:
                     continue
                 print(f"- Deleting {file.name}")
-                subprocess.run(["rm", "-rf", file])
+                subprocess.run(["/bin/rm", "-rf", file])
             else:
                 if file.name in whitelist_files:
                     continue
                 print(f"- Deleting {file.name}")
-                subprocess.run(["rm", "-f", file])
+                subprocess.run(["/bin/rm", "-f", file])
 
 
     def _download_universal_binaries(self):
@@ -183,7 +183,7 @@ class CreateBinary:
         if Path("./Universal-Binaries.dmg").exists():
             if self.args.reset_binaries:
                 print("- Removing old Universal-Binaries.dmg")
-                rm_output = subprocess.run(["rm", "-rf", "./Universal-Binaries.dmg"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                rm_output = subprocess.run(["/bin/rm", "-rf", "./Universal-Binaries.dmg"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 if rm_output.returncode != 0:
                     print("Remove failed")
                     print(rm_output.stderr.decode('utf-8'))
@@ -193,7 +193,7 @@ class CreateBinary:
                 return
         print(f"- Downloading Universal-Binaries.dmg…")
 
-        download_result = subprocess.run(["curl", "-LO", constants.Constants().support_url], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        download_result = subprocess.run(["/usr/bin/curl", "-LO", constants.Constants().support_url], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if download_result.returncode != 0:
             print(f"Failed to download Universal%20Binaries.zip. Error: {download_result.stderr.decode('utf-8')}")
             raise Exception("Download failed")
@@ -201,7 +201,7 @@ class CreateBinary:
             print("- Universal%20Binaries.zip not found")
             raise Exception("Universal%20Binaries.zip not found")
 
-        unzip_result = subprocess.run(["ditto", "-xk", "Universal%20Binaries.zip", "./"], capture_output=True)
+        unzip_result = subprocess.run(["/usr/bin/ditto", "-xk", "Universal%20Binaries.zip", "./"], capture_output=True)
         if unzip_result.returncode != 0:
             print(f"Failed to extract Universal%20Binaries.zip. Error: {unzip_result.stderr.decode('utf-8')}")
             raise Exception("Unzip failed")
@@ -224,7 +224,7 @@ class CreateBinary:
 
             print("- Removing old payloads.dmg")
             rm_output = subprocess.run(
-                ["rm", "-rf", "./payloads.dmg"],
+                ["/bin/rm", "-rf", "./payloads.dmg"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             if rm_output.returncode != 0:
@@ -234,7 +234,7 @@ class CreateBinary:
 
         print("- Generating DMG…")
         dmg_output = subprocess.run([
-            'hdiutil', 'create', './payloads.dmg',
+            '/usr/bin/hdiutil', 'create', './payloads.dmg',
             '-megabytes', '32000',  # Overlays can only be as large as the disk image allows
             '-format', 'UDZO', '-ov',
             '-volname', 'OpenCore Legacy Patcher Resources (Base)',
@@ -319,7 +319,7 @@ class CreateBinary:
         path = "./dist/OpenCore-Legacy-Patcher"
         print(f"- Removing {path}")
         rm_output = subprocess.run(
-            ["rm", "-rf", path],
+            ["/bin/rm", "-rf", path],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         if rm_output.returncode != 0:
