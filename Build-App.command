@@ -193,7 +193,7 @@ class CreateBinary:
                 return
         print(f"- Downloading Universal-Binaries.dmg…")
 
-        download_result = subprocess.run(["/usr/bin/curl", "-LO", constants.Constants().support_url], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        download_result = subprocess.run(["/usr/bin/curl", "--location", constants.Constants().support_url, "--remote-name"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if download_result.returncode != 0:
             print(f"Failed to download Universal%20Binaries.zip. Error: {download_result.stderr.decode('utf-8')}")
             raise Exception("Download failed")

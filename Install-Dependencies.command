@@ -18,7 +18,7 @@ for argument in $arguments; do
             ;;
         "--packages")
             echo "- Installing WhiteBox Packages…"
-            curl -O http://s.sudre.free.fr/Software/files/Packages.dmg
+            curl --remote-name http://s.sudre.free.fr/Software/files/Packages.dmg
             hdiutil attach Packages.dmg
             sudo installer -pkg /Volumes/Packages\ */Install\ Packages.pkg -target /
             hdiutil detach /Volumes/Packages\ * -force

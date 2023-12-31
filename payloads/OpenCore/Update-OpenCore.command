@@ -135,7 +135,7 @@ class GenerateOpenCore:
         print("Downloading latest nightly build…")
         zip_path = f"{self.working_dir}/macOS XCODE5 Artifacts.zip"
         subprocess.run (
-            ["curl", "-L", NIGHTLY_URL, "-o", zip_path],
+            ["curl", "--location", NIGHTLY_URL, "--output", zip_path],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         print("Unzipping and deleting macOS XCODE5 Artifacts.zip…")

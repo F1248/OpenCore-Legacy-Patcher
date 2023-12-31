@@ -168,7 +168,7 @@ class tui_disk_installation:
         if not self.constants.recovery_status:
             logging.info("Cleaning install location")
             logging.info("Unmounting EFI partition")
-            subprocess.run(["/usr/sbin/diskutil", "umount", mount_path], stdout=subprocess.PIPE).stdout.decode().strip().encode()
+            subprocess.run(["/usr/sbin/diskutil", "unmount", mount_path], stdout=subprocess.PIPE).stdout.decode().strip().encode()
 
         logging.info("OpenCore transfer complete")
 
