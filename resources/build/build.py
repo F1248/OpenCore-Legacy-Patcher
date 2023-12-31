@@ -90,7 +90,7 @@ class BuildOpenCore:
             shutil.rmtree(self.constants.opencore_release_folder, onerror=rmtree_handler, ignore_errors=True)
 
         logging.info("")
-        logging.info(f"- Adding OpenCore v{self.constants.opencore_version} {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}")
+        logging.info(f"- Adding OpenCore {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}")
         shutil.copy(self.constants.opencore_zip_source, self.constants.build_path)
         zipfile.ZipFile(self.constants.opencore_zip_copied).extractall(self.constants.build_path)
 
@@ -112,7 +112,7 @@ class BuildOpenCore:
             self.config["#Revision"]["Hardware-Probe"] = pickle.dumps(computer_copy)
         else:
             self.config["#Revision"]["Build-Type"] = "OpenCore Built for External Machine"
-        self.config["#Revision"]["OpenCore-Version"] = f"{self.constants.opencore_version} - {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}"
+        self.config["#Revision"]["OpenCore-Version"] = "DEBUG" if self.constants.opencore_debug else "RELEASE"
         self.config["#Revision"]["Original-Model"] = self.model
         self.config["NVRAM"]["Add"]["4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102"]["OCLP-Model"] = self.model
 

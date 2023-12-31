@@ -38,10 +38,6 @@ class Constants:
         self.pkg_url:                         str = "https://nightly.link/repository_placeholder/workflows/build/branch_placeholder/AutoPkg-Assets.pkg.zip"
         self.support_url:                     str = "https://nightly.link/dortania/PatcherSupportPkg/workflows/build/master/Universal%20Binaries.zip"
 
-        # OpenCore Versioning
-        # https://github.com/acidanthera/OpenCorePkg
-        self.opencore_version: str = "0.9.7"
-
         # Kext Versioning
         ## Acidanthera
         ## https://github.com/acidanthera

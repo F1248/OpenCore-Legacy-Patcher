@@ -628,7 +628,6 @@ class Computer:
     wifi: Optional[WirelessCard] = None
     cpu: Optional[CPU] = None
     usb_devices: list[USBDevice] = field(default_factory=list)
-    opencore_version: Optional[str] = None
     opencore_path: Optional[str] = None
     bluetooth_chipset: Optional[str] = None
     internal_keyboard_type: Optional[str] = None
@@ -875,7 +874,6 @@ class Computer:
         self.build_model = utilities.get_nvram("OCLP-Model", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
 
         # OpenCore Legacy Patcher version
-        self.opencore_version = utilities.get_nvram("opencore-version", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
         self.opencore_path = utilities.get_nvram("boot-path", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
 
         # SecureBoot Variables
