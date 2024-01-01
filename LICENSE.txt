@@ -1,5 +1,5 @@
-Copyright (C) 2020-2023, Dhinak G
-Copyright (C) 2020-2023, Mykola Grymalyuk
+Copyright (C) 2020-2024, Dhinak G
+Copyright (C) 2020-2024, Mykola Grymalyuk
 
 All rights reserved.
 
