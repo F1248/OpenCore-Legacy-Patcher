@@ -15,10 +15,10 @@ jobs:
     timeout-minutes: 10
 
     env:
+      commit_date_time: ${{ github.event.head_commit.timestamp }}
       repository: ${{ github.repository}}
       branch: ${{ github.ref }}
       commit_url: ${{ github.event.head_commit.url }}
-      commit_date_time: ${{ github.event.head_commit.timestamp }}
 
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
           retry_wait_seconds: 0
           max_attempts: 15
           on_retry_command: zsh Clean.command
-          command: python3.12 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
+          command: python3.12 Build-App.command --reset_binaries --date_time "${{ env.commit_date_time }}" --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}"
 
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
