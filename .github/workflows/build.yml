@@ -32,7 +32,14 @@ jobs:
         run: zsh Install-Dependencies.command --pip
 
       - name: Build App
-        run: python3.12 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
+        uses: nick-fields/retry@v2
+        with:
+          retry_on: timeout
+          timeout_minutes: 2
+          retry_wait_seconds: 0
+          max_attempts: 15
+          on_retry_command: zsh Clean.command
+          command: python3.12 Build-App.command --reset_binaries --repository "${{ env.repository }}" --branch "${{ env.branch }}" --commit_url "${{ env.commit_url }}" --date_time "${{ env.commit_date_time }}"
 
       - name: Zip App
         run: ditto -c -k --sequesterRsrc --keepParent "dist/OpenCore Legacy Patcher.app" OpenCore-Legacy-Patcher.app.zip
