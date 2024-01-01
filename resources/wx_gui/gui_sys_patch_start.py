@@ -236,7 +236,7 @@ class SysPatchStartFrame(wx.Frame):
         logger.removeHandler(logger.handlers[2])
 
         if not self.constants.root_patcher_succeeded:
-            errordialog = wx.MessageDialog(self.frame_modal, "An error occurred while patching your system.\n\nPlease check the log for more details.\n\Reboot your system and try again. If this error persists, check the Support menu for further assistance.", "Error", wx.YES_NO | wx.ICON_ERROR)
+            errordialog = wx.MessageDialog(self.frame_modal, "An error occurred while patching your system.\n\nPlease check the log for more details.\n\nReboot your system and try again. If this error persists, check the Support menu for further assistance.", "Error", wx.YES_NO | wx.ICON_ERROR)
             errordialog.SetYesNoLabels("Copy Log to Clipboard", "OK")
 
             if errordialog.ShowModal() == wx.ID_YES:
