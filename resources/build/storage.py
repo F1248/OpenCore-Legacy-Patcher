@@ -48,7 +48,7 @@ class BuildStorage:
             sata_devices = [i for i in self.computer.storage if isinstance(i, device_probe.SATAController)]
             for controller in sata_devices:
                 # https://linux-hardware.org/?id=pci:1179-010b-1b4b-9183
-                if controller.vendor_id == 0x1179 and controller.device_id == 0x010b:
+                if controller.vendor_id == 0x1179 and controller.device_id == 0x010B:
                     logging.info("- Enabling AHCI SSD patch")
                     support.BuildSupport(self.model, self.constants, self.config).enable_kext("MonteAHCIPort.kext", self.constants.monterey_ahci_version, self.constants.monterey_ahci_path)
                     break
@@ -110,7 +110,7 @@ class BuildStorage:
             nvme_devices = [i for i in self.computer.storage if isinstance(i, device_probe.NVMeController)]
             if self.constants.allow_nvme_fixing is True:
                 for i, controller in enumerate(nvme_devices):
-                    if controller.vendor_id == 0x106b:
+                    if controller.vendor_id == 0x106B:
                         continue
                     logging.info(f"- Found 3rd Party NVMe SSD ({i + 1}): {utilities.friendly_hex(controller.vendor_id)}:{utilities.friendly_hex(controller.device_id)}")
                     self.config["#Revision"][f"Hardware-NVMe-{i}"] = f"{utilities.friendly_hex(controller.vendor_id)}:{utilities.friendly_hex(controller.device_id)}"
@@ -132,7 +132,7 @@ class BuildStorage:
                         # https://github.com/acidanthera/NVMeFix/blob/1.0.9/NVMeFix/NVMeFix.cpp#L220-L225
                         support.BuildSupport(self.model, self.constants, self.config).enable_kext("NVMeFix.kext", self.constants.nvmefix_version, self.constants.nvmefix_path)
 
-            if any((controller.vendor_id == 0x106b and controller.device_id in [0x2001, 0x2003]) for controller in nvme_devices):
+            if any((controller.vendor_id == 0x106B and controller.device_id in [0x2001, 0x2003]) for controller in nvme_devices):
                 # Restore S1X/S3X NVMe support removed in 14.0 Beta 2
                 # - APPLE SSD AP0128H, AP0256H, etc
                 # - APPLE SSD AP0128J, AP0256J, etc
@@ -149,7 +149,7 @@ class BuildStorage:
         if not self.constants.custom_model:
             if self.computer.storage:
                 for storage_controller in self.computer.storage:
-                    if storage_controller.vendor_id == 0x106b and storage_controller.device_id == 0x008A:
+                    if storage_controller.vendor_id == 0x106B and storage_controller.device_id == 0x008A:
                         # AppleRAIDCard.kext only supports pci106b,8a
                         support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleRAIDCard.kext", self.constants.apple_raid_version, self.constants.apple_raid_path)
                         break

@@ -158,7 +158,7 @@ class BuildGraphicsAudio:
             if self.model in ["iMac11,1", "iMac11,3"]:
                 self.gfx0_path = "PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)"
             elif self.model in ["iMac9,1", "iMac10,1"]:
-                self.gfx0_path = "PciRoot(0x0)/Pci(0xc,0x0)/Pci(0x0,0x0)"
+                self.gfx0_path = "PciRoot(0x0)/Pci(0xC,0x0)/Pci(0x0,0x0)"
             else:
                 self.gfx0_path = "PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)"
 
@@ -317,7 +317,7 @@ class BuildGraphicsAudio:
                     if "nForce Chipset" in smbios_data.smbios_dictionary[self.model]:
                         hdef_path = "PciRoot(0x0)/Pci(0x8,0x0)"
                     else:
-                        hdef_path = "PciRoot(0x0)/Pci(0x1b,0x0)"
+                        hdef_path = "PciRoot(0x0)/Pci(0x1B,0x0)"
                     # In AppleALC, MacPro3,1's original layout is already in use, forcing layout 13 instead
                     if self.model == "MacPro3,1":
                         self.config["DeviceProperties"]["Add"][hdef_path] = {

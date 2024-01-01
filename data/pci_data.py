@@ -6,12 +6,12 @@ class nvidia_ids:
     # https://pci-ids.ucw.cz/read/PC/10de
     curie_ids = [
         0x0040, # NV40 [GeForce 6800 Ultra]
-        0x00f0, # BR02
+        0x00F0, # BR02
         0x0220, # NV44A
         0x0140, # NV43 [GeForce 6600 GT]
         0x0160, # NV44 [GeForce 6500]
         0x0090, # G70 [GeForce 7800 GTX]
-        0x01d0, # G72 [GeForce 7350 LE]
+        0x01D0, # G72 [GeForce 7350 LE]
         0x0390, # G73 [GeForce 7650 GS]
         0x0290, # G71 [GeForce 7900 GTX]
     ]
@@ -419,10 +419,10 @@ class nvidia_ids:
         0x1187, # GK104 [GTX 760]
         0x1188, # GK104 [GTX 690]
         0x1189, # GK104 [GTX 670]
-        0x118a, # GK104GL [GRID K520]
-        0x118b, # GK104GL [GRID K2 GeForce USM]
-        0x118c, # GK104 [GRID K2 NVS USM]
-        0x118d, # GK104GL [GRID K200 vGPU]
+        0x118A, # GK104GL [GRID K520]
+        0x118B, # GK104GL [GRID K2 GeForce USM]
+        0x118C, # GK104 [GRID K2 NVS USM]
+        0x118D, # GK104GL [GRID K200 vGPU]
         0x118E, # GK104 [GTX 760 OEM]
         0x118F, # GK104GL [Tesla K10]
         0x1191, # GK104 [GTX 760 Rev. 2]
@@ -458,9 +458,9 @@ class nvidia_ids:
         # GK106
         0x11C0, # GK106 [GTX 660]
         0x11C2, # GK106 [GTX 650 Ti BOOST]
-        0x11c3, # GK106 [GTX 650 Ti OEM]
-        0x11c4, # GK106 [GTX 645 OEM]
-        0x11c5, # GK106 [GT 740]
+        0x11C3, # GK106 [GTX 650 Ti OEM]
+        0x11C4, # GK106 [GTX 645 OEM]
+        0x11C5, # GK106 [GT 740]
         0x11C6, # GK106 [GTX 650 Ti]
         0x11C7, # GK106 [GTX 750 Ti]
         0x11C8, # GK106 [GTX 650 OEM]
@@ -587,15 +587,15 @@ class nvidia_ids:
         0x1347, # GM108M [GeForce 940M]
         0x1348, # GM108M [GeForce 945M / 945A]
         0x1349, # GM108M [GeForce 930M]
-        0x134b, # GM108M [GeForce 940MX]
-        0x134d, # GM108M [GeForce 940MX]
-        0x134e, # GM108M [GeForce 930MX]
-        0x134f, # GM108M [GeForce 920MX]
-        0x137a, # GM108GLM [Quadro K620M / Quadro M500M]
-        0x137b, # GM108GLM [Quadro M520 Mobile]
-        0x137d, # GM108M [GeForce 940A]
-        0x174d, # GM108M [GeForce MX130]
-        0x174e, # GM108M [GeForce MX110]
+        0x134B, # GM108M [GeForce 940MX]
+        0x134D, # GM108M [GeForce 940MX]
+        0x134E, # GM108M [GeForce 930MX]
+        0x134F, # GM108M [GeForce 920MX]
+        0x137A, # GM108GLM [Quadro K620M / Quadro M500M]
+        0x137B, # GM108GLM [Quadro M520 Mobile]
+        0x137D, # GM108M [GeForce 940A]
+        0x174D, # GM108M [GeForce MX130]
+        0x174E, # GM108M [GeForce MX110]
 
         0x1380, # GM107 [GTX 750 Ti]
         0x1381, # GM107 [GTX 750]
@@ -607,47 +607,47 @@ class nvidia_ids:
         0x1393, # GM107M [GeForce 840M]
         0x1398, # GM107M [GeForce 845M]
         0x1399, # GM107M [GeForce 945M]
-        0x139a, # GM107M [GTX 950M]
-        0x139b, # GM107M [GTX 960M]
-        0x139c, # GM107M [GeForce 940M]
-        0x139d, # GM107M [GTX 750 Ti]
-        0x13b0, # GM107GLM [Quadro M2000M]
-        0x13b1, # GM107GLM [Quadro M1000M]
-        0x13b2, # GM107GLM [Quadro M600M]
-        0x13b3, # GM107GLM [Quadro K2200M]
-        0x13b4, # GM107GLM [Quadro M620 Mobile]
-        0x13b6, # GM107GLM [Quadro M1200 Mobile]
-        0x13b9, # GM107GL [NVS 810]
-        0x13ba, # GM107GL [Quadro K2200]
-        0x13bb, # GM107GL [Quadro K620]
-        0x13bc, # GM107GL [Quadro K1200]
-        0x13bd, # GM107GL [Tesla M10]
+        0x139A, # GM107M [GTX 950M]
+        0x139B, # GM107M [GTX 960M]
+        0x139C, # GM107M [GeForce 940M]
+        0x139D, # GM107M [GTX 750 Ti]
+        0x13B0, # GM107GLM [Quadro M2000M]
+        0x13B1, # GM107GLM [Quadro M1000M]
+        0x13B2, # GM107GLM [Quadro M600M]
+        0x13B3, # GM107GLM [Quadro K2200M]
+        0x13B4, # GM107GLM [Quadro M620 Mobile]
+        0x13B6, # GM107GLM [Quadro M1200 Mobile]
+        0x13B9, # GM107GL [NVS 810]
+        0x13BA, # GM107GL [Quadro K2200]
+        0x13BB, # GM107GL [Quadro K620]
+        0x13BC, # GM107GL [Quadro K1200]
+        0x13BD, # GM107GL [Tesla M10]
         0x1789, # GM107GL [GRID M3-3020]
-        0x179c, # GM107 [GeForce 940MX]
+        0x179C, # GM107 [GeForce 940MX]
 
-        0x17c2, # GM200 [GTX TITAN X]
-        0x17c8, # GM200 [GTX 980 Ti]
-        0x17f0, # GM200GL [Quadro M6000]
-        0x17f1, # GM200GL [Quadro M6000 24GB]
-        0x17fd, # GM200GL [Tesla M40]
+        0x17C2, # GM200 [GTX TITAN X]
+        0x17C8, # GM200 [GTX 980 Ti]
+        0x17F0, # GM200GL [Quadro M6000]
+        0x17F1, # GM200GL [Quadro M6000 24GB]
+        0x17FD, # GM200GL [Tesla M40]
 
-        0x13c0, # GM204 [GTX 980]
-        0x13c1, # GM204
-        0x13c2, # GM204 [GTX 970]
-        0x13c3, # GM204
-        0x13d7, # GM204M [GTX 980M]
-        0x13d8, # GM204M [GTX 970M]
-        0x13d9, # GM204M [GTX 965M]
-        0x13da, # GM204M [GTX 980 Mobile]
-        0x13e7, # GM204GL [GTX 980 Engineering Sample]
-        0x13f0, # GM204GL [Quadro M5000]
-        0x13f1, # GM204GL [Quadro M4000]
-        0x13f2, # GM204GL [Tesla M60]
-        0x13f3, # GM204GL [Tesla M6]
-        0x13f8, # GM204GLM [Quadro M5000M / M5000 SE]
-        0x13f9, # GM204GLM [Quadro M4000M]
-        0x13fa, # GM204GLM [Quadro M3000M]
-        0x13fb, # GM204GLM [Quadro M5500]
+        0x13C0, # GM204 [GTX 980]
+        0x13C1, # GM204
+        0x13C2, # GM204 [GTX 970]
+        0x13C3, # GM204
+        0x13D7, # GM204M [GTX 980M]
+        0x13D8, # GM204M [GTX 970M]
+        0x13D9, # GM204M [GTX 965M]
+        0x13DA, # GM204M [GTX 980 Mobile]
+        0x13E7, # GM204GL [GTX 980 Engineering Sample]
+        0x13F0, # GM204GL [Quadro M5000]
+        0x13F1, # GM204GL [Quadro M4000]
+        0x13F2, # GM204GL [Tesla M60]
+        0x13F3, # GM204GL [Tesla M6]
+        0x13F8, # GM204GLM [Quadro M5000M / M5000 SE]
+        0x13F9, # GM204GLM [Quadro M4000M]
+        0x13FA, # GM204GLM [Quadro M3000M]
+        0x13FB, # GM204GLM [Quadro M5500]
 
         0x1401, # GM206 [GTX 960]
         0x1402, # GM206 [GTX 950]
@@ -662,114 +662,114 @@ class nvidia_ids:
 
     pascal_ids = [
         0x1725,
-        0x172e,
-        0x172f,
-        0x15f0, # GP100GL [Quadro GP100]
-        0x15f1, # GP100GL
-        0x15f7, # GP100GL [Tesla P100 PCIe 12GB]
-        0x15f8, # GP100GL [Tesla P100 PCIe 16GB]
-        0x15f9, # GP100GL [Tesla P100 SXM2 16GB]
+        0x172E,
+        0x172F,
+        0x15F0, # GP100GL [Quadro GP100]
+        0x15F1, # GP100GL
+        0x15F7, # GP100GL [Tesla P100 PCIe 12GB]
+        0x15F8, # GP100GL [Tesla P100 PCIe 16GB]
+        0x15F9, # GP100GL [Tesla P100 SXM2 16GB]
 
-        0x1b00, # GP102 [TITAN X]
-        0x1b01, # GP102 [GTX 1080 Ti 10GB]
-        0x1b02, # GP102 [TITAN Xp]
-        0x1b04, # GP102
-        0x1b06, # GP102 [GTX 1080 Ti]
-        0x1b07, # GP102 [P102-100]
-        0x1b30, # GP102GL [Quadro P6000]
-        0x1b38, # GP102GL [Tesla P40]
-        0x1b39, # GP102GL [Tesla P10]
-        0x1b70, # GP102GL
-        0x1b78, # GP102GL
+        0x1B00, # GP102 [TITAN X]
+        0x1B01, # GP102 [GTX 1080 Ti 10GB]
+        0x1B02, # GP102 [TITAN Xp]
+        0x1B04, # GP102
+        0x1B06, # GP102 [GTX 1080 Ti]
+        0x1B07, # GP102 [P102-100]
+        0x1B30, # GP102GL [Quadro P6000]
+        0x1B38, # GP102GL [Tesla P40]
+        0x1B39, # GP102GL [Tesla P10]
+        0x1B70, # GP102GL
+        0x1B78, # GP102GL
 
-        0x1b80, # GP104 [GTX 1080]
-        0x1b81, # GP104 [GTX 1070]
-        0x1b82, # GP104 [GTX 1070 Ti]
-        0x1b83, # GP104 [GTX 1060 6GB]
-        0x1b84, # GP104 [GTX 1060 3GB]
-        0x1b87, # GP104 [P104-100]
-        0x1ba0, # GP104M [GTX 1080 Mobile]
-        0x1ba1, # GP104M [GTX 1070 Mobile]
-        0x1ba2, # GP104M [GTX 1070 Mobile]
-        0x1ba9, # GP104M
-        0x1baa, # GP104M
-        0x1bad, # GP104 [GTX 1070 Engineering Sample]
-        0x1bb0, # GP104GL [Quadro P5000]
-        0x1bb1, # GP104GL [Quadro P4000]
-        0x1bb3, # GP104GL [Tesla P4]
-        0x1bb4, # GP104GL [Tesla P6]
-        0x1bb5, # GP104GLM [Quadro P5200 Mobile]
-        0x1bb6, # GP104GLM [Quadro P5000 Mobile]
-        0x1bb7, # GP104GLM [Quadro P4000 Mobile]
-        0x1bb8, # GP104GLM [Quadro P3000 Mobile]
-        0x1bb9, # GP104GLM [Quadro P4200 Mobile]
-        0x1bbb, # GP104GLM [Quadro P3200 Mobile]
-        0x1bc7, # GP104 [P104-101]
-        0x1be0, # GP104BM [GTX 1080 Mobile]
-        0x1be1, # GP104BM [GTX 1070 Mobile]
+        0x1B80, # GP104 [GTX 1080]
+        0x1B81, # GP104 [GTX 1070]
+        0x1B82, # GP104 [GTX 1070 Ti]
+        0x1B83, # GP104 [GTX 1060 6GB]
+        0x1B84, # GP104 [GTX 1060 3GB]
+        0x1B87, # GP104 [P104-100]
+        0x1BA0, # GP104M [GTX 1080 Mobile]
+        0x1BA1, # GP104M [GTX 1070 Mobile]
+        0x1BA2, # GP104M [GTX 1070 Mobile]
+        0x1BA9, # GP104M
+        0x1BAA, # GP104M
+        0x1BAD, # GP104 [GTX 1070 Engineering Sample]
+        0x1BB0, # GP104GL [Quadro P5000]
+        0x1BB1, # GP104GL [Quadro P4000]
+        0x1BB3, # GP104GL [Tesla P4]
+        0x1BB4, # GP104GL [Tesla P6]
+        0x1BB5, # GP104GLM [Quadro P5200 Mobile]
+        0x1BB6, # GP104GLM [Quadro P5000 Mobile]
+        0x1BB7, # GP104GLM [Quadro P4000 Mobile]
+        0x1BB8, # GP104GLM [Quadro P3000 Mobile]
+        0x1BB9, # GP104GLM [Quadro P4200 Mobile]
+        0x1BBB, # GP104GLM [Quadro P3200 Mobile]
+        0x1BC7, # GP104 [P104-101]
+        0x1BE0, # GP104BM [GTX 1080 Mobile]
+        0x1BE1, # GP104BM [GTX 1070 Mobile]
 
-        0x1c00, # GP106
-        0x1c01, # GP106
-        0x1c02, # GP106 [GTX 1060 3GB]
-        0x1c03, # GP106 [GTX 1060 6GB]
-        0x1c04, # GP106 [GTX 1060 5GB]
-        0x1c06, # GP106 [GTX 1060 6GB Rev. 2]
-        0x1c07, # GP106 [P106-100]
-        0x1c09, # GP106 [P106-090]
-        0x1c20, # GP106M [GTX 1060 Mobile]
-        0x1c21, # GP106M [GTX 1050 Ti Mobile]
-        0x1c22, # GP106M [GTX 1050 Mobile]
-        0x1c23, # GP106M [GTX 1060 Mobile Rev. 2]
-        0x1c2d, # GP106M
-        0x1c30, # GP106GL [Quadro P2000]
-        0x1c31, # GP106GL [Quadro P2200]
-        0x1c35, # GP106M [Quadro P2000 Mobile]
-        0x1c36, # GP106 [P106M]
-        0x1c60, # GP106BM [GTX 1060 Mobile 6GB]
-        0x1c61, # GP106BM [GTX 1050 Ti Mobile]
-        0x1c62, # GP106BM [GTX 1050 Mobile]
-        0x1c70, # GP106GL
+        0x1C00, # GP106
+        0x1C01, # GP106
+        0x1C02, # GP106 [GTX 1060 3GB]
+        0x1C03, # GP106 [GTX 1060 6GB]
+        0x1C04, # GP106 [GTX 1060 5GB]
+        0x1C06, # GP106 [GTX 1060 6GB Rev. 2]
+        0x1C07, # GP106 [P106-100]
+        0x1C09, # GP106 [P106-090]
+        0x1C20, # GP106M [GTX 1060 Mobile]
+        0x1C21, # GP106M [GTX 1050 Ti Mobile]
+        0x1C22, # GP106M [GTX 1050 Mobile]
+        0x1C23, # GP106M [GTX 1060 Mobile Rev. 2]
+        0x1C2D, # GP106M
+        0x1C30, # GP106GL [Quadro P2000]
+        0x1C31, # GP106GL [Quadro P2200]
+        0x1C35, # GP106M [Quadro P2000 Mobile]
+        0x1C36, # GP106 [P106M]
+        0x1C60, # GP106BM [GTX 1060 Mobile 6GB]
+        0x1C61, # GP106BM [GTX 1050 Ti Mobile]
+        0x1C62, # GP106BM [GTX 1050 Mobile]
+        0x1C70, # GP106GL
 
-        0x1c80,
-        0x1c81, # GP107 [GTX 1050]
-        0x1c82, # GP107 [GTX 1050 Ti]
-        0x1c83, # GP107 [GTX 1050 3GB]
-        0x1c8c, # GP107M [GTX 1050 Ti Mobile]
-        0x1c8d, # GP107M [GTX 1050 Mobile]
-        0x1c8e, # GP107M
-        0x1c8f, # GP107M [GTX 1050 Ti Max-Q]
-        0x1c90, # GP107M [GeForce MX150]
-        0x1c91, # GP107M [GTX 1050 3 GB Max-Q]
-        0x1c92, # GP107M [GTX 1050 Mobile]
-        0x1c94, # GP107M [GeForce MX350]
-        0x1c96, # GP107M [GeForce MX350]
-        0x1ca7, # GP107GL
-        0x1ca8, # GP107GL
-        0x1caa, # GP107GL
-        0x1cb1, # GP107GL [Quadro P1000]
-        0x1cb2, # GP107GL [Quadro P600]
-        0x1cb3, # GP107GL [Quadro P400]
-        0x1cb6, # GP107GL [Quadro P620]
-        0x1cba, # GP107GLM [Quadro P2000 Mobile]
-        0x1cbb, # GP107GLM [Quadro P1000 Mobile]
-        0x1cbc, # GP107GLM [Quadro P600 Mobile]
-        0x1cbd, # GP107GLM [Quadro P620]
-        0x1ccc, # GP107BM [GTX 1050 Ti Mobile]
-        0x1ccd, # GP107BM [GTX 1050 Mobile]
-        0x1cfa, # GP107GL [Quadro P2000]
-        0x1cfb, # GP107GL [Quadro P1000]
+        0x1C80,
+        0x1C81, # GP107 [GTX 1050]
+        0x1C82, # GP107 [GTX 1050 Ti]
+        0x1C83, # GP107 [GTX 1050 3GB]
+        0x1C8C, # GP107M [GTX 1050 Ti Mobile]
+        0x1C8D, # GP107M [GTX 1050 Mobile]
+        0x1C8E, # GP107M
+        0x1C8F, # GP107M [GTX 1050 Ti Max-Q]
+        0x1C90, # GP107M [GeForce MX150]
+        0x1C91, # GP107M [GTX 1050 3 GB Max-Q]
+        0x1C92, # GP107M [GTX 1050 Mobile]
+        0x1C94, # GP107M [GeForce MX350]
+        0x1C96, # GP107M [GeForce MX350]
+        0x1CA7, # GP107GL
+        0x1CA8, # GP107GL
+        0x1CAA, # GP107GL
+        0x1CB1, # GP107GL [Quadro P1000]
+        0x1CB2, # GP107GL [Quadro P600]
+        0x1CB3, # GP107GL [Quadro P400]
+        0x1CB6, # GP107GL [Quadro P620]
+        0x1CBA, # GP107GLM [Quadro P2000 Mobile]
+        0x1CBB, # GP107GLM [Quadro P1000 Mobile]
+        0x1CBC, # GP107GLM [Quadro P600 Mobile]
+        0x1CBD, # GP107GLM [Quadro P620]
+        0x1CCC, # GP107BM [GTX 1050 Ti Mobile]
+        0x1CCD, # GP107BM [GTX 1050 Mobile]
+        0x1CFA, # GP107GL [Quadro P2000]
+        0x1CFB, # GP107GL [Quadro P1000]
 
-        0x1d01, # GP108 [GeForce GT 1030]
-        0x1d02, # GP108 [GeForce GT 1010]
-        0x1d10, # GP108M [GeForce MX150]
-        0x1d11, # GP108M [GeForce MX230]
-        0x1d12, # GP108M [GeForce MX150]
-        0x1d13, # GP108M [GeForce MX250]
-        0x1d16, # GP108M [GeForce MX330]
-        0x1d33, # GP108GLM [Quadro P500 Mobile]
-        0x1d34, # GP108GLM [Quadro P520]
-        0x1d52, # GP108BM [GeForce MX250]
-        0x1d56, # GP108BM [GeForce MX330]
+        0x1D01, # GP108 [GeForce GT 1030]
+        0x1D02, # GP108 [GeForce GT 1010]
+        0x1D10, # GP108M [GeForce MX150]
+        0x1D11, # GP108M [GeForce MX230]
+        0x1D12, # GP108M [GeForce MX150]
+        0x1D13, # GP108M [GeForce MX250]
+        0x1D16, # GP108M [GeForce MX330]
+        0x1D33, # GP108GLM [Quadro P500 Mobile]
+        0x1D34, # GP108GLM [Quadro P520]
+        0x1D52, # GP108BM [GeForce MX250]
+        0x1D56, # GP108BM [GeForce MX330]
     ]
 
 
@@ -934,7 +934,7 @@ class amd_ids:
     r500_ids = [
         0x7187, # X1300/X1550
         0x7146, # X1300/X1550
-        0x71c5, # Mobile X1600
+        0x71C5, # Mobile X1600
         0x7249, # X1900 XT
     ]
 
@@ -1018,7 +1018,7 @@ class intel_ids:
     ]
 
     gma_x3100_ids = [
-        0x2a02, # 965GM
+        0x2A02, # 965GM
     ]
 
     iron_ids = [

@@ -312,19 +312,19 @@ class SASController(PCIDevice):
 
 @dataclass
 class XHCIController(PCIDevice):
-    CLASS_CODES: ClassVar[list[int]] = [0x0c0330]
+    CLASS_CODES: ClassVar[list[int]] = [0x0C0330]
 
 @dataclass
 class EHCIController(PCIDevice):
-    CLASS_CODES: ClassVar[list[int]] = [0x0c0320]
+    CLASS_CODES: ClassVar[list[int]] = [0x0C0320]
 
 @dataclass
 class OHCIController(PCIDevice):
-    CLASS_CODES: ClassVar[list[int]] = [0x0c0310]
+    CLASS_CODES: ClassVar[list[int]] = [0x0C0310]
 
 @dataclass
 class UHCIController(PCIDevice):
-    CLASS_CODES: ClassVar[list[int]] = [0x0c0300]
+    CLASS_CODES: ClassVar[list[int]] = [0x0C0300]
 
 @dataclass
 class SDXCController(PCIDevice):
@@ -923,7 +923,7 @@ class Computer:
         for usb_device in self.usb_devices:
             if self.internal_keyboard_type and self.trackpad_type:
                 break
-            if usb_device.vendor_id != 0x5ac:
+            if usb_device.vendor_id != 0x5AC:
                 continue
 
             if usb_device.device_id in usb_data.AppleIDs.Legacy_AppleUSBTCKeyboard:
@@ -941,7 +941,7 @@ class Computer:
             return
 
         for usb_device in self.usb_devices:
-            if usb_device.vendor_id != 0x5ac:
+            if usb_device.vendor_id != 0x5AC:
                 continue
             # Standard T1
             if usb_device.device_id == 0x8600:

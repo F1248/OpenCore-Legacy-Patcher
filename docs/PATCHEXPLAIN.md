@@ -326,7 +326,7 @@ Unfortunately certain on-disk patches are required to achieve full functionality
   * Reason: Fixes immediate logout on login
   * Logic: Downgrade to Catalina IOSurface
   * Note: For AMD and Intel, additional `addMemoryRegion/removeMemoryRegion` patch added changing the first conditional jump to non conditional jump
-    * At Offset `0xdb52` and `0xdbc6`, replace following bytes with `0xeb`
+    * At Offset `0xDB52` and `0xDBC6`, replace following bytes with `0xEB`
 
 ### Dropped Acceleration Binaries
 
@@ -341,7 +341,7 @@ Unfortunately certain on-disk patches are required to achieve full functionality
   * GeForceTeslaVADriver.bundle
   * NVDANV50HalTesla.kext
   * NVDAResmanTesla.kext
-    * 0x1ea59a - 0x1ea5b3: nop
+    * 0x1EA59A - 0x1EA5B3: nop
     * Replace VSLGestalt to IOLockLock or any other known symbol of the same length.
 
 * NVIDIA Web Drivers Binaries
