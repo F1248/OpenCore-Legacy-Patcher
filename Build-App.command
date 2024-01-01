@@ -59,7 +59,6 @@ class CreateBinary:
         parser.add_argument("--repository", type=str, help="Git repository")
         parser.add_argument("--branch", type=str, help="Git branch")
         parser.add_argument("--commit_url", type=str, help="Git commit URL")
-        parser.add_argument("--reset_binaries", action="store_true", help="Force redownload and imaging of payloads")
         args = parser.parse_args()
         return args
 
@@ -91,17 +90,6 @@ class CreateBinary:
         """
         Build binary via PyInstaller
         """
-
-        if Path(f"./dist/OpenCore Legacy Patcher.app").exists():
-            print("Found OpenCore Legacy Patcher.app, removing…")
-            rm_output = subprocess.run(
-                ["/bin/rm", "-rf", "./dist/OpenCore Legacy Patcher.app"],
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE
-            )
-            if rm_output.returncode != 0:
-                print("Remove failed")
-                print(rm_output.stderr.decode('utf-8'))
-                raise Exception("Remove failed")
 
         print("Building GUI binary…")
         build_args = [self.pyinstaller_path, "./PyInstaller.spec", "--noconfirm"]
@@ -181,16 +169,8 @@ class CreateBinary:
 
         print("Downloading Universal-Binaries.dmg…")
         if Path("./Universal-Binaries.dmg").exists():
-            if self.args.reset_binaries:
-                print("- Removing old Universal-Binaries.dmg")
-                rm_output = subprocess.run(["/bin/rm", "-rf", "./Universal-Binaries.dmg"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                if rm_output.returncode != 0:
-                    print("Remove failed")
-                    print(rm_output.stderr.decode('utf-8'))
-                    raise Exception("Remove failed")
-            else:
-                print("Universal-Binaries.dmg already exists, skipping download")
-                return
+            print("Universal-Binaries.dmg already exists, skipping download")
+            return
         print(f"- Downloading Universal-Binaries.dmg…")
 
         download_result = subprocess.run(["/usr/bin/curl", "--location", constants.Constants().support_url, "--remote-name"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -216,21 +196,6 @@ class CreateBinary:
         Disk image will be password protected due to issues with
         Apple's notarization system and inclusion of kernel extensions
         """
-
-        if Path("./payloads.dmg").exists():
-            if not self.args.reset_binaries:
-                print("- payloads.dmg already exists, skipping creation")
-                return
-
-            print("- Removing old payloads.dmg")
-            rm_output = subprocess.run(
-                ["/bin/rm", "-rf", "./payloads.dmg"],
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE
-            )
-            if rm_output.returncode != 0:
-                print("Remove failed")
-                print(rm_output.stderr.decode('utf-8'))
-                raise Exception("Remove failed")
 
         print("- Generating DMG…")
         dmg_output = subprocess.run([
