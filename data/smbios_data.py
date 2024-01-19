@@ -511,7 +511,7 @@ smbios_dictionary = {
     "MacBookAir8,1_v2": {
         "Board ID": "Mac-112818653D3AABFC",
         "FirmwareFeatures": "0x8FD8FF42E",
-        "SecureBootModel": "j140k",  # TODO: Verify
+        "SecureBootModel": "j140k",
         "CPU Generation": cpu_data.CPUGen.coffee_lake.value,
         "Max OS Supported": os_data.os_data.max_os,
         "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
