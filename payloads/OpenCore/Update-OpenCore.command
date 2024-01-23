@@ -18,6 +18,7 @@ UNUSED_DRIVERS = [
     "BiosVideo.efi",
     "CrScreenshotDxe.efi",
     "Ext4Dxe.efi",
+    "FirmwareSettingsEntry.efi",
     "HiiDatabase.efi",
     "NvmExpressDxe.efi",
     "OpenHfsPlus.efi",
