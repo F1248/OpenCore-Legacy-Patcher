@@ -237,7 +237,7 @@ class macOSInstallerFlashFrame(wx.Frame):
         warning_label.Centre(wx.HORIZONTAL)
 
         # Label: We will notify you when the installer is ready.
-        warning_label = wx.StaticText(self, label="We won'tify you when the installer is ready.", pos=(-1, warning_label.GetPosition()[1] + warning_label.GetSize()[1] + 5))
+        warning_label = wx.StaticText(self, label="We will notify you when the installer is ready.", pos=(-1, warning_label.GetPosition()[1] + warning_label.GetSize()[1] + 5))
         warning_label.SetFont(gui_support.font_factory(11, wx.FONTWEIGHT_NORMAL))
         warning_label.Centre(wx.HORIZONTAL)
 
