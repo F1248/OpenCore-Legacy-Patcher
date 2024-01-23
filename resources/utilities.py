@@ -187,10 +187,11 @@ def check_kext_loaded(bundle_id: str) -> str:
     # no UUID for kextstat
     pattern = re.compile(re.escape(bundle_id) + r"\s+\((?P<version>.+)\)")
 
-    args = ["/usr/sbin/kextstat", "-list-only", "-bundle-id", bundle_id]
 
     if Path("/usr/bin/kmutil").exists():
         args = ["/usr/bin/kmutil", "showloaded", "--list-only", "--variant-suffix", "release", "--optional-identifier", bundle_id]
+    else:
+        args = ["/usr/sbin/kextstat", "-list-only", "-bundle-id", bundle_id]
 
     kext_loaded = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     if kext_loaded.returncode != 0:
