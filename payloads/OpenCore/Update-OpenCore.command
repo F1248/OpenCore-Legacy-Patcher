@@ -10,7 +10,7 @@ NIGHTLY_URL = "https://nightly.link/acidanthera/OpenCorePkg/workflows/build/mast
 
 BUILD_VARIANTS = [
     "DEBUG",
-    "RELEASE"
+    "RELEASE",
 ]
 
 UNUSED_DRIVERS = [
