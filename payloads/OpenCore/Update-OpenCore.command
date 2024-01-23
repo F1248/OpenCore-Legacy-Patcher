@@ -92,7 +92,7 @@ class GenerateOpenCore:
         for variant in BUILD_VARIANTS:
             print(f"Unzipping {variant}…")
             subprocess.run (
-                ["unzip", self.zip_files[variant], "-d", f"{self.working_dir}/OpenCore-{variant}-ROOT"],
+                ["/usr/bin/unzip", self.zip_files[variant], "-d", f"{self.working_dir}/OpenCore-{variant}-ROOT"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
@@ -122,7 +122,7 @@ class GenerateOpenCore:
             # Delete zip files
             print(f"Deleting {variant} zip…")
             subprocess.run (
-                ["rm", "-rf", self.zip_files[variant]],
+                ["/bin/rm", "-rf", self.zip_files[variant]],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
 
@@ -131,7 +131,7 @@ class GenerateOpenCore:
         print("Downloading latest nightly build…")
         zip_path = f"{self.working_dir}/macOS XCODE5 Artifacts.zip"
         subprocess.run (
-            ["curl", "--location", NIGHTLY_URL, "--output", zip_path],
+            ["/usr/bin/curl", "--location", NIGHTLY_URL, "--output", zip_path],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
         print("Unzipping and deleting macOS XCODE5 Artifacts.zip…")

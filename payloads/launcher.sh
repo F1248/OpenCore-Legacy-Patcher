@@ -1,5 +1,5 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-chmod +x OpenCore-Legacy-Patcher
-open OpenCore-Legacy-Patcher
+/bin/chmod +x OpenCore-Legacy-Patcher
+/usr/bin/open OpenCore-Legacy-Patcher

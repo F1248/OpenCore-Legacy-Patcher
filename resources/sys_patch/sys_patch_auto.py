@@ -219,8 +219,8 @@ class AutomaticSysPatch:
             utilities.process_status(utilities.elevated(["/bin/cp", service, services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
             # Set the permissions on the service
-            utilities.process_status(utilities.elevated(["chmod", "644", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            utilities.process_status(utilities.elevated(["chown", "root:wheel", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/chmod", "644", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            utilities.process_status(utilities.elevated(["/bin/chmod", "root:wheel", services[service]], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         if self.constants.launcher_binary.startswith("/Library/Application Support/Dortania/"):
             logging.info("- Skipping Patcher Install, already installed")

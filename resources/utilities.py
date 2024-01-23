@@ -514,7 +514,7 @@ def block_os_updaters():
         "Software Update",
         "MobileSoftwareUpdate",
     ]
-    output = subprocess.check_output(["ps", "-ax"])
+    output = subprocess.check_output(["/bin/ps", "-ax"])
     lines = output.splitlines()
     for line in lines:
         entry = line.split()

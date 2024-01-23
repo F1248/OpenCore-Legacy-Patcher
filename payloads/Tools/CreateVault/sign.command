@@ -9,7 +9,7 @@ abort() {
 
 # shellcheck disable=SC2317
 cleanup() {
-  rm -rf "${KeyPath}"
+  /bin/rm -rf "${KeyPath}"
 }
 
 if [ ! -x /usr/bin/dirname ] || [ ! -x /bin/chmod ] || [ ! -x /bin/mkdir ] || [ ! -x /bin/rm ] || [ ! -x /usr/bin/grep ] || [ ! -x /usr/bin/awk ] || [ ! -x /bin/dd ] || [ ! -x /usr/bin/uuidgen ] ; then

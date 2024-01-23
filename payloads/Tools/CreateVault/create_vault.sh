@@ -32,7 +32,7 @@ abort() {
 
 # plist output functions so we don't need PlistBuddy
 write_header() {
-  cat <<EOF > "$1"
+  /bin/cat <<EOF > "$1"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -47,13 +47,13 @@ write_file_name_and_hash() {
     echo -e "\t\t<key>${2}</key>"
     echo -e "\t\t<data>"
     echo -e -n "\t\t"
-    cat "$3"
+    /bin/cat "$3"
     echo -e "\t\t</data>"
   } >> "$1"
 }
 
 write_footer() {
-  cat <<EOF >> "$1"
+  /bin/cat <<EOF >> "$1"
 	</dict>
 	<key>Version</key>
 	<integer>1</integer>
@@ -74,7 +74,7 @@ write_header vault.plist
   \( ! -iname "vault.*" \) \
   \( ! -iname "MemTest86.log" \) \
   \( ! -iname "MemTest86-Report-*.html" \) \
-  \( ! -iname "OpenCore.efi" \) | env LC_COLLATE=POSIX /usr/bin/sort | while read -r fname; do
+  \( ! -iname "OpenCore.efi" \) | /usr/bin/env LC_COLLATE=POSIX /usr/bin/sort | while read -r fname; do
   fname="${fname#"./"}"
   wname="${fname//\//\\\\}"
   sha=$("${UtilsPath}"/openssl sha256 "${fname}" | /usr/bin/awk '{print $2}') || abort "Failed to hash ${fname}"

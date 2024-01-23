@@ -126,9 +126,9 @@ class SysPatchHelpers:
 
         logging.info("Disabling WindowServer Caching")
         # Invoke via 'bash -c' to resolve pathing
-        utilities.elevated(["bash", "-c", "rm -rf /private/var/folders/*/*/*/WindowServer/com.apple.WindowServer"])
+        utilities.elevated(["/bin/bash", "-c", "/bin/rm -rf /private/var/folders/*/*/*/WindowServer/com.apple.WindowServer"])
         # Disable writing to WindowServer folder
-        utilities.elevated(["bash", "-c", "chflags uchg /private/var/folders/*/*/*/WindowServer"])
+        utilities.elevated(["/bin/bash", "-c", "/usr/bin/chflags uchg /private/var/folders/*/*/*/WindowServer"])
         # Reference:
         #   To reverse write lock:
         #   'chflags nouchg /private/var/folders/*/*/*/WindowServer'
