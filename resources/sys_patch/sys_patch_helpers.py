@@ -122,7 +122,7 @@ class SysPatchHelpers:
         """
 
         if self.constants.detected_os < os_data.os_data.ventura:
-             return
+            return
 
         logging.info("Disabling WindowServer Caching")
         # Invoke via 'bash -c' to resolve pathing
