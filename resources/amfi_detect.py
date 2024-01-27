@@ -46,7 +46,7 @@ class AmfiConfigurationDetection:
 
     def _init_nvram_dicts(self) -> None:
         """
-        Initialize the boot-args and OpenCore Legacy Patcher -Settings NVRAM dictionaries
+        Initialize the boot-args and OpenCore Legacy Patcher-Settings NVRAM dictionaries
         """
 
         boot_args = utilities.get_nvram("boot-args", decode=True)
