@@ -4,6 +4,7 @@ echo "location: $location"
 
 /usr/bin/find "$location" -name "__pycache__" -type d -exec rm -r {} +
 /bin/rm -fr "$location/build"
+/bin/rm -fr "$location/Build-Folder"
 /bin/rm -fr "$location/dist"
 /bin/rm -f  "$location/payloads/OpenCore-Legacy-Patcher.app.zip"
 /bin/rm -f  "$location/payloads/update.sh"
