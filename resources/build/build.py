@@ -42,7 +42,7 @@ class BuildOpenCore:
         """
 
         utilities.cls()
-        logging.info(f"Building Configuration {'for external' if self.constants.custom_model else 'on model'}: {self.model}")
+        logging.info(f"Building Configuration {"for external" if self.constants.custom_model else "on model"}: {self.model}")
 
         self._generate_base()
         self._set_revision()
@@ -90,7 +90,7 @@ class BuildOpenCore:
             shutil.rmtree(self.constants.opencore_release_folder, onerror=rmtree_handler, ignore_errors=True)
 
         logging.info("")
-        logging.info(f"- Adding OpenCore {'DEBUG' if self.constants.opencore_debug is True else 'RELEASE'}")
+        logging.info(f"- Adding OpenCore {"DEBUG" if self.constants.opencore_debug is True else "RELEASE"}")
         shutil.copy(self.constants.opencore_zip_source, self.constants.build_path)
         zipfile.ZipFile(self.constants.opencore_zip_copied).extractall(self.constants.build_path)
 
