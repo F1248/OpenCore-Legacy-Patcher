@@ -31,7 +31,7 @@ jobs:
         run: zsh Install-Dependencies.command --pip
 
       - name: Build App
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           retry_on: timeout
           timeout_minutes: 2
