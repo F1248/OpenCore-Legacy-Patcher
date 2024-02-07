@@ -54,7 +54,7 @@ class SystemPatchDictionary():
         Parameters:
             os_major              (int): Major XNU Kernel version
             os_minor              (int): Minor XNU Kernel version
-            non_metal_os_support (list): List of supported non-metal OSes (XNU Major Versions)
+            non_metal_os_support (list): List of supported non-Metal OSes (XNU Major Versions)
 
         'non_metal_os_support' is assumed to be sorted from oldest to newest
         """

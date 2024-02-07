@@ -251,7 +251,7 @@ class PatchSysVolume:
             logging.info("- Failed to revert snapshot via Apple's 'bless' command")
         else:
             self._clean_skylight_plugins()
-            self._delete_nonmetal_enforcement()
+            self._delete_non_metal_enforcement()
             self._clean_auxiliary_kc()
             self.constants.root_patcher_succeeded = True
             logging.info("- Unpatching complete")
@@ -462,7 +462,7 @@ class PatchSysVolume:
             utilities.process_status(utilities.elevated(["/bin/mkdir", "-p", f"{self.mount_application_support}/SkyLightPlugins/"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
 
-    def _delete_nonmetal_enforcement(self) -> None:
+    def _delete_non_metal_enforcement(self) -> None:
         """
         Remove defaults related to forced OpenGL rendering
         Primarily for development purposes
@@ -737,7 +737,7 @@ class PatchSysVolume:
         # Make sure old SkyLight plugins aren't being used
         self._clean_skylight_plugins()
         # Make sure non-Metal Enforcement preferences aren't present
-        self._delete_nonmetal_enforcement()
+        self._delete_non_metal_enforcement()
         # Make sure we clean old kexts in /L*/E* that aren't in the patchset
         self._clean_auxiliary_kc()
 

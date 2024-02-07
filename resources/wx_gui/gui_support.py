@@ -175,7 +175,7 @@ class CheckProperties:
 
     def host_is_non_metal(self, general_check: bool = False):
         """
-        Check if host is non-metal
+        Check if host is non-Metal
         Primarily for wx.Gauge().Pulse() workaround (where animation doesn't work on Monterey+)
         """
 
