@@ -3,7 +3,7 @@
 #
 # technical details on
 # https://github.com/Ausdauersportler/IMAC-EFI-BOOT-SCREEN
-# recipe to build a iMac compatible NAVI vBIOS
+# recipe to build an iMac compatible NAVI vBIOS
 # https://github.com/Ausdauersportler/IMAC-EFI-BOOT-SCREEN/wiki/ObjectInfoNavi
 #
 
