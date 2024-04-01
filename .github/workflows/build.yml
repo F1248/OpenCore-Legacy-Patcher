@@ -53,7 +53,7 @@ jobs:
         run: zsh Install-Dependencies.command --packages
 
       - name: Build support package
-        run: packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
+        run: /usr/local/bin/packagesbuild payloads/InstallPackage/AutoPkg-Assets-Setup.pkgproj
 
       - name: Upload Package
         uses: actions/upload-artifact@v4
